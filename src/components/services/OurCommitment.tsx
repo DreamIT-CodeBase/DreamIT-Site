@@ -5,25 +5,24 @@ const OurCommitment = () => {
     {
       title: "Continuous Innovation",
       description:
-        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+      "We embrace cutting-edge solutions that evolve with your business needs.",
       icon: "/assets/icons/continous-innovation-icon.svg",
     },
     {
       title: "Dedicated Support",
       description:
-        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+        " With round the clock support, we ensure your success is our top priority.",
       icon: "/assets/icons/dedicated-support-icon.svg",
     },
     {
       title: "Transparent Communication",
-      description:
-        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+      description:" We believe in honesty and clarity, keeping you informed every step of the way.",
       icon: "/assets/icons/transparent-communication-icon.svg",
     },
     {
       title: "Measurable Results",
       description:
-        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+        " We believe in honesty and clarity, keeping you informed every step of the way.",
       icon: "/assets/icons/measurable-result-icon.svg",
     },
   ];
@@ -38,14 +37,10 @@ const OurCommitment = () => {
               </span>
             </div>
             <h1>
-              Turning Data into
-              <br />
-              Actionable Insights
+            A Commitment to<br/> Quality  & Trust
             </h1>
             <h6>
-              However, we are not static and limit ourselves to a specific
-              field. We are dedicated to data visualization along with
-              customized digital marketing services.
+            Building Trust Through Innovative Solutions, Exceptional Quality and a Relentless Commitment to Your Success
             </h6>
           </div>
 

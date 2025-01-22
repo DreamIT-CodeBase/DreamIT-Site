@@ -79,7 +79,7 @@ const Footer = () => {
               target="_blank"
             >
               <img
-                src="/assets/icons/linkedin.svg"
+                src="/assets/icons/linkedIn.svg"
                 alt="LinkedIn"
                 className="w-5 h-5"
               />

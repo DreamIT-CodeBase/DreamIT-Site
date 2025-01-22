@@ -1,36 +1,29 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import ContactFormModal from "../shared/ContactFormModal";
 
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const router = useRouter();
 
   const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
+
   const services = [
-     
-    {
-      name: "Advanced Data Analytics & Visualization",
-      slug: "advanced-analytics",
-    },
+    { name: "Advanced Data Analytics & Visualization", slug: "advanced-analytics" },
     { name: "Enterprise Resource Planning Implementation", slug: "erp-implementation" },
-     {
-      name: "Digital Transformation & Process Automation",
-      slug: "digital-transformation",
-    },
+    { name: "Digital Transformation & Process Automation", slug: "digital-transformation" },
     { name: "Business-Centric IT Ecosystem", slug: "business-applications" },
-
     { name: "Digital Marketing", slug: "digital-marketing" },
-
-    {
-      name: "Cloud Data Management",
-      slug: "cloud-data-management",
-    },
-   ];
+    { name: "Cloud Data Management", slug: "cloud-data-management" },
+  ];
 
   const handleMouseEnter = () => setShowDropdown(true);
   const handleMouseLeave = () => setShowDropdown(false);
+
+  const isActive = (path:any) => router.pathname === path;
 
   return (
     <header className="bg-white shadow-lg header_content">
@@ -140,19 +133,25 @@ const Header = () => {
       )}
 
       {/* Desktop Navbar */}
-      <div className="navbar-for-web   justify-between items-center  container h-16">
+      <div className="navbar-for-web justify-between items-center container h-16">
         <Link href="/">
-          <img
-            className="lg:w-36 h-auto md:w-28"
-            src="/assets/icons/dreamItLogo.svg"
-            alt="Logo"
-          />
+          <img className="lg:w-36 h-auto md:w-28" src="/assets/icons/dreamItLogo.svg" alt="Logo" />
         </Link>
         <nav className="flex space-x-8">
-          <Link href="/" className="text-black-700 lg:font-bold">
+          <Link
+            href="/"
+            className={` ${
+              isActive("/") ? "nav-link-active" : "nav-link-unactive"
+            }`}
+          >
             Home
           </Link>
-          <Link href="/about-us" className="text-black-700 lg:font-bold">
+          <Link
+            href="/about-us"
+            className={`  ${
+              isActive("/about-us") ? "nav-link-active" : "nav-link-unactive"
+            }`}
+          >
             About Us
           </Link>
           <div
@@ -161,8 +160,9 @@ const Header = () => {
             onMouseLeave={handleMouseLeave}
           >
             <button
-              className="flex items-center text-black-700 lg:font-bold"
-              aria-expanded={showDropdown}
+              className={`flex items-center ${
+                isActive("/services") ? "nav-link-active" : "nav-link-unactive"
+              }`}
               onClick={() => (window.location.href = "/services")}
             >
               Services
@@ -183,43 +183,48 @@ const Header = () => {
             {showDropdown && (
               <ul className="absolute z-[1000] left-[-10] top-4 py-4 px-2 mt-2 w-[300px] bg-white border rounded-[18px] shadow-lg">
                 {services.map((service) => (
-                  <li
-                    key={service.slug}
-                    className="px-4 py-2 hover:bg-gray-100"
-                  >
+                  <li key={service.slug} className="px-4 py-2 hover:bg-gray-100">
                     <Link href={`/services/${service.slug}`}>
-                      <p className="text-16 font-semibold text-black-700">
-                        {service.name}
-                      </p>
+                      <p className="text-16 font-semibold text-black-700">{service.name}</p>
                     </Link>
                   </li>
                 ))}
               </ul>
             )}
           </div>
-
-          <Link href="/industries" className="text-black-700 lg:font-bold">
+          <Link
+            href="/industries"
+            className={` ${
+              isActive("/industries") ? "nav-link-active" : "nav-link-unactive"
+            }`}
+          >
             Industries
           </Link>
-
-          <Link href="/insights" className="text-black-700 lg:font-bold">
+          <Link
+            href="/insights"
+            className={` ${
+              isActive("/insights") ? "nav-link-active" : "nav-link-unactive"
+            }`}
+          >
             Insights
           </Link>
-          <Link href="/career" className="text-black-700 font-bold">
-          Life @DreamIT
+          <Link
+            href="/career"
+            className={` ${
+              isActive("/career") ? "nav-link-active" : "nav-link-unactive"
+            }`}
+          >
+            Life @DreamIT
           </Link>
         </nav>
         <button
           onClick={() => setIsModalVisible(true)}
-          className="lg:px-4 lg:py-2.5 md:p-[8px] transition-transform duration-300 hover:scale-105  bg-blue-600 lg:font-bold text-white rounded-[8px]"
+          className="lg:px-4 lg:py-2.5 md:p-[8px] transition-transform duration-300 hover:scale-105 bg-blue-600 lg:font-bold text-white rounded-[8px]"
         >
           Get Started
         </button>
       </div>
-      <ContactFormModal
-        isModalVisible={isModalVisible}
-        setIsModalVisible={setIsModalVisible}
-      />
+      <ContactFormModal isModalVisible={isModalVisible} setIsModalVisible={setIsModalVisible} />
     </header>
   );
 };
