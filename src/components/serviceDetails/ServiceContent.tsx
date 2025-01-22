@@ -1,13 +1,55 @@
 import { Col, Row } from "antd";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const ServiceContent = ({ servicedata }: any) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = (e: WheelEvent) => {
+    if (contentRef.current) {
+      const contentEl = contentRef.current;
+
+      const isScrollable = contentEl.scrollHeight > contentEl.clientHeight;
+      const isAtTop = contentEl.scrollTop === 0;
+      const isAtBottom =
+        contentEl.scrollTop + contentEl.clientHeight >= contentEl.scrollHeight;
+
+      if (isScrollable) {
+        if ((e.deltaY > 0 && !isAtBottom) || (e.deltaY < 0 && !isAtTop)) {
+          e.preventDefault();
+          contentEl.scrollTop += e.deltaY;
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    const imageContainerEl = imageContainerRef.current;
+    if (imageContainerEl) {
+      imageContainerEl.addEventListener("wheel", handleScroll, {
+        passive: false,
+      });
+    }
+
+    return () => {
+      if (imageContainerEl) {
+        imageContainerEl.removeEventListener("wheel", handleScroll);
+      }
+    };
+  }, []);
   return (
     <div>
       {servicedata.contentImage && (
         <section className="py-20 container">
           <Row align={"middle"} justify={"space-between"} gutter={[24, 24]}>
-            <Col xl={11} lg={12} md={12} sm={24} xs={24}>
+            <Col
+              xl={11}
+              lg={12}
+              md={12}
+              sm={24}
+              xs={24}
+              ref={imageContainerRef}
+            >
               <div>
                 <img
                   src={servicedata.contentImage}
@@ -26,21 +68,22 @@ const ServiceContent = ({ servicedata }: any) => {
                   md={12}
                   sm={24}
                   xs={24}
-                  className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto"
+                  ref={contentRef}
+                  className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto service-content-container"
                 >
-                  <h3>{servicedata.contentTitle}</h3>
-                  <h6>{servicedata.article1} </h6>
-                  <h4 className="text-[#1c1c1c]">
+                  <h3 className="font-dm">{servicedata.contentTitle}</h3>
+                  <h6 className="font-dm">{servicedata.article1} </h6>
+                  <h4 className="text-[#1c1c1c] font-dm">
                     {servicedata.articleTitle1}{" "}
                   </h4>
-                  <h6>{servicedata.article2} </h6>
-                  <h6>{servicedata.article3} </h6>
-                  <h4 className="text-[#1c1c1c]">
+                  <h6 className="font-dm">{servicedata.article2} </h6>
+                  <h6 className="font-dm">{servicedata.article3} </h6>
+                  <h4 className="text-[#1c1c1c] font-dm">
                     {servicedata.articleTitle2}{" "}
                   </h4>
-                  <h6>{servicedata.article4} </h6>
-                  <h6>{servicedata.article5} </h6>
-                  <h6>{servicedata.article6} </h6>
+                  <h6 className="font-dm">{servicedata.article4} </h6>
+                  <h6 className="font-dm">{servicedata.article5} </h6>
+                  <h6 className="font-dm">{servicedata.article6} </h6>
                 </Col>
               )}
 
@@ -51,13 +94,14 @@ const ServiceContent = ({ servicedata }: any) => {
                 md={12}
                 sm={24}
                 xs={24}
-                className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto"
+                ref={contentRef}
+                className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto service-content-container"
               >
-                <h3>
+                <h3 className="font-dm">
                   Rewiring Businesses For Success: Through Digital
                   Transformation and Automation
                 </h3>
-                <h6>
+                <h6 className="font-dm">
                   In an increasingly competitive landscape, staying ahead means
                   embracing change. We, empower businesses to evolve through{" "}
                   <span className="text-[#1c1c1c] font-bold">
@@ -67,7 +111,7 @@ const ServiceContent = ({ servicedata }: any) => {
                   Two key drivers that accelerate growth, reduce cost and
                   enhance productivity
                 </h6>
-                <h6>
+                <h6 className="font-dm">
                   <span className="text-[#1c1c1c] font-bold">
                     {" "}
                     Digital Transformation{" "}
@@ -80,7 +124,7 @@ const ServiceContent = ({ servicedata }: any) => {
                   insights, digital transformation reshapes how businesses
                   engage with their customers and employees.
                 </h6>
-                <h6>
+                <h6 className="font-dm">
                   <span className="text-[#1c1c1c] font-bold">
                     {" "}
                     Process Automation{" "}
@@ -107,9 +151,10 @@ const ServiceContent = ({ servicedata }: any) => {
                 md={12}
                 sm={24}
                 xs={24}
-                className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto"
+                ref={contentRef}
+                className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto service-content-container"
               >
-                <h3>
+                <h3 className="font-dm">
                   Business Applications That Evolve: Adapting and Improving
                   Alongside You
                 </h3>
@@ -176,7 +221,8 @@ const ServiceContent = ({ servicedata }: any) => {
                 md={12}
                 sm={24}
                 xs={24}
-                className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto"
+                ref={contentRef}
+                className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto service-content-container"
               >
                 <h3>
                   Unlocking Digital Growth With Targeted Marketing:Creative

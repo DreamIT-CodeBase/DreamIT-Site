@@ -24,7 +24,7 @@ const ExploreLifeDreamIt = () => {
           <div className="mt-6">
             <Link
               href="/about-us"
-              className="bg-[#072032] text-[16px] cursor-pointer transition-transform duration-300 hover:scale-105 hover:text-white   py-2.5 px-4 font-bold rounded-[10px] border-[1.5px]  "
+              className="bg-[#072032] text-[18px] cursor-pointer transition-transform duration-300 hover:scale-105 hover:text-white   py-3 px-4 font-bold rounded-[7px] border-[1.5px]  "
             >
               Explore More
             </Link>

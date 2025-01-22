@@ -211,7 +211,7 @@ const Header = () => {
         </nav>
         <button
           onClick={() => setIsModalVisible(true)}
-          className="lg:px-4 lg:py-2 md:p-[8px] transition-transform duration-300 hover:scale-105  bg-blue-600 lg:font-bold text-white rounded-[8px]"
+          className="lg:px-4 lg:py-2.5 md:p-[8px] transition-transform duration-300 hover:scale-105  bg-blue-600 lg:font-bold text-white rounded-[8px]"
         >
           Get Started
         </button>
