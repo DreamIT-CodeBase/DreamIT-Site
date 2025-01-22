@@ -1,8 +1,12 @@
 import Link from "next/link";
+import { useState } from "react";
+import ContactFormModal from "../shared/ContactFormModal";
 
 const Footer = () => {
   const today = new Date();
   const year = today.getFullYear();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   return (
     <footer className="bg-[#072032] text-white  xl:px-[80px]  container  pt-12 pb-6">
       <div className="    flex flex-col md:flex-row justify-between items-start">
@@ -16,7 +20,9 @@ const Footer = () => {
             />
           </div>
           <h6 className="text-gray-400  text-[18px] max-w-[25rem]">
-          At Dream IT, we specialize in helping businesses thrive through cutting-edge technology solutions like Cloud Data Management, Advanced Analytics & Visualisation, Digital Marketing, and more.
+            At Dream IT, we specialize in helping businesses thrive through
+            cutting-edge technology solutions like Cloud Data Management,
+            Advanced Analytics & Visualisation, Digital Marketing, and more.
           </h6>
         </div>
 
@@ -32,7 +38,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="/about" className="text-gray-400 hover:text-white">
+              <Link href="/about-us" className="text-gray-400 hover:text-white">
                 About Us
               </Link>
             </li>
@@ -47,7 +53,14 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="text-gray-400 hover:text-white">
+              <Link
+                href="#void"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsModalVisible(true);
+                }}
+                className="text-gray-400 hover:text-white"
+              >
                 Contact Us
               </Link>
             </li>
@@ -71,7 +84,11 @@ const Footer = () => {
                 className="w-5 h-5"
               />
             </Link>
-            <Link href="https://x.com/Dreamitcs" aria-label="Twitter" target="_blank">
+            <Link
+              href="https://x.com/Dreamitcs"
+              aria-label="Twitter"
+              target="_blank"
+            >
               <img
                 src="/assets/icons/twitter.svg"
                 alt="Twitter"
@@ -130,6 +147,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <ContactFormModal
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+      />
     </footer>
   );
 };

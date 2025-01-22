@@ -149,7 +149,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                           {...register("selectService", {
                             required: "Please select a service",
                           })}
-                          className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 valid:border-indigo-500 out customTenantModeSelect"
+                          className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500   out customTenantModeSelect"
                         >
                           <option value="" disabled selected>
                             Please Select{" "}
