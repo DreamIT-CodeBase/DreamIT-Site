@@ -365,17 +365,17 @@ h6 {
 
 .explore-more-btn {
   position: absolute;
-  bottom: 30;
+  bottom: 30px;
   background-color: var(--background-light);
   color: var(--primary-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .services-grid-for-web .our-services-container .explore-more-btn {
-  bottom: 20;
+  bottom: 20px;
 }
 .services-grid-for-web .our-services-container:hover .explore-more-btn {
-  bottom: 20;
+  bottom: 20px;
   background-color: var(--primary-color);
   color: var(--background-light);
 }
@@ -419,7 +419,7 @@ h6 {
 
     .explore-more-btn {
       position: absolute;
-      bottom: 14;
+      bottom: 14px;
     }
   }
 }

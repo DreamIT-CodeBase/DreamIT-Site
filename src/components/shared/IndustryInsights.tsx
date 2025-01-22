@@ -92,7 +92,7 @@ const IndustryInsights = ({ data }: any) => {
                   <img
                     src="/assets/icons/upward-arrow.svg"
                     alt="upward-icon"
-                    className="h-[30]"
+                    className="h-[30px]"
                     loading="lazy"
                   />
                 </div>
