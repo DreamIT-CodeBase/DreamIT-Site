@@ -164,6 +164,15 @@ a {
 
   }
 }
+@media (min-width: 2056px) {
+  .container {
+    max-width: 100%;
+    padding-left: 120px;
+    padding-right: 120px;
+    font-family: "DM Sans", sans-serif !important;
+
+  }
+}
 
 .font-dm {
   font-family: 'DM Sans', sans-serif;
@@ -554,6 +563,7 @@ h6 {
 }
 .our-core-values-title::first-letter {
   color: #00a9ff !important;
+  font-size: 26px;
 }
 
 @media (max-width: 640px) {
@@ -764,4 +774,16 @@ h6 {
 .overlay {
   background-color: #1c252aa1;
   backdrop-filter: blur(1px);
+}
+
+.customTenantModeSelect {
+  appearance: none;  
+  -webkit-appearance: none;  
+  -moz-appearance: none; 
+  position: relative;
+  background-image: url('/assets/icons/selectDown-Arrow.svg');  
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center; 
+  background-size: 12px; 
+  padding-right: 36px;  
 }

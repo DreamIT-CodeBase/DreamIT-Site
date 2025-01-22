@@ -7,16 +7,18 @@ import React from "react";
 import PerksAndBenefits from "@/components/career/PerksAndBenefits";
 import CareerStats from "@/components/career/CareerStats";
 import CurrentOpenings from "@/components/career/CurrentOpenings";
+import LifeAtDreamIt from "@/components/career/LifeAtDreamIt";
 
 const Career = () => {
   return (
     <Layout>
       <CommonHeroSection data={careerHeroSectionContent} />
-      <OurCoreValues/>
-      <CareerStats/>
-      <RoomForGrowth/>
-      <PerksAndBenefits/>
-      <CurrentOpenings/>
+      <LifeAtDreamIt />
+      <OurCoreValues />
+      <CareerStats />
+      <RoomForGrowth />
+      <PerksAndBenefits />
+      <CurrentOpenings />
     </Layout>
   );
 };

@@ -19,7 +19,7 @@ const Expertise = () => {
     { src: "/assets/images/microsoft-fabric.png", alt: "Google Analytics" },
     { src: "/assets/images/knime.png", alt: "KNIME" },
     { src: "/assets/images/power-automate.png", alt: "Power Automate" },
-  ];
+  ]; 
 
   const allLogo1 = [...logo1, ...logo1];
   const allLogo2 = [...logo2, ...logo2];

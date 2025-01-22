@@ -17,9 +17,9 @@ const ServiceDetailPage = ({ serviceDetails: service }: any) => {
       <ServiceDetailsHome servicedata={service} />
       <ServiceContent servicedata={service}/>
       <OurExpertise servicedata={service}/>
-      <OurCommitment />
       <Technologies technology={service}/>
       <ServiceDetailsInsights ourServies={ourServiesDetails}/>
+      <OurCommitment />
      </Layout>
   );
 };

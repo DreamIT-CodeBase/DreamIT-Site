@@ -13,7 +13,7 @@ const OurStory = () => {
 
           <h2>Turning Data Into Stories That Drive Success</h2>
 
-          <p className="xl:text-20 lg:text-16 md:text-16 text-black-100 xl:max-w-[40rem]">
+          <p className="xl:text-20 lg:text-16 md:text-16 text-[#072032] xl:max-w-[40rem]">
             Founded in 2020, we began with a strong focus on Advanced Data
             Analytics and Digital Marketing. Over the years we have
             strategically expanded our expertise to offer a comprehensive range
@@ -21,17 +21,17 @@ const OurStory = () => {
             Robotic Process Automation (RPA), Digital Transformation and Custom
             Business Applications
           </p>
-          <p className="xl:text-20 lg:text-16 md:text-16 xl:leading-[26.04px] font-400 text-gray-800 xl:max-w-[40rem]">
+          <p className="xl:text-20 lg:text-16 md:text-16 xl:leading-[26.04px] font-400 text-[#072032] xl:max-w-[40rem]">
             Our journey has been marked by a commitment to quality, leveraging
             both organic growth and strategic expansion to build robust
             capabilities
           </p>
-          <p className="xl:text-20 lg:text-16 md:text-16 xl:leading-[26.04px] font-400 text-gray-800 xl:max-w-[40rem]">
+          <p className="xl:text-20 lg:text-16 md:text-16 xl:leading-[26.04px] font-400 text-[#072032] xl:max-w-[40rem]">
             We prioritize understanding our clients unique challenges,
             leveraging innovation and excellence to help them navigate the
             complexities of digital transformation.
           </p>
-          <p className="xl:text-20 lg:text-16 md:text-16 xl:leading-[26.04px] font-400 text-gray-800 xl:max-w-[40rem]">
+          <p className="xl:text-20 lg:text-16 md:text-16 xl:leading-[26.04px] font-400 text-[#072032] xl:max-w-[40rem]">
             With a commitment to quality and a forward-thinking approach, we
             strive to be a trusted partner, enabling businesses to thrive in a
             dynamic ever evolving marketplace.

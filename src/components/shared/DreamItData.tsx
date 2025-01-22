@@ -45,16 +45,7 @@ export const industryInsightsHomePageData = {
       quote:
         "Dive into expert insights, trends, and strategies shaping the future",
     },
-    {
-      imageSrc: "/assets/images/industryImage1.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage2.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
+    
   ],
 };
 
@@ -82,16 +73,7 @@ export const successStoriesData = {
       quote:
         "Dive into expert insights, trends, and strategies shaping the future",
     },
-    {
-      imageSrc: "/assets/images/industryImage1.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage2.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
+    
   ],
 };
 export const tipsAndGuideData = {

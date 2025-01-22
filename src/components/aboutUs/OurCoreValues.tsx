@@ -64,7 +64,7 @@ const OurCoreValues = () => {
               <img src={value.url} alt={value.title} />
               <h6 className="mb-0 text-[#1c1c1c] font-bold mt-3 text-[22px] our-core-values-title">
                 {value.title}
-              </h6>
+              </h6> 
               <p className="text-[#072032] text-center mb-0">
                 {value.description}
               </p>
