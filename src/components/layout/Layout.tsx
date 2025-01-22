@@ -23,6 +23,11 @@ const Layout = (props: any) => {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:site_name" content="Dream IT" />
+        <meta name="twitter:title" content="Dream IT – Consulting Services" />
+        <meta
+          name="twitter:description"
+          content="Dream IT – Consulting Services"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpg" />
       </Head>
