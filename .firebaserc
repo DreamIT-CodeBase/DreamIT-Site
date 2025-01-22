@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "emt-stock-trendz"
+  },
+  "targets": {
+    "emt-stock-trendz": {
+      "hosting": {
+        "alpha-testing": [
+          "alpha-testing"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
