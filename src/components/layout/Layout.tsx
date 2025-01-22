@@ -17,6 +17,8 @@ const Layout = (props: any) => {
     <div className="flex flex-col min-h-screen">
       <Head>
         <title>Dream IT – Consulting Services</title>
+        <meta name="title" content="Dream IT – Consulting Services" />
+        <meta name="description" content="Dream IT – Consulting Services" />
         <meta property="og:title" content="Home 09" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />
