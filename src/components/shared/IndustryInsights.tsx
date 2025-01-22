@@ -66,13 +66,13 @@ const IndustryInsights = ({ data }: any) => {
                 />
                 {data.showTags && (
                   <div className="flex flex-wrap gap-3 mb-3">
-                    <Tag className="font-dm bg-[#D6F1FF] border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
+                    <Tag className=" bg-[#D6F1FF] border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
                       Financial Services
                     </Tag>
-                    <Tag className="bg-[#D6F1FF] font-dm border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
+                    <Tag className="bg-[#D6F1FF]  border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
                       AWS
                     </Tag>
-                    <Tag className="bg-[#D6F1FF] font-dm border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
+                    <Tag className="bg-[#D6F1FF]  border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
                       CloudMigrate Pro
                     </Tag>
                   </div>
@@ -80,7 +80,7 @@ const IndustryInsights = ({ data }: any) => {
 
                 {data.showItTrends && (
                   <div className="relative table-cell bg-[#FFFFFF] mt-4 px-5 py-1 rounded-full border-[2px] border-[#eaeaea]">
-                    <span className="text-[#072032] font-dm ml-2 text-center font-bold">
+                    <span className="text-[#072032]  ml-2 text-center font-bold">
                       IT Trends
                     </span>
                   </div>

@@ -43,16 +43,16 @@ const AboutUsSection = () => {
             className="xl:space-y-6 lg:space-y-6 sm:space-y-4 xs:space-y-4"
           >
             <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full">
-              <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold font-dm">
+              <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold ">
                 ABOUT US
               </span>
             </div>
 
-            <h2 className="font-bold tracking-tight font-dm">
+            <h2 className="font-bold tracking-tight ">
               Turning Data Into Stories That Drive Success
             </h2>
 
-            <h6 className="font-dm">
+            <h6 className="">
               At Dream IT, we specialize in helping businesses thrive through
               cutting-edge technology solutions like Cloud Data Management,
               Advanced Analytics & Visualisation, Digital Marketing, and more.
@@ -70,10 +70,10 @@ const AboutUsSection = () => {
                     />
                   </div>
                   <div>
-                    <span className="lg:text-18 text-black-100 font-bold font-dm">
+                    <span className="lg:text-18 text-black-100 font-bold ">
                       {feature.title}
                     </span>{" "}
-                    <span className="lg:text-18 text-gray-800 font-dm">
+                    <span className="lg:text-18 text-gray-800 ">
                       {feature.description}
                     </span>
                   </div>
@@ -83,7 +83,7 @@ const AboutUsSection = () => {
 
             <div   style={{marginTop: "2.5rem"}}>
               <Link
-                className="bg-[#0A2540] text-[18px] transition-transform duration-300 hover:scale-105 hover:text-white text-white hover:bg-[#0A2540]/90 rounded-md px-8 py-4 font-dm"
+                className="bg-[#0A2540] text-[18px] transition-transform duration-300 hover:scale-105 hover:text-white text-white hover:bg-[#0A2540]/90 rounded-md px-8 py-4 "
                 href="/about-us"
               >
                 Learn More

@@ -71,19 +71,19 @@ const ServiceContent = ({ servicedata }: any) => {
                   ref={contentRef}
                   className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto service-content-container"
                 >
-                  <h3 className="font-dm">{servicedata.contentTitle}</h3>
-                  <h6 className="font-dm">{servicedata.article1} </h6>
-                  <h4 className="text-[#1c1c1c] font-dm">
+                  <h3 className="">{servicedata.contentTitle}</h3>
+                  <h6 className="">{servicedata.article1} </h6>
+                  <h4 className="text-[#1c1c1c] ">
                     {servicedata.articleTitle1}{" "}
                   </h4>
-                  <h6 className="font-dm">{servicedata.article2} </h6>
-                  <h6 className="font-dm">{servicedata.article3} </h6>
-                  <h4 className="text-[#1c1c1c] font-dm">
+                  <h6 className="">{servicedata.article2} </h6>
+                  <h6 className="">{servicedata.article3} </h6>
+                  <h4 className="text-[#1c1c1c] ">
                     {servicedata.articleTitle2}{" "}
                   </h4>
-                  <h6 className="font-dm">{servicedata.article4} </h6>
-                  <h6 className="font-dm">{servicedata.article5} </h6>
-                  <h6 className="font-dm">{servicedata.article6} </h6>
+                  <h6 className="">{servicedata.article4} </h6>
+                  <h6 className="">{servicedata.article5} </h6>
+                  <h6 className="">{servicedata.article6} </h6>
                 </Col>
               )}
 
@@ -97,11 +97,11 @@ const ServiceContent = ({ servicedata }: any) => {
                 ref={contentRef}
                 className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto service-content-container"
               >
-                <h3 className="font-dm">
+                <h3 className="">
                   Rewiring Businesses For Success: Through Digital
                   Transformation and Automation
                 </h3>
-                <h6 className="font-dm">
+                <h6 className="">
                   In an increasingly competitive landscape, staying ahead means
                   embracing change. We, empower businesses to evolve through{" "}
                   <span className="text-[#1c1c1c] font-bold">
@@ -111,7 +111,7 @@ const ServiceContent = ({ servicedata }: any) => {
                   Two key drivers that accelerate growth, reduce cost and
                   enhance productivity
                 </h6>
-                <h6 className="font-dm">
+                <h6 className="">
                   <span className="text-[#1c1c1c] font-bold">
                     {" "}
                     Digital Transformation{" "}
@@ -124,7 +124,7 @@ const ServiceContent = ({ servicedata }: any) => {
                   insights, digital transformation reshapes how businesses
                   engage with their customers and employees.
                 </h6>
-                <h6 className="font-dm">
+                <h6 className="">
                   <span className="text-[#1c1c1c] font-bold">
                     {" "}
                     Process Automation{" "}
@@ -154,7 +154,7 @@ const ServiceContent = ({ servicedata }: any) => {
                 ref={contentRef}
                 className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto service-content-container"
               >
-                <h3 className="font-dm">
+                <h3 className="">
                   Business Applications That Evolve: Adapting and Improving
                   Alongside You
                 </h3>

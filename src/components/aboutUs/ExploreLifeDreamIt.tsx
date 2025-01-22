@@ -13,10 +13,10 @@ const ExploreLifeDreamIt = () => {
           sm={24}
           className="content-center z-[1000]"
         >
-          <h2 className="font-dm text-black-600 font-bold sm:mt-5 xs:mt-5">
+          <h2 className=" text-black-600 font-bold sm:mt-5 xs:mt-5">
             Explore Life @Dream IT
           </h2>
-          <h6 className="max-w-[580px] font-dm mt-4">
+          <h6 className="max-w-[580px]  mt-4">
             Our team blends deep expertise with cutting-edge technology to bring
             your data to life.{" "}
           </h6>
