@@ -9,22 +9,25 @@ const Header = () => {
 
   const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
   const services = [
-    {
-      name: "Cloud Data Management & Migration",
-      slug: "cloud-data-management",
-    },
+     
     {
       name: "Advanced Data Analytics & Visualization",
       slug: "advanced-analytics",
     },
-    { name: "ERP Implementation", slug: "erp-implementation" },
-    { name: "Digital Marketing", slug: "digital-marketing" },
-    {
-      name: "Digital Transformation",
+    { name: "Enterprise Resource Planning Implementation", slug: "erp-implementation" },
+     {
+      name: "Digital Transformation & Process Automation",
       slug: "digital-transformation",
     },
-    { name: "Business Applications", slug: "business-applications" },
-  ];
+    { name: "Business-Centric IT Ecosystem", slug: "business-applications" },
+
+    { name: "Digital Marketing", slug: "digital-marketing" },
+
+    {
+      name: "Cloud Data Management",
+      slug: "cloud-data-management",
+    },
+   ];
 
   const handleMouseEnter = () => setShowDropdown(true);
   const handleMouseLeave = () => setShowDropdown(false);

@@ -24,7 +24,7 @@ export const careerHeroSectionContent = {
 
 export const industryInsightsHomePageData = {
   tag: "INDUSTRY INSIGHTS",
-  title: "Insights for the Future of Your Industry",
+  title: "Future-Focused Insights For Your Industry",
   backgroundImage: "/assets/images/industry-insights-background.png",
   backgroundPosition: "unset",
   showTags: false,
@@ -133,20 +133,22 @@ export const ourServies = {
     "We deliver custom-fit solutions and strategic plans to accelerate your business growth in the competitive digital landscape.",
   backgroundImage: " ",
   ourServiesFeatures: [
-    {
-      src: "/assets/images/cloud-management-and-migration.webp",
-      title: "Cloud Data Management & Migration",
-      link: "/services/cloud-data-management",
-      subtitle:
-        "Streamlining the secure transfer, storage and optimization of business data through cloud for enhanced scalability and ...",
-    },
+     
     {
       src: "/assets/images/analytics-and-visulalization.webp",
       title: "Advanced Data Analytics and Visualization",
       link: "/services/advanced-analytics",
 
       subtitle:
-        "Build Custom Business Apps designed to fit your specific needs, streamline workflows, enhance productivity and ...",
+        "Leverage advanced analytics and visualization to unlock actionable insights, optimize decision making and accelerate business growth.",
+    },
+    {
+      src: "/assets/images/digital-transformation.webp",
+      title: "Digital Transformation & Process Automation",
+      link: "/services/digital-transformation",
+
+      subtitle:
+        "Empowering businesses with the Microsoft ecosystem and RPA to modernize operations, integrate innovative solutions, and streamline processes. We optimize workflows, enhance efficiency, and drive growth",
     },
     {
       src: "/assets/images/digital-consulting.webp",
@@ -154,7 +156,7 @@ export const ourServies = {
       link: "/services/erp-implementation",
 
       subtitle:
-        "ERP optimizes business operations by integrating core processes such as supply chain management, improving data ...",
+        "ERP optimizes business operations by integrating core processes such as Finance & Operations, Sales & Marketing, CRM and HRM , improving data accuracy, and enhancing decision-making to drive overall business performance.",
     },
     {
       src: "/assets/images/digital-marketing.webp",
@@ -162,23 +164,23 @@ export const ourServies = {
       link: "/services/digital-marketing",
 
       subtitle:
-        "Using targeted strategies like SEO, content marketing, social media, and data analytics to enhance online presence, optimize ...",
+        "Leveraging targeted strategies like SEO, content marketing, social media, paid advertising, email marketing, and data analytics to enhance online presence, boost lead generation, and drive business growth and brand visibility",
     },
+     
     {
-      src: "/assets/images/digital-transformation.webp",
-      title: "Digital Transformation",
-      link: "/services/digital-transformation",
-
+      src: "/assets/images/cloud-management-and-migration.webp",
+      title: "Cloud Data Management",
+      link: "/services/cloud-data-management",
       subtitle:
-        "Empowering businesses with the Microsoft ecosystem, AI, machine learning, and RPA to modernize operations, integrate ...",
+        "Streamlining the secure transfer, storage and optimization of business data through Cloud for enhanced scalability and performance.",
     },
     {
       src: "/assets/images/buisness-applications.webp",
-      title: "Business Applications",
+      title: "Business-Centric IT Ecosystem",
       link: "/services/business-applications",
 
       subtitle:
-        "Build Custom Business Apps designed to fit your specific needs, streamline workflows, enhance productivity ...",
+        "Aligning with the overall needs of the business to target Marketing, enhance efficiencies, revenue optimisation & insight-powered  decision making. Providing end-to-end solutions through our all-in-one IT framework.",
     },
   ],
 };

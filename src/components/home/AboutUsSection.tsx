@@ -16,12 +16,13 @@ const AboutUsSection = () => {
     {
       title: "Accelerate Growth:",
       description:
-        " Unlock a competitive edge with powerful data visualization",
+        "Unlock a competitive edge with powerful data visualization",
     },
   ];
+
   return (
     <div>
-      <section className="container  pt-60 pb-60">
+      <section className="container pt-60 pb-60">
         <Row align={"middle"} gutter={[24, 24]} justify={"space-between"}>
           <Col xl={11} lg={12} md={12} sm={24} xs={24}>
             <div>
@@ -39,22 +40,22 @@ const AboutUsSection = () => {
             md={12}
             sm={24}
             xs={24}
-            className="  xl:space-y-6 lg:xl:space-y-6 sm:space-y-4 xs:space-y-4"
+            className="xl:space-y-6 lg:space-y-6 sm:space-y-4 xs:space-y-4"
           >
-            <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full ">
-              <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
+            <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full">
+              <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold font-dm">
                 ABOUT US
               </span>
             </div>
 
-            <h2 className="font-bold tracking-tight">
+            <h2 className="font-bold tracking-tight font-dm">
               Turning Data Into Stories That Drive Success
             </h2>
 
-            <h6>
+            <h6 className="font-dm">
               At Dream IT, we specialize in helping businesses thrive through
               cutting-edge technology solutions like Cloud Data Management,
-              Advanced Analytics & Visualisation, Digital Marketing and more.
+              Advanced Analytics & Visualisation, Digital Marketing, and more.
             </h6>
 
             <div className="space-y-4">
@@ -69,10 +70,10 @@ const AboutUsSection = () => {
                     />
                   </div>
                   <div>
-                    <span className="lg:text-18 text-black-100 font-bold">
+                    <span className="lg:text-18 text-black-100 font-bold font-dm">
                       {feature.title}
                     </span>{" "}
-                    <span className="lg:text-18 text-gray-800">
+                    <span className="lg:text-18 text-gray-800 font-dm">
                       {feature.description}
                     </span>
                   </div>
@@ -80,9 +81,9 @@ const AboutUsSection = () => {
               ))}
             </div>
 
-            <div className="mt-8">
+            <div   style={{marginTop: "2rem"}}>
               <Link
-                className="bg-[#0A2540] text-[16px] transition-transform duration-300 hover:scale-105 hover:text-white  text-white hover:bg-[#0A2540]/90 rounded-md px-8 py-3 "
+                className="bg-[#0A2540] text-[18px] transition-transform duration-300 hover:scale-105 hover:text-white text-white hover:bg-[#0A2540]/90 rounded-md px-8 py-4 font-dm"
                 href="/about-us"
               >
                 Learn More

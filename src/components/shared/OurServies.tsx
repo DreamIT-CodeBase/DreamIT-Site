@@ -38,7 +38,7 @@ const OurServies = ({ data, showTag, showTitle, showDescription }: any) => {
                     </h6>
                     <a
                       href={link}
-                      className="flex items-center  gap-2 justify-center py-2 px-4 font-bold rounded-[10px] border-[1.5px] border-[#eaeaea] explore-more-btn"
+                      className="flex items-center  gap-2 justify-center py-3 px-4 font-bold rounded-[10px] border-[1.5px] border-[#eaeaea] explore-more-btn"
                     >
                       Explore More
                       <img

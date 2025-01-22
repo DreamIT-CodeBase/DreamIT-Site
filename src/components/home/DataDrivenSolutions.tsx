@@ -16,9 +16,9 @@ const DataDrivenSolutions = () => {
   return (
     <div>
       <div className=" mx-auto  py-10">
-        <h2 className=" text-center mb-8">
+        <h4 className=" text-center mb-8">
           Empowering Industries with Data-Driven Solutions
-        </h2>
+        </h4>
         <Marquee gradient={false} speed={50}>
           <div className="flex flex-wrap justify-center gap-7">
             {industries2.map(({ name, src }) => (

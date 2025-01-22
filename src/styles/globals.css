@@ -27,7 +27,7 @@ body {
 body {
   color: var(--foreground);
   background-color: #ffffff;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,6 +41,8 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  font-family: "DM Sans", sans-serif !important;
+
 }
 
 *::-webkit-scrollbar-track {
@@ -149,6 +151,8 @@ a {
     max-width: 100%;
     padding-left: 80px;
     padding-right: 80px;
+    font-family: "DM Sans", sans-serif !important;
+
   }
 }
 @media (min-width: 2000px) {
@@ -156,8 +160,15 @@ a {
     max-width: 2040px;
     padding-left: 80px;
     padding-right: 80px;
+    font-family: "DM Sans", sans-serif !important;
+
   }
 }
+
+.font-dm {
+  font-family: 'DM Sans', sans-serif;
+}
+
 
 h1 {
   font-size: 46px;
@@ -341,7 +352,7 @@ h6 {
   flex-direction: column;
   height: 100%;
   position: relative;
-  min-height: 530px;
+  min-height: 550px;
 
   h6 {
     font-size: 18px;
@@ -354,7 +365,7 @@ h6 {
 
 .explore-more-btn {
   position: absolute;
-  bottom: 40;
+  bottom: 30;
   background-color: var(--background-light);
   color: var(--primary-color);
   transition: background-color 0.3s ease, color 0.3s ease;

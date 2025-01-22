@@ -12,7 +12,6 @@ const Expertise = () => {
     },
     { src: "/assets/images/power-apps.png", alt: "Power Apps" },
     { src: "/assets/images/bing.png", alt: "Bing" },
-   
   ];
   const logo2 = [
     { src: "/assets/images/google-ads.png", alt: "Google Ads" },
@@ -79,7 +78,10 @@ const Expertise = () => {
           </div>
 
           <div className="flex justify-center">
-            <Link href="#contactForm" className=" text-white transition-transform duration-300 hover:scale-105  hover:bg-[#0A2540]/90 rounded-[10px] border-[2px] border-white px-8 py-3">
+            <Link
+              href="#contactForm"
+              className="text-[18px] text-white transition-transform duration-300 hover:scale-105  hover:bg-[#0A2540]/90 rounded-[8px] border-[2px] border-white px-8 py-3"
+            >
               Get Started
             </Link>
           </div>

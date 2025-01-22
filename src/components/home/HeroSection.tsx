@@ -9,14 +9,22 @@ const HeroSection = () => {
           loop
           muted
           playsInline
-          className="absolute  w-full h-full object-cover"
+          className="absolute w-full h-full object-cover"
         >
-          <source src="/assets/images/hero-section-video.mp4" type="video/mp4" />
+          <source
+            src="/assets/images/hero-section-video.mp4"
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
         <div className="overlay absolute inset-0 bg-[#1C252A40] backdrop-blur-sm"></div>
+        <img
+          src="/assets/images/hero-section-background-image.webp"
+          alt="Hero Background"
+          className="absolute  h-full   bg-center b z-10"
+        />
       </div>
-      <div className="relative z-10 flex items-center justify-center min-h-[60vh] lg:min-h-screen px-4 sm:px-6 md:px-12 lg:px-48">
+      <div className="relative z-20 flex items-center justify-center min-h-[60vh] lg:min-h-screen px-4 sm:px-6 md:px-12 lg:px-48">
         <div className="text-center">
           <h1 className="mb-4 max-w-[100%] text-center text-white leading-tight">
             Cloud Powered, Data Driven & Future Ready!
