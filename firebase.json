@@ -1,6 +1,6 @@
 {
     "hosting": {
-      "target": "emt-stock-trendz",
+      "target": "alpha-testing",
       "public": "out",
       "cleanUrls": true,
       "ignore": [
