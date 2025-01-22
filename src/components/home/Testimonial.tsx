@@ -38,7 +38,7 @@ const Testimonial = () => {
     );
   };
   return (
-    <section className="w-full xl:py-16 lg:py-16 md:py-16 sm:py-8 xs:py-8 bg-[url('/assets/images/testimonial-background.webp')] bg-cover bg-left">
+    <section className="w-full xl:py-16 lg:py-16 md:py-16 sm:py-8 xs:py-8   bg-left bg-[linear-gradient(180deg,rgba(239,249,255,0.71)_0%,rgba(255,255,255,0.71)_89.64%)]" >
       <div className="conainer mx-auto px-4">
         {/* Badge */}
         <div className="flex justify-center xl:mb-6 lg:mb-6 md:mb-6 sm:mb-4 xs:mb-4">

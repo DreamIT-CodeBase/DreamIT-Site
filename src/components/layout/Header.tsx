@@ -132,7 +132,7 @@ const Header = () => {
             </li>
             <li>
               <Link href="/career" className="text-black-700 font-bold">
-                Life@DreamIt
+                Life @DreamIT
               </Link>
             </li>
           </ul>
@@ -206,7 +206,7 @@ const Header = () => {
             Insights
           </Link>
           <Link href="/career" className="text-black-700 font-bold">
-            Life@DreamIt
+          Life @DreamIT
           </Link>
         </nav>
         <button

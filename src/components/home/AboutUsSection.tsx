@@ -81,7 +81,7 @@ const AboutUsSection = () => {
               ))}
             </div>
 
-            <div   style={{marginTop: "2rem"}}>
+            <div   style={{marginTop: "2.5rem"}}>
               <Link
                 className="bg-[#0A2540] text-[18px] transition-transform duration-300 hover:scale-105 hover:text-white text-white hover:bg-[#0A2540]/90 rounded-md px-8 py-4 font-dm"
                 href="/about-us"

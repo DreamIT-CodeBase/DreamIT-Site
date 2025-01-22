@@ -15,9 +15,8 @@ const Footer = () => {
               alt="Logo"
             />
           </div>
-          <h6 className="text-gray-400  max-w-xs">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry&apos;s standard.
+          <h6 className="text-gray-400  text-[18px] max-w-[25rem]">
+          At Dream IT, we specialize in helping businesses thrive through cutting-edge technology solutions like Cloud Data Management, Advanced Analytics & Visualisation, Digital Marketing, and more.
           </h6>
         </div>
 

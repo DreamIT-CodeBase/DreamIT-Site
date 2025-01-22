@@ -1,5 +1,5 @@
-import CtaButton from "../shared/CtaButton";
-
+import Link from "next/link";
+ 
 const HeroSection = () => {
   return (
     <div className="relative">
@@ -36,7 +36,12 @@ const HeroSection = () => {
           </h6>
 
           <div className="flex justify-center">
-            <CtaButton title="Get Started" link="#contactForm" />
+            <Link
+              href={"#contactForm"}
+              className="bg-white flex gap-2 max-w-[185px] items-center text-black-700 hover:text-black-700 py-[12px] text-[20px] px-8 font-bold rounded-[10px] border-[2px] border-[#eaeaea] transition-transform duration-300 hover:scale-105"
+            >
+              Get Started
+            </Link>{" "}
           </div>
         </div>
       </div>
