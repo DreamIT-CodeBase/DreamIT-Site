@@ -27,16 +27,20 @@ const IndustryInsights = ({ data }: any) => {
       }}
     >
       <div className="text-center">
-        <div className="flex justify-center text-center mb-6">
+        <div className="flex justify-center text-center mb-4">
           <div className="relative inline-block text-center bg-[#ECF9FF] px-5 py-2 rounded-full">
             <span className="text-[#00A9FF] text-center font-bold">
               {data?.tag}
             </span>
           </div>
         </div>
-        <h1 className=" max-w-[600px] text-center mb-8 mx-auto">
+        <h1 className=" max-w-[750px] text-center mb-2 mx-auto">
           {data?.title}
         </h1>
+
+        <p className="text-gray-800 mb-6 lg:text-20 max-w-3xl mx-auto">
+            {data?.description}
+          </p>
 
         <div className="industry-insights-crousal">
           <Carousel
@@ -61,7 +65,7 @@ const IndustryInsights = ({ data }: any) => {
                   loading="lazy"
                 />
                 {data.showTags && (
-                  <div className="flex flex-wrap gap-2 mb-3">
+                  <div className="flex flex-wrap gap-3 mb-3">
                     <Tag className="bg-[#D6F1FF] border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
                       Financial Services
                     </Tag>

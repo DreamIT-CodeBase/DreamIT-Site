@@ -15,14 +15,18 @@ export default function CompanyProfile() {
         <div className="space-y-3">
           <div className="space-y-4">
             <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full ">
-              <span className="text-[#00A9FF] text-center font-bold ">
+              <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
                 OUR MISSION & VISION
               </span>
             </div>
             <h1 className="tracking-tight">
               Inspiring Innovation and Transforming Futures
             </h1>
-
+            <p className="text-gray-800 lg:text-20 max-w-3xl mx-auto">
+              We specialize in helping businesses thrive through cutting-edge
+              technology solutions like Cloud Data Management, CRM, Data
+              Migration, Process Automation, Digital Marketing and more
+            </p>
             <div>
               <p className="text-[#072032] xl:text-[20px] lg:text-[20px] md:text-[18px] sm:text-[18px] font-bold">
                 Our Mission

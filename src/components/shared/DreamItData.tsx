@@ -4,7 +4,7 @@ export const aboutUsHeroSectionContent = {
   image: "/assets/images/about-us-hero-section-image.webp",
 };
 export const industriesHeroSectionContent = {
-  title: "Industries we serve",
+  title: "Industries We Serve",
   image: "/assets/images/industries-hero-section-image.webp",
 };
 export const insightsSectionContent = {
@@ -62,6 +62,8 @@ export const successStoriesData = {
   tag: "SUCCESS STORIES",
   title: "Real Stories, Real Results How We Drive Success",
   backgroundImage: " ",
+  description:
+    "Every project is a journey of growth and innovation, showcasing the challenges we’ve overcome and the results achieved",
   showTags: true,
   showItTrends: false,
   features: [
@@ -133,7 +135,6 @@ export const ourServies = {
     "We deliver custom-fit solutions and strategic plans to accelerate your business growth in the competitive digital landscape.",
   backgroundImage: " ",
   ourServiesFeatures: [
-     
     {
       src: "/assets/images/analytics-and-visulalization.webp",
       title: "Advanced Data Analytics and Visualization",
@@ -166,7 +167,7 @@ export const ourServies = {
       subtitle:
         "Leveraging targeted strategies like SEO, content marketing, social media, paid advertising, email marketing, and data analytics to enhance online presence, boost lead generation, and drive business growth and brand visibility",
     },
-     
+
     {
       src: "/assets/images/cloud-management-and-migration.webp",
       title: "Cloud Data Management",
@@ -281,7 +282,7 @@ export const newServices = {
 export const industryInsightsPageData = {
   tag: "INDUSTRY INSIGHTS",
 
-  title: "Insights for the Future of Your Industry",
+  title: "Future-Focused Insights For Your Industry",
   backgroundImage: "/assets/images/industry-insights-background2.png",
   backgroundPosition: "center",
   showTags: false,
