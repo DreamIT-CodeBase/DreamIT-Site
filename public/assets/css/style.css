@@ -778,7 +778,7 @@ h6 {
   backdrop-filter: blur(1px);
 }
 
-.customTenantModeSelect {
+.customSelectTag {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;

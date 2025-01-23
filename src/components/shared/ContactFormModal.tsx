@@ -1,8 +1,8 @@
 import { Modal } from "antd";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import {  toast } from "react-toastify";
- 
+import { toast } from "react-toastify";
+
 const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
   const handleOk = () => {
     setIsModalVisible(false);
@@ -117,7 +117,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
                     {...register("selectService", {
                       required: "Please select a service",
                     })}
-                    className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 out"
+                    className="h-[60px] customSelectTag px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 out"
                   >
                     <option value="" disabled selected>
                       Please Select{" "}
@@ -181,7 +181,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
             </div>
           </form>
         </div>
-       </StyledModal>
+      </StyledModal>
     </div>
   );
 };
