@@ -4,7 +4,7 @@ const CommonHeroSection = ({ data }: any) => {
   return (
     <section>
       <div className="text-center pt-60 pb-60">
-        <h1 className="pb-30">{data.title}</h1>
+        <h1 className="pab-30">{data.title}</h1>
         <img
           src={data.image}
           alt="Professional working with city view"

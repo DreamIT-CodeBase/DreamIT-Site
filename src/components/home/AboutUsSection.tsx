@@ -40,7 +40,7 @@ const AboutUsSection = () => {
             md={12}
             sm={24}
             xs={24}
-            className="xl:space-y-6 lg:space-y-6 sm:space-y-4 xs:space-y-4"
+            className="xl:space-y-5 lg:space-y-5 sm:space-y-4 xs:space-y-4"
           >
             <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full">
               <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold ">
@@ -48,11 +48,11 @@ const AboutUsSection = () => {
               </span>
             </div>
 
-            <h2 className="font-bold tracking-tight ">
+            <h2 className="font-bold tracking-tight">
               Turning Data Into Stories That Drive Success
             </h2>
 
-            <h6 className="">
+            <h6 className="xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px]">
               At Dream IT, we specialize in helping businesses thrive through
               cutting-edge technology solutions like Cloud Data Management,
               Advanced Analytics & Visualisation, Digital Marketing, and more.

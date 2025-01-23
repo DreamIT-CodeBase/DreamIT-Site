@@ -41,7 +41,7 @@ const ExploreLifeDreamIt = () => {
           <img
             src="/assets/images/explore-at-dream-it-image.webp"
             alt="Explore Life At Dream IT"
-            className="xl:absolute lg:absolute md:absolute   xl:h-[400px] xl:mt-0 lg:mt-0 md:mt-0 sm:mt-4 lg:h-[300px] md:h-[300px] sm:h-[300px] z-[1]"
+            className="xl:absolute lg:absolute md:absolute   xl:h-[400px] xl:mt-0 lg:mt-0 md:mt-0 sm:mt-4 xs:mt-4 lg:h-[300px] md:h-[300px] sm:h-[300px] z-[1]"
           />
         </Col>
       </Row>

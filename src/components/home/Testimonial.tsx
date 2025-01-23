@@ -38,7 +38,7 @@ const Testimonial = () => {
     );
   };
   return (
-    <section className="w-full xl:py-16 lg:py-16 md:py-16 sm:py-8 xs:py-8   bg-left bg-[linear-gradient(180deg,rgba(239,249,255,0.71)_0%,rgba(255,255,255,0.71)_89.64%)]" >
+    <section className="w-full pt-60 pab-30   bg-left bg-[linear-gradient(180deg,rgba(239,249,255,0.71)_0%,rgba(255,255,255,0.71)_89.64%)]">
       <div className="conainer mx-auto px-4">
         {/* Badge */}
         <div className="flex justify-center xl:mb-6 lg:mb-6 md:mb-6 sm:mb-4 xs:mb-4">
@@ -79,7 +79,10 @@ const Testimonial = () => {
             autoPlay={true}
           >
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="px-12 pb-12">
+              <div
+                key={index}
+                className="px-12 xl:pb-12 lg:pb-12 md:pb-12 sm:pb-2 xs:pb-4"
+              >
                 <div className="flex justify-center xl:mb-8 lg:mb-8 md:mb-8 sm:mb-4 xs:mb-4">
                   <img
                     src="assets/icons/quote-icons.svg"

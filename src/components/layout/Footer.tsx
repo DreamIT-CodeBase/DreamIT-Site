@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className="bg-[#072032] text-white  xl:px-[80px]  container  pt-12 pb-6">
       <div className="    flex flex-col md:flex-row justify-between items-start">
         {/* Left Section */}
-        <div className="flex flex-col">
+        {/* <div className="flex flex-col">
           <div className="flex items-center mb-4">
             <img
               className="w-40 h-auto"
@@ -24,7 +24,7 @@ const Footer = () => {
             cutting-edge technology solutions like Cloud Data Management,
             Advanced Analytics & Visualisation, Digital Marketing, and more.
           </h6>
-        </div>
+        </div> */}
 
         {/* Right Section */}
         <div className="flex  flex-col md:items-end mt-8 md:mt-0">

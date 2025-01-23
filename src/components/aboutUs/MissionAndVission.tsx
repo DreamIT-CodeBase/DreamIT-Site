@@ -22,7 +22,7 @@ export default function CompanyProfile() {
             <h1 className="tracking-tight">
               Inspiring Innovation and Transforming Futures
             </h1>
-            <p className="text-gray-800 lg:text-20 max-w-3xl ">
+            <p className="text-gray-800 xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] max-w-3xl ">
               We specialize in helping businesses thrive through cutting-edge
               technology solutions like Cloud Data Management, CRM, Data
               Migration, Process Automation, Digital Marketing and more

@@ -8,18 +8,18 @@ import Link from "next/link";
 const OurServies = ({ data, showTag, showTitle, showDescription }: any) => {
   return (
     <>
-      <section className="bg-black text-white xl:py-16 lg:py-16 md:py-16 sm:py-8 xs:py-8">
+      <section className="bg-black text-white pat-30 pab-30">
         <div className="mx-auto text-center">
           {showTag && (
             <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full mb-3">
-              <span className="text-[#00A9FF] text-center font-bold ">
+              <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
                 {data?.tag}
               </span>
             </div>
           )}
 
           {showTitle && (
-            <h1 className="mb-3 px-2 max-w-[900px] m-auto">{data?.title}</h1>
+            <h2 className="mb-3 px-2 max-w-[900px] m-auto">{data?.title}</h2>
           )}
 
           {showDescription && (
@@ -77,28 +77,33 @@ const OurServies = ({ data, showTag, showTitle, showDescription }: any) => {
               keyboard={{ enabled: true }}
             >
               {data?.ourServiesFeatures.map(
-                ({ src, title,link, subtitle }: any, index: any) => (
+                ({ src, title, link, subtitle }: any, index: any) => (
                   <SwiperSlide key={index}>
                     <div className="our-services-container" key={index}>
-                  <img src={src} alt={title} width={"100%"} loading="lazy" />
-                  <div className="flex flex-col  h-full justify-between">
-                    <div>
-                      <h4 className="mt-5">{title}</h4>
-                      <h6 className="overflow-hidden text-ellipsis line-clamp-3">
-                        {subtitle}
-                      </h6>
+                      <img
+                        src={src}
+                        alt={title}
+                        width={"100%"}
+                        loading="lazy"
+                      />
+                      <div className="flex flex-col  h-full justify-between">
+                        <div>
+                          <h4 className="mt-5">{title}</h4>
+                          <h6 className="overflow-hidden text-ellipsis line-clamp-3">
+                            {subtitle}
+                          </h6>
+                        </div>
+                        <div className="mt-5">
+                          <Link
+                            href={link}
+                            className="bg-white hover:bg-blue-600 hover:text-white flex gap-2 max-w-[186px] items-center text-black-700  py-[9px] text-[18px] px-5 font-bold rounded-[10px] border-[2px] border-[#eaeaea] transition-transform duration-300 hover:scale-105"
+                          >
+                            Explore More
+                            <FaArrowRightLong />
+                          </Link>
+                        </div>
+                      </div>
                     </div>
-                    <div className="mt-5">
-                      <Link
-                        href={link}
-                        className="bg-white hover:bg-blue-600 hover:text-white flex gap-2 max-w-[186px] items-center text-black-700  py-[9px] text-[18px] px-5 font-bold rounded-[10px] border-[2px] border-[#eaeaea] transition-transform duration-300 hover:scale-105"
-                      >
-                        Explore More
-                        <FaArrowRightLong />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
                   </SwiperSlide>
                 )
               )}

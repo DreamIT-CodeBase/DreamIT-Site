@@ -12,14 +12,14 @@ const DataDrivenSolutions = () => {
     { name: "E-commerce", src: "/assets/icons/e-commerce.svg" },
   ];
 
-  const industries2=[...industries,...industries]
+  const industries2 = [...industries, ...industries];
   return (
     <div>
-      <div className=" mx-auto  py-10">
+      <div className=" mx-auto  pt-10 xl:pb-10 lg:pb-10 md:pb-5 sm:pb-5 xs:pb-5">
         <h4 className=" text-center mb-8">
           Empowering Industries with Data-Driven Solutions
         </h4>
-         <Marquee gradient={false} speed={50}>
+        <Marquee gradient={false} speed={50}>
           <div className="flex flex-wrap justify-center gap-7 ml-5 mr-5">
             {industries2.map(({ name, src }) => (
               <div
@@ -27,13 +27,16 @@ const DataDrivenSolutions = () => {
                 className="flex items-center justify-center bg-white px-6 py-3 border-2 border-[#CFCFCF80] rounded-lg gap-2"
               >
                 <img className="w-8 h-8" alt={name} src={src} loading="lazy" />
-                <span className="text-[#7F7F7F] font-semibold text-22">{name}</span>
+                <span className="text-[#7F7F7F] font-semibold text-22">
+                  {name}
+                </span>
               </div>
             ))}
           </div>
-        </Marquee></div>
+        </Marquee>
       </div>
-   );
+    </div>
+  );
 };
 
 export default DataDrivenSolutions;

@@ -55,14 +55,14 @@ const Header = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             {isDrawerVisible ? (
-               <path
+              <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M6 18L18 6M6 6l12 12"
               ></path>
             ) : (
-               <path
+              <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
@@ -123,15 +123,15 @@ const Header = () => {
                   />
                 </svg>
               </Link>
-              <ul className="mt-2 pl-4">
+              <ul className="mt-2 md:pl-4 sm:pl-2">
                 {services.map((service) => (
                   <li
                     key={service.slug}
                     className="flex items-start px-4 py-2 hover:bg-gray-100"
                   >
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0 mt-2"></span>
+                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0 md:mt-2 sm:mt-1 xs:mt-2"></span>
                     <Link href={`/services/${service.slug}`}>
-                      <p className="text-16 font-semibold text-black-700 leading-tight">
+                      <p className="md:text-16 sm:text-[14px] font-semibold text-black-700 leading-tight">
                         {service.name}
                       </p>
                     </Link>
@@ -209,20 +209,22 @@ const Header = () => {
                 isActive("/services") ? "nav-link-active" : "nav-link-unactive"
               }`}
             >
-              Services
-              <svg
-                className="ml-2 mt-1"
-                xmlns="http://www.w3.org/2000/svg"
-                width="13"
-                height="13"
-                viewBox="0 0 8 6"
-                fill="none"
-              >
-                <path
-                  d="M1.14286 0.714233L4 3.57138L6.85714 0.714233L8 1.28566L4 5.28566L0 1.28566L1.14286 0.714233Z"
-                  fill="#212529"
-                />
-              </svg>
+              <Link className="flex items-center" href="/services">
+                Services
+                <svg
+                  className="ml-2 mt-1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 8 6"
+                  fill="none"
+                >
+                  <path
+                    d="M1.14286 0.714233L4 3.57138L6.85714 0.714233L8 1.28566L4 5.28566L0 1.28566L1.14286 0.714233Z"
+                    fill="#212529"
+                  />
+                </svg>
+              </Link>
             </button>
             {showDropdown && (
               <ul className="absolute z-[1000] left-[-10] top-4 py-4 px-2 mt-2 w-[300px] bg-white border rounded-[18px] shadow-lg">

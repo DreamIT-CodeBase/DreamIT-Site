@@ -90,10 +90,10 @@ a {
 .pb-60 {
   padding-bottom: 60px;
 }
-.pt-30 {
+.pat-30 {
   padding-top: 30px;
 }
-.pb-30 {
+.pab-30 {
   padding-bottom: 30px;
 }
 @media (max-width: 991px) {
@@ -122,15 +122,15 @@ a {
 @media (min-width: 320px) {
   .container {
     max-width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 @media (min-width: 425px) {
   .container {
     max-width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 @media (min-width: 768px) {
@@ -183,13 +183,13 @@ a {
 h1 {
   font-size: 46px;
   font-weight: 700;
-  line-height: 59.89px;
+  line-height: 55.89px;
   color: var(--text-main-color);
 }
 h2 {
   font-size: 46px;
   font-weight: 700;
-  line-height: 59.89px;
+  line-height: 55.89px;
   color: var(--text-main-color);
 }
 h3 {
@@ -201,7 +201,7 @@ h3 {
 h4 {
   font-size: 26px;
   font-weight: 700;
-  line-height: 37px;
+  line-height: 34px;
   color: var(--text-main-color);
 }
 
@@ -362,7 +362,7 @@ h6 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 0 80px;
 }
 
@@ -378,9 +378,9 @@ h6 {
   position: relative;
 
   h6 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 23.44px;
+    line-height: 22.44px;
     color: #596168;
     margin-top: 10px;
   }
@@ -485,6 +485,12 @@ h6 {
       margin-top: 10px;
       line-height: 25.46px;
     }
+  }
+}
+
+@media (max-width: 321px) {
+  .our-services-container {
+    min-height: 400px;
   }
 }
 

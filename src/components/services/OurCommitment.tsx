@@ -39,7 +39,7 @@ const OurCommitment = () => {
             <h1>
             A Commitment to<br/> Quality  & Trust
             </h1>
-            <h6>
+            <h6 className="xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px]">
             Building Trust Through Innovative Solutions, Exceptional Quality and a Relentless Commitment to Your Success
             </h6>
           </div>

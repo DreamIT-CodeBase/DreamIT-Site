@@ -1,5 +1,5 @@
 import Link from "next/link";
- 
+
 const HeroSection = () => {
   return (
     <div className="relative">
@@ -9,10 +9,11 @@ const HeroSection = () => {
           loop
           muted
           playsInline
+          preload="auto"
           className="absolute w-full h-full object-cover"
         >
           <source
-            src="/assets/images/hero-section-video.mp4"
+            src="/assets/images/hero-section-video.webm"
             type="video/mp4"
           />
           Your browser does not support the video tag.

@@ -19,7 +19,7 @@ const IndustryInsights = ({ data }: any) => {
 
   return (
     <section
-      className="container pt-14 pb-28"
+      className="container xl:pt-14 lg:pt-14 md:pt-0 sm:pt-5 xs:pt-0 pb-24"
       style={{
         backgroundImage: `url(${data?.backgroundImage})`,
         backgroundSize: "cover",
@@ -29,16 +29,16 @@ const IndustryInsights = ({ data }: any) => {
       <div className="text-center">
         <div className="flex justify-center text-center mb-4">
           <div className="relative inline-block text-center bg-[#ECF9FF] px-5 py-2 rounded-full">
-            <span className="text-[#00A9FF] text-center font-bold">
+            <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
               {data?.tag}
             </span>
           </div>
         </div>
-        <h1 className=" max-w-[750px] text-center mb-2 mx-auto">
+        <h2 className=" max-w-[750px] text-center mb-2 mx-auto">
           {data?.title}
-        </h1>
+        </h2>
 
-        <p className="text-gray-800 mb-6 lg:text-20 max-w-3xl mx-auto">
+        <p className="text-gray-800 mb-6 xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] max-w-3xl mx-auto">
           {data?.description}
         </p>
 

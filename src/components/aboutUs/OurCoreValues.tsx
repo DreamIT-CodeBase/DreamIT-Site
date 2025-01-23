@@ -36,7 +36,7 @@ const OurCoreValues = () => {
 
   return (
     <div
-       style={{
+      style={{
         backgroundImage:
           "url('/assets/images/our-core-and-values-background.webp')",
         backgroundSize: "cover",
@@ -44,7 +44,7 @@ const OurCoreValues = () => {
       }}
     >
       <section className="container  pt-60 pb-60 ">
-        <div className="text-center  xl:mb-10 lg:mb-10 md:mb-10 sm:mb-4 xs:mb-4">
+        <div className="text-center  xl:mb-10 lg:mb-10 md:mb-10 sm:mb-0 xs:mb-0">
           <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full ">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
               OUR CORE VALUES
@@ -55,17 +55,17 @@ const OurCoreValues = () => {
           </h2>
         </div>
 
-        <div className="flex  flex-wrap justify-center items-center gap-6  ">
+        <div className="flex  flex-wrap justify-center items-center xl:gap-6 lg:gap-6 md:gap-6 sm:gap-0 ">
           {values.map((value, index) => (
             <div
               key={index}
               className="p-6 flex flex-col items-center justify-center minor-container max-w-[400px] gap-2"
             >
-              <img src={value.url} alt={value.title} />
+              <img src={value.url} alt={value.title} className="xl:h-[80px] lg:h-[70px] md:h-[60px] sm:h-[50px] xs:h-[50px]"/>
               <h6 className="mb-0 text-[#1c1c1c] font-bold mt-3 text-[22px] our-core-values-title">
                 {value.title}
-              </h6> 
-              <p className="text-[#072032] text-center mb-0">
+              </h6>
+              <p className="text-[#072032] text-center  mb-0">
                 {value.description}
               </p>
             </div>
