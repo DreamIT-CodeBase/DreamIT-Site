@@ -77,32 +77,28 @@ const OurServies = ({ data, showTag, showTitle, showDescription }: any) => {
               keyboard={{ enabled: true }}
             >
               {data?.ourServiesFeatures.map(
-                ({ src, title, subtitle }: any, index: any) => (
+                ({ src, title,link, subtitle }: any, index: any) => (
                   <SwiperSlide key={index}>
-                    <div className="our-services-container">
-                      <img
-                        src={src}
-                        alt={title}
-                        width={"100%"}
-                        loading="lazy"
-                      />
-
-                      <div className="flex flex-col justify-between">
-                        <h3 className="xl:text-32 md:text-20  mt-5">{title}</h3>
-                        <h6 className="overflow-hidden text-ellipsis line-clamp-2">
-                          {subtitle}
-                        </h6>
-                        <button className="flex items-center  gap-2 justify-center py-2 px-4 font-bold rounded-[10px] border-[1.5px] border-[#eaeaea] explore-more-btn">
-                          Explore More
-                          <img
-                            className="h-[12px]"
-                            src="/assets/icons/right-arrow-icon.svg"
-                            alt="icon"
-                            loading="lazy"
-                          />
-                        </button>
-                      </div>
+                    <div className="our-services-container" key={index}>
+                  <img src={src} alt={title} width={"100%"} loading="lazy" />
+                  <div className="flex flex-col  h-full justify-between">
+                    <div>
+                      <h4 className="mt-5">{title}</h4>
+                      <h6 className="overflow-hidden text-ellipsis line-clamp-3">
+                        {subtitle}
+                      </h6>
                     </div>
+                    <div className="mt-5">
+                      <Link
+                        href={link}
+                        className="bg-white hover:bg-blue-600 hover:text-white flex gap-2 max-w-[186px] items-center text-black-700  py-[9px] text-[18px] px-5 font-bold rounded-[10px] border-[2px] border-[#eaeaea] transition-transform duration-300 hover:scale-105"
+                      >
+                        Explore More
+                        <FaArrowRightLong />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
                   </SwiperSlide>
                 )
               )}
