@@ -3,27 +3,25 @@ import Marquee from "react-fast-marquee";
 
 const LifeAtDreamIt = () => {
   const logo1 = [
-    { src: "/assets/images/teamImages/pic1.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic2.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic3.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic4.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic5.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic6.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic7.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic8.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic9.webp", alt: "Power BI" },
-  ];
+    { src: "/assets/images/teamImages/pic1.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic2.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic3.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic4.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic5.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic6.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic7.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic8.webp", alt: "team" },
+   ];
   const logo2 = [
-    { src: "/assets/images/teamImages/pic10.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic11.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic12.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic13.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic14.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic15.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic16.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic17.webp", alt: "Power BI" },
-    { src: "/assets/images/teamImages/pic18.webp", alt: "Power BI" },
-  ];
+    { src: "/assets/images/teamImages/pic9.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic10.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic11.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic12.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic13.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic14.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic15.webp", alt: "team" },
+    { src: "/assets/images/teamImages/pic16.webp", alt: "team" },
+   ];
 
   const allLogo1 = [...logo1, ...logo1];
   const allLogo2 = [...logo2, ...logo2];
