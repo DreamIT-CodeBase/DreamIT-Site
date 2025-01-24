@@ -62,8 +62,8 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                   />
 
                   <p className="p-medium">
-                    Space Creattors Heights, 3rd Floor, Landmark,
-                    <br /> Sector-67, Gurugram, 122002
+                  1st Floor, Orchid Business Park, Central Park II,
+                    <br /> Sector 48,Gurugram, Haryana 122004
                   </p>
                 </div>
               </div>
