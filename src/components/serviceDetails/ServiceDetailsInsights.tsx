@@ -11,7 +11,7 @@ const ServiceDetailsInsights = ({ ourServies }: any) => {
 
   return (
     <div>
-      <section className="container text-white py-20">
+      <section className="container text-white pat-30 pab-30">
         <div className="mx-auto text-center mb-8">
           <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full mb-3">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">

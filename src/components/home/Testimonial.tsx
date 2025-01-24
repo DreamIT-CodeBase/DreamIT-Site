@@ -8,22 +8,22 @@ const Testimonial = () => {
   const testimonials = [
     {
       quote:
-        "The team at [Your Company] helped us transform our data into clear, impactful visuals that have revolutionized our decision-making process. Their expertise and commitment to our success made all the difference",
+        "The team at Dream IT helped us transform our data into clear, impactful visuals that have revolutionized our decision-making process. Their expertise and commitment to our success made all the difference.",
       author: "John Son",
       position: "Operations Manager of Tesseli",
     },
-    {
-      quote:
-        "The team at [Your Company] helped us transform our data into clear, impactful visuals that have revolutionized our decision-making process. Their expertise and commitment to our success made all the difference.",
-      author: "Sarah Miller",
-      position: "CEO of TechCorp",
-    },
-    {
-      quote:
-        "The team at [Your Company] helped us transform our data into clear, impactful visuals that have revolutionized our decision-making process. Their expertise and commitment to our success made all the difference.",
-      author: "Michael Chang",
-      position: "Director of Analytics at DataFlow",
-    },
+    // {
+    //   quote:
+    //     "The team at [Your Company] helped us transform our data into clear, impactful visuals that have revolutionized our decision-making process. Their expertise and commitment to our success made all the difference.",
+    //   author: "Sarah Miller",
+    //   position: "CEO of TechCorp",
+    // },
+    // {
+    //   quote:
+    //     "The team at [Your Company] helped us transform our data into clear, impactful visuals that have revolutionized our decision-making process. Their expertise and commitment to our success made all the difference.",
+    //   author: "Michael Chang",
+    //   position: "Director of Analytics at DataFlow",
+    // },
   ];
 
   const handlePrev = () => {
@@ -62,10 +62,10 @@ const Testimonial = () => {
             onClick={handlePrev}
           >
             <img
-              src="assets/icons/left-arrow.svg"
+              src="assets/icons/right-arrow.svg"
               loading="lazy"
               alt="left-arrow"
-              className="xl:h-[25px] lg:h-[25px] md:h-[25px] sm:h-[20px] xs:h-[16px]"
+              className="xl:h-[25px] lg:h-[25px] md:h-[25px] sm:h-[20px] xs:h-[16px] -rotate-180"
             />
           </button>
           <Carousel

@@ -45,7 +45,6 @@ export const industryInsightsHomePageData = {
       quote:
         "Dive into expert insights, trends, and strategies shaping the future",
     },
-    
   ],
 };
 
@@ -73,7 +72,6 @@ export const successStoriesData = {
       quote:
         "Dive into expert insights, trends, and strategies shaping the future",
     },
-    
   ],
 };
 export const tipsAndGuideData = {
@@ -117,7 +115,6 @@ export const ourServies = {
     "We deliver custom-fit solutions and strategic plans to accelerate your business growth in the competitive digital landscape.",
   backgroundImage: " ",
   ourServiesFeatures: [
-    
     {
       src: "/assets/images/cloud-management-and-migration.webp",
       title: "Cloud Data Management",
@@ -158,9 +155,7 @@ export const ourServies = {
       subtitle:
         "Empowering businesses with the Microsoft ecosystem and RPA to modernize operations, integrate innovative solutions, and streamline processes. We optimize workflows, enhance efficiency, and drive growth",
     },
-     
-     
- 
+
     {
       src: "/assets/images/buisness-applications.webp",
       title: "Business-Centric IT Ecosystem",
@@ -348,7 +343,20 @@ export const serviceDetails: any = [
       {
         tag: "DRIVING CLOUD EXCELLENCE",
         title: "The Core Technologies Empowering Our Cloud Applications",
-        techLogos: [],
+        techLogos: [
+          {
+            logos: "/assets/icons/microsoft-fabric-logo.svg",
+          },
+          {
+            logos: "/assets/icons/microsoft-azure-logo.svg",
+          },
+          {
+            logos: "/assets/icons/databricks-logo.svg",
+          },
+          {
+            logos: "/assets/icons/purview-logo.svg",
+          },
+        ],
       },
     ],
   },
@@ -407,7 +415,17 @@ export const serviceDetails: any = [
       {
         tag: "MASTERING DATA STORYTELLING",
         title: "Our Cutting-Edge Tech Stack",
-        techLogos: [],
+        techLogos: [
+          {
+            logos: "/assets/icons/power-bi-logo.svg",
+          },
+          {
+            logos: "/assets/icons/looker-logo.svg",
+          },
+          {
+            logos: "/assets/icons/amazon-quick-sight-logo.svg",
+          },
+        ],
       },
     ],
   },
@@ -459,7 +477,20 @@ export const serviceDetails: any = [
       {
         tag: "THE CODE BEHIND BUISNESS EVOLUTION",
         title: "Our Custom Development Tech Stack",
-        techLogos: [],
+        techLogos: [
+          {
+            logos: "/assets/icons/technology-logo.svg ",
+          },
+          {
+            logos: "/assets/icons/technology-logo.svg",
+          },
+          {
+            logos: "/assets/icons/technology-logo.svg  ",
+          },
+          {
+            logos: "/assets/icons/technology-logo.svg ",
+          },
+        ],
       },
     ],
   },
@@ -508,7 +539,11 @@ export const serviceDetails: any = [
       {
         tag: "THE HEARTBEAT OF ERP",
         title: "Our Next-Gen Tech Stack",
-        techLogos: [],
+        techLogos: [
+          {
+            logos: "/assets/icons/dynamics-365-logo.svg",
+          },
+        ],
       },
     ],
   },
@@ -548,7 +583,20 @@ export const serviceDetails: any = [
       {
         tag: "TRANSFORMING THE FUTURE OF WORK",
         title: "Our Automation Tech Stack",
-        techLogos: [],
+        techLogos: [
+          {
+            logos: "/assets/icons/microsoft-power-apps-logo.svg",
+          },
+          {
+            logos: "/assets/icons/power-automate-logo.svg",
+          },
+          {
+            logos: "/assets/icons/power-pages-logo.svg",
+          },
+          {
+            logos: "/assets/icons/power-bi-logo.svg",
+          },
+        ],
       },
     ],
   },
@@ -608,7 +656,20 @@ export const serviceDetails: any = [
       {
         tag: "BUILDING SMARTER CAMPAIGNS ",
         title: "The Tech Stack Driving Digital Marketing",
-        techLogos: [],
+        techLogos: [
+          {
+            logos: "/assets/icons/technology-logo.svg ",
+          },
+          {
+            logos: "/assets/icons/technology-logo.svg",
+          },
+          {
+            logos: "/assets/icons/technology-logo.svg  ",
+          },
+          {
+            logos: "/assets/icons/technology-logo.svg ",
+          },
+        ],
       },
     ],
   },

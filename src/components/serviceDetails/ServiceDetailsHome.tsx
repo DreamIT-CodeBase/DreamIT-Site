@@ -10,7 +10,7 @@ const ServiceDetailsHome = ({ servicedata }: any) => {
     <>
       <div className="bg-[url('/assets/images/service-details-background-image.webp')] bg-cover bg-bottom  container w-full pt-120 pb-60 xl:h-[450px] lg:h-[450px] md:h-[300px] sm:h-[300px]">
         <Row align={"middle"} justify={"center"} className="flex-col gap-8">
-          <h1 className=" text-white text-center ">{servicedata?.title}</h1>
+          <h1 className=" text-white text-center max-w-[56rem] ">{servicedata?.title}</h1>
           <h6 className="font-medium text-white text-center ">
             {servicedata?.description}
           </h6>

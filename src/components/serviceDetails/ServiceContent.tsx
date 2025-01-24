@@ -40,7 +40,7 @@ const ServiceContent = ({ servicedata }: any) => {
   return (
     <div>
       {servicedata.contentImage && (
-        <section className="py-20 container">
+        <section className="pt-60 pab-30 container">
           <Row align={"middle"} justify={"space-between"} gutter={[24, 24]}>
             <Col
               xl={11}
