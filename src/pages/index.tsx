@@ -16,8 +16,10 @@ export default function Home() {
   return (
     <>
       <Layout>
-        <HeroSection />
-        <DataDrivenSolutions />
+        <div className="bg-[#F9FDFF]">
+          <HeroSection />
+          <DataDrivenSolutions />
+        </div>
         <OurServies
           data={ourServies}
           showTag={true}

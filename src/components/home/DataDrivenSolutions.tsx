@@ -15,8 +15,8 @@ const DataDrivenSolutions = () => {
   const industries2 = [...industries, ...industries];
   return (
     <div>
-      <div className=" mx-auto  pt-10 xl:pb-10 lg:pb-10 md:pb-5 sm:pb-5 xs:pb-5">
-        <h4 className=" text-center mb-8">
+      <div className="bg-[#F9FDFF] mx-auto  pt-10 xl:pb-10 lg:pb-10 md:pb-5 sm:pb-5 xs:pb-5">
+        <h4 className="font-medium text-center mb-8">
           Empowering Industries with Data-Driven Solutions
         </h4>
         <Marquee gradient={false} speed={50}>
@@ -24,12 +24,10 @@ const DataDrivenSolutions = () => {
             {industries2.map(({ name, src }) => (
               <div
                 key={name}
-                className="flex items-center justify-center bg-white px-6 py-3 border-2 border-[#CFCFCF80] rounded-lg gap-2"
+                className="flex items-center justify-center bg-white px-6 py-3 border-[1px] border-[#CFCFCF80] rounded-[11.03px] gap-2"
               >
-                <img className="w-8 h-8" alt={name} src={src} loading="lazy" />
-                <span className="text-[#7F7F7F] font-semibold text-22">
-                  {name}
-                </span>
+                <img className="w-8 h-7" alt={name} src={src} loading="lazy" />
+                <span className="text-[#7F7F7F] font-400 text-22">{name}</span>
               </div>
             ))}
           </div>

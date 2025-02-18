@@ -2,47 +2,33 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <div className="relative">
-      <div className="video-wrapper">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute w-full h-full object-cover"
-        >
-          <source
-            src="/assets/images/hero-section-video.webm"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-        <div className="overlay absolute inset-0 bg-[#1C252A40] backdrop-blur-sm"></div>
-        <img
-          src="/assets/images/hero-section-background-image.webp"
-          alt="Hero Background"
-          className="absolute  h-full   bg-center b z-10"
-        />
-      </div>
-      <div className="relative z-20 flex items-center justify-center min-h-[60vh] lg:min-h-screen px-4 sm:px-6 md:px-12 lg:px-48">
-        <div className="text-center">
-          <h1 className="mb-4 max-w-[100%] text-center text-white leading-tight">
-            Cloud Powered, Data Driven & Future Ready!
-          </h1>
+    <div className=" bg-[url('/assets/images/home-page-her-section-background.webp')] bg-cover bg-center pb-[10px]">
+      <div className="container pt-60 pb-60">
+        <div className="flex items-center justify-between lg:flex-nowrap md:flex-nowrap  gap-6 xs:flex-wrap">
+          <div className="">
+            <h1 className="mb-4 max-w-[36rem]   text-black-700 ">
+              Cloud Powered, Data Driven & Future Ready!
+            </h1>
 
-          <h6 className="mb-8 text-white">
-            Unified platform offering interconnected products for seamless user
-            experiences.
-          </h6>
+            <h6 className="xl:mb-8 lg:mb-8 md:mb-8 sm:mb-4 xs:mb-4 max-w-[34rem] text-black-700">
+              Seamless, interconnected solutions for unparalleled digital
+              transformation.
+            </h6>
 
-          <div className="flex justify-center">
-            <Link
-              href={"#contactForm"}
-              className="bg-white flex gap-2 max-w-[185px] items-center text-black-700 hover:text-black-700 py-[12px] text-[20px] px-8 font-bold rounded-[10px] border-[2px] border-[#eaeaea] transition-transform duration-300 hover:scale-105"
-            >
-              Get Started
-            </Link>{" "}
+            <div>
+              <Link
+                href={"#contactForm"}
+                className="bg-[#072032] text-white py-3 px-6 text-lg sm:text-base xs:text-base md:text-lg lg:text-xl xl:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105"
+              >
+                Talk to Us
+              </Link>
+            </div>
+          </div>
+          <div>
+            <img
+              src="/assets/images/home-page-hero-sec-image.webp"
+              alt="Cloud Powered, Data Driven & Future Ready!"
+            />
           </div>
         </div>
       </div>
