@@ -20,51 +20,22 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
     <div id="contactForm">
       <section className="w-full xl:py-20 lg:py-20 md:py-16 sm:py-8 xs:py-8 bg-white  bg-[url('/assets/images/contact-us-background.webp')] bg-cover bg-center">
         <div className="container">
-          <div className="flex flex-wrap">
+          <div className="flex items-center flex-wrap">
             {/* Left Column */}
 
             {showContactFormLeftSection && (
               <div className="w-full lg:w-1/2 xl:mb-8 lg:mb-0 md:mb-8 sm:mb-4 xs:mb-4">
-                <h1 className="text-left mb-5">
-                  We want to hear
-                  <br />
-                  from you
-                </h1>
+                <h2 className="text-left mb-4">We want to hear from you</h2>
                 <h6 className="max-w-3xl mb-5">
                   Reach out to our team to ask a question or learn <br /> more
                   about how we can support your business.
                 </h6>
-                <div className="flex gap-2 mb-4 items-center px-4 py-2 rounded-[10px] border-[2px] border-[#D9E0FF] w-[fit-content]">
-                  <img
-                    src="/assets/icons/call-icon.svg"
-                    alt="call-icon"
-                    className="h-[20px]"
+                <div className="xl:h-[271px] lg:h-[320px] md:h-[320px] sm:h-[250px] xl:w-[461px] lg:w-[461px]">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d56140.39952962833!2d76.99537293980666!3d28.426046198909077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x390d187459e03f99%3A0x2f62040947ea61e7!2sOrchid%20Business%20Park%2C%20Badshahpur%20Sohna%20Rd%20Hwy%2C%20Near%20Subhash%20Chowk%2C%20Central%20Park%20II%2C%20Sector%2048%2C%20Gurugram%2C%20Haryana%20122004!3m2!1d28.4260524!2d77.0365727!4m5!1s0x390d187459e03f99%3A0x2f62040947ea61e7!2sOrchid%20Business%20Park%2C%20Badshahpur%20Sohna%20Rd%20Hwy%2C%20Near%20Subhash%20Chowk%2C%20Central%20Park%20II%2C%20Sector%2048%2C%20Gurugram%2C%20Haryana%20122004!3m2!1d28.4260524!2d77.0365727!5e0!3m2!1sen!2sin!4v1739878101207!5m2!1sen!2sin"
+                    style={{ borderRadius: 20, height: "100%", width: "100%" }}
                     loading="lazy"
-                  />
-                  <p className="p-medium">+91 94164-84500</p>
-                </div>
-                <div className="flex gap-2 mb-4 items-center px-4 py-2 rounded-[10px] border-[2px] border-[#D9E0FF]  w-[fit-content]">
-                  <img
-                    src="/assets/icons/mail-icon.svg"
-                    alt="call-icon"
-                    className="h-[20px]"
-                    loading="lazy"
-                  />
-
-                  <p className="p-medium">info@dreamitcs.com</p>
-                </div>
-                <div className="flex gap-2 mb-4 items-center px-4 py-2 rounded-[10px] border-[2px] border-[#D9E0FF]  w-[fit-content]">
-                  <img
-                    src="/assets/icons/location-icon.svg"
-                    alt="call-icon"
-                    className="h-[20px]"
-                    loading="lazy"
-                  />
-
-                  <p className="p-medium">
-                  1st Floor, Orchid Business Park, Central Park II,
-                    <br /> Sector 48,Gurugram, Haryana 122004
-                  </p>
+                  ></iframe>
                 </div>
               </div>
             )}

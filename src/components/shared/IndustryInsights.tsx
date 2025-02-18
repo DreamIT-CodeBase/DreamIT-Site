@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const IndustryInsights = ({ data }: any) => {
   const [centerSlidePercentage, setCenterSlidePercentage] = useState(33.33);
-
+ 
   useEffect(() => {
     const handleResize = () => {
       setCenterSlidePercentage(window.innerWidth < 770 ? 100 : 33.33);

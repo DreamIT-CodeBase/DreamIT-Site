@@ -38,11 +38,11 @@ const Testimonial = () => {
     );
   };
   return (
-    <section className="w-full pt-60 pab-30   bg-left bg-[linear-gradient(180deg,rgba(239,249,255,0.71)_0%,rgba(255,255,255,0.71)_89.64%)]">
+    <section className="w-full pt-60 pab-30  bg-[#EFF9FF]">
       <div className="conainer mx-auto px-4">
         {/* Badge */}
         <div className="flex justify-center xl:mb-6 lg:mb-6 md:mb-6 sm:mb-4 xs:mb-4">
-          <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full ">
+          <div className="relative inline-block bg-[#FFFFFF] px-5 py-2 rounded-full ">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
               TESTIMONIAL
             </span>
@@ -50,9 +50,9 @@ const Testimonial = () => {
         </div>
 
         {/* Heading */}
-        <h1 className=" text-center xl:mb-8 lg:mb-8 md:mb-8 sm:mb-4 xs:mb-4 px-2">
+        <h2 className=" text-center xl:mb-8 lg:mb-8 md:mb-8 sm:mb-4 xs:mb-4 px-2">
           What clients say about us
-        </h1>
+        </h2>
 
         {/* Carousel */}
         <div className="relative max-w-3xl mx-auto">

@@ -8,10 +8,10 @@ const Footer = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
-    <footer className="bg-[#072032] text-white  xl:px-[80px]  container  pt-12 pb-6">
-      <div className="    flex flex-col md:flex-row justify-between items-start">
+    <footer className="bg-[#072032] text-white   container  pt-12 pb-6">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-4">
         {/* Left Section */}
-        {/* <div className="flex flex-col">
+        <div className="flex flex-col">
           <div className="flex items-center mb-4">
             <img
               className="w-40 h-auto"
@@ -19,56 +19,103 @@ const Footer = () => {
               alt="Logo"
             />
           </div>
-          <h6 className="text-gray-400  text-[18px] max-w-[25rem]">
+          <h6 className="text-gray-400  xl:text-[18px] lg:text-[16px] md:text-[14px] sm:text-[14px] xs:text-[14px] max-w-[25rem]">
             At Dream IT, we specialize in helping businesses thrive through
             cutting-edge technology solutions like Cloud Data Management,
             Advanced Analytics & Visualisation, Digital Marketing, and more.
           </h6>
-        </div> */}
+        </div>
 
         {/* Right Section */}
-        <div className="flex  flex-col md:items-end mt-8 md:mt-0">
-          <h3 className="text-lg mr-2 font-semibold mb-4 text-white">
-            Discover
-          </h3>
-          <ul className="space-y-2">
-            <li>
-              <Link href="/" className="text-gray-400 hover:text-white">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about-us" className="text-gray-400 hover:text-white">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/services" className="text-gray-400 hover:text-white">
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link href="/career" className="text-gray-400 hover:text-white">
-                Career
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#void"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsModalVisible(true);
-                }}
-                className="text-gray-400 hover:text-white"
-              >
-                Contact Us
-              </Link>
-            </li>
-          </ul>
+        <div className="flex  xl:gap-28 lg:gap-28 md:gap-16 sm:gap-16 xs:gap-8">
+          <div className="flex  flex-col md:items-end mt-8 md:mt-0">
+            <h3 className="text-lg mr-2 font-semibold mb-4 text-white">
+              Discover
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-gray-400 hover:text-white">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about-us"
+                  className="text-gray-400 hover:text-white"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="text-gray-400 hover:text-white"
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/career" className="text-gray-400 hover:text-white">
+                  Career
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#void"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsModalVisible(true);
+                  }}
+                  className="text-gray-400 hover:text-white"
+                >
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex  flex-col   mt-8 md:mt-0">
+            <h3 className="text-lg text-left mr-2 font-semibold mb-4 text-white">
+              Contact Us
+            </h3>
+            <ul className="space-y-4">
+              <li className="flex p-medium gap-2">
+                <img
+                  src="/assets/icons/call-icon.svg"
+                  alt="call-icon"
+                  className="h-[20px]"
+                  loading="lazy"
+                />
+                +91 94164-84500
+              </li>
+              <li className="flex p-medium gap-2">
+                <img
+                  src="/assets/icons/mail-icon.svg"
+                  alt="call-icon"
+                  className="h-[20px]"
+                  loading="lazy"
+                />
+                info@dreamitcs.com
+              </li>
+
+              <li className="flex p-medium gap-2">
+                <img
+                  src="/assets/icons/location-icon.svg"
+                  alt="call-icon"
+                  className="h-[20px]"
+                  loading="lazy"
+                />
+                1st Floor, Orchid Business
+                <br /> Park, Central Park II, Sector 48,
+                <br /> Gurugram, Haryana 122004
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
       {/* Social Links and Copyright */}
+
       <div className="border-t-[2px] border-[#1E3D54] mt-8 pt-6  ">
         <div className="  flex flex-col md:flex-row justify-between items-center">
           {/* Social Media */}
@@ -131,7 +178,7 @@ const Footer = () => {
           </div>
 
           {/* Privacy Links */}
-          <div className="flex items-center space-x-4 text-gray-400 text-sm">
+          <div className="flex items-center space-x-4 text-[#FFFFFF] text-sm">
             <Link href="/privacy-policy" className="hover:text-white">
               Privacy
             </Link>
@@ -142,7 +189,7 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="text-gray-400 text-sm mt-4 md:mt-0">
+          <div className="text-[#FFFFFF] text-sm mt-4 md:mt-0">
             Copyright © {year}. All rights reserved.
           </div>
         </div>
