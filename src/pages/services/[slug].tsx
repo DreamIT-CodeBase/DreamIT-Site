@@ -1,8 +1,8 @@
 import Layout from "@/components/layout/Layout";
 import OurCommitment from "@/components/services/OurCommitment";
- import { ourServiesDetails, serviceDetails } from "@/components/shared/DreamItData";
+ import {   serviceDetails } from "@/components/shared/DreamItData";
 import ServiceDetailsHome from "@/components/serviceDetails/ServiceDetailsHome";
-import ServiceDetailsInsights from "@/components/serviceDetails/ServiceDetailsInsights";
+// import ServiceDetailsInsights from "@/components/serviceDetails/ServiceDetailsInsights";
 import OurExpertise from "@/components/serviceDetails/OurExpertise";
 import Technologies from "@/components/serviceDetails/Technologies";
 import ServiceContent from "@/components/serviceDetails/ServiceContent";
@@ -18,7 +18,7 @@ const ServiceDetailPage = ({ serviceDetails: service }: any) => {
       <ServiceContent servicedata={service}/>
       <OurExpertise servicedata={service}/>
       <Technologies technology={service}/>
-      <ServiceDetailsInsights ourServies={ourServiesDetails}/>
+      {/* <ServiceDetailsInsights ourServies={ourServiesDetails}/> */}
       <OurCommitment />
      </Layout>
   );

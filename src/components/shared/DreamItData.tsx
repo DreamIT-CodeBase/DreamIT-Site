@@ -1,24 +1,26 @@
 export const aboutUsHeroSectionContent = {
-  title: "About Us",
-
+  title: "A Journey Guided by Values, Driven by Quality",
+tag:"ABOUT US",
   image: "/assets/images/about-us-hero-section-image.webp",
 };
 export const industriesHeroSectionContent = {
-  title: "Industries We Serve",
+  title: "Solutions Built for Industries That Shape The World",
+  tag:"INDUSTRIES WE SERVE",
   image: "/assets/images/industries-hero-section-image.webp",
 };
 export const insightsSectionContent = {
-  title: "Insights",
+  title: "Insights & Innovations, Stay Ahead with Us",
+  tag:"INSIGHTS",
   image: "/assets/images/insights-hero-section-image.webp",
 };
 export const servicesHeroSectionContent = {
-  title: "Services",
-
+  title: "A Commitment to Quality & Trust",
+  tag:"SERVICES",
   image: "/assets/images/services-hero-section-image.webp",
 };
 export const careerHeroSectionContent = {
-  title: "Join our team",
-
+  title: "Join Our Team & Build the Future",
+tag:"CAREER PAGE",
   image: "/assets/images/career-page-hero-section.webp",
 };
 
