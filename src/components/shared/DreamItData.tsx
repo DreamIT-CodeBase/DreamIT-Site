@@ -25,7 +25,7 @@ export const careerHeroSectionContent = {
 export const industryInsightsHomePageData = {
   tag: "BLOGS",
   title: "Future-Focused Insights For Your Industry",
-  backgroundImage: "/assets/images/background-stripes.webp",
+  backgroundImage: "/assets/images/background-stripes.png",
   backgroundPosition: "unset",
   showTags: false,
   showItTrends: true,
