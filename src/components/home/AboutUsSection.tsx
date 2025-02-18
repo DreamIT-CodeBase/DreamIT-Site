@@ -15,8 +15,7 @@ const AboutUsSection = () => {
     },
     {
       title: "Accelerate Growth:",
-      description:
-        "Unlock a competitive edge with powerful data visualization",
+      description: "Unlock a competitive edge with powerful data visualization",
     },
   ];
 
@@ -40,7 +39,7 @@ const AboutUsSection = () => {
             md={12}
             sm={24}
             xs={24}
-            className="xl:space-y-5 lg:space-y-5 sm:space-y-4 xs:space-y-4"
+            className="xl:space-y-4 lg:space-y-4 sm:space-y-3 xs:space-y-3"
           >
             <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full">
               <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold ">
@@ -48,11 +47,11 @@ const AboutUsSection = () => {
               </span>
             </div>
 
-            <h2 className="font-bold tracking-tight">
+            <h2 className="font-bold">
               Turning Data Into Stories That Drive Success
             </h2>
 
-            <h6 className="xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px]">
+            <h6 className="xl:text-20 text-[#1C1C1C] lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px]">
               At Dream IT, we specialize in helping businesses thrive through
               cutting-edge technology solutions like Cloud Data Management,
               Advanced Analytics & Visualisation, Digital Marketing, and more.
@@ -81,12 +80,12 @@ const AboutUsSection = () => {
               ))}
             </div>
 
-            <div   style={{marginTop: "2.5rem"}}>
+            <div style={{ marginTop: "2.2rem" }}>
               <Link
-                className="bg-[#0A2540] text-[18px] transition-transform duration-300 hover:scale-105 hover:text-white text-white hover:bg-[#0A2540]/90 rounded-md px-8 py-4 "
+                className="bg-[#072032] text-white py-3 px-6 text-lg sm:text-base xs:text-base md:text-lg lg:text-xl xl:text-xl hover:text-[#FFFFFF] font-bold rounded-lg transition-transform duration-300 hover:scale-105"
                 href="/about-us"
               >
-                Learn More
+                Know More
               </Link>
             </div>
           </Col>

@@ -187,9 +187,9 @@ h1 {
   color: var(--text-main-color);
 }
 h2 {
-  font-size: 46px;
+  font-size: 38px;
   font-weight: 700;
-  line-height: 55.89px;
+  line-height: 45.89px;
   color: var(--text-main-color);
 }
 h3 {
@@ -235,9 +235,9 @@ h6 {
     line-height: 45px;
   }
   h2 {
-    font-size: 22px;
+    font-size: 30px;
     font-weight: 700;
-    line-height: 25px;
+    line-height: 35px;
     color: #1c1c1c;
   }
   h4 {
