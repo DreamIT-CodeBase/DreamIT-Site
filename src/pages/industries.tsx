@@ -1,7 +1,7 @@
 import {
   industriesHeroSectionContent,
   industriesWeServeData,
-  industryInsightsPageData,
+  successStoriesData,
 } from "@/components/shared/DreamItData";
 import IndustriesWeServe from "@/components/industries/IndustriesWeServe";
 import Layout from "@/components/layout/Layout";
@@ -10,11 +10,11 @@ import React from "react";
 import IndustryInsights from "@/components/shared/IndustryInsights";
 
 const industries = () => {
-  return (
+  return ( 
     <Layout>
       <CommonHeroSection data={industriesHeroSectionContent} />
       <IndustriesWeServe  industriesWeServeData={industriesWeServeData}/>
-      <IndustryInsights data={industryInsightsPageData} />
+      <IndustryInsights data={successStoriesData}  showBackground={true}/>
     </Layout>
   );
 };

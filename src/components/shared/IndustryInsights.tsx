@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const IndustryInsights = ({ data }: any) => {
+const IndustryInsights = ({ data, showBackground }: any) => {
   const [centerSlidePercentage, setCenterSlidePercentage] = useState(33.33);
 
   useEffect(() => {
@@ -20,11 +20,15 @@ const IndustryInsights = ({ data }: any) => {
   return (
     <section
       className="container xl:pt-14 lg:pt-14 md:pt-0 sm:pt-5 xs:pt-5 pb-24"
-      style={{
-        backgroundImage: `url(${data?.backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: `${data.backgroundPosition}`,
-      }}
+      style={
+        showBackground
+          ? {
+              backgroundImage: `url(${data?.backgroundImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: `${data.backgroundPosition}`,
+            }
+          : {}
+      }
     >
       <div className="text-center">
         <div className="flex justify-center text-center mb-4">
@@ -34,11 +38,11 @@ const IndustryInsights = ({ data }: any) => {
             </span>
           </div>
         </div>
-        <h2 className="text-center mb-2">{data?.title}</h2>
+        <h2 className="text-center mb-6">{data?.title}</h2>
 
-        <p className="text-gray-800 mb-6 xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] max-w-3xl mx-auto">
+        {/* <p className="text-gray-800 mb-6 xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] max-w-3xl mx-auto">
           {data?.description}
-        </p>
+        </p> */}
 
         <div className="industry-insights-crousal">
           <Carousel

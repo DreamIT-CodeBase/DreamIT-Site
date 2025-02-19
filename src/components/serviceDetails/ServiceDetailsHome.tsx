@@ -1,35 +1,44 @@
-import { Row } from "antd";
 import React, { useState } from "react";
 import ContactFormModal from "../shared/ContactFormModal";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-const ServiceDetailsHome = ({ servicedata }: any) => {
+const CommonHeroSection = ({ servicedata }: any) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-
-  return (
-    <>
-      <div className="bg-[url('/assets/images/service-details-background-image.webp')] bg-cover bg-bottom  container w-full pt-120 pb-60 xl:h-[450px] lg:h-[450px] md:h-[300px] sm:h-[300px]">
-        <Row align={"middle"} justify={"center"} className="flex-col gap-8">
-          <h1 className=" text-white text-center max-w-[56rem] ">{servicedata?.title}</h1>
-          <h6 className="font-medium text-white text-center ">
-            {servicedata?.description}
-          </h6>
-          <button
-            onClick={() => setIsModalVisible(true)}
-            className="bg-white flex gap-2 max-w-[186px] items-center text-black-700 hover:text-black-700 py-3 text-[18px] px-6 font-bold rounded-[10px] border-[2px] border-[#eaeaea] transition-transform duration-300 hover:scale-105 "
-          >
-            Get Started
-            <FaArrowRightLong />
-          </button>
-        </Row>
+   return (
+    <div className=" bg-[url('/assets/images/about-us-background.webp')] bg-cover bg-center">
+      <div className="container pt-60 pb-60">
+        <div className="flex items-start justify-between lg:flex-nowrap md:flex-nowrap  gap-6 xs:flex-wrap">
+          <div className="xl:mt-[60px] lg:mt-[60px] md:mt-[60px] sm:mt-[0px]">
+            <div>
+              <h2 className=" max-w-[28rem]   text-black-700 ">
+                {servicedata?.title}
+              </h2>
+              <h6 className="xl:mt-4 lg:mt-4 md:mt-4 sm:mt-4 xs:mt-4 max-w-[30rem] ">
+                {servicedata?.description}
+              </h6>
+              <button
+                onClick={() => setIsModalVisible(true)}
+                className="bg-white flex gap-2 max-w-[186px] items-center text-black-700 hover:text-black-700 py-3 text-[18px] px-6 font-bold rounded-[10px] border-[2px] border-[#eaeaea] transition-transform duration-300 hover:scale-105 xl:mt-6 lg:mt-6 md:mt-4 sm:mt-4 xs:mt-4 cursor-pointer"
+              >
+                Get Started
+                <FaArrowRightLong />
+              </button>
+            </div>
+          </div>
+          <div>
+            <img
+              src={servicedata?.heroImage}
+              alt="Cloud Powered, Data Driven & Future Ready!"
+            />
+          </div>
+        </div>
       </div>
-
       <ContactFormModal
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
       />
-    </>
+    </div>
   );
 };
 
-export default ServiceDetailsHome;
+export default CommonHeroSection;

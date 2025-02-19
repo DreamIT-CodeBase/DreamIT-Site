@@ -11,7 +11,7 @@ const LifeAtDreamIt = () => {
     { src: "/assets/images/teamImages/pic6.webp", alt: "team" },
     { src: "/assets/images/teamImages/pic7.webp", alt: "team" },
     { src: "/assets/images/teamImages/pic8.webp", alt: "team" },
-   ];
+  ];
   const logo2 = [
     { src: "/assets/images/teamImages/pic9.webp", alt: "team" },
     { src: "/assets/images/teamImages/pic10.webp", alt: "team" },
@@ -21,7 +21,7 @@ const LifeAtDreamIt = () => {
     { src: "/assets/images/teamImages/pic14.webp", alt: "team" },
     { src: "/assets/images/teamImages/pic15.webp", alt: "team" },
     { src: "/assets/images/teamImages/pic16.webp", alt: "team" },
-   ];
+  ];
 
   const allLogo1 = [...logo1, ...logo1];
   const allLogo2 = [...logo2, ...logo2];
@@ -45,37 +45,39 @@ const LifeAtDreamIt = () => {
           backgroundPosition: `center`,
         }}
       >
-        <div className="xl:mb-12 lg:mb-12  xs:mb-8 sm:mb-8">
-          <Marquee speed={60}>
-            <div className="flex  items-center">
-              {allLogo1.map((logo, index) => (
-                <div key={index}>
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    loading="lazy"
-                    className="object-contain ml-4 mr-4 xl:h-[350px] lg:h-[300px] md:h-[250px] sm:h-[250px] xs:h-[200px] rounded-[19px]"
-                  />
-                </div>
-              ))}
-            </div>
-          </Marquee>
-        </div>
-        <div className="xl:mb-12 lg:mb-12  xs:mb-8 sm:mb-8">
-          <Marquee speed={60} direction="right">
-            <div className="flex  items-center">
-              {allLogo2.map((logo, index) => (
-                <div key={index}>
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    loading="lazy"
-                    className="object-contain ml-4 mr-4 xl:h-[350px] lg:h-[300px] md:h-[250px] sm:h-[250px] xs:h-[200px] rounded-[19px]"
-                  />
-                </div>
-              ))}
-            </div>
-          </Marquee>
+        <div className="container">
+          <div className="xl:mb-12 lg:mb-12  xs:mb-8 sm:mb-8">
+            <Marquee speed={60}>
+              <div className="flex  items-center">
+                {allLogo1.map((logo, index) => (
+                  <div key={index}>
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      loading="lazy"
+                      className="object-contain ml-4 mr-4 xl:h-[300px] lg:h-[300px] md:h-[250px] sm:h-[250px] xs:h-[200px] rounded-[19px]"
+                    />
+                  </div>
+                ))}
+              </div>
+            </Marquee>
+          </div>
+          <div className="xl:mb-12 lg:mb-12  xs:mb-8 sm:mb-8">
+            <Marquee speed={60} direction="right">
+              <div className="flex  items-center">
+                {allLogo2.map((logo, index) => (
+                  <div key={index}>
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      loading="lazy"
+                      className="object-contain ml-4 mr-4 xl:h-[300px] lg:h-[300px] md:h-[250px] sm:h-[250px] xs:h-[200px] rounded-[19px]"
+                    />
+                  </div>
+                ))}
+              </div>
+            </Marquee>
+          </div>
         </div>
       </div>
     </div>

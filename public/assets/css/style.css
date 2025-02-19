@@ -224,9 +224,10 @@ h6 {
 }
 
 .p-large {
-  font-size: 24px;
+  font-size: 22px;
   color: var(--text-main-color);
   line-height: 30px;
+  font-weight: 600;
 }
 
 @media (max-width: 1025px) {
@@ -554,7 +555,7 @@ h6 {
 /* Industries we serve */
 
 .industries-we-serve-container {
-  min-height: 510px;
+  min-height: 410px;
   position: relative;
 
   .industries-explore-more-btn {
@@ -575,12 +576,12 @@ h6 {
 }
 @media (max-width: 640px) {
   .industries-we-serve-container {
-    min-height: 480px;
+    min-height: 460px;
   }
 }
 @media (max-width: 376px) {
   .industries-we-serve-container {
-    min-height: 400px;
+    min-height: 380px;
   }
 }
 
@@ -589,11 +590,25 @@ h6 {
 .our-expertise-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 30px;
   align-items: center;
   justify-content: center;
 }
 
+.features-card-title {
+  font-size: 18px;
+}
+
+@media (max-width: 1025px) {
+  .features-card-title {
+    font-size: 16px;
+  }
+}
+@media (max-width: 991px) {
+  .features-card-title {
+    font-size: 14px;
+  }
+}
 @media (max-width: 640px) {
   .our-expertise-container {
     flex-wrap: wrap;

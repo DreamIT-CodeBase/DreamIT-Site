@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 const ServiceContent = ({ servicedata }: any) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
-
+ 
   const handleScroll = (e: WheelEvent) => {
     if (contentRef.current) {
       const contentEl = contentRef.current;
@@ -69,7 +69,7 @@ const ServiceContent = ({ servicedata }: any) => {
                   sm={24}
                   xs={24}
                   ref={contentRef}
-                  className="space-y-6 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto service-content-container"
+                  className="space-y-3 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[400px] xs:max-h-[400px] overflow-auto service-content-container"
                 >
                   <h3 className="">{servicedata.contentTitle}</h3>
                   <h6 className="">{servicedata.article1} </h6>

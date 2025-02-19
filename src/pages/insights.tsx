@@ -1,23 +1,24 @@
 import {
-  industryInsightsPageData,
   insightsSectionContent,
   successStoriesData,
-  tipsAndGuideData,
+  industryInsightsBlogsData,
 } from "@/components/shared/DreamItData";
 import IndustryInsights from "@/components/shared/IndustryInsights";
 import Layout from "@/components/layout/Layout";
 import CommonHeroSection from "@/components/shared/CommonHeroSection";
- import React from "react";
+import React from "react";
+import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
 
 const insights = () => {
   return (
     <>
       <Layout>
         <CommonHeroSection data={insightsSectionContent} />
-        <IndustryInsights data={successStoriesData} />
-        <IndustryInsights data={industryInsightsPageData} />
-        <IndustryInsights data={tipsAndGuideData} />
-       </Layout>
+        <DataDrivenSolutions />
+
+        <IndustryInsights data={successStoriesData} showBackground={false}/>
+        <IndustryInsights data={industryInsightsBlogsData} showBackground={true}/>
+      </Layout>
     </>
   );
 };

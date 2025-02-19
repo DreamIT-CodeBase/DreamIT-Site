@@ -15,7 +15,7 @@ const DataDrivenSolutions = () => {
   const industries2 = [...industries, ...industries];
   return (
     <div>
-      <div className="bg-[#F9FDFF] mx-auto  pt-10 xl:pb-10 lg:pb-10 md:pb-5 sm:pb-5 xs:pb-5">
+      <div className=" mx-auto  pt-10 xl:pb-10 lg:pb-10 md:pb-5 sm:pb-5 xs:pb-5">
         <h4 className="font-medium text-center mb-8">
           Empowering Industries with Data-Driven Solutions
         </h4>

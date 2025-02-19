@@ -14,22 +14,24 @@ const Header = () => {
   const toggleDrawer = () => setIsDrawerVisible((prev) => !prev);
 
   const services = [
+    { name: "Cloud Data Management", slug: "cloud-data-management" },
+
     {
       name: "Advanced Data Analytics & Visualization",
       slug: "advanced-analytics",
     },
     {
-      name: "Enterprise Resource Planning Implementation",
-      slug: "erp-implementation",
-    },
-    {
       name: "Digital Transformation & Process Automation",
       slug: "digital-transformation",
     },
-    { name: "Business-Centric IT Ecosystem", slug: "business-applications" },
+    {
+      name: "Enterprise Resource Planning Implementation",
+      slug: "erp-implementation",
+    },
+     
     { name: "Digital Marketing", slug: "digital-marketing" },
-    { name: "Cloud Data Management", slug: "cloud-data-management" },
-  ];
+    { name: "Business-Centric IT Ecosystem", slug: "business-applications" },
+   ];
 
   const isActive = (path: any) => router.pathname === path;
 

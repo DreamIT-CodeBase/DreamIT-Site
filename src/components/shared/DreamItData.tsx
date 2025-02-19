@@ -50,13 +50,41 @@ export const industryInsightsHomePageData = {
   ],
 };
 
+export const industryInsightsBlogsData = {
+  tag: "BLOGS",
+  title: "Future-Focused Insights For Your Industry",
+  backgroundImage: "/assets/images/success-stories-bg.webp",
+  backgroundPosition: "unset",
+  showTags: false,
+  showItTrends: true,
+  features: [
+    {
+      imageSrc: "/assets/images/industryImage1.png",
+      quote:
+        "The Future of AI: How Artificial Intelligence is Reshaping IT",
+    },
+    {
+      imageSrc: "/assets/images/industryImage2.webp",
+      quote:
+        "Quantum Computing: Hype or Reality?",
+    },
+    {
+      imageSrc: "/assets/images/industryImage3.webp",
+      quote:
+        "Cloud Computing in 2025: Trends and Predictions",
+    },
+  ],
+};
+
 export const successStoriesData = {
   tag: "SUCCESS STORIES",
   title: "Real Results, Real Impact: This Is How We Drive Success",
-  backgroundImage: " ",
+  backgroundImage: "/assets/images/success-stories-bg.webp",
   description:
     "Every project is a journey of growth and innovation, showcasing the challenges we’ve overcome and the results achieved",
   showTags: true,
+  backgroundPosition: "center",
+
   showItTrends: false,
   features: [
     {
@@ -76,40 +104,7 @@ export const successStoriesData = {
     },
   ],
 };
-export const tipsAndGuideData = {
-  tag: "TIPS & GUIDE",
-  title: "Our Approach to Delivering Results",
-  backgroundImage: " ",
-  showTags: false,
-  showItTrends: true,
-  features: [
-    {
-      imageSrc: "/assets/images/industryImage1.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage2.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage3.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage1.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage2.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-  ],
-};
+ 
 export const ourServies = {
   tag: "OUR SERVICES",
   title: "Personalized Solutions Crafted to Meet Your Business Needs",
@@ -297,15 +292,16 @@ export const industryInsightsPageData = {
         "Dive into expert insights, trends, and strategies shaping the future",
     },
   ],
-};
+}; 
 
 export const serviceDetails: any = [
   {
     slug: "cloud-data-management",
-    title: "Cloud Data Management",
+    title: "Cloud Data Management & Migration",
     description:
       "Transform Data chaos into clarity with cutting-edge cloud solutions",
-    contentImage: "/assets/images/cloud-management-service-detail-image.webp",
+      heroImage: "/assets/images/cloud-data-hero-sec-image.webp",
+    contentImage: "/assets/images/cloud-management-content-image.webp",
     contentTitle: "Conquer the Cloud: Data management made effortless",
     article1:
       "Managing data can feel like solving a chaotic puzzle. Storage overflow, migration challenges, and governance bottlenecks hinder collaboration and waste resources.",
@@ -367,7 +363,9 @@ export const serviceDetails: any = [
     slug: "advanced-analytics",
     title: "Advanced Data Analytics & Visualization",
     description: "Unlock the power of Data Storytelling  or “with us”",
-    contentImage: "/assets/images/cloud-management-service-detail-image.webp",
+    heroImage: "/assets/images/advanced-visualisation-hero-sec-image.webp",
+
+    contentImage: "/assets/images/advance-analytics-content-image.webp",
     contentTitle:
       "Transforming Data Into Meaningful Insights :The Future of Analytics & Visualization",
     article1:
@@ -433,9 +431,10 @@ export const serviceDetails: any = [
   },
   {
     slug: "business-applications",
-    title: "Business Applications",
+    title: "Business-Centric IT Ecosystem",
+    heroImage: "/assets/images/buisness-application-hero-sec-image.webp",
     description: "Building Tomorrow's Business Tools, Today! ",
-    contentImage: "/assets/images/cloud-management-service-detail-image.webp",
+    contentImage: "/assets/images/buisness-centeric-content-image.webp",
     contentTitle:
       "Rewiring Businesses For Success:Through Digital Transformation and Automation",
 
@@ -499,9 +498,10 @@ export const serviceDetails: any = [
 
   {
     slug: "erp-implementation",
-    title: "Enterprise Resource Planning ( ERP )",
+    title: "Enterprise Resource Planning Implementation",
     description: "Simplify, Automate and Scale with Our Advanced ERP Solutions",
-    contentImage: "/assets/images/cloud-management-service-detail-image.webp",
+    contentImage: "/assets/images/erp-content-image.webp",
+    heroImage: "/assets/images/erp-hero-sec-image.webp",
     contentTitle:
       "Cracking The Code Of Business Efficiency: ERP The Secret To Streamlined Workflows",
     article1:
@@ -554,8 +554,9 @@ export const serviceDetails: any = [
     title: "Digital Transformation & Process Automation",
     description:
       "Where Digital Transformation Meets Effortless Automation For Real Impact ",
+      heroImage: "/assets/images/digital-transformation-hero-sec-image.webp",
 
-    contentImage: "/assets/images/cloud-management-service-detail-image.webp",
+    contentImage: "/assets/images/digital-transformation-content-image.webp",
 
     ourExpertise: [
       {
@@ -605,8 +606,9 @@ export const serviceDetails: any = [
   {
     slug: "digital-marketing",
     title: "Digital Marketing",
+    heroImage: "/assets/images/digital-marketing-hero-sec-image.webp",
     description: "Turning clicks into conversions with Innovative Strategies",
-    contentImage: "/assets/images/cloud-management-service-detail-image.webp",
+    contentImage: "/assets/images/digital-marketing-content-image.webp",
     contentTitle:
       "Unlocking Digital Growth With Targeted Marketing:Creative Strategies Fueling Tangible Growth",
     article1:

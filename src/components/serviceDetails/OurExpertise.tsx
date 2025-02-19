@@ -3,12 +3,12 @@ import { BsCheckLg } from "react-icons/bs";
 
 const OurExpertise = ({ servicedata }: any) => {
   return (
-    <div className="container pt-60 pb-60 text-center">
+    <div className="container pt-60 pb-60 text-center bg-gradient-to-b from-white to-[#F9FDFF]">
       <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full mb-3">
-        <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
+        <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-semibold">
           {servicedata.ourExpertise[0].tag}
         </span>
-      </div>
+      </div> 
       <h2 className="xl:mb-12 lg:mb-12 md:mb-4 sm:lg-4 xs:mb-6">
         {" "}
         {servicedata.ourExpertise[0].title}
@@ -23,7 +23,7 @@ const OurExpertise = ({ servicedata }: any) => {
               style={{ backgroundColor: item.bgColor }}
             >
               <BsCheckLg className="text-[22px] font-semibold text-black-100 flex-shrink-0" />
-              <h6 className="text-black-100 font-semibold">{item.text}</h6>
+              <h6 className="text-black-100 font-semibold features-card-title">{item.text}</h6>
             </div>
           )
         )}
