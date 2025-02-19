@@ -27,7 +27,7 @@ const Footer = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex  xl:gap-28 lg:gap-28 md:gap-16 sm:gap-16 xs:gap-8">
+        <div className="flex justify-between  xl:gap-28 lg:gap-28 md:gap-16 sm:gap-16 xs:gap-8">
           <div className="flex  flex-col md:items-end mt-8 md:mt-0">
             <h3 className="text-lg mr-2 font-semibold mb-4 text-white">
               Discover

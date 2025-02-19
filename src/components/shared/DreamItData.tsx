@@ -35,17 +35,17 @@ export const industryInsightsHomePageData = {
     {
       imageSrc: "/assets/images/industryImage1.png",
       quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
+        "The Future of AI: How Artificial Intelligence is Reshaping IT",
     },
     {
-      imageSrc: "/assets/images/industryImage2.png",
+      imageSrc: "/assets/images/industryImage2.webp",
       quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
+        "Quantum Computing: Hype or Reality?",
     },
     {
-      imageSrc: "/assets/images/industryImage3.png",
+      imageSrc: "/assets/images/industryImage3.webp",
       quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
+        "Cloud Computing in 2025: Trends and Predictions",
     },
   ],
 };

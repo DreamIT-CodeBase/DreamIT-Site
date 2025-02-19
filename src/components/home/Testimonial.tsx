@@ -38,7 +38,7 @@ const Testimonial = () => {
     );
   };
   return (
-    <section className="w-full pt-60 pab-30  bg-[#EFF9FF]">
+    <section className="w-full pt-60 pb-60  bg-[#EFF9FF]">
       <div className="conainer mx-auto px-4">
         {/* Badge */}
         <div className="flex justify-center xl:mb-6 lg:mb-6 md:mb-6 sm:mb-4 xs:mb-4">
