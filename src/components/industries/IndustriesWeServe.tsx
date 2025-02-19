@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import ContactFormModal from "../shared/ContactFormModal";
-import Link from "next/link";
 
 const IndustriesWeServe = ({ industriesWeServeData }: any) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -24,18 +23,14 @@ const IndustriesWeServe = ({ industriesWeServeData }: any) => {
             <div className="flex justify-between items-center xl:mt-4 lg:mt-4 md:mt-4 sm:mt-4 xs:mt-4">
               <h4 className=" ">{industry.title}</h4>
               <div>
-                <Link
-                  href={"/a"}
-                  className="bg-[#072032] flex text-white py-3 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-xl xl:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105"
-                >
+                <button className="bg-[#072032] flex text-white py-3 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-xl xl:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105">
                   <FaArrowRightLong />
-                </Link>
+                </button>
               </div>
             </div>
             <p className="text-muted-foreground xl:text-16 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] text-[#596168] overflow-hidden text-ellipsis line-clamp-4 xl:mt-2 lg:mt-2 md:mt-1 sm:mt-1 xs:mt-1">
               {industry.description}
             </p>
-            
           </div>
         ))}
       </div>
