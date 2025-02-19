@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const OurTeam = () => {
+  const swiperRef = useRef<any>(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
   const teamData = [
     {
       name: "Anu Kamboj",
@@ -28,7 +37,6 @@ const OurTeam = () => {
       title: "Head- Delivery",
       description: [
         "Ex - KPMG | Ex-UHG| Ex - Cognizant",
-
         "14 years of experience in IT | Microsoft Cloud Data Architect | Azure, Fabric, Data Bricks, Big Data Analytic",
       ],
       backgroundImage: "/assets/images/team-member4.png",
@@ -45,9 +53,27 @@ const OurTeam = () => {
     },
   ];
 
+  useEffect(() => {
+    if (swiperRef.current) {
+      const swiperInstance = swiperRef.current.swiper;
+
+      const updateNavigationState = () => {
+        setIsBeginning(swiperInstance.isBeginning);
+        setIsEnd(swiperInstance.isEnd);
+      };
+
+      swiperInstance.on("slideChange", updateNavigationState);
+      updateNavigationState(); // Initial state check
+
+      return () => {
+        swiperInstance.off("slideChange", updateNavigationState);
+      };
+    }
+  }, []);
+
   return (
     <div>
-      <section className="bg-black text-white container pt-60 pb-60">
+      <section className="relative bg-black text-white container pt-60 xl:pb-[70px] lg:pb-[100px] md:pb-[120px] sm:pb-[80px] xs:pb-[70px]">
         <div className=" mx-auto text-center">
           <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full mb-3">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
@@ -55,7 +81,7 @@ const OurTeam = () => {
             </span>
           </div>
 
-          <h1 className=" mb-3">The Team At The Core</h1>
+          <h2 className=" mb-3">The Team At The Core</h2>
 
           <p className="text-gray-800 xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] max-w-3xl mx-auto">
             A dynamic group of thinkers, doers and innovators. Our team is
@@ -63,72 +89,97 @@ const OurTeam = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 cursor-pointer">
+        <Swiper
+          ref={swiperRef}
+          spaceBetween={20}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 2,
+            },
+            1440: {
+              slidesPerView: 3,
+            },
+          }}
+          navigation={false}
+          modules={[Navigation]}
+          keyboard={{ enabled: true }}
+          className="mt-8"
+        >
           {teamData.map((member, index) => (
-            <div
-              key={index}
-              className="group relative h-[467px] overflow-hidden rounded-[20px] bg-[#ECEFF1] transition-all duration-300 hover:bg-zinc-900"
-            >
-              <div className="absolute inset-0 p-6 flex flex-col justify-between transition-all duration-300">
-                {/* Background image with color overlay on hover */}
-                <div
-                  style={{ backgroundImage: `url(${member.backgroundImage})` }}
-                  className="absolute inset-0   bg-cover bg-center transition-all duration-300 before:content-[''] before:absolute before:inset-0  group-hover:before:opacity-100 before:opacity-0 before:transition-all before:duration-300"
-                ></div>
+            <SwiperSlide key={index}>
+              <div className="group relative h-[467px] overflow-hidden rounded-[20px] bg-[#ECEFF1] transition-all duration-300 hover:bg-zinc-900">
+                <div className="absolute inset-0 p-6 flex flex-col justify-between transition-all duration-300">
+                  <div
+                    style={{
+                      backgroundImage: `url(${member.backgroundImage})`,
+                    }}
+                    className="absolute inset-0 bg-cover bg-top transition-all duration-300 
+                  before:content-[''] before:absolute before:inset-0 
+                  before:bg-[#072032B2] before:opacity-0 
+                  group-hover:before:opacity-100 before:transition-opacity before:duration-300"
+                  ></div>
 
-                {/* Content that appears on hover */}
-                <div className="absolute bottom-[30px] pr-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex justify-between">
-                    <h3 className="text-[24px] font-semibold text-white">
-                      {member.name}
-                    </h3>
-                    <img
-                      className="h-[50px]"
-                      src="/assets/icons/linkedin-icon.svg"
-                      alt="linkedin-icon"
-                      loading="lazy"
-                    />
-                  </div>
+                  <div className="absolute bottom-[30px] pr-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="flex justify-between">
+                      <h3 className="text-[24px] font-semibold text-white">
+                        {member.name}
+                      </h3>
+                      <img
+                        className="h-[50px]"
+                        src="/assets/icons/linkedin-icon.svg"
+                        alt="linkedin-icon"
+                        loading="lazy"
+                      />
+                    </div>
 
-                  <div className="relative px-5 mb-2">
-                    <span className="absolute top-1/2 left-1 transform -translate-y-1/2 w-[10px] h-[10px] bg-[#00A9FF] rounded-full"></span>
-                    <span className="text-white text-center font-medium lg:text-[22px]">
-                      {member.title}
-                    </span>
-                  </div>
+                    <div className="relative px-5 mb-2">
+                      <span className="absolute top-1/2 left-1 transform -translate-y-1/2 w-[10px] h-[10px] bg-[#00A9FF] rounded-full"></span>
+                      <span className="text-white text-center font-medium text-[22px]">
+                        {member.title}
+                      </span>
+                    </div>
 
-                  {/* Description as a list */}
-                  <ul className="text-18 text-[#D6F1FF] list-disc pl-6">
-                    {member.description.map((point, i) => (
-                      <li key={i}>{point}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Wrapper to control visibility */}
-                <div className="absolute bottom-6 left-6 right-6 group-hover:opacity-0 group-hover:translate-y-6 transition-all duration-300">
-                  <div className="flex justify-between">
-                    <h3 className="text-[24px] font-bold text-white transition-colors">
-                      {member.name}
-                    </h3>
-                    <img
-                      className="h-[40px]"
-                      src="/assets/icons/linkedin-icon.svg"
-                      alt="linkedin-icon"
-                      loading="lazy"
-                    />
-                  </div>
-
-                  <div className="relative px-5">
-                    <span className="absolute top-1/2 left-1 transform -translate-y-1/2 w-[10px] h-[10px] bg-[#00A9FF] rounded-full"></span>
-                    <span className="text-[#7DC1E9] text-center font-medium lg:text-[18px]">
-                      {member.title}
-                    </span>
+                    <ul className="text-[18px] text-[#D6F1FF] list-disc pl-6">
+                      {member.description.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
+        </Swiper>
+
+        <div className="absolute left-[50%] translate-x-[-50%] xl:bottom-[-10px] lg:bottom-[20px] md:bottom-[40px] sm:bottom-[20px] xs:bottom-[0px] z-[1000] flex justify-center">
+          <button
+            className={`swiper-prev xl:px-4 xl:py-4 lg:px-4 lg:py-4 md:px-4 md:py-4 sm:px-3 sm:py-3 xs:px-3 xs:py-3 mx-2 rounded-full ${
+              isBeginning
+                ? "bg-white text-[#596168] border-[1px] border-[#EAEAEA]"
+                : "bg-[#072032] text-white"
+            }`}
+            onClick={() => swiperRef.current?.swiper?.slidePrev()}
+            disabled={isBeginning}
+          >
+            <FaArrowRightLong className="rotate-180 text-[20px]" />
+          </button>
+          <button
+            className={`swiper-next xl:px-4 xl:py-4 lg:px-4 lg:py-4 md:px-4 md:py-4 sm:px-3 sm:py-3 xs:px-3 xs:py-3 mx-2 rounded-full ${
+              isEnd
+                ? "bg-white text-[#596168] border-[1px] border-[#EAEAEA]"
+                : "bg-[#072032] text-white"
+            }`}
+            onClick={() => swiperRef.current?.swiper?.slideNext()}
+            disabled={isEnd}
+          >
+            <FaArrowRightLong className="text-[20px]" />
+          </button>
         </div>
       </section>
     </div>

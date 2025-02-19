@@ -52,7 +52,7 @@ export const industryInsightsHomePageData = {
 
 export const successStoriesData = {
   tag: "SUCCESS STORIES",
-  title: "Real Stories, Real Results How We Drive Success",
+  title: "Real Results, Real Impact: This Is How We Drive Success",
   backgroundImage: " ",
   description:
     "Every project is a journey of growth and innovation, showcasing the challenges we’ve overcome and the results achieved",
