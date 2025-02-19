@@ -45,7 +45,7 @@ const IndustryInsights = ({ data, showBackground }: any) => {
         </p> */}
 
         <div className="industry-insights-crousal">
-          <Carousel
+          <Carousel 
             showStatus={false}
             showThumbs={false}
             showIndicators={true}

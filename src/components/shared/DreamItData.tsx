@@ -31,9 +31,9 @@ export const industryInsightsHomePageData = {
   backgroundPosition: "unset",
   showTags: false,
   showItTrends: true,
-  features: [
+  features: [ 
     {
-      imageSrc: "/assets/images/industryImage1.png",
+      imageSrc: "/assets/images/industryImage1.webp",
       quote:
         "The Future of AI: How Artificial Intelligence is Reshaping IT",
     },

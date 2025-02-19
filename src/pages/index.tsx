@@ -29,7 +29,10 @@ export default function Home() {
         <Expertise />
         <AboutUsSection />
         <Testimonial />
-        <IndustryInsights data={industryInsightsHomePageData}  showBackground={true} />
+        <IndustryInsights
+          data={industryInsightsHomePageData}
+          showBackground={true}
+        />
         <ContactForm showContactFormLeftSection="true" />
       </Layout>
     </>
