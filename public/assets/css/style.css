@@ -780,9 +780,16 @@ h6 {
   background-position: calc(100% - 16px) center;
   background-size: 12px;
   padding-right: 36px;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    border-color: #5550ff;
+    box-shadow: 0 0 4px rgba(85, 80, 255, 0.5);
+  }
 }
 
 .job-opening-form {
   border: 2px solid #eaeaea;
   border-radius: 18px;
- }
+}
