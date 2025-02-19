@@ -19,7 +19,7 @@ const Technologies = ({ technology }: any) => {
               key={index}
               src={logo.logos}
               alt="icon"
-              className="xl:max-w-[300px] lg:max-w-[200px] md:max-w-[200px] sm:max-w-[150px] xs:max-w-[150px] h-auto"
+              className="xl:max-w-[200px] lg:max-w-[200px] md:max-w-[150px] sm:max-w-[150px] xs:max-w-[150px] h-auto"
             />
           )
         )}
