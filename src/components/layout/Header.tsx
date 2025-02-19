@@ -28,10 +28,10 @@ const Header = () => {
       name: "Enterprise Resource Planning Implementation",
       slug: "erp-implementation",
     },
-     
+
     { name: "Digital Marketing", slug: "digital-marketing" },
     { name: "Business-Centric IT Ecosystem", slug: "business-applications" },
-   ];
+  ];
 
   const isActive = (path: any) => router.pathname === path;
 
@@ -132,7 +132,10 @@ const Header = () => {
                     className="flex items-start px-4 py-2 hover:bg-gray-100"
                   >
                     <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0 md:mt-2 sm:mt-1 xs:mt-2"></span>
-                    <Link onClick={toggleDrawer} href={`/services/${service.slug}`}>
+                    <Link
+                      onClick={toggleDrawer}
+                      href={`/services/${service.slug}`}
+                    >
                       <p className="md:text-16 sm:text-[14px] font-semibold text-black-700 leading-tight">
                         {service.name}
                       </p>
@@ -235,7 +238,10 @@ const Header = () => {
                     key={service.slug}
                     className="px-4 py-2 hover:bg-gray-100"
                   >
-                    <Link onClick={()=>setShowDropdown(false)} href={`/services/${service.slug}`}>
+                    <Link
+                      onClick={() => setShowDropdown(false)}
+                      href={`/services/${service.slug}`}
+                    >
                       <p className="text-16 font-semibold text-black-700">
                         {service.name}
                       </p>
@@ -277,10 +283,12 @@ const Header = () => {
           Get Started
         </button>
       </div>
-      <ContactFormModal
-        isModalVisible={isModalVisible}
-        setIsModalVisible={setIsModalVisible}
-      />
+      {isModalVisible && (
+        <ContactFormModal
+          isModalVisible={isModalVisible}
+          setIsModalVisible={setIsModalVisible}
+        />
+      )}
     </header>
   );
 };
