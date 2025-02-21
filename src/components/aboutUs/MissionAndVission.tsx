@@ -1,6 +1,6 @@
 export default function CompanyProfile() {
   return (
-    <div className="container xl:py-16 lg:py-16 md:py-16 sm:py-8 xs:py-8">
+    <div className="container pt-60 pb-60">
       <div className="grid gap-12 lg:grid-cols-2 md:grid-cols-2 lg:gap-20 items-center">
         {/* Content Section */}
         <div className="space-y-3">
@@ -22,7 +22,7 @@ export default function CompanyProfile() {
             {/* Vertical Line with Gradient */}
             <div className="flex items-start gap-5 xl:mt-[50px] lg:mt-[20px] md:mt-[18px] sm:mt-[18px] xs:mt-[18px]">
               {/* Vertical Line */}
-              <div className="w-2 xl:h-[200px] lg:h-[200px] md:h-[230px] sm:h-[170px] xs:h-[210px] bg-gradient-to-b from-[#7DC1E9] to-[#854CFF] rounded-full"></div>
+              <div className="w-2 xl:h-[200px] lg:h-[200px] md:h-[230px] sm:h-[170px] xs:h-[210px] bg-gradient-to-b from-[#7DC1E9] to-[#854CFF] rounded-full our-mission-and-vision-gradient"></div>
 
               {/* Mission & Vision Section */}
               <div>

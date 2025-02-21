@@ -59,7 +59,7 @@ const OurCoreValues = () => {
           {values.map((value, index) => (
             <div
               key={index}
-              className="p-6 flex flex-col items-center justify-center minor-container xl:max-w-[380px] lg:max-w-[240px] md:max-w-[200px] sm:max-w-[190px] gap-2"
+              className="p-6 flex flex-col items-center justify-center minor-container xl:max-w-[340px] lg:max-w-[240px] md:max-w-[200px] sm:max-w-[190px] gap-2"
             >
               <img
                 src={value.url}
