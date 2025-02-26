@@ -1,0 +1,63 @@
+import React from "react";
+import { SectionContent } from "../content";
+import styled from "styled-components";
+import { Col, Row, Tag } from "antd";
+import ShareWithCommunity from "./ShareWithCommunity";
+import FeaturedBlogs from "./FeaturedBlogs";
+import ShareWithFriends from "./ShareWithFriends";
+import AuthorDetails from "./AuthorDetails";
+
+export const BlogDetails = ({ post }: any) => {
+  return (
+    <>
+      <TestPageWrapper>
+        <div className="container pt-60 pb-60 bg-gradient-to-bl from-[rgba(125,193,233,0.2)] via-[rgba(133,76,255,0.142)] to-[rgba(255,255,255,0.2)]">
+          <Row gutter={[16, 16]} align={"top"} justify={"space-between"}>
+            <Col xl={15} lg={15} md={24} sm={24} xs={24}>
+              {" "}
+              <Tag className="font-semibold bg-[#FFFFFF] border-none outline-none leading-[16.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] mb-3 rounded-full px-4 py-2">
+                CLOUDMIGRATE PRO
+              </Tag>
+              <h1 className="font-bold leading-[33.6px] xl:text-[28px] lg:text-[28px] md:text-[28px] sm:text-[28px] xs:text-[28px] mb-2">
+                Time Travel in Microsoft Fabric
+              </h1>
+              <div className="flex items-center gap-2">
+                <p className="font-bold leading-[33.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] text-[#596168]">
+                  Oct 19
+                </p>
+                <span className="text-[#596168]">•</span>
+                <p className="font-bold leading-[16.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] text-[#596168]">
+                  10 min read
+                </p>
+              </div>
+              <div>
+                <img
+                  src="/assets/images/blogDetailsTestImae.png"
+                  alt="Test Image"
+                  className="w-full mt-4"
+                />
+              </div>
+              <div>
+                <SectionContent
+                  editor={post?.editor}
+                  sections={post?.sections}
+                />
+              </div>
+              <div>
+                <ShareWithFriends />
+                <AuthorDetails />
+              </div>
+            </Col>
+
+            <Col xl={8} lg={8} md={24} sm={24} xs={24}>
+              <ShareWithCommunity />
+              <FeaturedBlogs />
+            </Col>
+          </Row>
+        </div>
+      </TestPageWrapper>
+    </>
+  );
+};
+
+const TestPageWrapper = styled.div``;

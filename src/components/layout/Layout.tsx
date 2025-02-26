@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Layout = (props: any) => {
   const router = useRouter();
+  const pageInfo = props.pageInfo;
+console.log(pageInfo)
 
   const baseUrl = "https://alpha-testing.web.app";
 

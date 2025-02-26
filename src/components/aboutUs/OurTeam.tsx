@@ -147,7 +147,9 @@ const OurTeam = () => {
 
                     <ul className="text-[18px] text-[#D6F1FF] list-disc pl-6">
                       {member.description.map((point, i) => (
-                        <li key={i}>{point}</li>
+                        <li key={i} className="text-[#FFFFFF]">
+                          {point}
+                        </li>
                       ))}
                     </ul>
                   </div>

@@ -1,26 +1,86 @@
 import {
   insightsSectionContent,
   successStoriesData,
-  industryInsightsBlogsData,
 } from "@/components/shared/DreamItData";
 import IndustryInsights from "@/components/shared/IndustryInsights";
 import Layout from "@/components/layout/Layout";
 import CommonHeroSection from "@/components/shared/CommonHeroSection";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
+import { AHD_HOST, PREVIEW } from "@/utils/constant";
+import BlogsList from "@/components/blogs/BlogsList";
 
-const insights = () => {
+const Insights = ({ blogs,pageInfo }:any) => {
+  const [blogsRecords, setBlogsRecords] = useState(blogs || []);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch(
+          `${AHD_HOST}/page?filter[groups][]=blogs&orderBy=&limit=50&offset=0`
+        );
+        if (!response.ok) {
+          throw new Error(`Failed to fetch blogs: ${response.status}`);
+        }
+        const data = await response.json();
+        setBlogsRecords(data?.rows || []);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+
+    if (typeof window !== "undefined") {
+      const mode = new URL(window.location.href).searchParams.get("mode");
+      if (mode === PREVIEW) {
+        fetchBlogs();
+      }
+    }
+  }, []);
+
   return (
-    <>
-      <Layout>
-        <CommonHeroSection data={insightsSectionContent} />
-        <DataDrivenSolutions />
-
-        <IndustryInsights data={successStoriesData} showBackground={false}/>
-        <IndustryInsights data={industryInsightsBlogsData} showBackground={true}/>
-      </Layout>
-    </>
+    <Layout pageInfo={pageInfo}>
+      <CommonHeroSection data={insightsSectionContent} />
+      <DataDrivenSolutions />
+      <IndustryInsights
+        data={successStoriesData}
+        showBackground={false}
+        showItTrends={false}
+      />
+      <BlogsList data={blogsRecords} showBackground={true} />
+    </Layout>
   );
 };
 
-export default insights;
+export default Insights;
+
+export const getStaticProps = async () => {
+  const pageSlug = "website-insights";
+
+  let blogs = [];
+  let pageInfo = {};
+
+  try {
+    const resOfBlogs = await fetch(
+      `${AHD_HOST}/page?filter[groups][]=blogs&orderBy=&limit=50&offset=0`
+    );
+    if (!resOfBlogs.ok) {
+      throw new Error(`Failed to fetch blogs: ${resOfBlogs.status}`);
+    }
+    const blogsData = await resOfBlogs.json();
+    blogs = blogsData?.rows || [];
+  } catch (error) {
+    console.error("Error fetching blogs in getStaticProps:", error);
+  }
+
+  try {
+    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
+    if (!pageRes.ok) {
+      throw new Error(`Failed to fetch page info: ${pageRes.status}`);
+    }
+    pageInfo = await pageRes.json();
+  } catch (error) {
+    console.error("Error fetching page info:", error);
+  }
+
+  return { props: { pageInfo, blogs } };
+};
