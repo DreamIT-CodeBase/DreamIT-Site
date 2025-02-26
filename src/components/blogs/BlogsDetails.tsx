@@ -32,7 +32,7 @@ export const BlogDetails = ({ post }: any) => {
               </div>
               <div>
                 <img
-                  src="/assets/images/blogDetailsTestImae.png"
+                  src={post.heroImage[0].publicUrl}
                   alt="Test Image"
                   className="w-full mt-4"
                 />
