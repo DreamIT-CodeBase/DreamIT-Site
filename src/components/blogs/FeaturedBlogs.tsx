@@ -48,7 +48,7 @@ export default function FeaturedBlogs() {
                 activeIndex === index
                   ? "text-[#00A9FF]"
                   : "text-[#1B1B1F] hover:text-primary/80"
-              } text-[18px] font-medium`}
+              } xl:text-[18px] lg:text-[18px] md:text-[16px] sm:text-[16px] xs:text-[16px] font-medium`}
             >
               {article.title}
             </Link>

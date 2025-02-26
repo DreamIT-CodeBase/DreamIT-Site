@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Layout = (props: any) => {
   const router = useRouter();
   const pageInfo = props.pageInfo;
-console.log(pageInfo)
+  console.log(pageInfo);
 
   const baseUrl = "https://alpha-testing.web.app";
 
@@ -27,6 +27,10 @@ console.log(pageInfo)
         <meta property="og:site_name" content="Dream IT" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpg" />
+        <link
+          href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css"
+          rel="stylesheet"
+        />
       </Head>
       <Header />
       <main className="flex-grow">{props.children}</main>

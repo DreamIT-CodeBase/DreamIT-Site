@@ -4,7 +4,7 @@ import { FaLinkedin } from "react-icons/fa6";
 export default function AuthorDetails() {
   return (
     <Card className="mt-4 rounded-[10px] py-2">
-      <div className="flex items-center gap-4">
+      <div className="flex xl:flex-nowrap sm:flex-wrap items-center gap-4">
         <div className="w-20 h-20   flex items-center justify-center">
           <img alt="author" src="/assets/images/author-image.png" />
         </div>
@@ -13,7 +13,7 @@ export default function AuthorDetails() {
             <h2 className="text-xl font-semibold text-[#1C1C1C]">
               Prateek S Malhan
             </h2>
-            <p className="text-[#596168] text-[16px]">
+            <p className="text-[#596168] xl:text-[16px] lg:text-[16px] md:text-[14px] sm:text-[14px] xs:text-[14px]">
               Chief Growth & Strategy Officer
             </p>
           </div>
@@ -23,7 +23,7 @@ export default function AuthorDetails() {
         </div>
       </div>
       <div className="flex-1 min-w-0">
-        <p className="mt-3 text-gray-700 text-[16px] font-[400] max-w-[85%]">
+        <p className="mt-3 text-gray-700 xl:text-[16px] lg:text-[16px] md:text-[14px] sm:text-[14px] xs:text-[14px] font-[400] max-w-[85%]">
           With 11 years in SaaS, I&apos;ve built MillionVerifier and SAAS First.
           Passionate about SaaS, data, and AI. Let&apos;s connect if you share
           the same drive for success!
