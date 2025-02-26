@@ -183,7 +183,7 @@ const Header = () => {
         <Link href="/">
           <img
             className="lg:w-36 h-auto md:w-28"
-            src="/assets/icons/dreamItLogo.svg"
+            src="/assets/icons/dreamit-new-logo.png"
             alt="Logo"
           />
         </Link>

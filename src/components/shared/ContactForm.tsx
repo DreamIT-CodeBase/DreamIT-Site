@@ -55,7 +55,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                           })}
                           placeholder="john"
                           type="text"
-                          className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
+                          className="  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
                         />
                         {errors.fullName?.message && (
                           <span className="text-red-500 text-sm">
@@ -76,7 +76,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                           })}
                           type="text"
                           placeholder="parker"
-                          className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
+                          className="  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
                         />
                         {errors.lastName?.message && (
                           <span className="text-red-500 text-sm">
@@ -101,7 +101,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                           })}
                           type="email"
                           placeholder="john@gmail.com"
-                          className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
+                          className="  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
                         />
                         {errors.email?.message && (
                           <span className="text-red-500 text-sm">
@@ -120,7 +120,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                           {...register("selectService", {
                             required: "Please select a service",
                           })}
-                          className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500   out customSelectTag"
+                          className="customSelectTag  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
                         >
                           <option value="" disabled selected>
                             Please Select{" "}
@@ -176,7 +176,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                     <div className="w-full px-2 ">
                       <button
                         type="submit"
-                        className="bg-[#0A2540] text-white font-bold hover:bg-[#0A2540]/90 rounded-md px-9 py-3 "
+                        className="lg:px-6 lg:py-2.5 md:p-[10px]  sm:px-[12px] sm:py-[8px] xs:px-[12px] xs:py-[8px] transition-transform duration-300 hover:scale-105 bg-blue-600 lg:font-bold text-white rounded-[8px]"
                       >
                         Submit
                       </button>
