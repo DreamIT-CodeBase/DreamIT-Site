@@ -795,13 +795,52 @@ h6 {
 }
 
 @media (max-width: 376px) {
-  .our-mission-and-vision-gradient{
-height: 170px !important;
+  .our-mission-and-vision-gradient {
+    height: 170px !important;
   }
 }
 @media (max-width: 321px) {
-  .our-mission-and-vision-gradient{
-height: 210px !important;
+  .our-mission-and-vision-gradient {
+    height: 210px !important;
   }
 }
- 
+
+.home-page-hero-section-background-image {
+  background-image: url("/assets/images/home-page-her-section-background.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 1540px) {
+  .home-page-hero-section-background-image {
+    background-image: url("/assets/images/home-page-her-section-background.webp");
+    background-size: cover;
+    background-position: bottom;
+  }
+}
+.common-hero-section-background-image {
+  background-image: url("/assets/images/about-us-background.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 1540px) {
+  .common-hero-section-background-image {
+    background-image: url("/assets/images/about-us-background.webp");
+    background-size: cover;
+    background-position: bottom;
+  }
+}
+.service-details-hero-section-background-image {
+  background-image: url("/assets/images/about-us-background.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 1540px) {
+  .service-details-hero-section-background-image {
+    background-image: url("/assets/images/about-us-background.webp");
+    background-size: cover;
+    background-position: bottom;
+  }
+}

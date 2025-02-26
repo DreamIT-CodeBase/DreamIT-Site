@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <div className=" bg-[url('/assets/images/home-page-her-section-background.webp')] bg-cover bg-center pb-[10px]">
+    <div className="home-page-hero-section-background-image pb-[10px]">
       <div className="container pt-60 pb-60">
         <div className="flex items-center justify-between lg:flex-nowrap md:flex-nowrap  gap-6 xs:flex-wrap">
           <div className="">

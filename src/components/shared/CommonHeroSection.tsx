@@ -2,7 +2,7 @@ import React from "react";
 
 const CommonHeroSection = ({ data }: any) => {
   return (
-    <div className=" bg-[url('/assets/images/about-us-background.webp')] bg-cover bg-center pb-[10px]">
+    <div className=" common-hero-section-background-image pb-[10px]">
       <div className="container pt-60 pb-60">
         <div className="flex items-start justify-between lg:flex-nowrap md:flex-nowrap  gap-6 xs:flex-wrap">
           <div className="xl:mt-[60px] lg:mt-[60px] md:mt-[60px] sm:mt-[0px]">

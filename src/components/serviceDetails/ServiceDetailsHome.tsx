@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from "react"; 
 import ContactFormModal from "../shared/ContactFormModal";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const CommonHeroSection = ({ servicedata }: any) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
    return (
-    <div className=" bg-[url('/assets/images/about-us-background.webp')] bg-cover bg-center">
+    <div className="service-details-hero-section-background-image">
       <div className="container pt-60 pb-60">
         <div className="flex items-start justify-between lg:flex-nowrap md:flex-nowrap  gap-6 xs:flex-wrap">
           <div className="xl:mt-[60px] lg:mt-[60px] md:mt-[60px] sm:mt-[0px]">
