@@ -2,10 +2,10 @@ import React from "react";
 import { SectionContent } from "../content";
 import styled from "styled-components";
 import { Col, Row, Tag } from "antd";
-import ShareWithCommunity from "./ShareWithCommunity";
+import ShareWithCommunity from "../shared/ShareWithCommunity";
 import FeaturedBlogs from "./FeaturedBlogs";
-import ShareWithFriends from "./ShareWithFriends";
-import AuthorDetails from "./AuthorDetails";
+import ShareWithFriends from "../shared/ShareWithFriends";
+import AuthorDetails from "../shared/AuthorDetails";
 
 export const BlogDetails = ({ post }: any) => {
   return (
@@ -15,7 +15,7 @@ export const BlogDetails = ({ post }: any) => {
           <Row gutter={[16, 16]} align={"top"} justify={"space-between"}>
             <Col xl={15} lg={15} md={24} sm={24} xs={24}>
               {" "}
-              <Tag className="font-semibold bg-[#FFFFFF] border-none outline-none leading-[16.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] mb-3 rounded-full px-4 py-2">
+              <Tag className="font-semibold bg-[#FFFFFF] border-none outline-none leading-[16.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[12px] xs:text-[12px] mb-3 rounded-full px-4 py-2">
                 CLOUDMIGRATE PRO
               </Tag>
               <h1 className="font-bold leading-[33.6px] xl:text-[28px] lg:text-[28px] md:text-[28px] sm:text-[28px] xs:text-[28px] mb-2">
