@@ -8,6 +8,7 @@ import ShareWithFriends from "../shared/ShareWithFriends";
 import AuthorDetails from "../shared/AuthorDetails";
 
 export const BlogDetails = ({ post }: any) => {
+  debugger;
   return (
     <>
       <TestPageWrapper>
@@ -23,7 +24,10 @@ export const BlogDetails = ({ post }: any) => {
               </h1>
               <div className="flex items-center gap-2">
                 <p className="font-bold leading-[33.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] text-[#596168]">
-                  Oct 19
+                  {new Date(post?.createdAt).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "2-digit",
+                  })}
                 </p>
                 <span className="text-[#596168]">•</span>
                 <p className="font-bold leading-[16.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] text-[#596168]">
