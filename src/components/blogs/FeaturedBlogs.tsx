@@ -6,7 +6,7 @@ export default function FeaturedBlogs({ featureBlogsData }: any) {
 
   return (
     <div className="  rounded-[15px] bg-white py-6 mt-10">
-      <h2 className="mb-3 text-[20px] ml-6 font-semibold">In this article</h2>
+      <h2 className="mb-3 text-[20px] ml-6 font-semibold">Featured article</h2>
 
       <div className="space-y-4">
         {featureBlogsData?.map((article: any, index: any) => (
