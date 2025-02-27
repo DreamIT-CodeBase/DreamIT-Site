@@ -7,7 +7,7 @@ import FeaturedBlogs from "./FeaturedBlogs";
 import ShareWithFriends from "../shared/ShareWithFriends";
 import AuthorDetails from "../shared/AuthorDetails";
 
-export const BlogDetails = ({ post }: any) => {
+export const BlogDetails = ({ post,featureBlogsData }: any) => {
   debugger;
   return (
     <>
@@ -55,7 +55,7 @@ export const BlogDetails = ({ post }: any) => {
 
             <Col xl={8} lg={8} md={24} sm={24} xs={24}>
               <ShareWithCommunity />
-              <FeaturedBlogs />
+              <FeaturedBlogs featureBlogsData={featureBlogsData}/>
             </Col>
           </Row>
         </div>

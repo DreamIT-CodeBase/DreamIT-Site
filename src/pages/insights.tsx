@@ -46,7 +46,7 @@ const Insights = ({ blogs,pageInfo }:any) => {
         showBackground={false}
         showItTrends={false}
       />
-      <BlogsList data={blogsRecords} showBackground={true} />
+      <BlogsList data={blogsRecords} showBackground={true} backgroundImageUrl='/assets/images/success-stories-bg.webp'/>
     </Layout>
   );
 };

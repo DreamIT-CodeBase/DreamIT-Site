@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const BlogsList = ({ data, showBackground }: any) => {
+const BlogsList = ({ data, showBackground,backgroundImageUrl }: any) => {
   const [centerSlidePercentage, setCenterSlidePercentage] = useState(33.33);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const BlogsList = ({ data, showBackground }: any) => {
       style={
         showBackground
           ? {
-              backgroundImage: `url(/assets/images/success-stories-bg.webp)`,
+              backgroundImage: `url(${backgroundImageUrl})`,
               backgroundSize: "cover",
               backgroundPosition: "unset",
             }

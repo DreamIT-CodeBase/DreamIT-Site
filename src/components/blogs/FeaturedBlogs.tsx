@@ -1,38 +1,15 @@
 import { useState } from "react";
 import Link from "next/link";
 
-export default function FeaturedBlogs() {
+export default function FeaturedBlogs({ featureBlogsData }: any) {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const articles = [
-    {
-      title: "Time Travel in Microsoft Fabric",
-      href: "#time-travel",
-    },
-    {
-      title: "Lorem ipsum dolor sit amet",
-      href: "#lorem-1",
-    },
-    {
-      title: "Lorem ipsum dolor sit amet",
-      href: "#lorem-2",
-    },
-    {
-      title: "Lorem ipsum dolor sit amet",
-      href: "#lorem-3",
-    },
-    {
-      title: "Lorem ipsum dolor sit amet",
-      href: "#lorem-4",
-    },
-  ];
 
   return (
     <div className="  rounded-[15px] bg-white py-6 mt-10">
       <h2 className="mb-3 text-[20px] ml-6 font-semibold">In this article</h2>
 
       <div className="space-y-4">
-        {articles.map((article, index) => (
+        {featureBlogsData.map((article: any, index: any) => (
           <div
             key={index}
             className={`relative pl-4 transition-colors duration-200 ${
@@ -43,7 +20,7 @@ export default function FeaturedBlogs() {
             onMouseEnter={() => setActiveIndex(index)}
           >
             <Link
-              href={article.href}
+              href={article.slug}
               className={`block ${
                 activeIndex === index
                   ? "text-[#00A9FF]"

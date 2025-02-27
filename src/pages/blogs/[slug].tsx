@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { AHD_HOST } from "../../utils/constant";
 import Layout from "@/components/layout/Layout";
 import { BlogDetails } from "@/components/blogs/BlogsDetails";
+import BlogsList from "@/components/blogs/BlogsList";
 
-const BlogArticle = ({  pageInfo, pageSlug }: any) => {
+const BlogArticle = ({ pageInfo, pageSlug, blogs }: any) => {
   const [pageData, setPageData] = useState(() => pageInfo);
   const [error, setError] = useState<any>(null);
-  console.log(error)
+  console.log(error);
   useEffect(() => {
     const fetcher = async () => {
       try {
@@ -29,7 +30,12 @@ const BlogArticle = ({  pageInfo, pageSlug }: any) => {
 
   return (
     <Layout>
-      <BlogDetails post={pageData} />
+      <BlogDetails post={pageData} featureBlogsData={blogs}/>
+      <BlogsList
+        data={blogs}
+        showBackground={true}
+        backgroundImageUrl="/assets/images/background-stripes.png"
+      />
     </Layout>
   );
 };
@@ -51,7 +57,12 @@ export const getStaticProps = async ({ params }: any) => {
     }
     const pageInfo = await pageRes.json();
 
-    return { props: { contentFaqs, pageInfo, pageSlug } };
+    const resOfCaseStudies = await fetch(
+      `${AHD_HOST}/page?filter[groups][]=blogs`
+    );
+    const blogs = await resOfCaseStudies?.json();
+
+    return { props: { contentFaqs, pageInfo, pageSlug, blogs: blogs?.rows } };
   } catch (err) {
     console.error("Error fetching data for static props:", err);
     return {
