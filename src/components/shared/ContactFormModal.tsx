@@ -1,7 +1,9 @@
 import { Modal } from "antd";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
   const handleOk = () => {
@@ -12,6 +14,8 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
     setIsModalVisible(false);
   };
 
+  const [loading, setloading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -20,11 +24,36 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
   } = useForm();
 
   const onSubmit = (data: any) => {
-    console.log(data);
-    toast.success("Form submitted successfully!");
+    setloading(true);
+    const templateParams = {
+      to_name: "Ajay",
+      from_name: `${data.fullName} ${data.lastName}`,
+      email: data.email,
+      service: data.selectService,
+      message: data.messages,
+    };
 
-    reset();
-    handleCancel();
+    emailjs
+      .send(
+        "service_toyjk5q",
+        "template_058i9mr",
+        templateParams,
+        "YOWspCaYbGjzx6IFK"
+      )
+      .then(
+        (response) => {
+          console.log("Email sent!", response);
+          toast.success("Form submitted successfully!");
+          setloading(false);
+          handleCancel();
+          reset();
+        },
+        (error) => {
+          console.error("Error:", error);
+          setloading(false);
+          toast.error("Failed to send message.");
+        }
+      );
   };
 
   return (
@@ -138,7 +167,9 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
                     <option value="Digital Transformation Consulting">
                       Digital Transformation & Process Automation
                     </option>
-                    <option className="dm-font" value="Digital Marketing">Digital Marketing</option>
+                    <option className="dm-font" value="Digital Marketing">
+                      Digital Marketing
+                    </option>
                   </select>
                   {errors.selectService?.message && (
                     <span className="text-red-500 text-sm">
@@ -171,9 +202,12 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
               <div className="w-full px-2 ">
                 <button
                   type="submit"
-                  className="bg-[#0A2540] text-white font-bold hover:bg-[#0A2540]/90 rounded-md px-9 py-3 "
+                  disabled={loading}
+                  className={`lg:px-6 lg:py-2.5 md:p-[10px] sm:px-[12px] sm:py-[8px] xs:px-[12px] xs:py-[8px] transition-transform duration-300 hover:scale-105 bg-blue-600 lg:font-bold text-white rounded-[8px] ${
+                    loading ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 >
-                  Submit
+                  {loading ? "Submitting..." : "Submit"}
                 </button>
               </div>
             </div>

@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const ContactForm = ({ showContactFormLeftSection }: any) => {
+  const [loading, setloading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -11,10 +15,35 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
   } = useForm();
 
   const onSubmit = (data: any) => {
-    console.log(data);
-    toast.success("Form submitted successfully!");
+    setloading(true);
+    const templateParams = {
+      to_name: "Ajay",
+      from_name: `${data.fullName} ${data.lastName}`,
+      email: data.email,
+      service: data.selectService,
+      message: data.messages,
+    };
 
-    reset();
+    emailjs
+      .send(
+        "service_toyjk5q",
+        "template_058i9mr",
+        templateParams,
+        "YOWspCaYbGjzx6IFK"
+      )
+      .then(
+        (response) => {
+          console.log("Email sent!", response);
+          toast.success("Form submitted successfully!");
+          setloading(false);
+          reset();
+        },
+        (error) => {
+          console.error("Error:", error);
+          setloading(false);
+          toast.error("Failed to send message.");
+        }
+      );
   };
   return (
     <div id="contactForm">
@@ -176,9 +205,12 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                     <div className="w-full px-2 ">
                       <button
                         type="submit"
-                        className="lg:px-6 lg:py-2.5 md:p-[10px]  sm:px-[12px] sm:py-[8px] xs:px-[12px] xs:py-[8px] transition-transform duration-300 hover:scale-105 bg-blue-600 lg:font-bold text-white rounded-[8px]"
+                        disabled={loading}
+                        className={`lg:px-6 lg:py-2.5 md:p-[10px] sm:px-[12px] sm:py-[8px] xs:px-[12px] xs:py-[8px] transition-transform duration-300 hover:scale-105 bg-blue-600 lg:font-bold text-white rounded-[8px] ${
+                          loading ? "opacity-50 cursor-not-allowed" : ""
+                        }`}
                       >
-                        Submit
+                        {loading ? "Submitting..." : "Submit"}
                       </button>
                     </div>
                   </div>

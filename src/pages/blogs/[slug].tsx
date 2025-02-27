@@ -110,3 +110,4 @@ export const getStaticPaths = async () => {
 };
 
 export default BlogArticle;
+// service_toyjk5q
