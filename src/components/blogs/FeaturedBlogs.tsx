@@ -9,7 +9,7 @@ export default function FeaturedBlogs({ featureBlogsData }: any) {
       <h2 className="mb-3 text-[20px] ml-6 font-semibold">In this article</h2>
 
       <div className="space-y-4">
-        {featureBlogsData.map((article: any, index: any) => (
+        {featureBlogsData?.map((article: any, index: any) => (
           <div
             key={index}
             className={`relative pl-4 transition-colors duration-200 ${

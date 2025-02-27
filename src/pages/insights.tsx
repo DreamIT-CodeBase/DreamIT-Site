@@ -1,16 +1,13 @@
-import {
-  insightsSectionContent,
-  successStoriesData,
-} from "@/components/shared/DreamItData";
-import IndustryInsights from "@/components/shared/IndustryInsights";
+import { insightsSectionContent } from "@/components/shared/DreamItData";
 import Layout from "@/components/layout/Layout";
 import CommonHeroSection from "@/components/shared/CommonHeroSection";
 import React, { useEffect, useState } from "react";
 import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
 import { AHD_HOST, PREVIEW } from "@/utils/constant";
 import BlogsList from "@/components/blogs/BlogsList";
+import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 
-const Insights = ({ blogs,pageInfo }:any) => {
+const Insights = ({ blogs, pageInfo, caseStudy }: any) => {
   const [blogsRecords, setBlogsRecords] = useState(blogs || []);
 
   useEffect(() => {
@@ -41,12 +38,12 @@ const Insights = ({ blogs,pageInfo }:any) => {
     <Layout pageInfo={pageInfo}>
       <CommonHeroSection data={insightsSectionContent} />
       <DataDrivenSolutions />
-      <IndustryInsights
-        data={successStoriesData}
-        showBackground={false}
-        showItTrends={false}
+      <CaseStudyList data={caseStudy} />
+      <BlogsList
+        data={blogsRecords}
+        showBackground={true}
+        backgroundImageUrl="/assets/images/success-stories-bg.webp"
       />
-      <BlogsList data={blogsRecords} showBackground={true} backgroundImageUrl='/assets/images/success-stories-bg.webp'/>
     </Layout>
   );
 };
@@ -57,6 +54,7 @@ export const getStaticProps = async () => {
   const pageSlug = "website-insights";
 
   let blogs = [];
+  let caseStudy = [];
   let pageInfo = {};
 
   try {
@@ -71,6 +69,18 @@ export const getStaticProps = async () => {
   } catch (error) {
     console.error("Error fetching blogs in getStaticProps:", error);
   }
+  try {
+    const resOfBlogs = await fetch(
+      `${AHD_HOST}/page?filter[groups][]=case-studies&orderBy=&limit=50&offset=0`
+    );
+    if (!resOfBlogs.ok) {
+      throw new Error(`Failed to fetch blogs: ${resOfBlogs.status}`);
+    }
+    const caseStudyData = await resOfBlogs.json();
+    caseStudy = caseStudyData?.rows || [];
+  } catch (error) {
+    console.error("Error fetching blogs in getStaticProps:", error);
+  }
 
   try {
     const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
@@ -82,5 +92,5 @@ export const getStaticProps = async () => {
     console.error("Error fetching page info:", error);
   }
 
-  return { props: { pageInfo, blogs } };
+  return { props: { pageInfo, blogs, caseStudy } };
 };

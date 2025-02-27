@@ -1,21 +1,17 @@
 import MissionAndVission from "@/components/aboutUs/MissionAndVission";
-// import OurClient from "@/components/aboutUs/OurClient";
-import OurCoreValues from "@/components/aboutUs/OurCoreValues";
+ import OurCoreValues from "@/components/aboutUs/OurCoreValues";
 import OurStory from "@/components/aboutUs/OurStory";
 import OurTeam from "@/components/aboutUs/OurTeam";
-import {
-  aboutUsHeroSectionContent,
-  successStoriesData,
-} from "@/components/shared/DreamItData";
+import { aboutUsHeroSectionContent } from "@/components/shared/DreamItData";
 import Layout from "@/components/layout/Layout";
 import CommonHeroSection from "@/components/shared/CommonHeroSection";
 import React from "react";
 import ExploreLifeDreamIt from "../components/aboutUs/ExploreLifeDreamIt";
 import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
-import IndustryInsights from "@/components/shared/IndustryInsights";
 import { AHD_HOST } from "@/utils/constant";
+import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 
-const AboutUs = ({ pageInfo }: any) => {
+const AboutUs = ({ pageInfo, caseStudy }: any) => {
   return (
     <Layout pageInfo={pageInfo}>
       <CommonHeroSection data={aboutUsHeroSectionContent} />
@@ -24,7 +20,7 @@ const AboutUs = ({ pageInfo }: any) => {
       <MissionAndVission />
       <OurCoreValues />
       <OurTeam />
-      <IndustryInsights data={successStoriesData} />
+      <CaseStudyList data={caseStudy} />
 
       <div className="xl:mt-20 lg:mt-20">
         <ExploreLifeDreamIt />
@@ -38,6 +34,7 @@ export default AboutUs;
 export const getStaticProps = async () => {
   const pageSlug = "website-about-us";
   let faqs = [];
+  let caseStudy = [];
 
   let pageInfo = {};
 
@@ -52,6 +49,19 @@ export const getStaticProps = async () => {
   }
 
   try {
+    const resOfBlogs = await fetch(
+      `${AHD_HOST}/page?filter[groups][]=case-studies&orderBy=&limit=50&offset=0`
+    );
+    if (!resOfBlogs.ok) {
+      throw new Error(`Failed to fetch blogs: ${resOfBlogs.status}`);
+    }
+    const caseStudyData = await resOfBlogs.json();
+    caseStudy = caseStudyData?.rows || [];
+  } catch (error) {
+    console.error("Error fetching blogs in getStaticProps:", error);
+  }
+
+  try {
     const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
     if (!pageRes.ok) {
       throw new Error(`Failed to fetch page info: ${pageRes.status}`);
@@ -61,5 +71,5 @@ export const getStaticProps = async () => {
     console.error("Error fetching page info:", error);
   }
 
-  return { props: { pageInfo, faqs } };
+  return { props: { pageInfo, faqs, caseStudy } };
 };

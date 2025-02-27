@@ -1,9 +1,10 @@
 import { Tag } from "antd";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const IndustryInsights = ({ data }: any) => {
+const CaseStudyList = ({ data }: any) => {
   const [centerSlidePercentage, setCenterSlidePercentage] = useState(33.33);
 
   useEffect(() => {
@@ -49,40 +50,42 @@ const IndustryInsights = ({ data }: any) => {
             dynamicHeight={false}
           >
             {data.map((item: any, index: any) => (
-              <div key={index} className="industry-insights-container">
-                <img
-                  src={item.thumbnailImage[0].publicUrl}
-                  alt=""
-                  width={"100%"}
-                  className="mb-4"
-                  loading="lazy"
-                />
-                <div className="flex flex-wrap gap-3 mb-3">
-                  <Tag className=" bg-[#D6F1FF] border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
-                    Financial Services
-                  </Tag>
-                  <Tag className="bg-[#D6F1FF]  border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
-                    AWS
-                  </Tag>
-                  <Tag className="bg-[#D6F1FF]  border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
-                    CloudMigrate Pro
-                  </Tag>
-                </div>
+              <Link href={`/case-studies/${item.slug}`} key={index}>
+                <div key={index} className="industry-insights-container">
+                  <img
+                    src={item.thumbnailImage[0].publicUrl}
+                    alt=""
+                    width={"100%"}
+                    className="mb-4"
+                    loading="lazy"
+                  />
+                  <div className="flex flex-wrap gap-3 mb-3">
+                    <Tag className=" bg-[#D6F1FF] border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
+                      Financial Services
+                    </Tag>
+                    <Tag className="bg-[#D6F1FF]  border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
+                      AWS
+                    </Tag>
+                    <Tag className="bg-[#D6F1FF]  border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
+                      CloudMigrate Pro
+                    </Tag>
+                  </div>
 
-                <div className="flex flex-col items-start gap-3 justify-between mt-4">
-                  <h6 className="text-left text-[#1c1c1c] font-semibold  ">
-                    {item.title}
-                  </h6>
-                  <div>
-                    <img
-                      src="/assets/icons/upward-arrow.svg"
-                      alt="upward-icon"
-                      className="h-[30px] mr-0 "
-                      loading="lazy"
-                    />
+                  <div className="flex flex-col items-start gap-3 justify-between mt-4">
+                    <h6 className="text-left text-[#1c1c1c] font-semibold  ">
+                      {item.title}
+                    </h6>
+                    <div>
+                      <img
+                        src="/assets/icons/upward-arrow.svg"
+                        alt="upward-icon"
+                        className="h-[30px] mr-0 "
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </Carousel>
         </div>
@@ -91,4 +94,4 @@ const IndustryInsights = ({ data }: any) => {
   );
 };
 
-export default IndustryInsights;
+export default CaseStudyList;

@@ -20,7 +20,7 @@ const Layout = (props: any) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Head>
-      {Parser(metaData.head || "")}
+      {Parser(metaData?.head || "")}
 
         <title>{metaData?.title}</title>
         <meta name="title" content={metaData?.metaTitle} />
@@ -55,7 +55,7 @@ const Layout = (props: any) => {
       <main className="flex-grow">{props.children}</main>
       <Footer />
       <div >
-        {Parser(metaData.bodyBottom || "")}
+        {Parser(metaData?.bodyBottom || "")}
       </div>
       <ToastContainer />
     </div>

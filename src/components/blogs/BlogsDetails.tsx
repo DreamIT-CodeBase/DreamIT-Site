@@ -7,7 +7,7 @@ import FeaturedBlogs from "./FeaturedBlogs";
 import ShareWithFriends from "../shared/ShareWithFriends";
 import AuthorDetails from "../shared/AuthorDetails";
 
-export const BlogDetails = ({ post,featureBlogsData }: any) => {
+export const BlogDetails = ({ post, featureBlogsData }: any) => {
   debugger;
   return (
     <>
@@ -20,7 +20,7 @@ export const BlogDetails = ({ post,featureBlogsData }: any) => {
                 CLOUDMIGRATE PRO
               </Tag>
               <h1 className="font-bold leading-[33.6px] xl:text-[28px] lg:text-[28px] md:text-[28px] sm:text-[28px] xs:text-[28px] mb-2">
-                Time Travel in Microsoft Fabric
+                {post.title}
               </h1>
               <div className="flex items-center gap-2">
                 <p className="font-bold leading-[33.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] text-[#596168]">
@@ -36,7 +36,7 @@ export const BlogDetails = ({ post,featureBlogsData }: any) => {
               </div>
               <div>
                 <img
-                  src={post.heroImage[0].publicUrl}
+                  src={post?.heroImage[0].publicUrl}
                   alt="Test Image"
                   className="w-full mt-4"
                 />
@@ -55,7 +55,7 @@ export const BlogDetails = ({ post,featureBlogsData }: any) => {
 
             <Col xl={8} lg={8} md={24} sm={24} xs={24}>
               <ShareWithCommunity />
-              <FeaturedBlogs featureBlogsData={featureBlogsData}/>
+              <FeaturedBlogs featureBlogsData={featureBlogsData} />
             </Col>
           </Row>
         </div>
