@@ -5,7 +5,7 @@ export default function FeaturedBlogs({ featureBlogsData }: any) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="  rounded-[15px] bg-white py-6 mt-10">
+    <div className="rounded-[15px] bg-white py-6 mt-10 min-h-[200px] max-h-[300px] overflow-y-auto featured-blogs-scrollbar">
       <h2 className="mb-3 text-[20px] ml-6 font-semibold">Featured article</h2>
 
       <div className="space-y-4">

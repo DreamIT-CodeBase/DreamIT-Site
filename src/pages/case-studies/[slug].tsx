@@ -1,4 +1,5 @@
 import { BlogDetails } from "@/components/blogs/BlogsDetails";
+import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 import Layout from "@/components/layout/Layout";
 import { AHD_HOST } from "@/utils/constant";
 import React, { useEffect, useState } from "react";
@@ -8,7 +9,7 @@ const CaseStudyArticle = ({ pageInfo, pageSlug, caseStudy }: any) => {
   const [error, setError] = useState<any>(null);
   console.log(error);
   console.log(pageData);
-
+ 
   useEffect(() => {
     const fetcher = async () => {
       try {
@@ -32,6 +33,7 @@ const CaseStudyArticle = ({ pageInfo, pageSlug, caseStudy }: any) => {
   return (
     <Layout>
       <BlogDetails post={pageData} featureBlogsData={caseStudy} />
+      <CaseStudyList data={caseStudy} />
     </Layout>
   );
 };

@@ -1,22 +1,12 @@
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-const BlogsList = ({ data, showBackground,backgroundImageUrl }: any) => {
-  const [centerSlidePercentage, setCenterSlidePercentage] = useState(33.33);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setCenterSlidePercentage(window.innerWidth < 770 ? 100 : 33.33);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
   return (
     <section
       className="container xl:pt-14 lg:pt-14 md:pt-0 sm:pt-5 xs:pt-5 pb-24"
@@ -46,53 +36,68 @@ const BlogsList = ({ data, showBackground,backgroundImageUrl }: any) => {
           {data?.description}
         </p> */}
 
-        <div className="industry-insights-crousal">
-          <Carousel
-            showStatus={false}
-            showThumbs={false}
-            showIndicators={true}
-            infiniteLoop={true}
-            showArrows={false}
-            centerMode={true}
-            centerSlidePercentage={centerSlidePercentage}
-            autoPlay={true}
-            interval={5000}
-            dynamicHeight={false}
+        <div className="industry-insights-carousel">
+          <Swiper
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 2,
+              },
+              1440: {
+                slidesPerView: 3,
+              },
+            }}
+            loop={true}
+            centeredSlides={true}
+            autoplay={{
+              delay: 2500000,
+              disableOnInteraction: false,
+            }}
+            pagination={{ clickable: true }}
+            modules={[Autoplay, Pagination]}
+            keyboard={{ enabled: true }}
           >
             {data?.map((item: any, index: any) => (
-              <Link href={`/blogs/${item.slug}`} key={index}>
-                <div key={index} className="industry-insights-container">
-                  <img
-                    src={item.thumbnailImage[0].publicUrl}
-                    alt=""
-                    width={"100%"}
-                    className="mb-4"
-                    loading="lazy"
-                  />
+              <SwiperSlide key={index}>
+                <Link href={`/blogs/${item.slug}`}>
+                  <div key={index} className="industry-insights-container">
+                    <img
+                      src={item.thumbnailImage[0].publicUrl}
+                      alt=""
+                      width={"100%"}
+                      className="mb-4"
+                      loading="lazy"
+                    />
 
-                  <div className="relative table-cell bg-[#FFFFFF] mt-4 px-4 py-1 rounded-full border-[2px] border-[#eaeaea]">
-                    <span className="text-[#072032]  text-center font-semibold">
-                      IT TRENDS
-                    </span>
-                  </div>
+                    <div className="relative table-cell bg-[#FFFFFF] mt-4 px-4 py-1 rounded-full border-[2px] border-[#eaeaea]">
+                      <span className="text-[#072032]  text-center font-semibold">
+                        IT TRENDS
+                      </span>
+                    </div>
 
-                  <div className="flex flex-col items-start gap-3 justify-between mt-4">
-                    <h6 className="text-left text-[#1c1c1c] font-semibold  ">
-                      {item.title}
-                    </h6>
-                    <div>
-                      <img
-                        src="/assets/icons/upward-arrow.svg"
-                        alt="upward-icon"
-                        className="h-[30px] mr-0 "
-                        loading="lazy"
-                      />
+                    <div className="flex flex-col items-start gap-3 justify-between mt-4">
+                      <h6 className="text-left text-[#1c1c1c] font-semibold  ">
+                        {item.title}
+                      </h6>
+                      <div>
+                        <img
+                          src="/assets/icons/upward-arrow.svg"
+                          alt="upward-icon"
+                          className="h-[30px] mr-0 "
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </SwiperSlide>
             ))}
-          </Carousel>
+          </Swiper>
         </div>
       </div>
     </section>

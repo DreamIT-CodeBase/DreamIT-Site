@@ -471,13 +471,7 @@ h6 {
 }
 
 /* Industry insights section */
-.industry-insights-crousal {
-  .carousel .control-dots {
-    position: absolute !important;
-    bottom: -60px !important;
-    z-index: 999 !important;
-  }
-}
+
 .industry-insights-container {
   border: 2px solid #eaeaea;
   border-radius: 18px;
@@ -487,27 +481,25 @@ h6 {
   height: 100%;
   position: relative;
   margin: 0px 10px;
+  min-height: 475px;
 }
 
-.carousel .control-dots .dot {
+.swiper-pagination {
+  position: absolute;
+  bottom: 0px !important;
+  display: block !important;
+  z-index: 1000 !important;
+}
+.swiper-pagination-bullet {
   background: #072032 !important;
   height: 14px !important;
   width: 14px !important;
   box-shadow: none !important;
 }
-.carousel .control-dots {
-  position: absolute !important;
-  bottom: -30px !important;
-  z-index: 999 !important;
-}
 
-.carousel.carousel-slider {
-  overflow: visible !important;
+.swiper {
+  padding: 0px 0px 40px 0px !important;
 }
-
-/* .Toastify__progress-bar--success {
-  background: #072032 !important;
-} */
 
 .Toastify__toast-container {
   z-index: 10000 !important;
@@ -530,6 +522,27 @@ h6 {
   background: #00a9ff;
 }
 
+@media (max-width: 1442px) {
+  .industry-insights-container {
+    min-height: 580px;
+  }
+}
+
+@media (max-width: 1025px) {
+  .industry-insights-container {
+    min-height: 495px;
+  }
+}
+@media (max-width: 991px) {
+  .industry-insights-container {
+    min-height: 430px;
+  }
+}
+@media (max-width: 640px) {
+  .industry-insights-container {
+    min-height: 400px;
+  }
+}
 @media (max-width: 640px) {
   .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     font-size: 16px;
@@ -849,7 +862,6 @@ h6 {
   }
 }
 
- 
 /* pagination */
 
 .ant-pagination {
@@ -878,4 +890,15 @@ h6 {
 .ant-pagination .ant-pagination-item {
   border: 1px solid #eaebee;
   color: var(--title-color);
+}
+
+/* featured-blogs-scrollbar */
+
+.featured-blogs-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.featured-blogs-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
