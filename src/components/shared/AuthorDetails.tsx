@@ -4,7 +4,7 @@ import { FaLinkedin } from "react-icons/fa6";
 export default function AuthorDetails() {
   return (
     <Card className="mt-4 rounded-[10px] py-2">
-      <div className="flex xl:flex-nowrap sm:flex-wrap items-center gap-4">
+      <div className="flex xl:flex-nowrap lg:flex-nowrap md:flex-nowrap sm:flex-wrap xs:flex-wrap items-center gap-4">
         <div className="w-20 h-20   flex items-center justify-center">
           <img alt="author" src="/assets/images/author-image.png" />
         </div>

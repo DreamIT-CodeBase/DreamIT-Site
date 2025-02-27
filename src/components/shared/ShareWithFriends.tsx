@@ -26,7 +26,7 @@ const ShareWithFriends = () => {
 
   return (
     <Card className="bg-[#D6F1FF] rounded-[10px] mt-4">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between xl:flex-nowrap lg:flex-nowrap md:flex-nowrap sm:flex-wrap xs:flex-wrap gap-2 items-center">
         <p className="font-bold leading-[16.6px] xl:text-[18px] lg:text-[18px] md:text-[16px] sm:text-[16px] xs:text-[14px] text-[#1c1c1c] mb-0">
           Like what you see? Share with a friend.
         </p>

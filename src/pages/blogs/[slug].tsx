@@ -3,6 +3,10 @@ import { AHD_HOST } from "../../utils/constant";
 import Layout from "@/components/layout/Layout";
 import { BlogDetails } from "@/components/blogs/BlogsDetails";
 import BlogsList from "@/components/blogs/BlogsList";
+// import { SectionContent } from "@/components/content";
+// import ShareWithFriends from "@/components/shared/ShareWithFriends";
+// import AuthorDetails from "@/components/shared/AuthorDetails";
+// import { Col, Row } from "antd";
 
 const BlogArticle = ({ pageInfo, pageSlug, blogs }: any) => {
   const [pageData, setPageData] = useState(() => pageInfo);
@@ -30,7 +34,18 @@ const BlogArticle = ({ pageInfo, pageSlug, blogs }: any) => {
 
   return (
     <Layout>
-      <BlogDetails post={pageData} featureBlogsData={blogs}/>
+      <BlogDetails post={pageData} featureBlogsData={blogs} />
+      {/* <Row className="container flex-col">
+        <Col xl={15} lg={15} md={24} sm={24} xs={24}>
+          <SectionContent
+            editor={pageData?.editor}
+            sections={pageData?.sections}
+          />
+          <ShareWithFriends />
+          <AuthorDetails />
+        </Col>{" "}
+      </Row> */}
+
       <BlogsList
         data={blogs}
         showBackground={true}
