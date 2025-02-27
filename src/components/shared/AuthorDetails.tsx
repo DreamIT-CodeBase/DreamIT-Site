@@ -1,4 +1,5 @@
 import { Card } from "antd";
+import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa6";
 
 export default function AuthorDetails() {
@@ -18,7 +19,14 @@ export default function AuthorDetails() {
             </p>
           </div>
           <div>
-            <FaLinkedin className="w-10 h-10 cursor-pointer text-[#0A66C2] " />
+            <Link
+              href={
+                "https://www.linkedin.com/company/dreamitcs"
+              }
+              target="_blank"
+            >
+              <FaLinkedin className="w-10 h-10 cursor-pointer text-[#0A66C2] " />
+            </Link>
           </div>
         </div>
       </div>

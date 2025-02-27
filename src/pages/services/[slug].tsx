@@ -1,18 +1,16 @@
 import Layout from "@/components/layout/Layout";
 import OurCommitment from "@/components/services/OurCommitment";
-import {
-  serviceDetails,
-  successStoriesData,
-} from "@/components/shared/DreamItData";
+import { serviceDetails } from "@/components/shared/DreamItData";
 import ServiceDetailsHome from "@/components/serviceDetails/ServiceDetailsHome";
 // import ServiceDetailsInsights from "@/components/serviceDetails/ServiceDetailsInsights";
 import OurExpertise from "@/components/serviceDetails/OurExpertise";
 import Technologies from "@/components/serviceDetails/Technologies";
 import ServiceContent from "@/components/serviceDetails/ServiceContent";
-import IndustryInsights from "@/components/shared/IndustryInsights";
 import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
+import CaseStudyList from "@/components/caseStudy/CaseStudyList";
+import { AHD_HOST } from "@/utils/constant";
 
-const ServiceDetailPage = ({ serviceDetails: service }: any) => {
+const ServiceDetailPage = ({ serviceDetails: service, caseStudy }: any) => {
   if (!service) {
     return <div>Service not found</div>;
   }
@@ -25,9 +23,8 @@ const ServiceDetailPage = ({ serviceDetails: service }: any) => {
       <ServiceContent servicedata={service} />
       <OurExpertise servicedata={service} />
       <Technologies technology={service} />
-      <IndustryInsights data={successStoriesData} showBackground={false} />
+      <CaseStudyList data={caseStudy} />
 
-      {/* <ServiceDetailsInsights ourServies={ourServiesDetails}/> */}
       <OurCommitment />
     </Layout>
   );
@@ -44,14 +41,29 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: any) {
   const pageSlug = params.slug;
   let pageInfo: any = {};
+  let caseStudy = [];
   try {
     pageInfo = serviceDetails.find((service: any) => service.slug === pageSlug);
   } catch {
     console.log("NO PAGE INFO FOUND FOR " + pageSlug);
   }
+
+  try {
+    const resOfBlogs = await fetch(
+      `${AHD_HOST}/page?filter[groups][]=case-studies&orderBy=&limit=50&offset=0`
+    );
+    if (!resOfBlogs.ok) {
+      throw new Error(`Failed to fetch blogs: ${resOfBlogs.status}`);
+    }
+    const caseStudyData = await resOfBlogs.json();
+    caseStudy = caseStudyData?.rows || [];
+  } catch (error) {
+    console.error("Error fetching blogs in getStaticProps:", error);
+  }
   return {
     props: {
       serviceDetails: pageInfo,
+      caseStudy,
     },
   };
 }

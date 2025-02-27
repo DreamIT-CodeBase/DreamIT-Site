@@ -5,11 +5,9 @@ import OurServies from "@/components/shared/OurServies";
 import Expertise from "@/components/home/Expertise";
 import AboutUsSection from "@/components/home/AboutUsSection";
 import Testimonial from "@/components/home/Testimonial";
-// import IndustryInsights from "@/components/shared/IndustryInsights";
-import ContactForm from "@/components/shared/ContactForm";
+ import ContactForm from "@/components/shared/ContactForm";
 import {
-  // industryInsightsHomePageData,
-  ourServies,
+   ourServies,
 } from "@/components/shared/DreamItData";
 import BlogsList from "@/components/blogs/BlogsList";
 import { AHD_HOST, PREVIEW } from "@/utils/constant";
@@ -57,10 +55,7 @@ export default function Home({ blogs, pageInfo }: any) {
         <Expertise />
         <AboutUsSection />
         <Testimonial />
-        {/* <IndustryInsights
-          data={industryInsightsHomePageData}
-          showBackground={true}
-        /> */}
+        
         <BlogsList
           data={blogsRecords}
           showBackground={true}

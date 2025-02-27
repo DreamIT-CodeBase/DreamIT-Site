@@ -1,5 +1,4 @@
-import { Tag } from "antd";
-import Link from "next/link";
+ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -17,7 +16,7 @@ const CaseStudyList = ({ data }: any) => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
+debugger
   return (
     <section className="container xl:pt-14 lg:pt-14 md:pt-0 sm:pt-5 xs:pt-5 pb-24">
       <div className="text-center">
@@ -60,15 +59,11 @@ const CaseStudyList = ({ data }: any) => {
                     loading="lazy"
                   />
                   <div className="flex flex-wrap gap-3 mb-3">
-                    <Tag className=" bg-[#D6F1FF] border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
-                      Financial Services
-                    </Tag>
-                    <Tag className="bg-[#D6F1FF]  border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
-                      AWS
-                    </Tag>
-                    <Tag className="bg-[#D6F1FF]  border-0 py-1 px-3 text-[16px] font-semibold rounded-2xl">
-                      CloudMigrate Pro
-                    </Tag>
+                    {item.tags.map((tag:any) => (
+                      <span key={tag} className="bg-[#D6F1FF] py-1 px-3 text-[16px] font-semibold rounded-2xl">
+                        {tag.toUpperCase()}
+                      </span>
+                    ))}
                   </div>
 
                   <div className="flex flex-col items-start gap-3 justify-between mt-4">

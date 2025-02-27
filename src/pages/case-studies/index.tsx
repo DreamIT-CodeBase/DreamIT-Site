@@ -3,8 +3,8 @@ import Layout from "@/components/layout/Layout";
 import { AHD_HOST, PREVIEW } from "@/utils/constant";
 import React, { useEffect, useState } from "react";
 
-const CaseStudyLi = ({ blogs }: any) => {
-  const [caseStudyRecords, setCaseStudyRecords] = useState(() => blogs);
+const CaseStudyLi = ({ caseStudies }: any) => {
+  const [caseStudyRecords, setCaseStudyRecords] = useState(() => caseStudies);
 
   useEffect(() => {
     const fetcher = async () => {
@@ -42,7 +42,7 @@ export default CaseStudyLi;
 export const getStaticProps = async () => {
   const pageSlug = "website-case-studies";
   let faqs = [];
-  let blogs = [];
+  let caseStudies = [];
   let pageInfo = {};
   let error = null;
 
@@ -57,16 +57,16 @@ export const getStaticProps = async () => {
 
     faqs = await resFaqs.json();
 
-    const resOfBlogs = await fetch(
+    const resOfCaseStudy = await fetch(
       `${AHD_HOST}/page?filter[groups][]=case-studies&orderBy=&limit=50&offset=0`
     );
 
-    if (!resOfBlogs.ok) {
-      throw new Error(`Failed to fetch blogs: ${resOfBlogs.statusText}`);
+    if (!resOfCaseStudy.ok) {
+      throw new Error(`Failed to fetch blogs: ${resOfCaseStudy.statusText}`);
     }
 
-    const blogsData = await resOfBlogs.json();
-    blogs = blogsData?.rows || [];
+    const caseStudyData = await resOfCaseStudy.json();
+    caseStudies = caseStudyData?.rows || [];
 
     const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
 
@@ -80,5 +80,5 @@ export const getStaticProps = async () => {
     error = ex.message;
   }
 
-  return { props: { faqs, pageInfo, blogs, error } };
+  return { props: { faqs, pageInfo, caseStudies, error } };
 };

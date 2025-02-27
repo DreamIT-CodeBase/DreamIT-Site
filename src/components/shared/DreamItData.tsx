@@ -24,86 +24,7 @@ tag:"CAREER PAGE",
   image: "/assets/images/career-page-hero-section.webp",
 };
 
-export const industryInsightsHomePageData = {
-  tag: "BLOGS",
-  title: "Future-Focused Insights For Your Industry",
-  backgroundImage: "/assets/images/background-stripes.png",
-  backgroundPosition: "unset",
-  showTags: false,
-  showItTrends: true,
-  features: [ 
-    {
-      imageSrc: "/assets/images/industryImage1.webp",
-      quote:
-        "The Future of AI: How Artificial Intelligence is Reshaping IT",
-    },
-    {
-      imageSrc: "/assets/images/industryImage2.webp",
-      quote:
-        "Quantum Computing: Hype or Reality?",
-    },
-    {
-      imageSrc: "/assets/images/industryImage3.webp",
-      quote:
-        "Cloud Computing in 2025: Trends and Predictions",
-    },
-  ],
-};
-
-export const industryInsightsBlogsData = {
-  tag: "BLOGS",
-  title: "Future-Focused Insights For Your Industry",
-  backgroundImage: "/assets/images/success-stories-bg.webp",
-  backgroundPosition: "unset",
-  showTags: false,
-  showItTrends: true,
-  features: [
-    {
-      imageSrc: "/assets/images/industryImage1.png",
-      quote:
-        "The Future of AI: How Artificial Intelligence is Reshaping IT",
-    },
-    {
-      imageSrc: "/assets/images/industryImage2.webp",
-      quote:
-        "Quantum Computing: Hype or Reality?",
-    },
-    {
-      imageSrc: "/assets/images/industryImage3.webp",
-      quote:
-        "Cloud Computing in 2025: Trends and Predictions",
-    },
-  ],
-};
-
-export const successStoriesData = {
-  tag: "SUCCESS STORIES",
-  title: "Real Results, Real Impact: This Is How We Drive Success",
-  backgroundImage: "/assets/images/success-stories-bg.webp",
-  description:
-    "Every project is a journey of growth and innovation, showcasing the challenges we’ve overcome and the results achieved",
-  showTags: true,
-  backgroundPosition: "center",
-
-  showItTrends: false,
-  features: [
-    {
-      imageSrc: "/assets/images/industryImage1.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage2.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage3.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-  ],
-};
+ 
  
 export const ourServies = {
   tag: "OUR SERVICES",
@@ -217,82 +138,9 @@ export const ourServiesDetails = {
     },
   ],
 };
-export const newServices = {
-  tag: " ",
-  title: " ",
-  backgroundImage: " ",
-  ourServiesFeatures: [
-    {
-      src: "/assets/images/process-automation.png",
-      title: "Process Automation",
-      subtitle: "Streamline your workflows and improve efficiency.",
-    },
-    {
-      src: "/assets/images/planning-implementation.png",
-      title: "Enterprise Resource Planning Implementation",
-      subtitle: "Integrate and automate critical business functions.",
-    },
-    {
-      src: "/assets/images/digital-consulting.png",
-      title: "Digital  Transformation Consulting",
-      subtitle:
-        "Drive innovation and efficiency by leveraging the Microsoft ecosystem of tools for end-to-end digital transformation.",
-    },
-    {
-      src: "/assets/images/transformation-consulting.png",
-      title: "Digital  Transformation Consulting",
-      subtitle:
-        "Drive innovation and efficiency by leveraging the Microsoft ecosystem of tools for end-to-end digital transformation.",
-    },
-    {
-      src: "/assets/images/process-automation.png",
-      title: "Process Automation",
-      subtitle: "Streamline your workflows and improve efficiency.",
-    },
-    {
-      src: "/assets/images/planning-implementation.png",
-      title: "Enterprise Resource Planning Implementation",
-      subtitle: "Integrate and automate critical business functions.",
-    },
-  ],
-};
+ 
 
-export const industryInsightsPageData = {
-  tag: "INDUSTRY INSIGHTS",
-
-  title: "Future-Focused Insights For Your Industry",
-  backgroundImage: "/assets/images/industry-insights-background2.png",
-  backgroundPosition: "center",
-  showTags: false,
-  showItTrends: true,
-  features: [
-    {
-      imageSrc: "/assets/images/industryImage1.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage2.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage3.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage1.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-    {
-      imageSrc: "/assets/images/industryImage2.png",
-      quote:
-        "Dive into expert insights, trends, and strategies shaping the future",
-    },
-  ],
-}; 
+ 
 
 export const serviceDetails: any = [
   {
