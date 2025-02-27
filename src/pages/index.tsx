@@ -15,7 +15,7 @@ import BlogsList from "@/components/blogs/BlogsList";
 import { AHD_HOST, PREVIEW } from "@/utils/constant";
 import { useEffect, useState } from "react";
 
-export default function Home({ blogs }: any) {
+export default function Home({ blogs, pageInfo }: any) {
   const [blogsRecords, setBlogsRecords] = useState(blogs || []);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function Home({ blogs }: any) {
   }, []);
   return (
     <>
-      <Layout>
+      <Layout pageInfo={pageInfo}>
         <div className="bg-[#F9FDFF]">
           <HeroSection />
           <DataDrivenSolutions />
@@ -61,7 +61,11 @@ export default function Home({ blogs }: any) {
           data={industryInsightsHomePageData}
           showBackground={true}
         /> */}
-        <BlogsList data={blogsRecords} showBackground={true} backgroundImageUrl='/assets/images/background-stripes.png'/>
+        <BlogsList
+          data={blogsRecords}
+          showBackground={true}
+          backgroundImageUrl="/assets/images/background-stripes.png"
+        />
 
         <ContactForm showContactFormLeftSection="true" />
       </Layout>

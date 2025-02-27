@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { AHD_HOST } from "../../utils/constant";
 import Layout from "@/components/layout/Layout";
-import { BlogDetails } from "@/components/blogs/BlogsDetails";
-import BlogsList from "@/components/blogs/BlogsList";
-// import { SectionContent } from "@/components/content";
-// import ShareWithFriends from "@/components/shared/ShareWithFriends";
-// import AuthorDetails from "@/components/shared/AuthorDetails";
-// import { Col, Row } from "antd";
+import { AHD_HOST } from "@/utils/constant";
+import React, { useEffect, useState } from "react";
 
-const BlogArticle = ({ pageInfo, pageSlug, blogs }: any) => {
+const CaseStudyArticle = ({ pageInfo, pageSlug }: any) => {
   const [pageData, setPageData] = useState(() => pageInfo);
   const [error, setError] = useState<any>(null);
   console.log(error);
+  console.log(pageData);
+  
   useEffect(() => {
     const fetcher = async () => {
       try {
@@ -32,28 +28,10 @@ const BlogArticle = ({ pageInfo, pageSlug, blogs }: any) => {
     }
   }, [pageSlug]);
 
-  return (
-    <Layout>
-      <BlogDetails post={pageData} featureBlogsData={blogs} />
-      {/* <Row className="container flex-col">
-        <Col xl={15} lg={15} md={24} sm={24} xs={24}>
-          <SectionContent
-            editor={pageData?.editor}
-            sections={pageData?.sections}
-          />
-          <ShareWithFriends />
-          <AuthorDetails />
-        </Col>{" "}
-      </Row> */}
-
-      <BlogsList
-        data={blogs}
-        showBackground={true}
-        backgroundImageUrl="/assets/images/background-stripes.png"
-      />
-    </Layout>
-  );
+  return <Layout></Layout>;
 };
+
+export default CaseStudyArticle;
 
 export const getStaticProps = async ({ params }: any) => {
   const pageSlug = params.slug;
@@ -73,11 +51,11 @@ export const getStaticProps = async ({ params }: any) => {
     const pageInfo = await pageRes.json();
 
     const resOfCaseStudies = await fetch(
-      `${AHD_HOST}/page?filter[groups][]=blogs`
+      `${AHD_HOST}/page?filter[groups][]=case-studies`
     );
-    const blogs = await resOfCaseStudies?.json();
+    const caseStudy = await resOfCaseStudies?.json();
 
-    return { props: { contentFaqs, pageInfo, pageSlug, blogs: blogs?.rows } };
+    return { props: { contentFaqs, pageInfo, pageSlug, caseStudy: caseStudy?.rows } };
   } catch (err) {
     console.error("Error fetching data for static props:", err);
     return {
@@ -88,7 +66,9 @@ export const getStaticProps = async ({ params }: any) => {
 
 export const getStaticPaths = async () => {
   try {
-    const blogRes = await fetch(`${AHD_HOST}/page?filter[groups][]=blogs`);
+    const blogRes = await fetch(
+      `${AHD_HOST}/page?filter[groups][]=case-studies`
+    );
     if (!blogRes.ok) {
       throw new Error(`Failed to fetch blog pages: ${blogRes.statusText}`);
     }
@@ -108,5 +88,3 @@ export const getStaticPaths = async () => {
     };
   }
 };
-
-export default BlogArticle;
