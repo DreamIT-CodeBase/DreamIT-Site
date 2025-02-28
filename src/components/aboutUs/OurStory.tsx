@@ -2,7 +2,7 @@ import React from "react";
 
 const OurStory = () => {
   return (
-    <section className="container   xl:py-16 lg:py-16 md:py-16 sm:py-8 xs:py-8  bg-white">
+    <section className="container  xl:py-16 lg:py-16 md:py-16 sm:py-8 xs:py-8  bg-white">
       <div className=" flex flex-col lg:flex-row xl:gap-16 lg:gap-16 md:lg-8 xs:gap-8 items-center">
         <div className="lg:w-1/2">
           <div>
@@ -14,7 +14,7 @@ const OurStory = () => {
           </div>
         </div>
 
-        <div className="lg:w-1/2 space-y-2">
+        <div className="lg:w-1/2 space-y-3">
           <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full ">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
               OUR STORY

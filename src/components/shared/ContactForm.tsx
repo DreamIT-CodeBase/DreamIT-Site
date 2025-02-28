@@ -84,7 +84,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                           })}
                           placeholder="john"
                           type="text"
-                          className="  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
+                          className="  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] focus:outline-none"
                         />
                         {errors.fullName?.message && (
                           <span className="text-red-500 text-sm">
@@ -105,7 +105,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                           })}
                           type="text"
                           placeholder="parker"
-                          className="  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
+                          className="  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] focus:outline-none"
                         />
                         {errors.lastName?.message && (
                           <span className="text-red-500 text-sm">
@@ -130,7 +130,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                           })}
                           type="email"
                           placeholder="john@gmail.com"
-                          className="  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
+                          className="  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] focus:outline-none"
                         />
                         {errors.email?.message && (
                           <span className="text-red-500 text-sm">
@@ -149,7 +149,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                           {...register("selectService", {
                             required: "Please select a service",
                           })}
-                          className="customSelectTag  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
+                          className="customSelectTag  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] focus:outline-none"
                         >
                           <option value="" disabled selected>
                             Please Select{" "}
@@ -192,7 +192,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                             required: "Messages is required",
                           })}
                           placeholder="Type here..."
-                          className="px-4 py-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none xl:min-h-[150px] lg:min-h-[150px] md:min-h-[150px] sm:min-h-[100px]"
+                          className="px-4 py-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032]focus:outline-none xl:min-h-[150px] lg:min-h-[150px] md:min-h-[150px] sm:min-h-[100px]"
                         ></textarea>
                         {errors.messages?.message && (
                           <span className="text-red-500 text-sm">

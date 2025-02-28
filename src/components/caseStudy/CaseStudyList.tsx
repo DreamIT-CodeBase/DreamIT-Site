@@ -40,7 +40,7 @@ const CaseStudyList = ({ data }: any) => {
             loop={true}
             centeredSlides={true}
             autoplay={{
-              delay: 2500000,
+              delay: 3500,
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
@@ -62,21 +62,30 @@ const CaseStudyList = ({ data }: any) => {
                       {item.tags.map((tag: any) => (
                         <span
                           key={tag}
-                          className="bg-[#D6F1FF] py-1 px-3 xl:text-[16px] lg:text-[16px] md:text-[14px] sm:text-[14px] xs:text-[14px] font-semibold rounded-2xl"
+                          className="bg-[#D6F1FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[10px] xs:text-[10px] font-semibold rounded-2xl"
                         >
                           {tag.toUpperCase()}
                         </span>
                       ))}
                     </div>
                     <div className="flex flex-col items-start gap-3 justify-between mt-4">
-                      <h6 className="text-left text-[#1c1c1c] font-semibold">
+                      <h6
+                        className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitBoxOrient: "vertical",
+                          WebkitLineClamp: 2,
+                          overflow: "hidden",
+                        }}
+                      >
                         {item.title}
                       </h6>
+
                       <div>
                         <img
                           src="/assets/icons/upward-arrow.svg"
                           alt="upward-icon"
-                          className="h-[30px] mr-0"
+                          className="h-[30px] blogs-upward-icon mr-0  "
                           loading="lazy"
                         />
                       </div>

@@ -53,9 +53,8 @@ const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
               },
             }}
             loop={true}
-            centeredSlides={true}
             autoplay={{
-              delay: 2500000,
+              delay: 3000,
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
@@ -81,14 +80,22 @@ const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
                     </div>
 
                     <div className="flex flex-col items-start gap-3 justify-between mt-4">
-                      <h6 className="text-left text-[#1c1c1c] font-semibold  ">
+                      <h6
+                        className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitBoxOrient: "vertical",
+                          WebkitLineClamp: 2,
+                          overflow: "hidden",
+                        }}
+                      >
                         {item.title}
                       </h6>
                       <div>
                         <img
                           src="/assets/icons/upward-arrow.svg"
                           alt="upward-icon"
-                          className="h-[30px] mr-0 "
+                          className="h-[30px] mr-0 blogs-upward-icon "
                           loading="lazy"
                         />
                       </div>

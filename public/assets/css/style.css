@@ -481,7 +481,7 @@ h6 {
   height: 100%;
   position: relative;
   margin: 0px 10px;
-  min-height: 475px;
+  min-height: 445px;
 }
 
 .swiper-pagination {
@@ -522,25 +522,41 @@ h6 {
   background: #00a9ff;
 }
 
+ 
+ 
+ 
 @media (max-width: 1442px) {
   .industry-insights-container {
-    min-height: 580px;
+    min-height: 460px;
   }
 }
 
 @media (max-width: 1025px) {
   .industry-insights-container {
-    min-height: 495px;
+    min-height: 485px;
   }
 }
 @media (max-width: 991px) {
   .industry-insights-container {
-    min-height: 430px;
+    min-height: 410px;
   }
 }
 @media (max-width: 640px) {
   .industry-insights-container {
     min-height: 400px;
+  }
+
+  .blogs-upward-icon {
+    height: 20px;
+  }
+}
+@media (max-width: 321px) {
+  .industry-insights-container {
+    min-height: 350px;
+  }
+
+  .blogs-upward-icon {
+    height: 20px;
   }
 }
 @media (max-width: 640px) {

@@ -3,21 +3,35 @@ import Marquee from "react-fast-marquee";
 
 const Expertise = () => {
   const logo1 = [
-    { src: "/assets/images/power-bi.png", alt: "Power BI" },
-    { src: "/assets/images/facebook-ads.png", alt: "Facebook Ads" },
-    {
-      src: "/assets/images/microsoft.png",
+    { src: "/assets/images/loker-logo6.png", alt: "Power BI" },
+    { src: "/assets/images/amazon-quicksight-logo7.png", alt: "Facebook Ads" },
+    { 
+      src: "/assets/images/knime.png",
       alt: "Microsoft Dynamics 365",
     },
-    { src: "/assets/images/power-apps.png", alt: "Power Apps" },
-    { src: "/assets/images/bing.png", alt: "Bing" },
-  ];
+    { src: "/assets/images/microsoft-fabric.png", alt: "Power Apps" },
+    { src: "/assets/images/microsoft-azure-logo2.png", alt: "Bing" },
+    { src: "/assets/images/databricks-logo.png", alt: "Bing" },
+    { src: "/assets/images/purview-logo4.png", alt: "Bing" },
+    { src: "/assets/images/dynamic-365-logo8.png", alt: "Bing" },
+    { src: "/assets/images/powerbi-logo5.png", alt: "Bing" },
+    { src: "/assets/images/power-automate.png", alt: "Bing" },
+    { src: "/assets/images/power-paltform.png", alt: "Bing" },
+    { src: "/assets/images/power-pages-logo.png", alt: "Bing" },
+  ]; 
   const logo2 = [
     { src: "/assets/images/google-ads.png", alt: "Google Ads" },
-    { src: "/assets/images/google-analytics.png", alt: "Microsoft Fabric" },
-    { src: "/assets/images/microsoft-fabric.png", alt: "Google Analytics" },
-    { src: "/assets/images/knime.png", alt: "KNIME" },
-    { src: "/assets/images/power-automate.png", alt: "Power Automate" },
+    { src: "/assets/images/bing.png", alt: "Microsoft Fabric" },
+    { src: "/assets/images/meta-ads.png", alt: "Google Analytics" },
+    { src: "/assets/images/linkedinAds-logo15.png", alt: "Google Analytics" },
+    { src: "/assets/images/google-analytics.png", alt: "KNIME" },
+    { src: "/assets/images/semrush-logo9.png", alt: "Power Automate" },
+    { src: "/assets/images/ahrefs-logo.png", alt: "Power Automate" },
+    { src: "/assets/images/moz-logo.png", alt: "Power Automate" },
+    { src: "/assets/images/hootsuite-logo16.png", alt: "Power Automate" },
+    { src: "/assets/images/canva-logo19.png", alt: "Power Automate" },
+    { src: "/assets/images/mailChimp-logo22.png", alt: "Power Automate" },
+    { src: "/assets/images/hubspot-logo23.png", alt: "Power Automate" },
   ];
 
   const allLogo1 = [...logo1, ...logo1];

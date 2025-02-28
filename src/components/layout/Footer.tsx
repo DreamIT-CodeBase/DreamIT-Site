@@ -27,12 +27,12 @@ const Footer = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex justify-between  xl:gap-28 lg:gap-28 md:gap-16 sm:gap-16 xs:gap-8">
+        <div className="flex justify-between  xl:gap-28 lg:gap-28 md:gap-16 sm:gap-20 xs:gap-8">
           <div className="flex  flex-col md:items-end mt-8 md:mt-0">
             <h3 className="text-lg mr-2 font-semibold mb-4 text-white">
               Discover
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
                 <Link href="/" className="text-gray-400 hover:text-white">
                   Home
@@ -78,8 +78,8 @@ const Footer = () => {
             <h3 className="text-lg text-left mr-2 font-semibold mb-4 text-white">
               Contact Us
             </h3>
-            <ul className="space-y-4">
-              <li className="flex p-medium gap-2">
+            <ul className="space-y-3">
+              <li className="flex p-medium gap-2 items-center">
                 <img
                   src="/assets/icons/call-icon.svg"
                   alt="call-icon"
@@ -88,21 +88,21 @@ const Footer = () => {
                 />
                 +91 94164-84500
               </li>
-              <li className="flex p-medium gap-2">
+              <li className="flex p-medium gap-2 items-center">
                 <img
                   src="/assets/icons/mail-icon.svg"
                   alt="call-icon"
-                  className="h-[20px]"
+                  className="h-[20px] mt-[2px]"
                   loading="lazy"
                 />
                 info@dreamitcs.com
               </li>
 
-              <li className="flex p-medium gap-2">
+              <li className="flex p-medium gap-2 items-start">
                 <img
                   src="/assets/icons/location-icon.svg"
                   alt="call-icon"
-                  className="h-[20px]"
+                  className="h-[20px] mt-[2px]"
                   loading="lazy"
                 />
                 1st Floor, Orchid Business
