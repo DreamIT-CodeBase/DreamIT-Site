@@ -46,10 +46,10 @@ const Layout = (props: any) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.jpg" />
 
-        <link
+        {/* <link
           href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css"
           rel="stylesheet"
-        />
+        /> */}
       </Head>
       <Header />
       <main className="flex-grow">{props.children}</main>

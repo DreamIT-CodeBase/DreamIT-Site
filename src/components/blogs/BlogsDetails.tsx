@@ -15,6 +15,8 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
           <Row gutter={[16, 16]} align={"top"} justify={"space-between"}>
             <Col xl={15} lg={15} md={24} sm={24} xs={24}>
               {" "}
+
+              <div className="">
               {post.tags.map((tag: any, index: number) => (
                 <Tag
                   key={index}
@@ -23,7 +25,7 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
                   {tag.toUpperCase()}
                 </Tag>
               ))}
-              <h1 className="font-bold leading-[33.6px] xl:text-[28px] lg:text-[28px] md:text-[28px] sm:text-[28px] xs:text-[28px] mb-2">
+              <h1 className="font-bold xl:leading-[33.6px] lg:leading-[33.6px] md:leading-[33.6px] sm:leading-[28.6px] xs:leading-[28.6px] xl:text-[28px] lg:text-[28px] md:text-[28px] sm:text-[20px] xs:text-[20px] mb-2">
                 {post.title}
               </h1>
               <div className="flex items-center gap-2">
@@ -44,6 +46,7 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
                   alt="Test Image"
                   className="w-full mt-4"
                 />
+              </div>
               </div>
               <div>
                 <SectionContent

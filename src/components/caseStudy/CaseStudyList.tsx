@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -7,6 +7,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const CaseStudyList = ({ data }: any) => {
+  const swiperRef = useRef<any>(null);
+
   return (
     <section className="container xl:pt-14 lg:pt-14 md:pt-0 sm:pt-5 xs:pt-5 pb-12">
       <div className="text-center">
@@ -21,8 +23,13 @@ const CaseStudyList = ({ data }: any) => {
           Real Results, Real Impact: This Is How We Drive Success
         </h2>
 
-        <div className="industry-insights-carousel">
+        <div
+          className="industry-insights-carousel"
+          onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+          onMouseLeave={() => swiperRef.current?.autoplay.start()}
+        >
           <Swiper
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
             breakpoints={{
               320: {
                 slidesPerView: 1,
