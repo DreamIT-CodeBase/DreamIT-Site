@@ -73,7 +73,7 @@ const OurTeam = () => {
 
   return (
     <div>
-      <section className="relative bg-black text-white container pt-60 xl:pb-[70px] lg:pb-[100px] md:pb-[120px] sm:pb-[80px] xs:pb-[70px]">
+      <section className="relative bg-black text-white container pt-60 xl:pb-[70px] lg:pb-[100px] md:pb-[120px] sm:pb-[50px] xs:pb-[40px]">
         <div className=" mx-auto text-center">
           <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full mb-3">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">

@@ -42,7 +42,7 @@ const Expertise = () => {
         <div className="py-8">
           <div className="flex flex-col items-center mb-12 mx-auto text-center">
             <div className=" relative inline-flex items-center justify-center px-6 py-2 rounded-full bg-[#4C6FFF30] mb-4">
-              <span className="text-18   font-bold   text-white">
+              <span className=" lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold  text-white">
                 EXPERTISE
               </span>
             </div>

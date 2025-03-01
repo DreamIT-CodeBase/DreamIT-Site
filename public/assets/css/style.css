@@ -824,6 +824,11 @@ h6 {
   border-radius: 18px;
 }
 
+@media (max-width: 425px) {
+  .our-mission-and-vision-gradient {
+    height: 165px !important;
+  }
+}
 @media (max-width: 376px) {
   .our-mission-and-vision-gradient {
     height: 170px !important;

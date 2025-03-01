@@ -69,7 +69,7 @@ const CaseStudyList = ({ data }: any) => {
                       {item.tags.map((tag: any) => (
                         <span
                           key={tag}
-                          className="bg-[#D6F1FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[10px] xs:text-[10px] font-semibold rounded-2xl"
+                          className="bg-[#D6F1FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[12px] font-semibold rounded-2xl"
                         >
                           {tag.toUpperCase()}
                         </span>

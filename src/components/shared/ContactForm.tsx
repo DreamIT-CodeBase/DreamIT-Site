@@ -192,7 +192,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                             required: "Messages is required",
                           })}
                           placeholder="Type here..."
-                          className="px-4 py-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032]focus:outline-none xl:min-h-[150px] lg:min-h-[150px] md:min-h-[150px] sm:min-h-[100px]"
+                          className="px-4 py-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] focus:outline-none xl:min-h-[150px] lg:min-h-[150px] md:min-h-[150px] sm:min-h-[100px]"
                         ></textarea>
                         {errors.messages?.message && (
                           <span className="text-red-500 text-sm">

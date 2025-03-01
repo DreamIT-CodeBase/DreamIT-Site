@@ -18,7 +18,7 @@ const CommonHeroSection = ({ servicedata }: any) => {
               </h6>
               <button
                 onClick={() => setIsModalVisible(true)}
-                className="bg-white flex gap-2 max-w-[186px] items-center text-black-700 hover:text-black-700 py-3 text-[18px] px-6 font-bold rounded-[10px] border-[2px] border-[#eaeaea] transition-transform duration-300 hover:scale-105 xl:mt-6 lg:mt-6 md:mt-4 sm:mt-4 xs:mt-4 cursor-pointer"
+                className="bg-white flex gap-2 max-w-[186px] items-center text-black-700 hover:text-black-700 py-3 text-[18px] px-6 font-bold rounded-[10px] border-[2px] border-[#eaeaea] transition-transform duration-300 hover:scale-105 xl:mt-6 lg:mt-6 md:mt-4 sm:mt-4 xs:mt-4 cursor-pointer xl:text-[18px] lg:text-[18px] md:text-[16px] sm:text-[15px] xs:text-[15px]"
               >
                 Get Started
                 <FaArrowRightLong />

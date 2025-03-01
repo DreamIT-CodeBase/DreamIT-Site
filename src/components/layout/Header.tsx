@@ -48,7 +48,7 @@ const Header = () => {
         </Link>
         <button onClick={toggleDrawer} aria-label="Toggle menu">
           <svg
-            className={`w-6 h-6 text-gray-500 hover:text-gray-700 transition-transform duration-300 ${
+            className={`w-6 h-6 text-black-100 hover:text-gray-700 transition-transform duration-300 ${
               isDrawerVisible ? "rotate-90" : ""
             }`}
             fill="none"

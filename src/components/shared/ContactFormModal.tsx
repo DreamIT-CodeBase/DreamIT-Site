@@ -81,7 +81,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
                     })}
                     placeholder="john"
                     type="text"
-                    className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
+                    className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] focus:outline-none"
                   />
                   {errors.fullName?.message && (
                     <span className="text-red-500 text-sm">
@@ -102,7 +102,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
                     })}
                     type="text"
                     placeholder="parker"
-                    className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
+                    className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] focus:outline-none"
                   />
                   {errors.lastName?.message && (
                     <span className="text-red-500 text-sm">
@@ -127,7 +127,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
                     })}
                     type="email"
                     placeholder="john@gmail.com"
-                    className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none"
+                    className="h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] focus:outline-none"
                   />
                   {errors.email?.message && (
                     <span className="text-red-500 text-sm">
@@ -146,7 +146,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
                     {...register("selectService", {
                       required: "Please select a service",
                     })}
-                    className="h-[60px] customSelectTag px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 out"
+                    className="h-[60px] customSelectTag px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] out"
                   >
                     <option value="" disabled selected>
                       Please Select{" "}
@@ -183,13 +183,13 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
                 <div className="form-group">
                   <label className="block text-sm font-bold text-gray-700">
                     Message
-                  </label>
+                  </label> s
                   <textarea
                     {...register("messages", {
                       required: "Messages is required",
                     })}
                     placeholder="Type here..."
-                    className="px-4 py-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none xl:min-h-[150px] lg:min-h-[150px] md:min-h-[150px] sm:min-h-[100px]"
+                    className="px-4 py-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] focus:outline-none xl:min-h-[150px] lg:min-h-[150px] md:min-h-[150px] sm:min-h-[100px]"
                   ></textarea>
                   {errors.messages?.message && (
                     <span className="text-red-500 text-sm">
