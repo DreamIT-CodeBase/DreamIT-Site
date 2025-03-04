@@ -75,7 +75,7 @@ const OurTeam = () => {
     <div>
       <section className="relative bg-black text-white container pt-60 xl:pb-[70px] lg:pb-[100px] md:pb-[120px] sm:pb-[50px] xs:pb-[40px]">
         <div className=" mx-auto text-center">
-          <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full mb-3">
+          <div className="relative inline-block bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full mb-3">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
               OUR TEAM
             </span>
@@ -83,7 +83,7 @@ const OurTeam = () => {
 
           <h2 className=" mb-3">The Team At The Core</h2>
 
-          <p className="text-gray-800 xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] max-w-3xl mx-auto">
+          <p className="text-gray-800 xl:text-20 lg:text-16 md:text-16 sm:text-[13px] xs:text-[13px] max-w-3xl mx-auto">
             A dynamic group of thinkers, doers and innovators. Our team is
             committed to unlocking new opportunities and achieving excellence
           </p>

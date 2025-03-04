@@ -45,7 +45,7 @@ const OurCoreValues = () => {
     >
       <section className="container pt-60 pb-60 ">
         <div className="text-center  xl:mb-10 lg:mb-10 md:mb-10 sm:mb-0 xs:mb-0">
-          <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full ">
+          <div className="relative inline-block bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full ">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-semibold">
               OUR CORE VALUES
             </span>
@@ -59,17 +59,17 @@ const OurCoreValues = () => {
           {values.map((value, index) => (
             <div
               key={index}
-              className="p-6 flex flex-col items-center justify-center minor-container xl:max-w-[340px] lg:max-w-[240px] md:max-w-[200px] sm:max-w-[190px] gap-2"
+              className="xl:p-6 lg:p-6 md:p-6 sm:p-3 xs:p-3 flex flex-col items-center justify-center   xl:max-w-[340px] lg:max-w-[240px] md:max-w-[200px] sm:max-w-[190px] gap-2"
             >
               <img
                 src={value.url}
                 alt={value.title}
-                className="xl:h-[80px] lg:h-[70px] md:h-[60px] sm:h-[50px] xs:h-[50px]"
+                className="xl:h-[80px] lg:h-[70px] md:h-[60px] sm:h-[60px] xs:h-[60px]"
               />
               <h6 className="mb-0 text-[#1c1c1c] font-bold mt-3 text-[22px] our-core-values-title">
                 {value.title}
               </h6>
-              <p className="text-[#072032] text-center  mb-0">
+              <p className="text-[#072032] text-center  xl:text-16 lg:text-16 md:text-16  sm:text-13 xs:text-13 mb-0">
                 {value.description}
               </p>
             </div>

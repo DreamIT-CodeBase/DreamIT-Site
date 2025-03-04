@@ -838,12 +838,12 @@ h6 {
 }
 @media (max-width: 376px) {
   .our-mission-and-vision-gradient {
-    height: 170px !important;
+    height: 155px !important;
   }
 }
 @media (max-width: 321px) {
   .our-mission-and-vision-gradient {
-    height: 210px !important;
+    height: 200px !important;
   }
 }
 
