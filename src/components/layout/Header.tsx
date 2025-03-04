@@ -41,38 +41,48 @@ const Header = () => {
       <div className="navbar-for-tab flex justify-between items-center p-4">
         <Link href="/">
           <img
-            className="w-24 h-auto"
-            src="/assets/icons/dreamItLogo.svg"
+            className=" dream-it-logo"
+            src="/assets/icons/dreamItLogo.png"
             alt="Logo"
           />
         </Link>
-        <button onClick={toggleDrawer} aria-label="Toggle menu">
-          <svg
-            className={`w-6 h-6 text-black-100 hover:text-gray-700 transition-transform duration-300 ${
-              isDrawerVisible ? "rotate-90" : ""
-            }`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+
+        <div className="flex justify-between items-center gap-4">
+          <button
+            onClick={() => setIsModalVisible(true)}
+            className=" bg-[#072032] max-w-[186px] items-center text-[#FFFFFF]   sm:px-4 xs:px-4   xl:px-6 lg:px-6 md:px-6  sm:py-2 xs:py-2   xl:py-3 lg:py-3 md:py-3 font-bold rounded-[7px]   transition-transform duration-300 hover:scale-105   cursor-pointer xl:text-[18px] lg:text-[18px] md:text-[16px] sm:text-[12px] xs:text-[12px] "
           >
-            {isDrawerVisible ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
-            )}
-          </svg>
-        </button>
+            Get Started
+          </button>
+
+          <button onClick={toggleDrawer} aria-label="Toggle menu">
+            <svg
+              className={`w-6 h-6 text-black-100 hover:text-gray-700 transition-transform duration-300 ${
+                isDrawerVisible ? "rotate-90" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {isDrawerVisible ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       <Drawer

@@ -5,10 +5,8 @@ import OurServies from "@/components/shared/OurServies";
 import Expertise from "@/components/home/Expertise";
 import AboutUsSection from "@/components/home/AboutUsSection";
 import Testimonial from "@/components/home/Testimonial";
- import ContactForm from "@/components/shared/ContactForm";
-import {
-   ourServies,
-} from "@/components/shared/DreamItData";
+import ContactForm from "@/components/shared/ContactForm";
+import { ourServies } from "@/components/shared/DreamItData";
 import BlogsList from "@/components/blogs/BlogsList";
 import { AHD_HOST, PREVIEW } from "@/utils/constant";
 import { useEffect, useState } from "react";
@@ -55,7 +53,7 @@ export default function Home({ blogs, pageInfo }: any) {
         <Expertise />
         <AboutUsSection />
         <Testimonial />
-        
+
         <BlogsList
           data={blogsRecords}
           showBackground={true}

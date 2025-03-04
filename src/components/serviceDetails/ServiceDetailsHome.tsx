@@ -1,28 +1,30 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import ContactFormModal from "../shared/ContactFormModal";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const CommonHeroSection = ({ servicedata }: any) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-   return (
+  return (
     <div className="service-details-hero-section-background-image">
       <div className="container pt-60 pb-60">
         <div className="flex items-start justify-between lg:flex-nowrap md:flex-nowrap  gap-6 xs:flex-wrap">
           <div className="xl:mt-[60px] lg:mt-[60px] md:mt-[60px] sm:mt-[0px]">
             <div>
-              <h2 className=" max-w-[28rem]   text-black-700 ">
+              <h2 className=" max-w-[28rem]   text-black-700 hero-section-title">
                 {servicedata?.title}
               </h2>
-              <h6 className="xl:mt-4 lg:mt-4 md:mt-4 sm:mt-4 xs:mt-4 max-w-[30rem] ">
+              <h6 className="xl:mt-4 lg:mt-4 md:mt-4 sm:mt-4 xs:mt-4 max-w-[30rem] hero-section-subtitle">
                 {servicedata?.description}
               </h6>
-              <button
-                onClick={() => setIsModalVisible(true)}
-                className="bg-white flex gap-2 max-w-[186px] items-center text-black-700 hover:text-black-700 py-3 text-[18px] px-6 font-bold rounded-[10px] border-[2px] border-[#eaeaea] transition-transform duration-300 hover:scale-105 xl:mt-6 lg:mt-6 md:mt-4 sm:mt-4 xs:mt-4 cursor-pointer xl:text-[18px] lg:text-[18px] md:text-[16px] sm:text-[15px] xs:text-[15px]"
-              >
-                Get Started
-                <FaArrowRightLong />
-              </button>
+              <div className="flex xl:justify-start lg:justify-start md:justify-start sm:justify-center xs:justify-center align-middle sm:text-center xs:text-center xl:text-left lg:text-left md:text-left">
+                <button
+                  onClick={() => setIsModalVisible(true)}
+                  className="bg-white flex gap-2 max-w-[186px] items-center text-black-700 hover:text-black-700  sm:px-4 xs:px-4   xl:px-6 lg:px-6 md:px-6  sm:py-2 xs:py-2   xl:py-3 lg:py-3 md:py-3 font-bold rounded-[10px] border-[2px] border-[#eaeaea] transition-transform duration-300 hover:scale-105 xl:mt-6 lg:mt-6 md:mt-4 sm:mt-4 xs:mt-4 cursor-pointer xl:text-[18px] lg:text-[18px] md:text-[16px] sm:text-[12px] xs:text-[12px] "
+                >
+                  Get Started
+                  <FaArrowRightLong />
+                </button>
+              </div>
             </div>
           </div>
           <div>

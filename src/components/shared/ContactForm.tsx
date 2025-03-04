@@ -54,10 +54,12 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
 
             {showContactFormLeftSection && (
               <div className="w-full lg:w-1/2 xl:mb-8 lg:mb-0 md:mb-8 sm:mb-4 xs:mb-4">
-                <h2 className="text-left mb-4">We want to hear from you</h2>
-                <h6 className="max-w-3xl mb-5">
-                  Reach out to our team to ask a question or learn <br /> more
-                  about how we can support your business.
+                <h2 className="xl:text-left lg:text-left md:text-left sm:text-center mb-4 xs:text-center">
+                  We want to hear from you
+                </h2>
+                <h6 className="max-w-[30rem] mb-5 xl:text-left lg:text-left md:text-left sm:text-center  xs:text-center">
+                  Reach out to our team to ask a question or learn more about
+                  how we can support your business.
                 </h6>
                 <div className="xl:h-[271px] lg:h-[320px] md:h-[320px] sm:h-[250px] xl:w-[461px] lg:w-[461px]">
                   <iframe
@@ -70,7 +72,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
             )}
             {/* Right Column */}
             <div className="w-full lg:w-1/2 ">
-              <div className="bg-white px-8 py-10 rounded-[18px] shadow-lg ">
+              <div className="bg-white xl:px-8 lg:px-8 md:px-8 sm:px-5 xs:px-5 xl:py-10 lg:py-10 md:py-10 sm:py-5 xs:py-5 rounded-[18px] shadow-lg ">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="flex flex-wrap -mx-2">
                     <div className="w-full md:w-1/2 px-2 mb-4">

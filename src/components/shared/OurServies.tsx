@@ -10,17 +10,17 @@ const OurServies = ({ data, showTag, showTitle, showDescription }: any) => {
     <section className="text-white pt-60 pb-60">
       <div className="mx-auto text-center">
         {showTag && (
-          <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full mb-3">
-            <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
-              {data?.tag}
+          <div className="relative inline-flex justify-center align-middle bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-2 rounded-full xl:mb-[20px] lg:mb-[20px] md:mb-[20px] sm:mb-[12px] xs:mb-[12px]">
+            <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[10px] text-center font-bold mb-0">
+              {data.tag}
             </span>
           </div>
         )}
 
-        {showTitle && <h3 className="mb-3 px-2">{data?.title}</h3>}
+        {showTitle && <h3 className="mb-3 px-2 our-services-title">{data?.title}</h3>}
 
         {showDescription && (
-          <h6 className="mx-auto md:max-w-[53rem] px-2">{data?.subtitle}</h6>
+          <h6 className="mx-auto md:max-w-[53rem] px-2 text-[#596168]">{data?.subtitle}</h6>
         )}
       </div>
       <div className="bg-[url('/assets/images/background-stripes.webp')] bg-cover bg-center">

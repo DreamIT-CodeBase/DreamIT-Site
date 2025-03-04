@@ -40,7 +40,7 @@ const Expertise = () => {
     <div>
       <section className="w-full xl:py-16 lg:py-16 md:py-16    bg-[#072032] bg-cover bg-center">
         <div className="py-8">
-          <div className="flex flex-col items-center mb-12 mx-auto text-center">
+          <div className="flex flex-col items-center xl:mb-12 lg:mb-12 md:mb-12 sm:mb-6 xs:mb-6 mx-auto text-center">
             <div className=" relative inline-flex items-center justify-center px-6 py-2 rounded-full bg-[#4C6FFF30] mb-4">
               <span className=" lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold  text-white">
                 EXPERTISE
@@ -57,8 +57,8 @@ const Expertise = () => {
             </h6>
           </div>
 
-          <div className="xl:mb-12 lg:mb-12  xs:mb-8 sm:mb-8">
-            <Marquee speed={70}>
+          <div className="xl:mb-12 lg:mb-12  xs:mb-6 sm:mb-6">
+            <Marquee speed={50}>
               <div className="flex  items-center">
                 {allLogo1.map((logo, index) => (
                   <div key={index}>
@@ -74,7 +74,7 @@ const Expertise = () => {
             </Marquee>
           </div>
           <div >
-            <Marquee speed={70} direction="right">
+            <Marquee speed={50} direction="right">
               <div className="flex items-center">
                 {allLogo2.map((logo, index) => (
                   <div key={index}>

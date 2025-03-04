@@ -24,7 +24,7 @@ const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
     >
       <div className="text-center">
         <div className="flex justify-center text-center mb-4">
-          <div className="relative inline-block text-center bg-[#ECF9FF] px-5 py-2 rounded-full">
+          <div className="relative inline-block text-center bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-1 xs:py-[4px] rounded-full">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
               BLOGS{" "}
             </span>
@@ -81,7 +81,7 @@ const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
                     />
 
                     <div className="relative table-cell bg-[#FFFFFF] mt-4 px-4 py-1 rounded-full border-[2px] border-[#eaeaea]">
-                      <span className="text-[#072032]  text-center font-semibold">
+                      <span className="text-[#072032]  text-[13px] text-center font-semibold">
                         IT TRENDS
                       </span>
                     </div>

@@ -39,25 +39,25 @@ const AboutUsSection = () => {
             md={12}
             sm={24}
             xs={24}
-            className="xl:space-y-4 lg:space-y-4 sm:space-y-3 xs:space-y-3"
+            className="xl:space-y-4 lg:space-y-4 sm:space-y-3 xs:space-y-3 sm:text-center xs:text-center xl:text-left lg:text-left md:text-left "
           >
-            <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full">
-              <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold ">
+            <div className="relative inline-flex justify-center align-middle bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full  ">
+              <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[10px] text-center font-bold mb-0">
                 ABOUT US
               </span>
             </div>
 
-            <h2 className="font-bold">
+            <h2 className="font-bold   about-us-section-title ">
               Turning Data Into Stories That Drive Success
             </h2>
 
-            <h6 className="xl:text-20 text-[#1C1C1C] lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px]">
+            <h6 className="xl:text-20 text-[#596168] lg:text-16 md:text-16  about-use-section-subtitle">
               At Dream IT, we specialize in helping businesses thrive through
               cutting-edge technology solutions like Cloud Data Management,
               Advanced Analytics & Visualisation, Digital Marketing, and more.
             </h6>
 
-            <div className="space-y-4">
+            <div className="xl:space-y-4 lg:space-y-4 md:space-y-4 sm:space-y-2 xs:space-y-2 sm:text-left xs:text-left xl:text-left lg:text-left md:text-left">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <div className="flex-shrink-0">
@@ -69,10 +69,10 @@ const AboutUsSection = () => {
                     />
                   </div>
                   <div>
-                    <span className="lg:text-18 text-black-100 font-bold ">
+                    <span className="xl:text-18 lg:text-18 md:text-18 sm:text-14 xs:text-13  text-black-100 font-bold ">
                       {feature.title}
                     </span>{" "}
-                    <span className="lg:text-18 text-gray-800 ">
+                    <span className="xl:text-18 lg:text-18 md:text-18 sm:text-14 xs:text-13 text-gray-800 ">
                       {feature.description}
                     </span>
                   </div>
@@ -80,9 +80,9 @@ const AboutUsSection = () => {
               ))}
             </div>
 
-            <div style={{ marginTop: "2.2rem" }}>
+            <div style={{ marginTop: "2rem" }} className="">
               <Link
-                className="bg-[#072032] text-white py-3 px-6 text-lg sm:text-base xs:text-base md:text-lg lg:text-xl xl:text-xl hover:text-[#FFFFFF] font-bold rounded-lg transition-transform duration-300 hover:scale-105"
+                className="bg-[#072032] text-white py-3 px-6 text-lg  xl:text-[18px] lg:text-[18px] md:text-[16px] sm:text-[12px] xs:text-[12px]  hover:text-[#FFFFFF] font-bold rounded-lg transition-transform duration-300 hover:scale-105"
                 href="/about-us"
               >
                 Know More

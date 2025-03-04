@@ -37,6 +37,13 @@ module.exports = {
         56: "56px",
       },
       fontSize: {
+        13: [
+          "13px",
+          {
+            lineHeight: "15.6px",
+            fontWeight: "500",
+          },
+        ],
         14: [
           "14px",
           {
