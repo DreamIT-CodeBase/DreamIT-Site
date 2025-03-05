@@ -519,6 +519,36 @@ h6 {
   z-index: 10000 !important;
 }
 
+.testimonial-crousal{
+
+  .swiper-pagination {
+     display: none !important;
+   }
+ 
+
+  @media(max-width:640px){
+    
+  .swiper-pagination {
+    position: absolute;
+    bottom: 0px !important;
+    display: block !important;
+    z-index: 1000 !important;
+  }
+  .swiper-pagination-bullet {
+    background: #072032 !important;
+    height: 8px !important;
+    width: 24px !important;
+    border-radius: 20px;
+    box-shadow: none !important;
+  }
+  
+  .swiper {
+    padding: 0px 0px 40px 0px !important;
+  }
+
+  }
+}
+
 .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #00a9ff;
   text-shadow: 0 0 0.25px currentcolor;
