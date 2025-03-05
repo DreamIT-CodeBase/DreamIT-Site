@@ -546,6 +546,10 @@ h6 {
     padding: 0px 0px 40px 0px !important;
   }
 
+  .testimonial-navigation-arrow{
+    display: none;
+  }
+
   }
 }
 

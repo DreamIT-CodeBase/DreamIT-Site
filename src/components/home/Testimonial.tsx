@@ -52,7 +52,7 @@ const Testimonial = () => {
         <div className="relative max-w-3xl mx-auto">
           {/* Prev Button */}
           <button
-            className="absolute xl:left-[-200px] lg:left-[-100px] md:left-[-100px] sm:left-[120px] xs:left-[70px] xl:top-[35%] lg:top-[35%] md:top-[35%] sm:top-[92%] xs:top-[93%] z-10"
+            className="absolute xl:left-[-200px] lg:left-[-100px] md:left-[-100px] sm:left-[120px] xs:left-[70px] xl:top-[35%] lg:top-[35%] md:top-[35%] sm:top-[92%] xs:top-[93%] z-10 testimonial-navigation-arrow"
             aria-label="Previous slide"
             onClick={handlePrev}
           >
@@ -106,7 +106,7 @@ const Testimonial = () => {
 
           {/* Next Button */}
           <button
-            className="absolute xl:right-[-200px] lg:right-[-100px] md:right-[5px] sm:right-[120px] xs:right-[70px]  xl:top-[35%] lg:top-[35%] md:top-[35%] sm:top-[92%] xs:top-[93%] z-10  "
+            className="absolute xl:right-[-200px] lg:right-[-100px] md:right-[5px] sm:right-[120px] xs:right-[70px]  xl:top-[35%] lg:top-[35%] md:top-[35%] sm:top-[92%] xs:top-[93%] z-10 testimonial-navigation-arrow "
             aria-label="Next slide"
             onClick={handleNext}
           >
