@@ -15,9 +15,9 @@ const services = ({pageInfo}:any) => {
       <CommonHeroSection data={servicesHeroSectionContent} />
       <OurServies
         data={ourServies}
-        showTag={false}
-        showTitle={false}
-        showDescription={false}
+        showTag={true}
+        showTitle={true}
+        showDescription={true}
       />
       <OurCommitment />
     </Layout>

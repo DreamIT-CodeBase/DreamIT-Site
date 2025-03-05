@@ -123,7 +123,7 @@ const DataDrivenSolutions = ({ showInsightsIndustries = false }: any) => {
             <div className="flex flex-wrap justify-center gap-7 ml-5 mr-5">
               {industries2.map(({ name, src }) => (
                 <div key={name}>
-                  <img alt={name} src={src} />
+                  <img alt={name} src={src} className="industries-logo"/>
                 </div>
               ))}
             </div>

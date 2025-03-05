@@ -49,12 +49,12 @@ const CurrentOpenings = () => {
         className="container pt-60 pb-60 text-center bg-[url('/assets/images/home-page-her-section-background.webp')] bg-cover bg-bottom"
         id="jobOpening "
       >
-        <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full mb-3 ">
+        <div className="relative inline-block bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full mb-3 ">
           <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
             CURRENT OPENINGS
           </span>
         </div>
-        <h2 className="mb-12 max-w-[64rem] m-auto">
+        <h2 className="xl:mb-12 lg:mb-12 md:mb-12 sm:mb-2 xs:mb-2 max-w-[64rem] m-auto">
           We’re growing exponentially, so there are plenty of new roles across
           the globe.
         </h2>
@@ -65,11 +65,11 @@ const CurrentOpenings = () => {
               <Row
                 align={"bottom"}
                 justify={"center"}
-                className=" w-full lg:gap-6 md:gap-4 sm:gap-4 xs:gap-4 rounded-2xl   pt-8 pb-8 pl-8 pr-8 bg-transparent"
+                className=" w-full lg:gap-6 md:gap-4 sm:gap-4 xs:gap-4 rounded-2xl   xl:pt-8 lg:pt-8 md:pt-8 sm:pt-4 xs:pt-4 xl:pb-8 lg:pb-8 md:pb-8 sm:pb-6 xs:pb-6 xl:pl-8 lg:pl-8 md:pl-8 sm:pl-4 xs:pl-4 xl:pr-8 lg:pr-8 md:pr-8 sm:pr-4 xs:pr-4 bg-transparent"
                 style={{ backdropFilter: "blur(18.899999618530273px)" }}
               >
                 <Col lg={10} md={24} sm={24} xs={24}>
-                  <h2 className="text-lg font-semibold mb-2 text-black-100">
+                  <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
                     Select Job Category
                   </h2>
                   <input
@@ -81,7 +81,7 @@ const CurrentOpenings = () => {
                   />
                 </Col>
                 <Col lg={10} md={24} sm={24} xs={24}>
-                  <h2 className="text-lg font-semibold mb-2 text-black-100">
+                  <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
                     Upload Resume
                   </h2>
                   <div className="relative">
@@ -102,7 +102,7 @@ const CurrentOpenings = () => {
                   </div>
                 </Col>
                 <button
-                  className="bg-[#072032] text-white py-2 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-sm xl:text-sm font-500 rounded-lg transition-transform duration-300 hover:scale-105 flex gap-2 items-center"
+                  className="bg-[#072032] text-white py-2 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-sm xl:text-sm font-500 rounded-lg transition-transform duration-300 hover:scale-105 flex gap-2 items-center form-submit-button"
                   aria-label="Continue"
                 >
                   Submit

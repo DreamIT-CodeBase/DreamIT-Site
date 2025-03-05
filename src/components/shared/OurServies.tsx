@@ -17,10 +17,14 @@ const OurServies = ({ data, showTag, showTitle, showDescription }: any) => {
           </div>
         )}
 
-        {showTitle && <h3 className="mb-3 px-2 our-services-title">{data?.title}</h3>}
+        {showTitle && (
+          <h3 className="mb-3 px-2 our-services-title">{data?.title}</h3>
+        )}
 
         {showDescription && (
-          <h6 className="mx-auto md:max-w-[53rem] px-2 text-[#596168]">{data?.subtitle}</h6>
+          <h6 className="mx-auto md:max-w-[53rem] px-2 text-[#596168]">
+            {data?.subtitle}
+          </h6>
         )}
       </div>
       <div className="bg-[url('/assets/images/background-stripes.webp')] bg-cover bg-center">
@@ -108,6 +112,13 @@ const OurServies = ({ data, showTag, showTitle, showDescription }: any) => {
             )}
           </Swiper>
         </div>
+
+        <Link href="/services">
+          <div className="services-link-for-mobile text-[#072032] text-center font-bold text-[16.5px] flex items-center justify-center gap-2">
+            View & Explore all Services
+            <FaArrowRightLong />
+          </div>
+        </Link>
       </div>
     </section>
   );

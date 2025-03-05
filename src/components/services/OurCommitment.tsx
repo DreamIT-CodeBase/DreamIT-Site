@@ -29,7 +29,7 @@ const OurCommitment = () => {
   ];
   return (
     <div className="container bg-[#F9FDFF]">
-      <section className=" lg:py-24 md:py-20 sm:py-10 xs:py-10 bg-[#F9FDFF]">
+      <section className="xl:py-10 lg:py-12 md:py-12 sm:py-6 xs:py-6 bg-[#F9FDFF]">
         <div className="   sm:gap-8 xs:gap-8 md:gap-10 lg:gap-12 xl:gap-12 lg:grid-cols-2">
           <div className="text-center sm:space-y-2 xs:space-y-2 md:space-y-4 lg:space-y-4 xl:space-y-4">
             <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full">
@@ -38,7 +38,7 @@ const OurCommitment = () => {
               </span>
             </div>
             <h2>Data-Driven Success: From Information to Execution</h2>
-            <h6 className="max-w-[800px] m-auto xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px]">
+            <h6 className="max-w-[800px] text-[#596168] m-auto xl:text-20 lg:text-16 md:text-16 sm:text-13 xs:text-13">
               However, we are not static and limit ourselves to a specific
               field. We are dedicated to data visualization along with
               customized digital marketing services.
@@ -49,7 +49,7 @@ const OurCommitment = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="flex shadow-[0px_4px_16.5px_0px_rgba(49,112,144,0.11)] items-center gap-3 rounded-[18px]  bg-[#FFFFFF] py-8 px-6 "
+                className="flex shadow-[0px_4px_16.5px_0px_rgba(49,112,144,0.11)] items-center gap-3 rounded-[18px]  bg-[#FFFFFF] xl:py-8 lg:py-8 md:py-8 sm:py-4 xs:py-4 px-6 "
               >
                 <img
                   src={feature.icon}
@@ -61,7 +61,7 @@ const OurCommitment = () => {
                   <p className="mb-2 p-large font-semibold text-left  ">
                     {feature.title}
                   </p>
-                  <p className="text-16 text-gray-800 text-muted-foreground">
+                  <p className="xl:text-16 lg:text-16 md:text-16 sm:text-13 xs:text-13 text-gray-800 text-muted-foreground">
                     {feature.description}
                   </p>
                 </div>

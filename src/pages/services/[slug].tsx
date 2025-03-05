@@ -14,7 +14,7 @@ const ServiceDetailPage = ({ serviceDetails: service, caseStudy }: any) => {
   if (!service) {
     return <div>Service not found</div>;
   }
-
+ 
   return (
     <Layout>
       <ServiceDetailsHome servicedata={service} />

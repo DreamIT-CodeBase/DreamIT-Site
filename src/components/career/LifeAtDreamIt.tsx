@@ -26,15 +26,15 @@ const LifeAtDreamIt = () => {
   const allLogo1 = [...logo1, ...logo1];
   const allLogo2 = [...logo2, ...logo2];
   return (
-    <div className=" pt-60 pb-60">
+    <div className=" pat-30 pab-30">
       <div className="text-center  xl:mb-10 lg:mb-10 md:mb-10 sm:mb-4 xs:mb-4">
-        <div className="relative inline-block bg-[#ECF9FF] px-5 py-2 rounded-full ">
+        <div className="relative inline-block bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full ">
           <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
-            WHAT WE VALUE
+          LIFE AT DREAM IT
           </span>
         </div>
         <h2 className=" xl:mt-4 lg:mt-4 md:mt-6 max-w-[45rem] m-auto sm:mt-4 xs:mt-4  tracking-tight text-black-100">
-          Life at DreamIT
+        Celebrating Every Step
         </h2>
       </div>
 

@@ -10,10 +10,10 @@ const CaseStudyList = ({ data }: any) => {
   const swiperRef = useRef<any>(null);
 
   return (
-    <section className="container xl:pt-14 lg:pt-14 md:pt-0 sm:pt-5 xs:pt-5 pb-12">
+    <section className="container xl:pt-14 lg:pt-14 md:pt-0 sm:pt-5 xs:pt-5 pb-12 bg-[#F9FDFF]">
       <div className="text-center">
         <div className="flex justify-center text-center mb-4">
-          <div className="relative inline-block text-center bg-[#ECF9FF] px-5 py-2 rounded-full">
+          <div className="relative inline-block text-center bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
               SUCCESS STORIES
             </span>
@@ -69,7 +69,7 @@ const CaseStudyList = ({ data }: any) => {
                       {item.tags.map((tag: any) => (
                         <span
                           key={tag}
-                          className="bg-[#D6F1FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[12px] font-semibold rounded-2xl"
+                          className="bg-[#D6F1FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[12px] font-semibold rounded-2xl text-left"
                         >
                           {tag.toUpperCase()}
                         </span>

@@ -63,7 +63,7 @@ const OurTeam = () => {
       };
 
       swiperInstance.on("slideChange", updateNavigationState);
-      updateNavigationState(); // Initial state check
+      updateNavigationState();  
 
       return () => {
         swiperInstance.off("slideChange", updateNavigationState);
@@ -109,7 +109,7 @@ const OurTeam = () => {
           navigation={false}
           modules={[Navigation]}
           keyboard={{ enabled: true }}
-          className="mt-8"
+          className="xl:mt-8 lg:mt-8 md:mt-8 sm:mt-4 xs:mt-4"
         >
           {teamData.map((member, index) => (
             <SwiperSlide key={index}>
@@ -159,7 +159,7 @@ const OurTeam = () => {
           ))}
         </Swiper>
 
-        <div className="absolute left-[50%] translate-x-[-50%] xl:bottom-[-10px] lg:bottom-[20px] md:bottom-[40px] sm:bottom-[20px] xs:bottom-[0px] z-[1000] flex justify-center">
+        <div className="absolute left-[50%] translate-x-[-50%] xl:bottom-[-10px] lg:bottom-[20px] md:bottom-[40px] sm:bottom-[20px] xs:bottom-[20px] z-[1000] flex justify-center">
           <button
             className={`swiper-prev xl:px-4 xl:py-4 lg:px-4 lg:py-4 md:px-4 md:py-4 sm:px-3 sm:py-3 xs:px-3 xs:py-3 mx-2 rounded-full ${
               isBeginning
