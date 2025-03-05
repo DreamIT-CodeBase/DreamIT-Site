@@ -519,37 +519,33 @@ h6 {
   z-index: 10000 !important;
 }
 
-.testimonial-crousal{
-
+.testimonial-crousal {
   .swiper-pagination {
-     display: none !important;
-   }
- 
-
-  @media(max-width:640px){
-    
-  .swiper-pagination {
-    position: absolute;
-    bottom: 0px !important;
-    display: block !important;
-    z-index: 1000 !important;
-  }
-  .swiper-pagination-bullet {
-    background: #072032 !important;
-    height: 8px !important;
-    width: 24px !important;
-    border-radius: 20px;
-    box-shadow: none !important;
-  }
-  
-  .swiper {
-    padding: 0px 0px 40px 0px !important;
+    display: none !important;
   }
 
-  .testimonial-navigation-arrow{
-    display: none;
-  }
+  @media (max-width: 640px) {
+    .swiper-pagination {
+      position: absolute;
+      bottom: 0px !important;
+      display: block !important;
+      z-index: 1000 !important;
+    }
+    .swiper-pagination-bullet {
+      background: #072032 !important;
+      height: 8px !important;
+      width: 24px !important;
+      border-radius: 20px;
+      box-shadow: none !important;
+    }
 
+    .swiper {
+      padding: 0px 0px 40px 0px !important;
+    }
+
+    .testimonial-navigation-arrow {
+      display: none;
+    }
   }
 }
 
@@ -2059,11 +2055,10 @@ h6 {
   }
 }
 
-
-.technologies-logo-for-mobile{
+.technologies-logo-for-mobile {
   display: none;
 }
-.technologies-logo-for-web{
+.technologies-logo-for-web {
   display: block;
   margin-top: 20px;
 }
@@ -2157,12 +2152,11 @@ h6 {
     letter-spacing: 0%;
   }
 
-  .technologies-logo-for-mobile{
+  .technologies-logo-for-mobile {
     display: block;
     margin-top: 20px;
-
   }
-  .technologies-logo-for-web{
+  .technologies-logo-for-web {
     display: none;
   }
 }
@@ -2175,6 +2169,3 @@ h6 {
     text-align: center;
   }
 }
-
-
- 

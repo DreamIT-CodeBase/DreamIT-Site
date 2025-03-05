@@ -11,8 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Layout = (props: any) => {
   const router = useRouter();
   const metaData = props.pageInfo;
-
-  const baseUrl = "https://alpha-testing.web.app";
+   const baseUrl = "https://alpha-testing.web.app";
 
   const canonicalUrl = `${baseUrl}${router.asPath.split("?")[0]}`;
   const ogImageUrl =
