@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = ({ showContactFormLeftSection }: any) => {
-  const [loading, setloading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -14,37 +13,33 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
     reset,
   } = useForm();
 
-  const onSubmit = (data: any) => {
-    setloading(true);
-    const templateParams = {
-      to_name: "Ajay",
-      from_name: `${data.fullName} ${data.lastName}`,
-      email: data.email,
-      service: data.selectService,
-      message: data.messages,
-    };
+  const onSubmit = async (data: any) => {
+    setLoading(true);
 
-    emailjs
-      .send(
-        "service_toyjk5q",
-        "template_058i9mr",
-        templateParams,
-        "YOWspCaYbGjzx6IFK"
-      )
-      .then(
-        (response) => {
-          console.log("Email sent!", response);
-          toast.success("Form submitted successfully!");
-          setloading(false);
-          reset();
-        },
-        (error) => {
-          console.error("Error:", error);
-          setloading(false);
-          toast.error("Failed to send message.");
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/no-reply@dreamitcs.com",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
         }
       );
+
+      if (response.ok) {
+        toast.success("Form submitted successfully!");
+        reset();
+      } else {
+        toast.error("Failed to send message.");
+      }
+    } catch (error: any) {
+      toast.error("Something went wrong.");
+      console.log(error);
+    }
+
+    setLoading(false);
   };
+
   return (
     <div id="contactForm">
       <section className="w-full xl:py-20 lg:py-20 md:py-16 sm:py-8 xs:py-8 bg-white  bg-[url('/assets/images/contact-us-background.webp')] bg-cover bg-center">
