@@ -1,3 +1,4 @@
+import { LEAD_API } from "@/utils/constant";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,33 +14,74 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
     reset,
   } = useForm();
 
-  const onSubmit = async (data: any) => {
+  const postOnServer = (formData: FormData) => {
+    const formSubmissionData = Object.fromEntries(formData.entries());
+
+    const payload = {
+      firstName: formSubmissionData.firstName,
+      lastName: formSubmissionData.lastName,
+      email: formSubmissionData.email,
+      description: formSubmissionData.selectService,
+      source: "website",
+    };
+
+    const postData = {
+      ...payload,
+      messageInfo: {
+        text: `${formSubmissionData.messages} - ${formSubmissionData.selectService}`,
+      },
+
+      tags: ["LEAD FORM"],
+      sourceDetail: {
+        pageUrl: window.location.href,
+      },
+    };
+
     setLoading(true);
 
-    try {
-      const response = await fetch(
-        "https://formsubmit.co/no-reply@dreamitcs.com",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `${LEAD_API}/lead`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        setLoading(false);
+        if (xhr.status === 200) {
+          toast.success("Form submitted successfully!", {
+            autoClose: 3000,
+            closeOnClick: true,
+          });
+          reset();
+        } else {
+          const errorData = JSON.parse(xhr.responseText || "{}");
+          toast.error(
+            errorData?.message || "Submission failed. Try again later.",
+            {
+              autoClose: 3000,
+              closeOnClick: true,
+            }
+          );
         }
-      );
-
-      if (response.ok) {
-        toast.success("Form submitted successfully!");
-        reset();
-      } else {
-        toast.error("Failed to send message.");
       }
-    } catch (error: any) {
-      toast.error("Something went wrong.");
-      console.log(error);
-    }
+    };
 
-    setLoading(false);
+    xhr.onerror = function () {
+      setLoading(false);
+      toast.error("Network error. Please try again.");
+    };
+
+    xhr.send(JSON.stringify({ data: postData }));
   };
 
+  const onSubmit = (data: any) => {
+    const formDataAll = new FormData();
+    formDataAll.append("firstName", data.firstName);
+    formDataAll.append("lastName", data.lastName);
+    formDataAll.append("email", data.email);
+    formDataAll.append("selectService", data.selectService);
+    formDataAll.append("messages", data.messages);
+    postOnServer(formDataAll);
+  };
   return (
     <div id="contactForm">
       <section className="w-full xl:py-20 lg:py-20 md:py-16 sm:py-8 xs:py-8 bg-white  bg-[url('/assets/images/contact-us-background.webp')] bg-cover bg-center">
@@ -76,16 +118,16 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                           First Name:
                         </label>
                         <input
-                          {...register("fullName", {
+                          {...register("firstName", {
                             required: "First Name is required",
                           })}
                           placeholder="john"
                           type="text"
                           className="  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] focus:outline-none"
                         />
-                        {errors.fullName?.message && (
+                        {errors.firstName?.message && (
                           <span className="text-red-500 text-sm">
-                            {String(errors.fullName.message)}
+                            {String(errors.firstName.message)}
                           </span>
                         )}
                       </div>

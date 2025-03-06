@@ -4,9 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useRouter } from "next/router";
 import Parser from 'html-react-parser';
-
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+ 
 
 const Layout = (props: any) => {
   const router = useRouter();
@@ -56,8 +54,7 @@ const Layout = (props: any) => {
       <div >
         {Parser(metaData?.bodyBottom || "")}
       </div>
-      <ToastContainer />
-    </div>
+     </div>
   );
 };
 

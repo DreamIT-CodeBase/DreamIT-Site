@@ -1,9 +1,9 @@
 import { Modal } from "antd";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { LEAD_API } from "@/utils/constant";
 
 const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
   const handleOk = () => {
@@ -14,7 +14,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
     setIsModalVisible(false);
   };
 
-  const [loading, setloading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
@@ -23,37 +23,74 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
     reset,
   } = useForm();
 
-  const onSubmit = (data: any) => {
-    setloading(true);
-    const templateParams = {
-      to_name: "Ajay",
-      from_name: `${data.fullName} ${data.lastName}`,
-      email: data.email,
-      service: data.selectService,
-      message: data.messages,
+  const postOnServer = (formData: FormData) => {
+    const formSubmissionData = Object.fromEntries(formData.entries());
+
+    const payload = {
+      firstName: formSubmissionData.firstName,
+      lastName: formSubmissionData.lastName,
+      email: formSubmissionData.email,
+      description: formSubmissionData.selectService,
+      source: "website",
     };
 
-    emailjs
-      .send(
-        "service_toyjk5q",
-        "template_058i9mr",
-        templateParams,
-        "YOWspCaYbGjzx6IFK"
-      )
-      .then(
-        (response) => {
-          console.log("Email sent!", response);
-          toast.success("Form submitted successfully!");
-          setloading(false);
-          handleCancel();
+    const postData = {
+      ...payload,
+      messageInfo: {
+        text: `${formSubmissionData.messages} - ${formSubmissionData.selectService}`,
+      },
+
+      tags: ["LEAD FORM"],
+      sourceDetail: {
+        pageUrl: window.location.href,
+      },
+    };
+
+    setLoading(true);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", `${LEAD_API}/lead`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        setLoading(false);
+        if (xhr.status === 200) {
+          toast.success("Form submitted successfully!", {
+            autoClose: 3000,
+            closeOnClick: true,
+          });
           reset();
-        },
-        (error) => {
-          console.error("Error:", error);
-          setloading(false);
-          toast.error("Failed to send message.");
+          handleCancel();
+        } else {
+          const errorData = JSON.parse(xhr.responseText || "{}");
+          toast.error(
+            errorData?.message || "Submission failed. Try again later.",
+            {
+              autoClose: 3000,
+              closeOnClick: true,
+            }
+          );
         }
-      );
+      }
+    };
+
+    xhr.onerror = function () {
+      setLoading(false);
+      toast.error("Network error. Please try again.");
+    };
+
+    xhr.send(JSON.stringify({ data: postData }));
+  };
+
+  const onSubmit = (data: any) => {
+    const formDataAll = new FormData();
+    formDataAll.append("firstName", data.firstName);
+    formDataAll.append("lastName", data.lastName);
+    formDataAll.append("email", data.email);
+    formDataAll.append("selectService", data.selectService);
+    formDataAll.append("messages", data.messages);
+    postOnServer(formDataAll);
   };
 
   return (
@@ -182,8 +219,8 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
               <div className="w-full px-2 mb-4">
                 <div className="form-group">
                   <label className="block text-sm font-bold text-gray-700">
-                    Message
-                  </label> s
+                    Messages
+                  </label>{" "}
                   <textarea
                     {...register("messages", {
                       required: "Messages is required",
