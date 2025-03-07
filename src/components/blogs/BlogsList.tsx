@@ -76,8 +76,9 @@ const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
                       src={item.thumbnailImage[0].publicUrl}
                       alt=""
                       width={"100%"}
-                      className="mb-4"
+                      className="mb-4 rounded-[18px]"
                       loading="lazy"
+
                     />
 
                     <div className="relative table-cell bg-[#FFFFFF] mt-4 px-4 py-1 rounded-full border-[2px] border-[#eaeaea]">
