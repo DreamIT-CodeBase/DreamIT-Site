@@ -240,7 +240,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`lg:px-6 lg:py-2.5 md:p-[10px] sm:px-[12px] sm:py-[8px] xs:px-[12px] xs:py-[8px] transition-transform duration-300 hover:scale-105 bg-blue-600 lg:font-bold text-white rounded-[8px] ${
+                  className={`lg:px-6 lg:py-2.5 md:p-[10px] sm:px-[30px] sm:py-[10px] xs:px-[30px] font-[lato] xs:py-[10px] transition-transform duration-300 hover:scale-105 bg-blue-600 lg:font-bold text-white rounded-[8px] ${
                     loading ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 >
