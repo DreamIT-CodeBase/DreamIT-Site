@@ -189,24 +189,24 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
                       Please Select{" "}
                     </option>
                     <option value="Cloud Data Management & Migration">
-                      Cloud Data Management
-                    </option>
-                    <option value="Advanced-Data Analytics & Visualization">
-                      Advanced-Data Analytics & Visualization
-                    </option>
-                    <option value="Business Applications">
-                      Business-Centric IT Ecosystem
-                    </option>
+                            Cloud Data Management
+                          </option>
+                          <option value="Advanced-Data Analytics & Visualization">
+                            Advanced-Data Analytics & Visualization
+                          </option>
+                          <option value="Digital Transformation Consulting">
+                            Digital Transformation & Process Automation
+                          </option>
+                          <option value="Employee Feedback">
+                            Enterprise Resource Planning (ERP) Implementation
+                          </option>
 
-                    <option value="Employee Feedback">
-                      Enterprise Resource Planning (ERP) Implementation
-                    </option>
-                    <option value="Digital Transformation Consulting">
-                      Digital Transformation & Process Automation
-                    </option>
-                    <option className="dm-font" value="Digital Marketing">
-                      Digital Marketing
-                    </option>
+                          <option value="Digital Marketing">
+                            Digital Marketing
+                          </option>
+                          <option value="Business Applications">
+                            Business-Centric IT Ecosystem
+                          </option>
                   </select>
                   {errors.selectService?.message && (
                     <span className="text-red-500 text-sm">

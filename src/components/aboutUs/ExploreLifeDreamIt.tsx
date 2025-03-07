@@ -2,6 +2,7 @@ import { Col, Row } from "antd";
 import React, { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import ContactFormModal from "../shared/ContactFormModal";
+import Link from "next/link";
 
 const ExploreLifeDreamIt = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -25,13 +26,13 @@ const ExploreLifeDreamIt = () => {
           </h6>
 
           <div className="mt-6">
+            <Link href={"/career"}>
             <button
-              onClick={() => setIsModalVisible(true)}
-              className="bg-[#072032] inline-flex gap-2 items-center text-[18px] cursor-pointer transition-transform duration-300 hover:scale-105 hover:text-white   py-3 px-4 font-bold rounded-[7px] border-[1.5px]  "
+               className="bg-[#072032] inline-flex gap-2 items-center text-[18px] cursor-pointer transition-transform duration-300 hover:scale-105 hover:text-white   py-3 px-4 font-bold rounded-[7px] border-[1.5px]  text-[#FFFFFF]"
             >
               Explore More
               <FaArrowRightLong />
-            </button>
+            </button></Link>
           </div>
         </Col>
 
