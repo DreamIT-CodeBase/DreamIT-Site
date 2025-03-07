@@ -7,10 +7,10 @@ export default function FeaturedBlogs({ featureBlogsData }: any) {
   const router = useRouter();
 
   return ( 
-    <div className="rounded-[15px] bg-white py-6 mt-10 min-h-[200px] max-h-[300px] overflow-y-auto featured-blogs-scrollbar">
+    <div className="rounded-[15px] bg-white shadow-[0px_4px_13.2px_0px_rgba(142,142,142,0.25)] py-6 mt-10 min-h-[200px] max-h-[380px] overflow-y-auto featured-blogs-scrollbar">
       <h2 className="mb-3 text-[20px] ml-6 font-semibold">Featured article</h2>
 
-      <div className="space-y-4">
+      <div className="space-y-4 ">
         {featureBlogsData?.map((article: any, index: any) => {
           const isActive = router.asPath === article.slug || activeIndex === index;
 
@@ -31,7 +31,7 @@ export default function FeaturedBlogs({ featureBlogsData }: any) {
                   isActive
                     ? "text-[#00A9FF]"
                     : "text-[#1B1B1F] hover:text-primary/80"
-                } xl:text-[18px] lg:text-[18px] md:text-[16px] sm:text-[16px] xs:text-[16px] font-medium`}
+                } xl:text-[16px] lg:text-[16px] md:text-[16px] sm:text-[16px] xs:text-[16px] font-medium`}
                 onClick={() => setActiveIndex(index)}
               >
                 {article.title}

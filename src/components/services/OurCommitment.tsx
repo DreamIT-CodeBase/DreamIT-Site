@@ -45,7 +45,7 @@ const OurCommitment = () => {
             </h6>
           </div>
 
-          <div className="grid gap-6 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 lg:mt-6 xl:mt-6 md:mt-6 sm:mt-6 xs:mt-6">
+          <div className="grid gap-6 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 lg:mt-10 xl:mt-10 md:mt-6 sm:mt-6 xs:mt-6">
             {features.map((feature, index) => (
               <div
                 key={index}
