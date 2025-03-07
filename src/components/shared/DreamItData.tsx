@@ -148,7 +148,7 @@ export const ourServiesDetails = {
 export const serviceDetails: any = [
   {
     slug: "cloud-data-management",
-    title: "Cloud Data Management & Migration",
+    title: "Cloud data management & migration",
     description:
       "Transform Data chaos into clarity with cutting-edge cloud solutions",
       heroImage: "/assets/images/cloud-data-hero-sec-image.webp",
@@ -212,7 +212,7 @@ export const serviceDetails: any = [
 
   {
     slug: "advanced-analytics",
-    title: "Advanced Data Analytics & Visualization",
+    title: "Advanced data analytics and visualization",
     description: "Unlock the power of Data Storytelling  or “with us”",
     heroImage: "/assets/images/advanced-visualisation-hero-sec-image.webp",
 
@@ -282,7 +282,7 @@ export const serviceDetails: any = [
   },
   {
     slug: "business-applications",
-    title: "Business-Centric IT Ecosystem",
+    title: "Business-centric IT ecosystem",
     heroImage: "/assets/images/buisness-application-hero-sec-image.webp",
     description: "Building Tomorrow's Business Tools, Today! ",
     contentImage: "/assets/images/buisness-centeric-content-image.webp",
@@ -386,7 +386,7 @@ export const serviceDetails: any = [
 
   {
     slug: "erp-implementation",
-    title: "Enterprise Resource Planning Implementation",
+    title: "Enterprise resource planning implementation",
     description: "Simplify, Automate and Scale with Our Advanced ERP Solutions",
     contentImage: "/assets/images/erp-content-image.webp",
     heroImage: "/assets/images/erp-hero-sec-image.webp",
@@ -439,7 +439,7 @@ export const serviceDetails: any = [
   },
   {
     slug: "digital-transformation",
-    title: "Digital Transformation & Process Automation",
+    title: "Digital transformation & process automation",
     description:
       "Where Digital Transformation Meets Effortless Automation For Real Impact ",
       heroImage: "/assets/images/digital-transformation-hero-sec-image.webp",
@@ -493,7 +493,7 @@ export const serviceDetails: any = [
   },
   {
     slug: "digital-marketing",
-    title: "Digital Marketing",
+    title: "Digital marketing",
     heroImage: "/assets/images/digital-marketing-hero-sec-image.webp",
     description: "Turning clicks into conversions with Innovative Strategies",
     contentImage: "/assets/images/digital-marketing-content-image.webp",

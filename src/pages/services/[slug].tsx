@@ -11,7 +11,7 @@ import { AHD_HOST } from "@/utils/constant";
  
 const ServiceDetailPage = ({
   serviceDetails: service,
-  caseStudy,
+  caseStudy, 
   pageInfo,
 }: any) => {
   if (!service) {
