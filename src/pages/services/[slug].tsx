@@ -22,7 +22,7 @@ const ServiceDetailPage = ({
     <Layout pageInfo={pageInfo}>
       <ServiceDetailsHome servicedata={service} />
       <DataDrivenSolutions />
-
+ 
       <ServiceContent servicedata={service} />
       <OurExpertise servicedata={service} />
       <Technologies technology={service} />
