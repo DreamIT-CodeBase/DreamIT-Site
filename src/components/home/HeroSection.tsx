@@ -7,8 +7,8 @@ const HeroSection = () => {
         <div className="flex items-center justify-between lg:flex-nowrap md:flex-nowrap  gap-6 xs:flex-wrap">
           <div className="">
             <h1 className=" text-black-700 hero-section-title">
-              Cloud Powered,
-              <br /> Data Driven & Future Ready!
+              Cloud powered,
+              <br /> data driven & future ready!
             </h1>
 
             <h6 className="  max-w-[34rem] text-black-700 hero-section-subtitle">

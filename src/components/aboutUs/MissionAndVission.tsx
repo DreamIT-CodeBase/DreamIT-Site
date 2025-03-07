@@ -11,7 +11,7 @@ export default function CompanyProfile() {
               </span>
             </div>
             <h2 className="tracking-tight xl:mt-[15px] lg:mt-[15px] md:mt-[15px] sm:mt-[15px] xs:mt-[15px]">
-              Inspiring Innovation and Transforming Futures
+            Inspiring innovation and transforming futures
             </h2>
             {/* <p className="text-gray-800 xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] max-w-3xl ">
               We specialize in helping businesses thrive through cutting-edge

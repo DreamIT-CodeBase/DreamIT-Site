@@ -31,7 +31,7 @@ const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
           </div>
         </div>
         <h2 className="text-center mb-6">
-          Future-Focused Insights For Your Industry
+        Future-focused insights for your industry
         </h2>
 
         {/* <p className="text-gray-800 mb-6 xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] max-w-3xl mx-auto">

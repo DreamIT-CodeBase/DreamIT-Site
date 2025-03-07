@@ -54,9 +54,8 @@ const CurrentOpenings = () => {
             CURRENT OPENINGS
           </span>
         </div>
-        <h2 className="xl:mb-12 lg:mb-12 md:mb-12 sm:mb-2 xs:mb-2 max-w-[64rem] m-auto">
-          We’re growing exponentially, so there are plenty of new roles across
-          the globe.
+        <h2 className="xl:mb-12 lg:mb-12 md:mb-12 sm:mb-2 xs:mb-2 max-w-[44rem] m-auto">
+        We’re growing exponentially, so there are plenty of new roles
         </h2>
 
         {!jobOpeiningAvailable && (

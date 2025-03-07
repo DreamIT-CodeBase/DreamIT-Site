@@ -86,7 +86,7 @@ const OurTeam = () => {
             </span>
           </div>
 
-          <h2 className=" mb-3">The Team At The Core</h2>
+          <h2 className=" mb-3">The team at the core</h2>
 
           <p className="text-gray-800 xl:text-20 lg:text-16 md:text-16 sm:text-[13px] xs:text-[13px] max-w-3xl mx-auto">
             A dynamic group of thinkers, doers and innovators. Our team is

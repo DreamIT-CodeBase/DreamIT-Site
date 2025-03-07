@@ -48,7 +48,7 @@ const AboutUsSection = () => {
             </div>
 
             <h2 className="font-bold   about-us-section-title ">
-              Turning Data Into Stories That Drive Success
+            Turning data into stories that drive success
             </h2>
 
             <h6 className="xl:text-20 text-[#596168] lg:text-16 md:text-16  about-use-section-subtitle">

@@ -3,25 +3,25 @@ import React from "react";
 const OurCommitment = () => {
   const features = [
     {
-      title: "Continuous Innovation",
+      title: "Continuous innovation",
       description:
         "We embrace cutting-edge solutions that evolve with your business needs.",
       icon: "/assets/icons/continous-innovation-icon.svg",
     },
     {
-      title: "Dedicated Support",
+      title: "Dedicated support",
       description:
         " With round the clock support, we ensure your success is our top priority.",
       icon: "/assets/icons/dedicated-support-icon.svg",
     },
     {
-      title: "Transparent Communication",
+      title: "Transparent communication",
       description:
         " We believe in honesty and clarity, keeping you informed every step of the way.",
       icon: "/assets/icons/transparent-communication-icon.svg",
     },
     {
-      title: "Measurable Results",
+      title: "Measurable results",
       description:
         " We believe in honesty and clarity, keeping you informed every step of the way.",
       icon: "/assets/icons/measurable-result-icon.svg",
@@ -37,7 +37,7 @@ const OurCommitment = () => {
                 OUR COMMITMENT
               </span>
             </div>
-            <h2>Data-Driven Success: From Information to Execution</h2>
+            <h2>Data-driven success: from information to execution</h2>
             <h6 className="max-w-[800px] text-[#596168] m-auto xl:text-20 lg:text-16 md:text-16 sm:text-13 xs:text-13">
               However, we are not static and limit ourselves to a specific
               field. We are dedicated to data visualization along with

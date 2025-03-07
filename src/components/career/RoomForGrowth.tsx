@@ -24,7 +24,7 @@ const RoomForGrowth = () => {
           </div>
 
           <h2 className="mb-4 mt-4 sm:mb-2 sm:mt-2 xs:mb-2 xs:mt-2 md:mb-5 md:mt-5 lg:mb-6 lg:mt-6 xl:mb-8 xl:mt-8">
-            Why Work with Us?
+          Why work with us?
           </h2>
 
           <p className="xl:text-20 lg:text-16 md:text-16 sm:text-13 xs:text-13 xl:leading-[26.04px] font-400 text-[#596168] xl:max-w-[32rem]">

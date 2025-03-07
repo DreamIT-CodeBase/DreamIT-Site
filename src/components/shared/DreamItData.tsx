@@ -1,25 +1,25 @@
 export const aboutUsHeroSectionContent = {
-  title: "A Journey Guided by Values, Driven by Quality",
+  title: "A journey guided by values, driven by quality",
 tag:"ABOUT US",
   image: "/assets/images/about-us-hero-section-image.webp",
 };
 export const industriesHeroSectionContent = {
-  title: "Solutions Built for Industries That Shape The World",
+  title: "Solutions built for industries that shape the world",
   tag:"INDUSTRIES WE SERVE",
   image: "/assets/images/industries-hero-section-image.webp",
 };
 export const insightsSectionContent = {
-  title: "Insights & Innovations, Stay Ahead with Us",
+  title: "Insights & innovations, stay ahead with us",
   tag:"INSIGHTS",
   image: "/assets/images/insights-hero-section-image.webp",
 };
 export const servicesHeroSectionContent = {
-  title: "A Commitment to Quality & Trust",
+  title: "A commitment to quality & trust",
   tag:"SERVICES",
   image: "/assets/images/services-hero-section-image.webp",
 };
 export const careerHeroSectionContent = {
-  title: "Join Our Team & Build the Future",
+  title: "Join our team & grow with us",
 tag:"CAREER PAGE",
   image: "/assets/images/career-page-hero-section.webp",
 };
@@ -28,14 +28,14 @@ tag:"CAREER PAGE",
   
 export const ourServies = {
   tag: "OUR SERVICES",
-  title: "Personalized Solutions Crafted to Meet Your Business Needs",
+  title: "Personalized solutions crafted to meet your business needs",
   subtitle:
     "We deliver custom-fit solutions and strategic plans to accelerate your business growth in the competitive digital landscape.",
   backgroundImage: " ",
   ourServiesFeatures: [
     {
       src: "/assets/images/cloud-management-and-migration.webp",
-      title: "Cloud Data Management",
+      title: "Cloud data management",
       link: "/services/cloud-data-management",
       subtitle:
         "Streamlining the secure transfer, storage and optimization of business data through Cloud for enhanced scalability and performance.",
@@ -43,17 +43,16 @@ export const ourServies = {
 
     {
       src: "/assets/images/analytics-and-visulalization.webp",
-      title: "Advanced Data Analytics and Visualization",
+      title: "Advanced data analytics and visualization",
       link: "/services/advanced-analytics",
 
       subtitle:
         "Leverage advanced analytics and visualization to unlock actionable insights, optimize decision making and accelerate business growth.",
     },
     {
-      // src: "/assets/images/digital-transformation.webp",
-      src: "/assets/images/digital-consulting.webp",
+       src: "/assets/images/digital-consulting.webp",
 
-      title: "Digital Transformation & Process Automation",
+      title: "Digital transformation & process automation",
       link: "/services/digital-transformation",
 
       subtitle:
@@ -61,17 +60,16 @@ export const ourServies = {
     },
     {
       src: "/assets/images/enterprise-image.webp",
-      title: "Enterprise Resource Planning Implementation",
+      title: "Enterprise resource planning implementation",
       link: "/services/erp-implementation",
 
       subtitle:
         "ERP optimizes business operations by integrating core processes such as Finance & Operations, Sales & Marketing, CRM and HRM , improving data accuracy, and enhancing decision-making to drive overall business performance.",
     },
     {
-      // src: "/assets/images/digital-marketing.webp",
-      src: "/assets/images/digital-transformation.webp",
+       src: "/assets/images/digital-transformation.webp",
 
-      title: "Digital Marketing",
+      title: "Digital marketing",
       link: "/services/digital-marketing",
 
       subtitle:
@@ -81,7 +79,7 @@ export const ourServies = {
 
     {
       src: "/assets/images/buisness-applications.webp",
-      title: "Business-Centric IT Ecosystem",
+      title: "Business-centric IT ecosystem",
       link: "/services/business-applications",
 
       subtitle:
@@ -571,31 +569,31 @@ export const serviceDetails: any = [
 
 export const industriesWeServeData: any = [
   {
-    title: "Healthcare & Pharmaceuticals",
+    title: "Healthcare & pharmaceuticals",
     description:
       "Driving Innovation in healthcare and pharmaceuticals with secure, data-driven IT Solutions to enhance patient care, optimize operations and ensure compliance.",
     image: "/assets/images/health-care.webp",
   },
   {
-    title: "Retail & Distribution",
+    title: "Retail & distribution",
     description:
       "Harnessing AI and advanced technologies to transform businesses, optimize operations and enable smarter decision making for a competitive edge.",
     image: "/assets/images/retail-and-distribution.webp",
   },
   {
-    title: "Energy & Resources",
+    title: "Energy & resources",
     description:
       "Revolutionizing real estate and construction with cutting-edge solutions that improve project executions boost operational efficiency and drive sustainable growth",
     image: "/assets/images/energy-and-resources.webp",
   },
   {
-    title: "Travel & Hospitality",
+    title: "Travel & hospitality",
     description:
       "Transforming e-commerce and retail distribution with smart solutions to enhance customer experiences, optimize supply chain and improve inventory management for greater operational efficiency.",
     image: "/assets/images/travel-and-hospitality.webp",
   },
   {
-    title: "Consumer Goods",
+    title: "Consumer goods",
     description:
       "Providing energy and resources companies with solutions that enhance operational efficiency, improve energy management and support sustainability efforts.",
     image: "/assets/images/consumer-goods.webp",
@@ -613,7 +611,7 @@ export const industriesWeServeData: any = [
     image: "/assets/images/automotive.webp",
   },
   {
-    title: "Real Estate",
+    title: "Real estate",
     description:
       "Revolutionizing the automotive industry with cutting edge IT solutions that enhance manufacturing efficiency, improve customer experiences and drive innovation. From smart production to connected vehicles we help brands accelerate growth and stay relevant.",
     image: "/assets/images/real-estate.webp",

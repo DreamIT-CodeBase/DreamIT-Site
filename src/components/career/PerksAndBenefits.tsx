@@ -31,8 +31,8 @@ const PerksAndBenefits = () => {
           BENEFITS & PERKS
         </span>
       </div>
-      <h2 className="xl:mb-12 lg:mb-12 md:mb-12 sm:mb-4 xs:mb-4 max-w-[64rem] m-auto">
-        Empowering You with the Tools and Support to Thrive at Work and Beyond
+      <h2 className="xl:mb-12 lg:mb-12 md:mb-12 sm:mb-4 xs:mb-4 max-w-[44rem] m-auto">
+      Empowering you with the tools and support to thrive at work and beyond
       </h2>
 
       <div className="our-expertise-container">

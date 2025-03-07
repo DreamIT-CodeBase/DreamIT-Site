@@ -10,7 +10,7 @@ import CurrentOpenings from "@/components/career/CurrentOpenings";
 import LifeAtDreamIt from "@/components/career/LifeAtDreamIt";
 import { AHD_HOST } from "@/utils/constant";
 
-const Career = ({pageInfo}:any) => {
+const Career = ({ pageInfo }: any) => {
   return (
     <Layout pageInfo={pageInfo}>
       <CommonHeroSection data={careerHeroSectionContent} />

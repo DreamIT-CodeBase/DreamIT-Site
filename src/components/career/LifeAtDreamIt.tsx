@@ -34,7 +34,7 @@ const LifeAtDreamIt = () => {
           </span>
         </div>
         <h2 className=" xl:mt-4 lg:mt-4 md:mt-6 max-w-[45rem] m-auto sm:mt-4 xs:mt-4  tracking-tight text-black-100">
-        Celebrating Every Step
+        Celebrating every step
         </h2>
       </div>
 
