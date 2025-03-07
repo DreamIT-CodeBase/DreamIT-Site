@@ -23,7 +23,10 @@ const IndustriesWeServe = ({ industriesWeServeData }: any) => {
             <div className="flex justify-between items-center xl:mt-4 lg:mt-4 md:mt-4 sm:mt-2 xs:mt-2">
               <h4 className=" industry-we-serve-title">{industry.title}</h4>
               <div>
-                <button className="bg-[#072032] flex text-white py-3 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-xl xl:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105">
+                <button
+                  onClick={() => setIsModalVisible(true)}
+                  className="bg-[#072032] flex text-white py-3 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-xl xl:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105"
+                >
                   <FaArrowRightLong />
                 </button>
               </div>

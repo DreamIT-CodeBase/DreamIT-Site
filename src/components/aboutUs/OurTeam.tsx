@@ -4,6 +4,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { FaArrowRightLong } from "react-icons/fa6";
+import Link from "next/link";
 
 const OurTeam = () => {
   const swiperRef = useRef<any>(null);
@@ -20,6 +21,7 @@ const OurTeam = () => {
         "Marketing roles",
       ],
       backgroundImage: "/assets/images/team-member1.png",
+      linkedinAcc: "https://www.linkedin.com/in/anu-kamboj-37309b74/",
     },
     {
       name: "Rajan Kamboj",
@@ -31,6 +33,7 @@ const OurTeam = () => {
         "13+ yrs in IT Solutioning & Architecting, DBMS, Analytics solutions to various sectors",
       ],
       backgroundImage: "/assets/images/team-member3.png",
+      linkedinAcc: "https://www.linkedin.com/in/rajan-k-3a904375/",
     },
     {
       name: "Devender Arora",
@@ -40,6 +43,7 @@ const OurTeam = () => {
         "14 years of experience in IT | Microsoft Cloud Data Architect | Azure, Fabric, Data Bricks, Big Data Analytic",
       ],
       backgroundImage: "/assets/images/team-member4.png",
+      linkedinAcc: "https://www.linkedin.com/in/devender-arora-9446b626/",
     },
     {
       name: "Prateek S Malhan",
@@ -50,6 +54,7 @@ const OurTeam = () => {
         "11+ yrs in BFSI & IT with a proven track record in Business expansion & Market penetration",
       ],
       backgroundImage: "/assets/images/team-member2.png",
+      linkedinAcc: "https://www.linkedin.com/in/prateeksmalhan/",
     },
   ];
 
@@ -113,7 +118,7 @@ const OurTeam = () => {
         >
           {teamData.map((member, index) => (
             <SwiperSlide key={index}>
-              <div className="group relative h-[467px] overflow-hidden rounded-[20px] bg-[#ECEFF1] transition-all duration-300 hover:bg-zinc-900">
+              <div className="group relative xl:h-[467px] lg:h-[467px] md:h-[467px] sm:h-[420px] xs:h-[340px] overflow-hidden rounded-[20px] bg-[#ECEFF1] transition-all duration-300 hover:bg-zinc-900">
                 <div className="absolute inset-0 p-6 flex flex-col justify-between transition-all duration-300">
                   <div
                     style={{
@@ -136,36 +141,40 @@ const OurTeam = () => {
                     </div>
 
                     <div>
-                      <img
-                        className="h-[50px]"
-                        src="/assets/icons/linkedin-icon.svg"
-                        alt="linkedin-icon"
-                        loading="lazy"
-                      />
+                      <Link href={member.linkedinAcc} target="_blank">
+                        <img
+                          className="xl:h-[50px] lg:h-[50px] md:h-[50px] sm:h-[40px] xs:h-[40px]"
+                          src="/assets/icons/linkedin-icon.svg"
+                          alt="linkedin-icon"
+                          loading="lazy"
+                        />
+                      </Link>
                     </div>
                   </div>
 
-                  <div className="absolute bottom-[30px] pr-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute xl:bottom-[30px] lg:bottom-[30px] md:bottom-[30px] sm:bottom-[30px] xs:bottom-[10px] pr-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="flex justify-between">
                       <h3 className="text-[24px] font-semibold text-white">
                         {member.name}
                       </h3>
-                      <img
-                        className="h-[50px]"
-                        src="/assets/icons/linkedin-icon.svg"
-                        alt="linkedin-icon"
-                        loading="lazy"
-                      />
+                      <Link href={member.linkedinAcc} target="_blank">
+                        <img
+                          className="xl:h-[50px] lg:h-[50px] md:h-[50px] sm:h-[40px] xs:h-[40px]"
+                          src="/assets/icons/linkedin-icon.svg"
+                          alt="linkedin-icon"
+                          loading="lazy"
+                        />
+                      </Link>
                     </div>
 
                     <div className="relative px-5 mb-2">
                       <span className="absolute top-1/2 left-1 transform -translate-y-1/2 w-[10px] h-[10px] bg-[#00A9FF] rounded-full"></span>
-                      <span className="text-white text-center font-medium text-[22px]">
+                      <span className="text-white text-center font-medium text-[20px]">
                         {member.title}
                       </span>
                     </div>
 
-                    <ul className="text-[18px] text-[#D6F1FF] list-disc pl-6">
+                    <ul className="xl:text-[18px] lg:text-[18px] md:text-[18px] sm:text-[16px] xs:text-[14px] text-[#D6F1FF] list-disc pl-6">
                       {member.description.map((point, i) => (
                         <li key={i} className="text-[#FFFFFF]">
                           {point}
