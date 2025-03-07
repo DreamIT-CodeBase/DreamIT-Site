@@ -8,7 +8,7 @@ import ServiceContent from "@/components/serviceDetails/ServiceContent";
 import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 import { AHD_HOST } from "@/utils/constant";
-
+ 
 const ServiceDetailPage = ({
   serviceDetails: service,
   caseStudy,

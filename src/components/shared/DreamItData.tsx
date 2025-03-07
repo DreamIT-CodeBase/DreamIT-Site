@@ -50,7 +50,9 @@ export const ourServies = {
         "Leverage advanced analytics and visualization to unlock actionable insights, optimize decision making and accelerate business growth.",
     },
     {
-      src: "/assets/images/digital-transformation.webp",
+      // src: "/assets/images/digital-transformation.webp",
+      src: "/assets/images/digital-consulting.webp",
+
       title: "Digital Transformation & Process Automation",
       link: "/services/digital-transformation",
 
@@ -58,7 +60,7 @@ export const ourServies = {
         "Empowering businesses with the Microsoft ecosystem and RPA to modernize operations, integrate innovative solutions, and streamline processes. We optimize workflows, enhance efficiency, and drive growth",
     },
     {
-      src: "/assets/images/digital-consulting.webp",
+      src: "/assets/images/enterprise-image.webp",
       title: "Enterprise Resource Planning Implementation",
       link: "/services/erp-implementation",
 
@@ -66,7 +68,9 @@ export const ourServies = {
         "ERP optimizes business operations by integrating core processes such as Finance & Operations, Sales & Marketing, CRM and HRM , improving data accuracy, and enhancing decision-making to drive overall business performance.",
     },
     {
-      src: "/assets/images/digital-marketing.webp",
+      // src: "/assets/images/digital-marketing.webp",
+      src: "/assets/images/digital-transformation.webp",
+
       title: "Digital Marketing",
       link: "/services/digital-marketing",
 
