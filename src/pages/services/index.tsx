@@ -1,5 +1,4 @@
-import OurServies from "@/components/shared/OurServies";
-import Layout from "@/components/layout/Layout";
+ import Layout from "@/components/layout/Layout";
 import CommonHeroSection from "@/components/shared/CommonHeroSection";
 import {
   ourServies,
@@ -8,16 +7,18 @@ import {
 import React from "react";
 import OurCommitment from "@/components/services/OurCommitment";
 import { AHD_HOST } from "@/utils/constant";
+import MainPageServices from "@/components/shared/MainPageServices";
 
 const services = ({pageInfo}:any) => {
   return (
     <Layout pageInfo={pageInfo}>
       <CommonHeroSection data={servicesHeroSectionContent} />
-      <OurServies
+      <MainPageServices
         data={ourServies}
         showTag={true}
         showTitle={true}
         showDescription={true}
+        showCrousalForMobile={false}
       />
       <OurCommitment />
     </Layout>
