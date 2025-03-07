@@ -1,12 +1,13 @@
-import { Col, Row } from "antd";
+import { Col, Modal, Row } from "antd";
 import React, { useState } from "react";
 import { FaArrowRight, FaArrowRightLong } from "react-icons/fa6";
 import styled from "styled-components";
 import { MdOutlineFileUpload } from "react-icons/md";
 
-const CurrentOpenings = () => {
+const CurrentOpenings = ({ pageInfo }: any) => {
   const [jobTitle, setJobTitle] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleFileChange = (e: any) => {
     if (e.target.files && e.target.files[0]) {
@@ -42,11 +43,10 @@ const CurrentOpenings = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const jobOpeiningAvailable = false;
   return (
     <FaqWrapper>
       <div
-        className="container pt-60 pb-60 text-center bg-[url('/assets/images/home-page-her-section-background.webp')] bg-cover bg-bottom"
+        className="container pt-60 pb-60 text-center bg-[url('/assets/images/home-page-her-section-background.webp')] bg-cover bg-bottom  "
         id="jobOpening "
       >
         <div className="relative inline-block bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full mb-3 ">
@@ -55,10 +55,10 @@ const CurrentOpenings = () => {
           </span>
         </div>
         <h2 className="xl:mb-12 lg:mb-12 md:mb-12 sm:mb-2 xs:mb-2 max-w-[44rem] m-auto">
-        We’re growing exponentially, so there are plenty of new roles
+          We’re growing exponentially, so there are plenty of new roles
         </h2>
 
-        {!jobOpeiningAvailable && (
+        {pageInfo.metadata?.showOpenings !== true && (
           <div className="faq-container text-left  ">
             <div className="job-opening-form mb-12 ">
               <Row
@@ -112,7 +112,7 @@ const CurrentOpenings = () => {
           </div>
         )}
 
-        {jobOpeiningAvailable && (
+        {pageInfo.metadata?.showOpenings === true && (
           <div className="faq-container text-left">
             {jonOpeningData.map((content, index) => (
               <div
@@ -148,16 +148,74 @@ const CurrentOpenings = () => {
                   </div>
 
                   <div className="mt-3">
-                    <a className="dream-it-cta-button" href="">
+                    <button
+                      className="dream-it-cta-button"
+                      onClick={() => setIsModalOpen(true)}
+                    >
                       Apply Now
                       <FaArrowRight />
-                    </a>{" "}
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         )}
+
+        <Modal
+          title={null}
+          open={isModalOpen}
+          onCancel={() => setIsModalOpen(false)}
+          footer={null}
+        >
+          <Row 
+            align={"bottom"}
+            justify={"start"}
+            className=" w-full lg:gap-6 md:gap-4 sm:gap-4 xs:gap-4 rounded-2xl   xl:pt-4 lg:pt-4 md:pt-4 sm:pt-4 xs:pt-4 xl:pb-4 lg:pb-8 md:pb-8 sm:pb-6 xs:pb-6  bg-transparent"
+            style={{ backdropFilter: "blur(18.899999618530273px)" }}
+          >
+            <Col lg={11} md={24} sm={24} xs={24}>
+              <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
+                Select Job Category
+              </h2>
+              <input
+                type="text"
+                placeholder="Select job title"
+                value={jobTitle}
+                onChange={(e) => setJobTitle(e.target.value)}
+                className="w-full rounded-lg border-2 bg-[#FAFAFA] text-[#072032] border-[#EAEAEA] px-4 py-2 text-sm focus:border-[#EAEAEA] focus:outline-none"
+              />
+            </Col>
+            <Col lg={11} md={24} sm={24} xs={24}>
+              <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
+                Upload Resume
+              </h2>
+              <div className="relative">
+                <input
+                  type="file"
+                  id="resume"
+                  onChange={handleFileChange}
+                  className="hidden border-2  border-[#EAEAEA] rounded-lg text-black-100  focus:border-gray-300 focus:outline-none"
+                  accept=".pdf,.doc,.docx"
+                />
+                <label
+                  htmlFor="resume"
+                  className=" flex items-center gap-2 w-full cursor-pointer rounded-lg border-2 border-[#EAEAEA] px-4 py-2 text-sm  text-[#072032] bg-[#FAFAFA] hover:bg-gray-50"
+                >
+                  <MdOutlineFileUpload className="text-[20px]" />
+                  {file ? file.name : "Upload here"}
+                </label>
+              </div>
+            </Col>
+            <button
+              className="bg-[#072032] text-white py-2 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-sm xl:text-sm font-500 rounded-lg transition-transform duration-300 hover:scale-105 flex gap-2 items-center form-submit-button"
+              aria-label="Continue"
+            >
+              Submit
+              <FaArrowRightLong />
+            </button>
+          </Row>
+        </Modal>
       </div>
     </FaqWrapper>
   );

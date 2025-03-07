@@ -19,7 +19,7 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
                 {post.tags.map((tag: any, index: number) => (
                   <Tag
                     key={index}
-                    className="font-semibold bg-gradient-to-bl from-[rgba(125,193,233,0.2)] via-[rgba(133,76,255,0.142)] to-[rgba(255,255,255,0.2)] border-none outline-none leading-[16.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[12px] xs:text-[12px] mb-3 rounded-full px-4 py-2"
+                    className="font-semibold bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] border-none outline-none leading-[16.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[12px] xs:text-[12px] mb-3 rounded-full px-4 py-2"
                   >
                     {tag.toUpperCase()}
                   </Tag>

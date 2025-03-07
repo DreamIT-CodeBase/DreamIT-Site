@@ -11,7 +11,7 @@ import LifeAtDreamIt from "@/components/career/LifeAtDreamIt";
 import { AHD_HOST } from "@/utils/constant";
 
 const Career = ({ pageInfo }: any) => {
-  return (
+   return (
     <Layout pageInfo={pageInfo}>
       <CommonHeroSection data={careerHeroSectionContent} />
       <LifeAtDreamIt />
@@ -19,7 +19,7 @@ const Career = ({ pageInfo }: any) => {
       <CareerStats />
       <RoomForGrowth />
       <PerksAndBenefits />
-      <CurrentOpenings />
+      <CurrentOpenings pageInfo={pageInfo}/>
     </Layout>
   );
 };

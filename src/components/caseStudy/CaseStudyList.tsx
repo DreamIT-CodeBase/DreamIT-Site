@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import {   Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -51,7 +51,7 @@ const CaseStudyList = ({ data }: any) => {
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
-            modules={[Autoplay, Pagination]}
+            modules={[Autoplay]}
             keyboard={{ enabled: true }}
           >
             {data.map((item: any, index: any) => (
@@ -69,10 +69,10 @@ const CaseStudyList = ({ data }: any) => {
                       {item.tags.map((tag: any) => (
                         <span
                           key={tag}
-                          className="bg-gradient-to-bl from-[rgba(125,193,233,0.2)] via-[rgba(133,76,255,0.142)] to-[rgba(255,255,255,0.2)] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[12px] font-semibold rounded-2xl text-left"
+                          className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[12px] font-semibold rounded-2xl text-left"
                         >
                           {tag.toUpperCase()}
-                        </span>
+                         </span>
                       ))}
                     </div>
                     <div className="flex flex-col items-start gap-3 justify-between mt-4">
