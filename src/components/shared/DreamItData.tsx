@@ -332,17 +332,54 @@ export const serviceDetails: any = [
         tag: "THE CODE BEHIND BUISNESS EVOLUTION",
         title: "Our Custom Development Tech Stack",
         techLogos: [
-          {
-            logos: "/assets/icons/technology-logo.svg ",
+          { 
+            logos: "/assets/images/buisnessApplicationLogo/semrush.png",
           },
           {
-            logos: "/assets/icons/technology-logo.svg",
+            logos: "/assets/images/buisnessApplicationLogo/ahrefs.png",
           },
           {
-            logos: "/assets/icons/technology-logo.svg  ",
+            logos: "/assets/images/buisnessApplicationLogo/moz.png ",
           },
           {
-            logos: "/assets/icons/technology-logo.svg ",
+            logos: "/assets/images/buisnessApplicationLogo/googleads.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/bingads.png",
+          },
+           
+          {
+            logos: "/assets/images/buisnessApplicationLogo/linkedinads.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/hootsuite.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/tableau.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/hubspot.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/buffer.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/sproute-social.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/google-search-console.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/mailchimp.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/grammarly.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/creative-cloude.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/canva.png",
           },
         ],
       },

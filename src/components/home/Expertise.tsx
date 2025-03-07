@@ -2,7 +2,7 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 
 const Expertise = () => {
-  const logo1 = [
+  const logo1 = [ 
     { src: "/assets/images/loker-logo6.png", alt: "Power BI" },
     { src: "/assets/images/amazon-quicksight-logo7.png", alt: "Facebook Ads" },
     { 
