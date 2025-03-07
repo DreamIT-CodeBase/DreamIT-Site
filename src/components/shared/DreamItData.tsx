@@ -25,7 +25,7 @@ tag:"CAREER PAGE",
 };
 
  
- 
+  
 export const ourServies = {
   tag: "OUR SERVICES",
   title: "Personalized Solutions Crafted to Meet Your Business Needs",
@@ -50,6 +50,14 @@ export const ourServies = {
         "Leverage advanced analytics and visualization to unlock actionable insights, optimize decision making and accelerate business growth.",
     },
     {
+      src: "/assets/images/digital-transformation.webp",
+      title: "Digital Transformation & Process Automation",
+      link: "/services/digital-transformation",
+
+      subtitle:
+        "Empowering businesses with the Microsoft ecosystem and RPA to modernize operations, integrate innovative solutions, and streamline processes. We optimize workflows, enhance efficiency, and drive growth",
+    },
+    {
       src: "/assets/images/digital-consulting.webp",
       title: "Enterprise Resource Planning Implementation",
       link: "/services/erp-implementation",
@@ -65,14 +73,7 @@ export const ourServies = {
       subtitle:
         "Leveraging targeted strategies like SEO, content marketing, social media, paid advertising, email marketing, and data analytics to enhance online presence, boost lead generation, and drive business growth and brand visibility",
     },
-    {
-      src: "/assets/images/digital-transformation.webp",
-      title: "Digital Transformation & Process Automation",
-      link: "/services/digital-transformation",
-
-      subtitle:
-        "Empowering businesses with the Microsoft ecosystem and RPA to modernize operations, integrate innovative solutions, and streamline processes. We optimize workflows, enhance efficiency, and drive growth",
-    },
+     
 
     {
       src: "/assets/images/buisness-applications.webp",
