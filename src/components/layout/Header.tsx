@@ -36,7 +36,7 @@ const Header = () => {
   const isActive = (path: any) => router.pathname === path;
 
   return (
-    <header className="bg-white shadow-lg header_content">
+    <header className="bg-white   header_content">
       {/* Mobile Navbar */}
       <div className="navbar-for-tab flex justify-between items-center xl:p-4 lg:p-4 md:p-4 sm:p-3 xs:p-2">
         <Link href="/">
