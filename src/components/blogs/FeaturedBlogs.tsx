@@ -5,14 +5,16 @@ import { useRouter } from "next/router";
 export default function FeaturedBlogs({ featureBlogsData }: any) {
   const [activeIndex, setActiveIndex] = useState(-1);
   const router = useRouter();
+  const cleanedPath = router.asPath.replace("/case-studies/", "");
 
-  return ( 
+  return (
     <div className="rounded-[15px] bg-white shadow-[0px_4px_13.2px_0px_rgba(142,142,142,0.25)] py-6 mt-10 min-h-[200px] max-h-[380px] overflow-y-auto featured-blogs-scrollbar">
       <h2 className="mb-3 text-[20px] ml-6 font-semibold">Featured article</h2>
 
       <div className="space-y-4 ">
         {featureBlogsData?.map((article: any, index: any) => {
-          const isActive = router.asPath === article.slug || activeIndex === index;
+          const isActive =
+            cleanedPath === article.slug || activeIndex === index;
 
           return (
             <div

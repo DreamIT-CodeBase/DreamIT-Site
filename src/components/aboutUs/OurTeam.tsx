@@ -63,7 +63,7 @@ const OurTeam = () => {
       };
 
       swiperInstance.on("slideChange", updateNavigationState);
-      updateNavigationState();  
+      updateNavigationState();
 
       return () => {
         swiperInstance.off("slideChange", updateNavigationState);
@@ -125,6 +125,26 @@ const OurTeam = () => {
                   group-hover:before:opacity-100 before:transition-opacity before:duration-300"
                   ></div>
 
+                  <div className="absolute flex justify-between items-center bottom-[30px] left-0 right-0   transition-all duration-300 group-hover:translate-y-[800px] px-6">
+                    <div>
+                      <h3 className="text-[24px] font-semibold text-white">
+                        {member.name}
+                      </h3>
+                      <span className="text-[#7DC1E9]   font-medium text-[16px]">
+                        {member.title}
+                      </span>
+                    </div>
+
+                    <div>
+                      <img
+                        className="h-[50px]"
+                        src="/assets/icons/linkedin-icon.svg"
+                        alt="linkedin-icon"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+
                   <div className="absolute bottom-[30px] pr-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="flex justify-between">
                       <h3 className="text-[24px] font-semibold text-white">
@@ -159,7 +179,7 @@ const OurTeam = () => {
           ))}
         </Swiper>
 
-        <div className="absolute left-[50%] translate-x-[-50%] xl:bottom-[-10px] lg:bottom-[20px] md:bottom-[40px] sm:bottom-[20px] xs:bottom-[20px] z-[1000] flex justify-center">
+        <div className="absolute left-[50%] translate-x-[-50%] xl:bottom-[20px] lg:bottom-[20px] md:bottom-[40px] sm:bottom-[20px] xs:bottom-[20px] z-[1000] flex justify-center">
           <button
             className={`swiper-prev xl:px-4 xl:py-4 lg:px-4 lg:py-4 md:px-4 md:py-4 sm:px-3 sm:py-3 xs:px-3 xs:py-3 mx-2 rounded-full ${
               isBeginning
