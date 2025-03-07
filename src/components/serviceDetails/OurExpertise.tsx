@@ -9,7 +9,7 @@ const OurExpertise = ({ servicedata }: any) => {
           {servicedata.ourExpertise[0].tag}
         </span> 
       </div> 
-      <h2 className="xl:mb-12 lg:mb-12 md:mb-4 sm:lg-4 xs:mb-6 hero-section-title">
+      <h2 className="xl:mb-12 lg:mb-12 md:mb-4 sm:lg-4 xs:mb-4  ">
         {" "}
         {servicedata.ourExpertise[0].title}
       </h2>

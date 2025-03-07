@@ -11,7 +11,7 @@ const Technologies = ({ technology }: any) => {
           {technology.techData[0].tag}
         </span>
       </div>
-      <h2 className="mb-12 max-w-[64rem] m-auto hero-section-title">
+      <h2 className="xl:mb-12 lg:mb-12 md:mb-4 sm:lg-4 xs:mb-4  max-w-[64rem] m-auto ">
         {technology.techData[0].title}
       </h2>
 
@@ -32,13 +32,13 @@ const Technologies = ({ technology }: any) => {
 
       <div className=" ">
         <Marquee gradient={false} speed={50}>
-          <div className="flex   justify-center gap-7 ml-5 mr-5">
+          <div className="flex   justify-center gap-7 ml-4 mr-4">
             {logo?.map((logo: { logos: string }, index: number) => (
               <img
                 key={index}
                 src={logo.logos}
                 alt="icon"
-                className="xl:max-w-[200px] lg:max-w-[200px] md:max-w-[150px] sm:max-w-[150px] xs:max-w-[150px] h-auto"
+                className="xl:max-w-[200px] lg:max-w-[200px] md:max-w-[150px] sm:max-w-[130px] xs:max-w-[120px] h-auto"
               />
             ))}
           </div>
