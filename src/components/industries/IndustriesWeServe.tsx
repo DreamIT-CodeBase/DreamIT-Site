@@ -7,7 +7,7 @@ const IndustriesWeServe = ({ industriesWeServeData }: any) => {
 
   return (
     <section className="container pt-60 pb-60 bg-white">
-      <div className="grid xl:gap-10 lg:gap-10 md:gap-10 sm:gap-4 xs:gap-2 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      <div className="grid xl:gap-10 lg:gap-10 md:gap-10 sm:gap-4 xs:gap-0 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {industriesWeServeData.map((industry: any, index: any) => (
           <div
             key={index}
@@ -31,7 +31,11 @@ const IndustriesWeServe = ({ industriesWeServeData }: any) => {
                 </button>
               </div>
             </div>
-            <p className="text-muted-foreground xl:text-16 lg:text-16 md:text-16 sm:text-13 xs:text-13 text-[#596168] overflow-hidden text-ellipsis line-clamp-4 xl:mt-2 lg:mt-2 md:mt-1 sm:mt-1 xs:mt-1">
+            <p
+              className="text-muted-foreground xl:text-16 lg:text-16 md:text-16 sm:text-13 xs:text-13 text-[#596168] overflow-hidden text-ellipsis line-clamp-4 xl:mt-2 lg:mt-2 md:mt-1 sm:mt-1 xs:mt-1 
+            
+           xl:mb-0 lg:mb-0 md:mb-0 sm:mb-0 xs:mb-6 "
+            >
               {industry.description}
             </p>
           </div>
