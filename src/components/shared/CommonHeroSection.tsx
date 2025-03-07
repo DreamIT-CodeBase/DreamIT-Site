@@ -12,7 +12,7 @@ const CommonHeroSection = ({ data }: any) => {
               </span>
             </div>
             <div>
-              <h1 className=" max-w-[38rem] text-black-700 hero-section-title">
+              <h1 className=" max-w-[32rem] text-black-700 hero-section-title">
                 {data.title}
               </h1>
             </div>
