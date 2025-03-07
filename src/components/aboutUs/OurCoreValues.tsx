@@ -4,7 +4,7 @@ import React from "react";
 const OurCoreValues = () => {
   const values = [
     {
-      title: "Delight",
+      title: "Delight", 
       description:
         "Creating moments that leave a lasting smile and exceed expectations.",
       url: "/assets/icons/delight-icon.svg",
@@ -36,12 +36,8 @@ const OurCoreValues = () => {
 
   return (
     <div
-      style={{
-        backgroundImage:
-          "url('/assets/images/our-core-and-values-background.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      
+      className="our-core-values-section-container"
     >
       <section className="container pt-60 pb-60 ">
         <div className="text-center  xl:mb-10 lg:mb-10 md:mb-10 sm:mb-0 xs:mb-0">
@@ -81,3 +77,5 @@ const OurCoreValues = () => {
 };
 
 export default OurCoreValues;
+
+

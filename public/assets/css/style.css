@@ -332,8 +332,7 @@ h6 {
   z-index: 10000;
   top: 0;
   width: 100%;
-  box-shadow: 4.9px 4.9px 32.3px -6.13px #C2C2E240;
-
+  box-shadow: 4.9px 4.9px 32.3px -6.13px #c2c2e240;
 }
 .header-links li span {
   position: relative;
@@ -2204,4 +2203,22 @@ h6 {
 
     text-align: center;
   }
+}
+
+/* Our core values */
+
+.our-core-values-section-container {
+  background-image: url("/assets/images/our-core-and-values-background.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+@media(max-width:376px){
+
+  .our-core-values-section-container {
+    background-image: url("/assets/images/our-core-and-values-background-mobile.webp");
+    background-size: cover;
+    background-position: center;
+  }
+  
 }
