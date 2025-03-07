@@ -46,6 +46,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
       },
     };
 
+
     setLoading(true);
 
     const xhr = new XMLHttpRequest();
