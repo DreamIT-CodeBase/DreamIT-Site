@@ -2,30 +2,53 @@ import Layout from "@/components/layout/Layout";
 import OurCommitment from "@/components/services/OurCommitment";
 import { serviceDetails } from "@/components/shared/DreamItData";
 import ServiceDetailsHome from "@/components/serviceDetails/ServiceDetailsHome";
- import OurExpertise from "@/components/serviceDetails/OurExpertise";
+import OurExpertise from "@/components/serviceDetails/OurExpertise";
 import Technologies from "@/components/serviceDetails/Technologies";
 import ServiceContent from "@/components/serviceDetails/ServiceContent";
 import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 import { AHD_HOST } from "@/utils/constant";
- 
+
 const ServiceDetailPage = ({
   serviceDetails: service,
-  caseStudy, 
+  caseStudy,
   pageInfo,
 }: any) => {
   if (!service) {
     return <div>Service not found</div>;
   }
-   return (
-    <Layout pageInfo={pageInfo}>
-      <ServiceDetailsHome servicedata={service} />
-      <DataDrivenSolutions />
+   const pageTag = pageInfo.tags[0];
+   let displayedCaseStudies;
+
+   if (!pageTag) {
+     // No pageTag → Show all case studies
+     displayedCaseStudies = caseStudy;
+   } else {
+     // Filter case studies that match the pageTag
+     const matchingCaseStudies = caseStudy.filter((cs: any) =>
+       cs.tags.includes(pageTag)
+     );
  
+     // If there aren't enough matching case studies, fill with others
+     const remainingCaseStudies = caseStudy.filter(
+       (cs: any) => !cs.tags.includes(pageTag)
+     );
+ 
+     displayedCaseStudies = [
+       ...matchingCaseStudies,
+       ...remainingCaseStudies.slice(0, 3 - matchingCaseStudies.length),
+     ].slice(0, 3); // Ensure we only show a maximum of 3 case studies
+   }
+
+  return (
+    <Layout pageInfo={pageInfo}>
+       <ServiceDetailsHome servicedata={service} />
+      <DataDrivenSolutions />
+
       <ServiceContent servicedata={service} />
       <OurExpertise servicedata={service} />
       <Technologies technology={service} />
-      <CaseStudyList data={caseStudy} />
+      <CaseStudyList data={displayedCaseStudies} />
 
       <OurCommitment />
     </Layout>

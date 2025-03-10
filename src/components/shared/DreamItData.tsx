@@ -143,13 +143,13 @@ export const ourServiesDetails = {
 };
  
 
- 
+  
 
 export const serviceDetails: any = [
   {
     slug: "cloud-data-management",
     title: "Cloud data management & migration",
-    description:
+     description:
       "Transform Data chaos into clarity with cutting-edge cloud solutions",
       heroImage: "/assets/images/cloud-data-hero-sec-image.webp",
     contentImage: "/assets/images/cloud-management-content-image.webp",
@@ -213,7 +213,7 @@ export const serviceDetails: any = [
   {
     slug: "advanced-analytics",
     title: "Advanced data analytics and visualization",
-    description: "Unlock the power of Data Storytelling  or “with us”",
+     description: "Unlock the power of Data Storytelling  or “with us”",
     heroImage: "/assets/images/advanced-visualisation-hero-sec-image.webp",
 
     contentImage: "/assets/images/advance-analytics-content-image.webp",
@@ -283,7 +283,7 @@ export const serviceDetails: any = [
   {
     slug: "business-applications",
     title: "Business-centric IT ecosystem",
-    heroImage: "/assets/images/buisness-application-hero-sec-image.webp",
+     heroImage: "/assets/images/buisness-application-hero-sec-image.webp",
     description: "Building Tomorrow's Business Tools, Today! ",
     contentImage: "/assets/images/buisness-centeric-content-image.webp",
     contentTitle:

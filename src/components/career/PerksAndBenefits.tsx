@@ -3,23 +3,35 @@ import React from "react";
 const expertiseData = [
   {
     bgColor: "#FFFFFF",
-    text: "Competitive compensation",
+    text: "Performance Bonuses",
   },
   {
     bgColor: "#FFFFFF",
-    text: "Healthcare & wellness benefits",
+    text: "Provident Fund & Gratuity",
   },
   {
     bgColor: "#FFFFFF",
-    text: "Flexible paid time off",
+    text: "Health Insurance",
   },
   {
     bgColor: "#FFFFFF",
-    text: "Paid parental & family leave",
+    text: "Training Programs",
   },
   {
     bgColor: "#FFFFFF",
-    text: "Home office setup budget",
+    text: "Team Outings & Retreats",
+  },
+  {
+    bgColor: "#FFFFFF",
+    text: "Maternity / Paternity Benefits",
+  },
+  {
+    bgColor: "#FFFFFF",
+    text: "Competitive Salary",
+  },
+  {
+    bgColor: "#FFFFFF",
+    text: "Upskilling & Certifications",
   },
 ];
 
