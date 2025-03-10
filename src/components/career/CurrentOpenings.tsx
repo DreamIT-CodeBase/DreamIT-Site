@@ -6,11 +6,11 @@ import FileUploader from "../../utils/FileUploader";
 import Storage from "../../utils/Storage";
 import { useForm } from "react-hook-form";
 import { LEAD_API } from "@/utils/constant";
- import { toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
- 
+
 const CurrentOpenings = ({ pageInfo }: any) => {
-  debugger
+  debugger;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const [loading, setLoading] = useState(false);
@@ -18,9 +18,9 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   const leadType = "JOB OPENINGS";
   const storage = Storage.values?.leadAttachment;
 
-  const { register, handleSubmit, reset, watch,setValue } = useForm();
+  const { register, handleSubmit, reset, watch, setValue } = useForm();
   const resumeFile = watch("resume");
-   const uploadResume = async (file: any) => {
+  const uploadResume = async (file: any) => {
     try {
       FileUploader.validate(file, { storage });
       return await FileUploader.upload(file, { storage, undefined });
@@ -64,9 +64,11 @@ const CurrentOpenings = ({ pageInfo }: any) => {
               closeOnClick: true,
             });
             reset();
-            setIsModalOpen(false)
+            setIsModalOpen(false);
           } else {
             const errorData = JSON.parse(xhr.responseText || "{}");
+            reset();
+
             toast.error(
               errorData?.message || "Submission failed. Try again later.",
               {
@@ -81,6 +83,10 @@ const CurrentOpenings = ({ pageInfo }: any) => {
       xhr.onerror = function () {
         setLoading(false);
         console.error("Network error during form submission");
+        toast.error("Network error during form submission", {
+          autoClose: 3000,
+          closeOnClick: true,
+        });
       };
 
       xhr.send(JSON.stringify({ data: postData }));
@@ -174,7 +180,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
 
       {pageInfo.metadata?.showOpenings === true && (
         <div className="faq-container text-left">
-          {pageInfo.sections.map((data:any, index:any) => (
+          {pageInfo.sections.map((data: any, index: any) => (
             <div
               key={index}
               className={`faq-item bg-[#FFFFFF] ${
@@ -213,7 +219,8 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                     onClick={() => {
                       setIsModalOpen(true);
                       setValue("role", data.title); // Set the value of role input
-                    }}                  >
+                    }}
+                  >
                     Apply Now
                     <FaArrowRight />
                   </button>
