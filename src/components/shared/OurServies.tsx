@@ -78,34 +78,36 @@ const OurServies = ({ data, showTag, showTitle, showDescription }: any) => {
             {data?.ourServiesFeatures.map(
               ({ src, title, link, subtitle }: any) => (
                 <SwiperSlide key={title}>
-                  <div
-                    className="our-services-container min-h-[320px] relative group overflow-hidden cursor-pointer"
-                    key={title}
-                  >
-                    <div className="transition-transform duration-700 ease-out group-hover:translate-y-[-10px]">
-                      <img
-                        src={src}
-                        alt={title}
-                        className="w-full transition-transform duration-700 ease-out group-hover:transform group-hover:translate-y-[-15px]"
-                      />
-                    </div>
-                    <div className="absolute text-[#1c1c1c] bg-white bottom-0 w-full p-5 border-2 min-h-[90px] group-hover:h-auto overflow-hidden transition-all duration-700 ease-out border-[#EAEAEA] rounded-[18px]">
-                      <div className="flex items-center justify-between gap-6">
-                        <h5 className="services-card-title">{title}</h5>
-                        <div>
-                          <Link
-                            href={link}
-                            className="bg-[#072032] flex text-white py-3 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-xl xl:text-xl font-bold rounded-lg transition-transform duration-700 ease-out hover:scale-110"
-                          >
-                            <FaArrowRightLong />
-                          </Link>
+                  <Link href={link}>
+                    <div
+                      className="our-services-container min-h-[320px] relative group overflow-hidden cursor-pointer"
+                      key={title}
+                    >
+                      <div className="transition-transform duration-700 ease-out group-hover:translate-y-[-10px]">
+                        <img
+                          src={src}
+                          alt={title}
+                          className="w-full transition-transform duration-700 ease-out group-hover:transform group-hover:translate-y-[-15px]"
+                        />
+                      </div>
+                      <div className="absolute text-[#1c1c1c] bg-white bottom-0 w-full p-5 border-2 min-h-[90px] group-hover:h-auto overflow-hidden transition-all duration-700 ease-out border-[#EAEAEA] rounded-[18px]">
+                        <div className="flex items-center justify-between gap-6">
+                          <h5 className="services-card-title">{title}</h5>
+                          <div>
+                            <Link
+                              href={link}
+                              className="bg-[#072032] flex text-white py-3 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-xl xl:text-xl font-bold rounded-lg transition-transform duration-700 ease-out hover:scale-110"
+                            >
+                              <FaArrowRightLong />
+                            </Link>
+                          </div>
+                        </div>
+                        <div className="group-hover:opacity-100 group-hover:max-h-40 opacity-0 max-h-0 overflow-hidden transition-all duration-1000 ease-out">
+                          <h6>{subtitle}</h6>
                         </div>
                       </div>
-                      <div className="group-hover:opacity-100 group-hover:max-h-40 opacity-0 max-h-0 overflow-hidden transition-all duration-1000 ease-out">
-                        <h6>{subtitle}</h6>
-                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </SwiperSlide>
               )
             )}

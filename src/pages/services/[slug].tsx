@@ -17,8 +17,7 @@ const ServiceDetailPage = ({
   if (!service) {
     return <div>Service not found</div>;
   }
-  debugger;
-  return (
+   return (
     <Layout pageInfo={pageInfo}>
       <ServiceDetailsHome servicedata={service} />
       <DataDrivenSolutions />
