@@ -6,11 +6,11 @@ import FileUploader from "../../utils/FileUploader";
 import Storage from "../../utils/Storage";
 import { useForm } from "react-hook-form";
 import { LEAD_API } from "@/utils/constant";
-import { jonOpeningData } from "../shared/DreamItData";
-import { toast, ToastContainer } from "react-toastify";
+ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+ 
 const CurrentOpenings = ({ pageInfo }: any) => {
+  debugger
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const [loading, setLoading] = useState(false);
@@ -18,9 +18,9 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   const leadType = "JOB OPENINGS";
   const storage = Storage.values?.leadAttachment;
 
-  const { register, handleSubmit, reset, watch } = useForm();
+  const { register, handleSubmit, reset, watch,setValue } = useForm();
   const resumeFile = watch("resume");
-  const uploadResume = async (file: any) => {
+   const uploadResume = async (file: any) => {
     try {
       FileUploader.validate(file, { storage });
       return await FileUploader.upload(file, { storage, undefined });
@@ -64,6 +64,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
               closeOnClick: true,
             });
             reset();
+            setIsModalOpen(false)
           } else {
             const errorData = JSON.parse(xhr.responseText || "{}");
             toast.error(
@@ -173,7 +174,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
 
       {pageInfo.metadata?.showOpenings === true && (
         <div className="faq-container text-left">
-          {jonOpeningData.map((content, index) => (
+          {pageInfo.sections.map((data:any, index:any) => (
             <div
               key={index}
               className={`faq-item bg-[#FFFFFF] ${
@@ -182,7 +183,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
             >
               <div className="question" onClick={() => toggleFAQ(index)}>
                 <div>
-                  <h3 className="faq-questions">{content.question}</h3>
+                  <h3 className="faq-questions">{data.title}</h3>
                   <p className="job-location">Location: Remote | Full-Time</p>
                 </div>
                 {activeIndex === index ? (
@@ -203,14 +204,16 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                 className={`answer ${activeIndex === index ? "active" : ""}`}
               >
                 <div className="faq-answers">
-                  <p>{content.answer}</p>
+                  <p>{data.content}</p>
                 </div>
 
                 <div className="mt-3">
                   <button
                     className="dream-it-cta-button"
-                    onClick={() => setIsModalOpen(true)}
-                  >
+                    onClick={() => {
+                      setIsModalOpen(true);
+                      setValue("role", data.title); // Set the value of role input
+                    }}                  >
                     Apply Now
                     <FaArrowRight />
                   </button>
