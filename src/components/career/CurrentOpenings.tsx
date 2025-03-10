@@ -7,6 +7,8 @@ import Storage from "../../utils/Storage";
 import { useForm } from "react-hook-form";
 import { LEAD_API } from "@/utils/constant";
 import { jonOpeningData } from "../shared/DreamItData";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CurrentOpenings = ({ pageInfo }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -57,10 +59,20 @@ const CurrentOpenings = ({ pageInfo }: any) => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           setLoading(false);
           if (xhr.status === 200) {
+            toast.success("Form submitted successfully!", {
+              autoClose: 3000,
+              closeOnClick: true,
+            });
             reset();
           } else {
             const errorData = JSON.parse(xhr.responseText || "{}");
-            console.error("Submission failed:", errorData);
+            toast.error(
+              errorData?.message || "Submission failed. Try again later.",
+              {
+                autoClose: 3000,
+                closeOnClick: true,
+              }
+            );
           }
         }
       };
@@ -269,6 +281,8 @@ const CurrentOpenings = ({ pageInfo }: any) => {
           </Row>
         </form>
       </Modal>
+
+      <ToastContainer />
     </div>
   );
 };
