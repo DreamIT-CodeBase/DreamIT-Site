@@ -280,6 +280,7 @@ export const serviceDetails: any = [
       },
     ],
   },
+
   {
     slug: "business-applications",
     title: "Business-centric IT ecosystem",
@@ -331,16 +332,64 @@ export const serviceDetails: any = [
         title: "Our Custom Development Tech Stack",
         techLogos: [
           {
-            logos: "/assets/icons/technology-logo.svg ",
+            logos: "/assets/images/microsoft-fabric.png",
           },
           {
-            logos: "/assets/icons/technology-logo.svg",
+            logos: "/assets/images/microsoft-azure-logo2.png",
           },
           {
-            logos: "/assets/icons/technology-logo.svg  ",
+            logos: "/assets/images/databricks-logo.png ",
           },
           {
-            logos: "/assets/icons/technology-logo.svg ",
+            logos: "/assets/images/purview-logo4.png",
+          },
+          {
+            logos: "/assets/images/dynamic-365-logo8.png",
+          },
+          {
+            logos: "/assets/images/powerbi-logo5.png",
+          },
+          {
+            logos: "/assets/images/power-automate.png",
+          },
+          {
+            logos: "/assets/images/power-pages-logo.png",
+          },
+          {
+            logos: "/assets/images/google-ads.png",
+          },
+          {
+            logos: "/assets/images/bing.png",
+          },
+          {
+            logos:"/assets/images/meta-ads.png",
+          },
+          {
+            logos: "/assets/images/linkedinAds-logo15.png",
+          },
+          {
+            logos: "/assets/images/google-analytics.png",
+          },
+          {
+            logos: "/assets/images/semrush-logo9.png",
+          },
+          {
+            logos: "/assets/images/ahrefs-logo.png",
+          },
+          {
+            logos: "/assets/images/moz-logo.png",
+          },
+          {
+            logos: "/assets/images/hootsuite-logo16.png",
+          },
+          {
+            logos: "/assets/images/canva-logo19.png",
+          },
+          {
+            logos: "/assets/images/mailChimp-logo22.png",
+          },
+          {
+            logos: "/assets/images/hubspot-logo23.png",
           },
         ],
       },
@@ -400,6 +449,7 @@ export const serviceDetails: any = [
       },
     ],
   },
+
   {
     slug: "digital-transformation",
     title: "Digital transformation & process automation",
@@ -454,6 +504,7 @@ export const serviceDetails: any = [
       },
     ],
   },
+
   {
     slug: "digital-marketing",
     title: "Digital marketing",
