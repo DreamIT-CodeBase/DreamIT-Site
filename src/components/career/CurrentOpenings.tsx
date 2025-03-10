@@ -16,8 +16,8 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   const leadType = "JOB OPENINGS";
   const storage = Storage.values?.leadAttachment;
 
-  const { register, handleSubmit, reset } = useForm();
-
+  const { register, handleSubmit, reset, watch } = useForm();
+  const resumeFile = watch("resume");
   const uploadResume = async (file: any) => {
     try {
       FileUploader.validate(file, { storage });
@@ -139,7 +139,9 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                       className=" flex items-center gap-2 w-full cursor-pointer rounded-lg border-2 border-[#EAEAEA] px-4 py-2 text-sm  text-[#072032] bg-[#FAFAFA] hover:bg-gray-50"
                     >
                       <MdOutlineFileUpload className="text-[20px]" />
-                      {"Upload here"}
+                      {resumeFile?.length > 0
+                        ? resumeFile[0].name
+                        : "Upload here"}{" "}
                     </label>
                   </div>
                 </Col>
@@ -250,7 +252,9 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                   className=" flex items-center gap-2 w-full cursor-pointer rounded-lg border-2 border-[#EAEAEA] px-4 py-2 text-sm  text-[#072032] bg-[#FAFAFA] hover:bg-gray-50"
                 >
                   <MdOutlineFileUpload className="text-[20px]" />
-                  {"Upload here"}
+                  {resumeFile?.length > 0
+                    ? resumeFile[0].name
+                    : "Upload here"}{" "}
                 </label>
               </div>
             </Col>
