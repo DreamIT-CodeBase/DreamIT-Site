@@ -623,3 +623,26 @@ export const industriesWeServeData: any = [
     image: "/assets/images/logistics.webp",
   },
 ];
+
+export const jonOpeningData = [
+  {
+    question: "Software Engineer (Full Stack)",
+    answer:
+      "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
+  },
+  {
+    question: "Software Engineer (Full Stack)",
+    answer:
+      "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
+  },
+  {
+    question: "Software Engineer (Full Stack)",
+    answer:
+      "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
+  },
+  {
+    question: "Software Engineer (Full Stack)",
+    answer:
+      "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
+  },
+];

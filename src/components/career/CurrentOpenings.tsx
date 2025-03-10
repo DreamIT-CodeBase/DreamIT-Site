@@ -6,6 +6,9 @@ import FileUploader from "../../utils/FileUploader";
 import Storage from "../../utils/Storage";
 import { useForm } from "react-hook-form";
 import { LEAD_API } from "@/utils/constant";
+import { jonOpeningData } from "../shared/DreamItData";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CurrentOpenings = ({ pageInfo }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,31 +18,8 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   const leadType = "JOB OPENINGS";
   const storage = Storage.values?.leadAttachment;
 
-  const { register, handleSubmit, reset } = useForm();
-
-  const jonOpeningData = [
-    {
-      question: "Software Engineer (Full Stack)",
-      answer:
-        "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
-    },
-    {
-      question: "Software Engineer (Full Stack)",
-      answer:
-        "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
-    },
-    {
-      question: "Software Engineer (Full Stack)",
-      answer:
-        "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
-    },
-    {
-      question: "Software Engineer (Full Stack)",
-      answer:
-        "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
-    },
-  ];
-
+  const { register, handleSubmit, reset, watch } = useForm();
+  const resumeFile = watch("resume");
   const uploadResume = async (file: any) => {
     try {
       FileUploader.validate(file, { storage });
@@ -79,10 +59,20 @@ const CurrentOpenings = ({ pageInfo }: any) => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           setLoading(false);
           if (xhr.status === 200) {
+            toast.success("Form submitted successfully!", {
+              autoClose: 3000,
+              closeOnClick: true,
+            });
             reset();
           } else {
             const errorData = JSON.parse(xhr.responseText || "{}");
-            console.error("Submission failed:", errorData);
+            toast.error(
+              errorData?.message || "Submission failed. Try again later.",
+              {
+                autoClose: 3000,
+                closeOnClick: true,
+              }
+            );
           }
         }
       };
@@ -161,14 +151,16 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                       className=" flex items-center gap-2 w-full cursor-pointer rounded-lg border-2 border-[#EAEAEA] px-4 py-2 text-sm  text-[#072032] bg-[#FAFAFA] hover:bg-gray-50"
                     >
                       <MdOutlineFileUpload className="text-[20px]" />
-                      {"Upload here"}
+                      {resumeFile?.length > 0
+                        ? resumeFile[0].name
+                        : "Upload here"}{" "}
                     </label>
                   </div>
                 </Col>
                 <button
                   className="bg-[#072032] text-white py-2 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-sm xl:text-sm font-500 rounded-lg transition-transform duration-300 hover:scale-105 flex gap-2 items-center form-submit-button"
                   aria-label="Continue"
-                  onClick={onSubmit}
+                  type="submit"
                 >
                   {loading ? <Spin /> : "Submit"}
                   {!loading && <FaArrowRightLong />}
@@ -272,14 +264,16 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                   className=" flex items-center gap-2 w-full cursor-pointer rounded-lg border-2 border-[#EAEAEA] px-4 py-2 text-sm  text-[#072032] bg-[#FAFAFA] hover:bg-gray-50"
                 >
                   <MdOutlineFileUpload className="text-[20px]" />
-                  {"Upload here"}
+                  {resumeFile?.length > 0
+                    ? resumeFile[0].name
+                    : "Upload here"}{" "}
                 </label>
               </div>
             </Col>
             <button
               className="bg-[#072032] text-white py-2 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-sm xl:text-sm font-500 rounded-lg transition-transform duration-300 hover:scale-105 flex gap-2 items-center form-submit-button"
               aria-label="Continue"
-              onClick={onSubmit}
+              type="submit"
             >
               {loading ? <Spin /> : "Submit"}
               {!loading && <FaArrowRightLong />}
@@ -287,6 +281,8 @@ const CurrentOpenings = ({ pageInfo }: any) => {
           </Row>
         </form>
       </Modal>
+
+      <ToastContainer />
     </div>
   );
 };
