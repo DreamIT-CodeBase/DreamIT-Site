@@ -6,6 +6,7 @@ import FileUploader from "../../utils/FileUploader";
 import Storage from "../../utils/Storage";
 import { useForm } from "react-hook-form";
 import { LEAD_API } from "@/utils/constant";
+import { jonOpeningData } from "../shared/DreamItData";
 
 const CurrentOpenings = ({ pageInfo }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,29 +17,6 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   const storage = Storage.values?.leadAttachment;
 
   const { register, handleSubmit, reset } = useForm();
-
-  const jonOpeningData = [
-    {
-      question: "Software Engineer (Full Stack)",
-      answer:
-        "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
-    },
-    {
-      question: "Software Engineer (Full Stack)",
-      answer:
-        "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
-    },
-    {
-      question: "Software Engineer (Full Stack)",
-      answer:
-        "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
-    },
-    {
-      question: "Software Engineer (Full Stack)",
-      answer:
-        "Join our team as a Full Stack Software Engineer, where you'll have the opportunity to work on exciting projects, develop innovative solutions, and collaborate with a talented group of professionals. We're looking for someone with a passion for technology, a strong background in web development, and a desire to make a meaningful impact. Apply now and be part of a dynamic and supportive work environment!",
-    },
-  ];
 
   const uploadResume = async (file: any) => {
     try {
@@ -168,7 +146,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                 <button
                   className="bg-[#072032] text-white py-2 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-sm xl:text-sm font-500 rounded-lg transition-transform duration-300 hover:scale-105 flex gap-2 items-center form-submit-button"
                   aria-label="Continue"
-                  onClick={onSubmit}
+                  type="submit"
                 >
                   {loading ? <Spin /> : "Submit"}
                   {!loading && <FaArrowRightLong />}
@@ -279,7 +257,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
             <button
               className="bg-[#072032] text-white py-2 px-3 text-lg sm:text-base xs:text-base md:text-lg lg:text-sm xl:text-sm font-500 rounded-lg transition-transform duration-300 hover:scale-105 flex gap-2 items-center form-submit-button"
               aria-label="Continue"
-              onClick={onSubmit}
+              type="submit"
             >
               {loading ? <Spin /> : "Submit"}
               {!loading && <FaArrowRightLong />}
