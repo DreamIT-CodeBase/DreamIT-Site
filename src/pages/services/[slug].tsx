@@ -14,6 +14,9 @@ const ServiceDetailPage = ({
   caseStudy,
   pageInfo,
 }: any) => {
+
+  debugger
+
   if (!service) {
     return <div>Service not found</div>;
   }
@@ -21,23 +24,20 @@ const ServiceDetailPage = ({
    let displayedCaseStudies;
 
    if (!pageTag) {
-     // No pageTag → Show all case studies
-     displayedCaseStudies = caseStudy;
+      displayedCaseStudies = caseStudy;
    } else {
-     // Filter case studies that match the pageTag
-     const matchingCaseStudies = caseStudy.filter((cs: any) =>
+      const matchingCaseStudies = caseStudy.filter((cs: any) =>
        cs.tags.includes(pageTag)
      );
  
-     // If there aren't enough matching case studies, fill with others
-     const remainingCaseStudies = caseStudy.filter(
+      const remainingCaseStudies = caseStudy.filter(
        (cs: any) => !cs.tags.includes(pageTag)
      );
  
      displayedCaseStudies = [
        ...matchingCaseStudies,
        ...remainingCaseStudies.slice(0, 3 - matchingCaseStudies.length),
-     ].slice(0, 3); // Ensure we only show a maximum of 3 case studies
+     ].slice(0, 3);  
    }
 
   return (
@@ -45,7 +45,7 @@ const ServiceDetailPage = ({
        <ServiceDetailsHome servicedata={service} />
       <DataDrivenSolutions />
 
-      <ServiceContent servicedata={service} />
+      <ServiceContent servicedata={pageInfo} />
       <OurExpertise servicedata={service} />
       <Technologies technology={service} />
       <CaseStudyList data={displayedCaseStudies} />
@@ -55,14 +55,19 @@ const ServiceDetailPage = ({
   );
 };
 
-export async function getStaticPaths() {
-  const paths = serviceDetails.map((s: any) => {
-    return { params: { slug: s.slug } };
-  });
-
-  return { paths, fallback: false };
-}
-
+export const getStaticPaths = async () => {
+  const pagesRes = await fetch(`${AHD_HOST}/page?filter[groups][]=services`);
+  const pagePages = await pagesRes.json();
+  console.log(pagePages);
+  const paths = pagePages.rows.map((page:any) => ({
+    params: { slug: page.slug },
+  }));
+  return {
+    paths: paths,
+    fallback: false,
+  };
+};
+ 
 export async function getStaticProps({ params }: any) {
   const pageSlug = params.slug;
 

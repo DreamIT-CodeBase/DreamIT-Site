@@ -60,6 +60,10 @@ a {
 .service-content-container {
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
+
+  strong {
+    color: #1c1c1c !important;
+  }
 }
 
 .service-content-container::-webkit-scrollbar {
@@ -2227,18 +2231,17 @@ linear-gradient(96.88deg, rgba(125, 193, 233, 0.2) 10.64%, rgba(133, 76, 255, 0.
 
 } */
 
-   .ant-modal {
-    width: 47% !important;
-  }
+.ant-modal {
+  width: 47% !important;
+}
 
-  @media (max-width: 1025px) {
-    .ant-modal {
-      width: 100% !important;
-    }
+@media (max-width: 1025px) {
+  .ant-modal {
+    width: 100% !important;
   }
-  @media (max-width: 640px) {
-    .ant-modal {
-      width: 100% !important;
-    }
+}
+@media (max-width: 640px) {
+  .ant-modal {
+    width: 100% !important;
   }
-
+}

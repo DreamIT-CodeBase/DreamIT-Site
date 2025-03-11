@@ -289,7 +289,7 @@ export const serviceDetails: any = [
     contentImage: "/assets/images/buisness-centeric-content-image.webp",
     contentTitle:
       "Rewiring Businesses For Success:Through Digital Transformation and Automation",
-
+ 
     ourExpertise: [
       {
         tag: "OUR EXPERTISE AND CAPABILITIES",
