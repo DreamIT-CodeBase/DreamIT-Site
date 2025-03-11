@@ -79,6 +79,8 @@ a {
 
 .container {
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pt-120 {
@@ -165,27 +167,19 @@ a {
   }
 }
 
-@media (min-width: 1400px) {
+@media screen and (min-width: 1400px) {
   .container {
-    max-width: 100%;
-    padding-left: 157px;
-    padding-right: 157px;
+    max-width: 100% ;
+    padding-left: 157px ;
+    padding-right: 157px ;
     font-family: "Lato", sans-serif;
   }
 }
-@media (min-width: 2000px) {
+@media screen and (min-width: 2000px) {
   .container {
-    max-width: 2040px;
-    padding-left: 157px;
-    padding-right: 157px;
-    font-family: "Lato", sans-serif;
-  }
-}
-@media (min-width: 2056px) {
-  .container {
-    max-width: 100%;
-    padding-left: 157px;
-    padding-right: 157px;
+    max-width: 2000px;
+    padding-left: 157px ;
+    padding-right: 157px ;
     font-family: "Lato", sans-serif;
   }
 }
@@ -2244,4 +2238,12 @@ linear-gradient(96.88deg, rgba(125, 193, 233, 0.2) 10.64%, rgba(133, 76, 255, 0.
   .ant-modal {
     width: 100% !important;
   }
+}
+
+
+.case-studuuuuu{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px; /* Adjust the gap as needed */
+
 }

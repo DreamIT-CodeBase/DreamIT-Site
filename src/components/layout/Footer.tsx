@@ -95,7 +95,7 @@ const Footer = () => {
                   className="h-[20px] mt-[2px]"
                   loading="lazy"
                 />
-                info@dreamitcs.com
+                connect@dreamitcs.com{" "}
               </li>
 
               <li className="flex p-medium gap-2 items-start">

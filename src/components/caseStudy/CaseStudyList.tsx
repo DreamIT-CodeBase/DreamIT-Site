@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {   Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -20,7 +20,7 @@ const CaseStudyList = ({ data }: any) => {
           </div>
         </div>
         <h2 className="text-center mb-6">
-        Real results, real impact: this is how we drive success
+          Real results, real impact: this is how we drive success
         </h2>
 
         <div
@@ -45,7 +45,6 @@ const CaseStudyList = ({ data }: any) => {
               },
             }}
             loop={true}
-            centeredSlides={true}
             autoplay={{
               delay: 3500,
               disableOnInteraction: false,
@@ -72,7 +71,7 @@ const CaseStudyList = ({ data }: any) => {
                           className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[12px] font-semibold rounded-2xl text-left"
                         >
                           {tag.toUpperCase()}
-                         </span>
+                        </span>
                       ))}
                     </div>
                     <div className="flex flex-col items-start gap-3 justify-between mt-4">
