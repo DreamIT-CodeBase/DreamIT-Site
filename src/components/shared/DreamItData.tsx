@@ -565,53 +565,53 @@ export const serviceDetails: any = [
         title: "The Tech Stack Driving Digital Marketing",
         techLogos: [
           { 
-            logos: "/assets/images/buisnessApplicationLogo/semrush.png",
+            logos: "/assets/images/digitalMarketingLogo/semrush.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/ahrefs.png",
+            logos: "/assets/images/digitalMarketingLogo/ahrefs.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/moz.png ",
+            logos: "/assets/images/digitalMarketingLogo/moz.png ",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/googleads.png",
+            logos: "/assets/images/digitalMarketingLogo/googleads.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/bingads.png",
+            logos: "/assets/images/digitalMarketingLogo/bingads.png",
           },
            
           {
-            logos: "/assets/images/buisnessApplicationLogo/linkedinads.png",
+            logos: "/assets/images/digitalMarketingLogo/linkedinads.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/hootsuite.png",
+            logos: "/assets/images/digitalMarketingLogo/hootsuite.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/tableau.png",
+            logos: "/assets/images/digitalMarketingLogo/tableau.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/hubspot.png",
+            logos: "/assets/images/digitalMarketingLogo/hubspot.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/buffer.png",
+            logos: "/assets/images/digitalMarketingLogo/buffer.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/sproute-social.png",
+            logos: "/assets/images/digitalMarketingLogo/sproute-social.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/google-search-console.png",
+            logos: "/assets/images/digitalMarketingLogo/google-search-console.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/mailchimp.png",
+            logos: "/assets/images/digitalMarketingLogo/mailchimp.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/grammarly.png",
+            logos: "/assets/images/digitalMarketingLogo/grammarly.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/creative-cloude.png",
+            logos: "/assets/images/digitalMarketingLogo/creative-cloude.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/canva.png",
+            logos: "/assets/images/digitalMarketingLogo/canva.png",
           },
         ],
       },
