@@ -2,10 +2,10 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 
 const Expertise = () => {
-  const logo1 = [ 
+  const logo1 = [
     { src: "/assets/images/loker-logo6.png", alt: "Power BI" },
     { src: "/assets/images/amazon-quicksight-logo7.png", alt: "Facebook Ads" },
-    { 
+    {
       src: "/assets/images/knime.png",
       alt: "Microsoft Dynamics 365",
     },
@@ -18,7 +18,7 @@ const Expertise = () => {
     { src: "/assets/images/power-automate.png", alt: "Bing" },
     { src: "/assets/images/power-paltform.png", alt: "Bing" },
     { src: "/assets/images/power-pages-logo.png", alt: "Bing" },
-  ]; 
+  ];
   const logo2 = [
     { src: "/assets/images/google-ads.png", alt: "Google Ads" },
     { src: "/assets/images/bing.png", alt: "Microsoft Fabric" },
@@ -34,8 +34,8 @@ const Expertise = () => {
     { src: "/assets/images/hubspot-logo23.png", alt: "Power Automate" },
   ];
 
-  const allLogo1 = [...logo1, ...logo1];
-  const allLogo2 = [...logo2, ...logo2];
+  const allLogo1 = [...logo1, ...logo1, ...logo1, ...logo1];
+  const allLogo2 = [...logo2, ...logo2, ...logo2, ...logo2];
   return (
     <div>
       <section className="w-full xl:py-16 lg:py-16 md:py-16    bg-[#072032] bg-cover bg-center">
@@ -48,7 +48,7 @@ const Expertise = () => {
             </div>
 
             <h3 className="text-white mb-3 px-2">
-            Where innovation meets powerful IT tools
+              Where innovation meets powerful IT tools
             </h3>
 
             <h6 className="text-[#FFFFFF] font-[500]  mx-auto md:max-w-[48rem] px-2">
@@ -73,7 +73,7 @@ const Expertise = () => {
               </div>
             </Marquee>
           </div>
-          <div >
+          <div>
             <Marquee speed={50} direction="right">
               <div className="flex items-center">
                 {allLogo2.map((logo, index) => (

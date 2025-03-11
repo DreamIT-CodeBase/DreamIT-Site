@@ -86,8 +86,8 @@ const DataDrivenSolutions = ({ showInsightsIndustries = false }: any) => {
     { name: "HubSpot", src: "/assets/icons/industriesIcon/hubspot-logo23.svg" },
   ];
 
-  const industries1 = [...industries, ...industries];
-  const industries2 = [...industriesLogo, ...industriesLogo];
+  const industries1 = [...industries, ...industries, ...industries, ...industries];
+  const industries2 = [...industriesLogo, ...industriesLogo,...industriesLogo,...industriesLogo];
   return (
     <div>
       <div className=" mx-auto  xl:pt-10 lg:pt-10 md:pt-10 sm:pt-2 xs:pt-2 xl:pb-10 lg:pb-10 md:pb-5 sm:pb-5 xs:pb-5">

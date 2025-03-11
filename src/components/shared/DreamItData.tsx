@@ -20,7 +20,7 @@ export const servicesHeroSectionContent = {
 };
 export const careerHeroSectionContent = {
   title: "Join our team & grow with us",
-tag:"CAREER PAGE",
+tag:"CAREER",
   image: "/assets/images/career-page-hero-section.webp",
 };
 
