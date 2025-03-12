@@ -15,8 +15,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const [loading, setLoading] = useState(false);
 
-  const leadType = "JOB OPENINGS";
-  const storage = Storage.values?.leadAttachment;
+   const storage = Storage.values?.leadAttachment;
 
   const { register, handleSubmit, reset, watch, setValue } = useForm();
   const resumeFile = watch("resume");
@@ -47,7 +46,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
 
       const postData = {
         ...payload,
-        tags: [leadType],
+        tags: [formSubmissionData.role],
         sourceDetail: { pageUrl: window.location.href },
       };
 
@@ -132,13 +131,23 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                   <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
                     Select Job Category
                   </h2>
-                  <input
-                    type="text"
-                    placeholder="Select job title"
+                  <select
                     {...register("role")}
-                    className="w-full rounded-lg border-2 bg-[#FAFAFA] text-[#072032] border-[#EAEAEA] px-4 py-2 text-sm focus:border-[#EAEAEA] focus:outline-none"
-                  />
+                    className="w-full rounded-lg border-2 bg-[#FAFAFA] text-[#072032] border-[#EAEAEA] px-4 py-2 text-sm focus:border-[#EAEAEA] focus:outline-none customSelectTag"
+                  >
+                    <option value="" disabled selected>
+                      Select job title
+                    </option>
+                    <option value="Data Analyst">Data Analyst</option>
+                    <option value="Data Engineer">Data Engineer </option>
+                    <option value="Power Platform Developer">
+                      Power Platform Developer
+                    </option>
+                    <option value="AI/ML Engineer">AI/ML Engineer</option>
+                    <option value="Open for Work">Open for Work</option>
+                  </select>
                 </Col>
+
                 <Col lg={10} md={24} sm={24} xs={24}>
                   <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
                     Upload Resume
@@ -218,7 +227,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                     className="dream-it-cta-button"
                     onClick={() => {
                       setIsModalOpen(true);
-                      setValue("role", data.title); // Set the value of role input
+                      setValue("role", data.title);
                     }}
                   >
                     Apply Now
@@ -244,16 +253,25 @@ const CurrentOpenings = ({ pageInfo }: any) => {
             className=" w-full lg:gap-6 md:gap-4 sm:gap-4 xs:gap-4 rounded-2xl   xl:pt-4 lg:pt-4 md:pt-4 sm:pt-4 xs:pt-4 xl:pb-4 lg:pb-8 md:pb-8 sm:pb-6 xs:pb-6  bg-transparent"
             style={{ backdropFilter: "blur(18.899999618530273px)" }}
           >
-            <Col lg={11} md={24} sm={24} xs={24}>
+            <Col lg={10} md={24} sm={24} xs={24}>
               <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
                 Select Job Category
               </h2>
-              <input
-                type="text"
-                placeholder="Select job title"
+              <select
                 {...register("role")}
-                className="w-full rounded-lg border-2 bg-[#FAFAFA] text-[#072032] border-[#EAEAEA] px-4 py-2 text-sm focus:border-[#EAEAEA] focus:outline-none"
-              />
+                className="w-full rounded-lg border-2 bg-[#FAFAFA] text-[#072032] border-[#EAEAEA] px-4 py-2 text-sm focus:border-[#EAEAEA] focus:outline-none customSelectTag"
+              >
+                <option value="" disabled selected>
+                  Select job title
+                </option>
+                <option value="Data Analyst">Data Analyst</option>
+                <option value="Data Engineer">Data Engineer </option>
+                <option value="Power Platform Developer">
+                  Power Platform Developer
+                </option>
+                <option value="AI/ML Engineer">AI/ML Engineer</option>
+                <option value="Open for Work">Open for Work</option>
+              </select>
             </Col>
             <Col lg={11} md={24} sm={24} xs={24}>
               <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
