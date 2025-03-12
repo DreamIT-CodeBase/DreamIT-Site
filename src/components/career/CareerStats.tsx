@@ -8,7 +8,7 @@ const CareerStats = () => {
     },
     {
       value: "95%",
-      label: "Employee Retention rate",
+      label: "Employee Retention Rate",
     },
     {
       value: "98%",

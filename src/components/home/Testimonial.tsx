@@ -45,7 +45,7 @@ const Testimonial = () => {
 
         {/* Heading */}
         <h2 className=" text-center xl:mb-8 lg:mb-8 md:mb-8 sm:mb-4 xs:mb-4 px-2 about-use-section-title">
-          What clients say about us
+          What Clients Say About Us
         </h2>
 
         {/* Carousel */}

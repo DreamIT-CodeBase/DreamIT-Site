@@ -44,7 +44,7 @@ const OurCoreValues = () => {
             </span>
           </div>
           <h2 className=" xl:mt-6 lg:mt-6 md:mt-6 max-w-[40rem] m-auto sm:mt-4 xs:mt-4  tracking-tight text-black-100">
-            Committed to Quality, Driven by integrity, Focused on you{" "}
+            Committed to Quality, Driven by Integrity, Focused on You{" "}
           </h2>
         </div>
 

@@ -3,8 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { SectionContent } from "../content";
 
 const ServiceContent = ({ servicedata }: any) => {
-  debugger;
-  const contentRef = useRef<HTMLDivElement>(null);
+   const contentRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = (e: WheelEvent) => {

@@ -92,7 +92,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
             {showContactFormLeftSection && (
               <div className="w-full lg:w-1/2 xl:mb-8 lg:mb-0 md:mb-8 sm:mb-4 xs:mb-4">
                 <h2 className="xl:text-left lg:text-left md:text-left sm:text-center mb-4 xs:text-center">
-                  We want to hear from you
+                  We Want to Hear from You
                 </h2>
                 <h6 className="max-w-[30rem] mb-5 xl:text-left lg:text-left md:text-left sm:text-center  xs:text-center">
                   Reach out to our team to ask a question or learn more about

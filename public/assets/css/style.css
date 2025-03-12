@@ -482,8 +482,8 @@ h6 {
   .services-grid-for-mobile {
     display: flex;
     gap: 20px;
-    margin-top: 40px;
-    padding: 0 16px;
+    margin-top: 30px;
+    padding: 0 50px;
   }
 
   .services-link-for-mobile {
@@ -513,7 +513,11 @@ h6 {
   }
 }
 
-@media (max-width: 321px) {
+@media (max-width: 370px) {
+  .services-grid-for-mobile {
+   
+    padding: 0 16px;
+  }
 }
 
 /* Industry insights section */

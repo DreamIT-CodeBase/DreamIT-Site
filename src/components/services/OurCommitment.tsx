@@ -3,25 +3,25 @@ import React from "react";
 const OurCommitment = () => {
   const features = [
     {
-      title: "Continuous innovation",
+      title: "Continuous Innovation",
       description:
         "We embrace cutting-edge solutions that evolve with your business needs.",
       icon: "/assets/icons/continous-innovation-icon.svg",
     },
     {
-      title: "Dedicated support",
+      title: "Dedicated Support",
       description:
         " With round the clock support, we ensure your success is our top priority.",
       icon: "/assets/icons/dedicated-support-icon.svg",
     },
     {
-      title: "Transparent communication",
+      title: "Transparent Communication",
       description:
         " We believe in honesty and clarity, keeping you informed every step of the way.",
       icon: "/assets/icons/transparent-communication-icon.svg",
     },
     {
-      title: "Measurable results",
+      title: "Measurable Results",
       description:
         " We believe in honesty and clarity, keeping you informed every step of the way.",
       icon: "/assets/icons/measurable-result-icon.svg",

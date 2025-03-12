@@ -2,26 +2,35 @@ export const aboutUsHeroSectionContent = {
   title: "A Journey Guided by Values, Driven by Quality",
 tag:"ABOUT US",
   image: "/assets/images/about-us-hero-section-image.webp",
+  maxwidth:"40rem"
+
 };
 export const industriesHeroSectionContent = {
   title: "Solutions Built for Industries That Shape The World",
   tag:"INDUSTRIES WE SERVE",
   image: "/assets/images/industries-hero-section-image.webp",
+  maxwidth:"40rem"
+
 };
 export const insightsSectionContent = {
   title: "Insights & Innovations, Stay Ahead with Us",
   tag:"INSIGHTS",
   image: "/assets/images/insights-hero-section-image.webp",
+  maxwidth:"34rem"
+
 };
 export const servicesHeroSectionContent = {
   title: "A Commitment to Quality & Trust",
   tag:"SERVICES",
   image: "/assets/images/services-hero-section-image.webp",
+  maxwidth:"28rem"
+
 };
 export const careerHeroSectionContent = {
   title: "Join Our Team & Grow with Us",
 tag:"CAREER",
   image: "/assets/images/career-page-hero-section.webp",
+  maxwidth:"28rem"
 };
 
  
@@ -35,7 +44,7 @@ export const ourServies = {
   ourServiesFeatures: [
     {
       src: "/assets/images/cloud-management-and-migration.webp",
-      title: "Cloud data management",
+      title: "Cloud Data Management",
       link: "/services/cloud-data-management",
       subtitle:
         "Streamlining the secure transfer, storage and optimization of business data through Cloud for enhanced scalability and performance.",
@@ -43,7 +52,7 @@ export const ourServies = {
 
     {
       src: "/assets/images/analytics-and-visulalization.webp",
-      title: "Advanced data analytics and visualization",
+      title: "Advanced Data Analytics & Visualization",
       link: "/services/advanced-analytics",
 
       subtitle:
@@ -52,7 +61,7 @@ export const ourServies = {
     {
        src: "/assets/images/digital-consulting.webp",
 
-      title: "Digital transformation & process automation",
+      title: "Digital Transformation & Process Automation",
       link: "/services/digital-transformation",
 
       subtitle:
@@ -60,7 +69,7 @@ export const ourServies = {
     },
     {
       src: "/assets/images/enterprise-image.webp",
-      title: "Enterprise resource planning implementation",
+      title: "Enterprise Resource Planning Implementation",
       link: "/services/erp-implementation",
 
       subtitle:
@@ -69,7 +78,7 @@ export const ourServies = {
     {
        src: "/assets/images/digital-transformation.webp",
 
-      title: "Digital marketing",
+      title: "Digital Marketing",
       link: "/services/digital-marketing",
 
       subtitle:
@@ -79,7 +88,7 @@ export const ourServies = {
 
     {
       src: "/assets/images/buisness-applications.webp",
-      title: "Business-centric IT ecosystem",
+      title: "Business-Centric IT Ecosystem",
       link: "/services/business-applications",
 
       subtitle:

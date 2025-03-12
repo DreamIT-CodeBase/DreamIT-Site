@@ -113,8 +113,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
         </span>
       </div>
       <h2 className="xl:mb-12 lg:mb-12 md:mb-12 sm:mb-2 xs:mb-2 max-w-[44rem] m-auto">
-        We’re growing exponentially, so there are plenty of new roles
-      </h2>
+      We’re Growing Exponentially, So There Are Plenty of New Roles      </h2>
 
       {pageInfo.metadata?.showOpenings !== true && (
         <div className="faq-container text-left  ">
