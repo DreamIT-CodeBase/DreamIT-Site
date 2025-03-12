@@ -1,7 +1,10 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 
-const DataDrivenSolutions = ({ showInsightsIndustries = false }: any) => {
+const DataDrivenSolutions = ({
+  showInsightsIndustries = false,
+  showDataDrivenCrousal = true,
+}: any) => {
   const industries = [
     { name: "Healthcare", src: "/assets/icons/healthcare.svg" },
     { name: "Finance", src: "/assets/icons/finance.svg" },
@@ -100,54 +103,56 @@ const DataDrivenSolutions = ({ showInsightsIndustries = false }: any) => {
   ];
   return (
     <div>
-      <div className=" mx-auto  xl:pt-10 lg:pt-10 md:pt-10 sm:pt-2 xs:pt-2 xl:pb-10 lg:pb-10 md:pb-5 sm:pb-5 xs:pb-5">
-        {!showInsightsIndustries && (
-          <>
-            <h4 className="font-medium text-center xl:mb-8 lg:mb-8 md:mb-8 sm:mb-4 xs:mb-4 data-driven-title">
-              Empowering Industries with Data-Driven Solutions{" "}
-            </h4>
-            <Marquee gradient={false} speed={50}>
-              <div className="flex flex-wrap justify-center xl:gap-7 lg:gap-7 md:gap-7 sm:gap-4 xs:gap-3 ml-5 mr-5">
-                {industries1.map(({ name, src }) => (
-                  <div
-                    key={name}
-                    className="flex items-center justify-center bg-white px-6 py-3 border border-[#CFCFCF80] rounded-[11.03px] gap-2 
+      {showDataDrivenCrousal && (
+        <div className=" mx-auto ">
+          {!showInsightsIndustries && (
+            <>
+              <h4 className="font-medium text-center xl:mb-6 lg:mb-6 md:mb-6 sm:mb-4 xs:mb-4 data-driven-title">
+                Empowering Industries with Data-Driven Solutions{" "}
+              </h4>
+              <Marquee gradient={false} speed={50}>
+                <div className="flex flex-wrap justify-center xl:gap-7 lg:gap-7 md:gap-7 sm:gap-4 xs:gap-3 ml-5 mr-5">
+                  {industries1.map(({ name, src }) => (
+                    <div
+                      key={name}
+                      className="flex items-center justify-center bg-white px-6 py-3 border border-[#CFCFCF80] rounded-[11.03px] gap-2 
               xl:px-8 xl:py-4 lg:px-7 lg:py-3 md:px-6 md:py-3 sm:px-4 sm:py-2 xs:px-3 xs:py-2"
-                  >
-                    <img
-                      className="w-8 h-7 sm:w-7 sm:h-6 xs:w-6 xs:h-5"
-                      alt={name}
-                      src={src}
-                      loading="lazy"
-                    />
-                    <span className="text-[#7F7F7F] font-normal xl:text-[22px] lg:text-[20px] md:text-[18px] sm:text-[16px] xs:text-[14px]">
-                      {name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </Marquee>
-          </>
-        )}
- 
-        {showInsightsIndustries && (
-          <>
-            {" "}
-            <h4 className="font-medium text-center mb-8 data-driven-title">
-              Where Innovation Meets Powerful IT Tools{" "}
-            </h4>
-            <Marquee gradient={false} speed={50}>
-              <div className="flex flex-wrap justify-center gap-7 ml-5 mr-5">
-                {industries2.map(({ name, src }) => (
-                  <div key={name}>
-                    <img alt={name} src={src} className="industries-logo" />
-                  </div>
-                ))}
-              </div>
-            </Marquee>
-          </>
-        )}
-      </div>
+                    >
+                      <img
+                        className="w-8 h-7 sm:w-7 sm:h-6 xs:w-6 xs:h-5"
+                        alt={name}
+                        src={src}
+                        loading="lazy"
+                      />
+                      <span className="text-[#7F7F7F] font-normal xl:text-[22px] lg:text-[20px] md:text-[18px] sm:text-[16px] xs:text-[14px]">
+                        {name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </Marquee>
+            </>
+          )}
+
+          {showInsightsIndustries && (
+            <>
+              {" "}
+              <h4 className="font-medium text-center mb-8 data-driven-title">
+                Where Innovation Meets Powerful IT Tools{" "}
+              </h4>
+              <Marquee gradient={false} speed={50}>
+                <div className="flex flex-wrap justify-center gap-7 ml-5 mr-5">
+                  {industries2.map(({ name, src }) => (
+                    <div key={name}>
+                      <img alt={name} src={src} className="industries-logo" />
+                    </div>
+                  ))}
+                </div>
+              </Marquee>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };

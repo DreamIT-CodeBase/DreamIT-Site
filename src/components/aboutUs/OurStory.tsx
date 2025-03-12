@@ -5,9 +5,16 @@ const OurStory = () => {
     <section className="container  xl:py-16 lg:py-16 md:py-16 sm:py-4 xs:py-4  bg-white">
       <div className=" flex flex-col lg:flex-row xl:gap-16 lg:gap-16 md:lg-8 xs:gap-8 items-center">
         <div className="lg:w-1/2"> 
-          <div>
+          <div className="web-version-image">
             <img
               src="/assets/images/our-story.webp"
+              alt="Professional working with city view"
+              loading="lazy"
+            />
+          </div>
+          <div className="mobile-version-image">
+            <img
+              src="/assets/images/our-story-mobile-version-img.webp"
               alt="Professional working with city view"
               loading="lazy"
             />

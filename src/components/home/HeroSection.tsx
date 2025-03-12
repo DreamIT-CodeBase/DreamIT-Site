@@ -13,7 +13,7 @@ const HeroSection = () => {
   ];
 
   const industries1 = [
-    ...industries,
+    ...industries, 
     ...industries,
     ...industries,
     ...industries,
@@ -45,7 +45,7 @@ const HeroSection = () => {
 
           <div className="flex justify-center">
             <img
-              src="/assets/images/home-page-hero-sec-image.png"
+              src="/assets/images/home-page-hero-sec-image.webp"
               alt="Cloud Powered, Data Driven & Future Ready!"
             />
           </div>

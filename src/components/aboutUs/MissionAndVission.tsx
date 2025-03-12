@@ -13,11 +13,6 @@ export default function CompanyProfile() {
             <h2 className="tracking-tight xl:mt-[15px] lg:mt-[15px] md:mt-[15px] sm:mt-[15px] xs:mt-[15px]">
               Inspiring Innovation & Transforming Futures{" "}
             </h2>
-            {/* <p className="text-gray-800 xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] max-w-3xl ">
-              We specialize in helping businesses thrive through cutting-edge
-              technology solutions like Cloud Data Management, CRM, Data
-              Migration, Process Automation, Digital Marketing and more
-            </p> */}
 
             {/* Vertical Line with Gradient */}
             <div className="flex items-start gap-5 xl:mt-[50px] lg:mt-[20px] md:mt-[18px] sm:mt-[18px] xs:mt-[18px]">
@@ -51,11 +46,20 @@ export default function CompanyProfile() {
 
         {/* Image Section */}
         <div className="w-full xl:-order-first lg:-order-first md:-order-first sm:order-first xs:order-first">
-          <img
-            src="/assets/images/mission-and-vision.webp"
-            alt="Team members collaborating at a computer"
-            loading="lazy"
-          />
+          <div className="web-version-image">
+            <img
+              src="/assets/images/mission-and-vision.webp"
+              alt="Team members collaborating at a computer"
+              loading="lazy"
+            />
+          </div>
+          <div className="mobile-version-image">
+            <img
+              src="/assets/images/mission-and-vision-mobile-v-img.webp"
+              alt="Team members collaborating at a computer"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </div>

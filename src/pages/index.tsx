@@ -1,7 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import Layout from "../components/layout/Layout";
-// import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
-import OurServies from "@/components/shared/OurServies";
+ import OurServies from "@/components/shared/OurServies";
 import Expertise from "@/components/home/Expertise";
 import AboutUsSection from "@/components/home/AboutUsSection";
 import Testimonial from "@/components/home/Testimonial";
@@ -42,8 +41,7 @@ export default function Home({ blogs, pageInfo }: any) {
       <Layout pageInfo={pageInfo}>
         <div className="bg-[#F9FDFF]">
           <HeroSection />
-          {/* <DataDrivenSolutions /> */}
-        </div>
+         </div>
         <OurServies
           data={ourServies}
           showTag={true}

@@ -1,6 +1,5 @@
 import { Col, Row } from "antd";
 import React from "react";
-import { FaCheck } from "react-icons/fa6";
 
 const RoomForGrowth = () => {
   return (
@@ -10,6 +9,12 @@ const RoomForGrowth = () => {
           <img
             src="/assets/images/room-for-growth-section-image.webp"
             alt="image"
+            className="web-version-image"
+          />
+          <img
+            src="/assets/images/room-for-growth-section-mobile-v-image.webp"
+            alt="image"
+            className="mobile-version-image"
           />
         </Col>
         <Col
@@ -28,7 +33,7 @@ const RoomForGrowth = () => {
             Why Work With Us?{" "}
           </h2>
 
-          <p className="xl:text-20 lg:text-16 md:text-16 sm:text-13 xs:text-13 xl:leading-[26.04px] font-400 text-[#596168] xl:max-w-[32rem]">
+          <p className="xl:text-20 lg:text-16 md:text-16 sm:text-13 xs:text-13 xl:leading-[26.04px] font-400 text-[#072032] xl:max-w-[32rem]">
             Dream IT Consulting Services fosters a collaborative, growth-driven
             work culture with opportunities to work on advanced technologies. We
             offer continuous upskilling, a supportive environment, and flexible
@@ -38,29 +43,17 @@ const RoomForGrowth = () => {
           </p>
 
           <ul className="xl:text-[20px] lg:text-[18px] md:text-[16px] sm:text-[14px] xs:text-[14px] text-[#596168] mb-4 mt-4 font-bold space-y-3">
-            <li className="flex items-start gap-2">
-              <FaCheck
-                className="text-[#1c1c1c] self-start mt-[6px]"
-                size={20}
-              />
-              <span>Continuous upskilling</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <FaCheck
-                className="text-[#1c1c1c] self-start mt-[6px]"
-                size={20}
-              />
-              <span>A supportive environment</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <FaCheck
-                className="text-[#1c1c1c] self-start mt-[6px]"
-                size={20}
-              />
-              <span>
-                Flexible work schedules to promote productivity and well-being
-              </span>
-            </li>
+            {[
+              "Promoting Productivity & Well-Being",
+              "Continuous Upskilling",
+              "Supportive Environment",
+              "Flexible Work Schedules",
+            ].map((item, index) => (
+              <li key={index} className="flex items-center">
+                <div className="w-2 h-2 rounded-full bg-cyan-400 mr-3 shadow-[0_0_8px_rgba(34,211,238,0.8)]"></div>
+                <span className="text-gray-700  ">{item}</span>
+              </li>
+            ))}
           </ul>
         </Col>
       </Row>

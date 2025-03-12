@@ -2,8 +2,7 @@ import { insightsSectionContent } from "@/components/shared/DreamItData";
 import Layout from "@/components/layout/Layout";
 import CommonHeroSection from "@/components/shared/CommonHeroSection";
 import React, { useEffect, useState } from "react";
-import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
-import { AHD_HOST, PREVIEW } from "@/utils/constant";
+ import { AHD_HOST, PREVIEW } from "@/utils/constant";
 import BlogsList from "@/components/blogs/BlogsList";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 
@@ -37,8 +36,7 @@ const Insights = ({ blogs, pageInfo, caseStudy }: any) => {
   return (
     <Layout pageInfo={pageInfo}>
       <CommonHeroSection data={insightsSectionContent} />
-      <DataDrivenSolutions />
-      <CaseStudyList data={caseStudy} />
+       <CaseStudyList data={caseStudy} />
       <BlogsList
         data={blogsRecords}
         showBackground={true}

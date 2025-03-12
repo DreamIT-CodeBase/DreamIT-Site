@@ -13,7 +13,7 @@ import { AHD_HOST } from "@/utils/constant";
 const Career = ({ pageInfo }: any) => {
    return (
     <Layout pageInfo={pageInfo}>
-      <CommonHeroSection data={careerHeroSectionContent} />
+      <CommonHeroSection data={careerHeroSectionContent} showDataDrivenCrousal={false}/>
       <LifeAtDreamIt />
       <OurCoreValues />
       <CareerStats />

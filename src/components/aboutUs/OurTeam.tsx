@@ -190,7 +190,7 @@ const OurTeam = () => {
 
         <div className="absolute left-[50%] translate-x-[-50%] xl:bottom-[20px] lg:bottom-[20px] md:bottom-[40px] sm:bottom-[20px] xs:bottom-[20px] z-[1000] flex justify-center">
           <button
-            className={`swiper-prev xl:px-4 xl:py-4 lg:px-4 lg:py-4 md:px-4 md:py-4 sm:px-3 sm:py-3 xs:px-3 xs:py-3 mx-2 rounded-full ${
+            className={`swiper-prev xl:px-4 xl:py-4 lg:px-4 lg:py-4 md:px-4 md:py-4 sm:px-3 sm:py-3 xs:px-2 xs:py-2 mx-2 rounded-full ${
               isBeginning
                 ? "bg-white text-[#596168] border-[1px] border-[#EAEAEA]"
                 : "bg-[#072032] text-white"
@@ -201,7 +201,7 @@ const OurTeam = () => {
             <FaArrowRightLong className="rotate-180 text-[20px]" />
           </button>
           <button
-            className={`swiper-next xl:px-4 xl:py-4 lg:px-4 lg:py-4 md:px-4 md:py-4 sm:px-3 sm:py-3 xs:px-3 xs:py-3 mx-2 rounded-full ${
+            className={`swiper-next xl:px-4 xl:py-4 lg:px-4 lg:py-4 md:px-4 md:py-4 sm:px-3 sm:py-3 xs:px-2 xs:py-2 mx-2 rounded-full ${
               isEnd
                 ? "bg-white text-[#596168] border-[1px] border-[#EAEAEA]"
                 : "bg-[#072032] text-white"

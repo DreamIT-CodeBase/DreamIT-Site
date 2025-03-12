@@ -1,24 +1,24 @@
-import { 
+import {
   industriesHeroSectionContent,
   industriesWeServeData,
- } from "@/components/shared/DreamItData";
+} from "@/components/shared/DreamItData";
 import IndustriesWeServe from "@/components/industries/IndustriesWeServe";
 import Layout from "@/components/layout/Layout";
 import CommonHeroSection from "@/components/shared/CommonHeroSection";
 import React from "react";
- import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
 import { AHD_HOST } from "@/utils/constant";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 
-const industries = ({pageInfo,caseStudy}:any) => {
-  return ( 
+const industries = ({ pageInfo, caseStudy }: any) => {
+  return (
     <Layout pageInfo={pageInfo}>
-      <CommonHeroSection data={industriesHeroSectionContent} />
-      <DataDrivenSolutions showInsightsIndustries={true}/>
-      <IndustriesWeServe  industriesWeServeData={industriesWeServeData}/>
+      <CommonHeroSection
+        data={industriesHeroSectionContent}
+        showInsightsIndustries={true}
+      />
+      <IndustriesWeServe industriesWeServeData={industriesWeServeData} />
       <CaseStudyList data={caseStudy} />
-
-     </Layout>
+    </Layout>
   );
 };
 
@@ -54,7 +54,6 @@ export const getStaticProps = async () => {
     console.error("Error fetching blogs in getStaticProps:", error);
   }
 
-
   try {
     const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
     if (!pageRes.ok) {
@@ -65,5 +64,5 @@ export const getStaticProps = async () => {
     console.error("Error fetching page info:", error);
   }
 
-  return { props: { pageInfo, faqs,caseStudy } };
+  return { props: { pageInfo, faqs, caseStudy } };
 };

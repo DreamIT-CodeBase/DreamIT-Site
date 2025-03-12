@@ -1,5 +1,5 @@
 import MissionAndVission from "@/components/aboutUs/MissionAndVission";
- import OurCoreValues from "@/components/aboutUs/OurCoreValues";
+import OurCoreValues from "@/components/aboutUs/OurCoreValues";
 import OurStory from "@/components/aboutUs/OurStory";
 import OurTeam from "@/components/aboutUs/OurTeam";
 import { aboutUsHeroSectionContent } from "@/components/shared/DreamItData";
@@ -7,7 +7,6 @@ import Layout from "@/components/layout/Layout";
 import CommonHeroSection from "@/components/shared/CommonHeroSection";
 import React from "react";
 import ExploreLifeDreamIt from "../components/aboutUs/ExploreLifeDreamIt";
-import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
 import { AHD_HOST } from "@/utils/constant";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 
@@ -15,7 +14,6 @@ const AboutUs = ({ pageInfo, caseStudy }: any) => {
   return (
     <Layout pageInfo={pageInfo}>
       <CommonHeroSection data={aboutUsHeroSectionContent} />
-      <DataDrivenSolutions />
       <OurStory />
       <MissionAndVission />
       <OurCoreValues />

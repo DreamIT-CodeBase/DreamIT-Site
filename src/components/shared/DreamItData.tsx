@@ -1,40 +1,34 @@
 export const aboutUsHeroSectionContent = {
   title: "A Journey Guided by Values, Driven by Quality",
-tag:"ABOUT US",
+  tag: "ABOUT US",
   image: "/assets/images/about-us-hero-section-image.webp",
-  maxwidth:"40rem"
-
+  maxwidth: "40rem",
 };
 export const industriesHeroSectionContent = {
   title: "Solutions Built for Industries That Shape The World",
-  tag:"INDUSTRIES WE SERVE",
+  tag: "INDUSTRIES WE SERVE",
   image: "/assets/images/industries-hero-section-image.webp",
-  maxwidth:"40rem"
-
+  maxwidth: "40rem",
 };
 export const insightsSectionContent = {
   title: "Insights & Innovations, Stay Ahead with Us",
-  tag:"INSIGHTS",
+  tag: "INSIGHTS",
   image: "/assets/images/insights-hero-section-image.webp",
-  maxwidth:"34rem"
-
+  maxwidth: "34rem",
 };
 export const servicesHeroSectionContent = {
   title: "A Commitment to Quality & Trust",
-  tag:"SERVICES",
+  tag: "SERVICES",
   image: "/assets/images/services-hero-section-image.webp",
-  maxwidth:"28rem"
-
+  maxwidth: "28rem",
 };
 export const careerHeroSectionContent = {
   title: "Join Our Team & Grow with Us",
-tag:"CAREER",
+  tag: "CAREER",
   image: "/assets/images/career-page-hero-section.webp",
-  maxwidth:"28rem"
+  maxwidth: "28rem",
 };
 
- 
-  
 export const ourServies = {
   tag: "OUR SERVICES",
   title: "Personalized Solutions Crafted to Meet Your Business Needs",
@@ -59,7 +53,7 @@ export const ourServies = {
         "Leverage advanced analytics and visualization to unlock actionable insights, optimize decision making and accelerate business growth.",
     },
     {
-       src: "/assets/images/digital-consulting.webp",
+      src: "/assets/images/digital-consulting.webp",
 
       title: "Digital Transformation & Process Automation",
       link: "/services/digital-transformation",
@@ -76,7 +70,7 @@ export const ourServies = {
         "ERP optimizes business operations by integrating core processes such as Finance & Operations, Sales & Marketing, CRM and HRM , improving data accuracy, and enhancing decision-making to drive overall business performance.",
     },
     {
-       src: "/assets/images/digital-transformation.webp",
+      src: "/assets/images/digital-transformation.webp",
 
       title: "Digital Marketing",
       link: "/services/digital-marketing",
@@ -84,7 +78,6 @@ export const ourServies = {
       subtitle:
         "Leveraging targeted strategies like SEO, content marketing, social media, paid advertising, email marketing, and data analytics to enhance online presence, boost lead generation, and drive business growth and brand visibility",
     },
-     
 
     {
       src: "/assets/images/buisness-applications.webp",
@@ -150,17 +143,14 @@ export const ourServiesDetails = {
     },
   ],
 };
- 
-
-  
 
 export const serviceDetails: any = [
   {
     slug: "cloud-data-management",
     title: "Cloud Data Management & Migration",
-     description:
+    description:
       "Transform Data chaos into clarity with cutting-edge cloud solutions",
-      heroImage: "/assets/images/cloud-data-hero-sec-image.webp",
+    heroImage: "/assets/images/cloud-data-hero-sec-image.webp",
     contentImage: "/assets/images/cloud-management-content-image.webp",
     contentTitle: "Conquer the Cloud: Data management made effortless",
     article1:
@@ -222,7 +212,7 @@ export const serviceDetails: any = [
   {
     slug: "advanced-analytics",
     title: "Advanced Data Analytics and Visualization",
-     description: "Unlock the power of Data Storytelling  or “with us”",
+    description: "Unlock the power of Data Storytelling  or “with us”",
     heroImage: "/assets/images/advanced-visualisation-hero-sec-image.webp",
 
     contentImage: "/assets/images/advance-analytics-content-image.webp",
@@ -291,130 +281,6 @@ export const serviceDetails: any = [
   },
 
   {
-    slug: "business-applications",
-    title: "Business-centric IT Ecosystem",
-     heroImage: "/assets/images/buisness-application-hero-sec-image.webp",
-    description: "Building Tomorrow's Business Tools, Today! ",
-    contentImage: "/assets/images/buisness-centeric-content-image.webp",
-    contentTitle:
-      "Rewiring Businesses For Success:Through Digital Transformation and Automation",
- 
-    ourExpertise: [
-      {
-        tag: "OUR EXPERTISE AND CAPABILITIES",
-        title: "Our Business Application Solutions",
-        expertiseContent: [
-          {
-            bgColor: "#E6FBFE",
-            text: "Custom Software Development",
-          },
-          {
-            bgColor: "#E3EBFD",
-            text: "Enterprise Application Development",
-          },
-          {
-            bgColor: "#DCFDE7",
-            text: "Web Application Development",
-          },
-          {
-            bgColor: "#EDDDFB",
-            text: "E-commerce Application Development",
-          },
-          {
-            bgColor: "#E6FBFE",
-            text: "Legacy System Modernization",
-          },
-          {
-            bgColor: "#E3EBFD",
-            text: "Scalability & Performance Optimization",
-          },
-          {
-            bgColor: "#DCFDE7",
-            text: "Application Maintenance & Support",
-          },
-        ],
-      },
-    ],
-    techData: [
-      {
-        tag: "THE CODE BEHIND BUISNESS EVOLUTION",
-        title: "Our Custom Development Tech Stack",
-        techLogos: [
-          {
-            logos: "/assets/images/buisnessApplicationLogo/looker.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/amazon-quicksight.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/knime.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/microsoft-fabric.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/microsoft-azure-logo2.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/databricks-logo.png ",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/purview-logo4.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/dynamic-365-logo8.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/powerbi-logo5.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/power-automate.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/power-pages-logo.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/google-ads.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/bing.png",
-          },
-          {
-            logos:"/assets/images/buisnessApplicationLogo/meta-ads.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/linkedinAds-logo15.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/google-analytics.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/semrush-logo9.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/ahrefs-logo.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/moz-logo.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/hootsuite-logo16.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/canva-logo19.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/mailChimp-logo22.png",
-          },
-          {
-            logos: "/assets/images/buisnessApplicationLogo/hubspot-logo23.png",
-          },
-        ],
-      },
-    ],
-  },
-
-  {
     slug: "erp-implementation",
     title: "Enterprise Resource Planning Implementation",
     description: "Simplify, Automate and Scale with Our Advanced ERP Solutions",
@@ -461,13 +327,16 @@ export const serviceDetails: any = [
         title: "Our Next-Gen Tech Stack",
         techLogos: [
           {
-            logos: "/assets/images/buisnessApplicationLogo/microsoft-fabric.png",
+            logos:
+              "/assets/images/buisnessApplicationLogo/microsoft-fabric.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/microsoft-azure-logo2.png",
+            logos:
+              "/assets/images/buisnessApplicationLogo/microsoft-azure-logo2.png",
           },
           {
-            logos: "/assets/images/buisnessApplicationLogo/databricks-logo.png ",
+            logos:
+              "/assets/images/buisnessApplicationLogo/databricks-logo.png ",
           },
           {
             logos: "/assets/images/buisnessApplicationLogo/purview-logo4.png",
@@ -482,7 +351,7 @@ export const serviceDetails: any = [
     title: "Digital Transformation & Process Automation",
     description:
       "Where Digital Transformation Meets Effortless Automation For Real Impact ",
-      heroImage: "/assets/images/digital-transformation-hero-sec-image.webp",
+    heroImage: "/assets/images/digital-transformation-hero-sec-image.webp",
 
     contentImage: "/assets/images/digital-transformation-content-image.webp",
 
@@ -585,13 +454,13 @@ export const serviceDetails: any = [
         ],
       },
     ],
-     
+
     techData: [
       {
         tag: "BUILDING SMARTER CAMPAIGNS ",
         title: "The Tech Stack Driving Digital Marketing",
         techLogos: [
-          { 
+          {
             logos: "/assets/images/digitalMarketingLogo/semrush.png",
           },
           {
@@ -606,7 +475,7 @@ export const serviceDetails: any = [
           {
             logos: "/assets/images/digitalMarketingLogo/bingads.png",
           },
-           
+
           {
             logos: "/assets/images/digitalMarketingLogo/linkedinads.png",
           },
@@ -626,7 +495,8 @@ export const serviceDetails: any = [
             logos: "/assets/images/digitalMarketingLogo/sproute-social.png",
           },
           {
-            logos: "/assets/images/digitalMarketingLogo/google-search-console.png",
+            logos:
+              "/assets/images/digitalMarketingLogo/google-search-console.png",
           },
           {
             logos: "/assets/images/digitalMarketingLogo/mailchimp.png",
@@ -639,6 +509,140 @@ export const serviceDetails: any = [
           },
           {
             logos: "/assets/images/digitalMarketingLogo/canva.png",
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: "business-applications",
+    title: "Business-centric IT Ecosystem",
+    heroImage: "/assets/images/buisness-application-hero-sec-image.webp",
+    description: "Building Tomorrow's Business Tools, Today! ",
+    contentImage: "/assets/images/buisness-centeric-content-image.webp",
+    contentTitle:
+      "Rewiring Businesses For Success:Through Digital Transformation and Automation",
+
+    ourExpertise: [
+      {
+        tag: "OUR EXPERTISE AND CAPABILITIES",
+        title: "Our Business Application Solutions",
+        expertiseContent: [
+          {
+            bgColor: "#E6FBFE",
+            text: "Custom Software Development",
+          },
+          {
+            bgColor: "#E3EBFD",
+            text: "Enterprise Application Development",
+          },
+          {
+            bgColor: "#DCFDE7",
+            text: "Web Application Development",
+          },
+          {
+            bgColor: "#EDDDFB",
+            text: "E-commerce Application Development",
+          },
+          {
+            bgColor: "#E6FBFE",
+            text: "Legacy System Modernization",
+          },
+          {
+            bgColor: "#E3EBFD",
+            text: "Scalability & Performance Optimization",
+          },
+          {
+            bgColor: "#DCFDE7",
+            text: "Application Maintenance & Support",
+          },
+        ],
+      },
+    ],
+    techData: [
+      {
+        tag: "THE CODE BEHIND BUISNESS EVOLUTION",
+        title: "Our Custom Development Tech Stack",
+        techLogos: [
+          {
+            logos: "/assets/images/buisnessApplicationLogo/looker.png",
+          },
+          {
+            logos:
+              "/assets/images/buisnessApplicationLogo/amazon-quicksight.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/knime.png",
+          },
+          {
+            logos:
+              "/assets/images/buisnessApplicationLogo/microsoft-fabric.png",
+          },
+          {
+            logos:
+              "/assets/images/buisnessApplicationLogo/microsoft-azure-logo2.png",
+          },
+          {
+            logos:
+              "/assets/images/buisnessApplicationLogo/databricks-logo.png ",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/purview-logo4.png",
+          },
+          {
+            logos:
+              "/assets/images/buisnessApplicationLogo/dynamic-365-logo8.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/powerbi-logo5.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/power-automate.png",
+          },
+          {
+            logos:
+              "/assets/images/buisnessApplicationLogo/power-pages-logo.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/google-ads.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/bing.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/meta-ads.png",
+          },
+          {
+            logos:
+              "/assets/images/buisnessApplicationLogo/linkedinAds-logo15.png",
+          },
+          {
+            logos:
+              "/assets/images/buisnessApplicationLogo/google-analytics.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/semrush-logo9.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/ahrefs-logo.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/moz-logo.png",
+          },
+          {
+            logos:
+              "/assets/images/buisnessApplicationLogo/hootsuite-logo16.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/canva-logo19.png",
+          },
+          {
+            logos:
+              "/assets/images/buisnessApplicationLogo/mailChimp-logo22.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/hubspot-logo23.png",
           },
         ],
       },
@@ -702,5 +706,3 @@ export const industriesWeServeData: any = [
     image: "/assets/images/logistics.webp",
   },
 ];
-
- 

@@ -6,9 +6,9 @@ const CommonHeroSection = ({ servicedata }: any) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <div className="service-details-hero-section-background-image">
-      <div className="container pt-60 pb-60">
-        <div className="flex items-start justify-between lg:flex-nowrap md:flex-nowrap  gap-6 xs:flex-wrap">
-          <div className="xl:mt-[60px] lg:mt-[60px] md:mt-[60px] sm:mt-[0px]">
+      <div className="container pat-30 pb-60">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+          <div className=" ">
             <div>
               <h2 className=" max-w-[28rem]   text-black-700 hero-section-title">
                 {servicedata?.title}

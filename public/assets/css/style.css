@@ -141,8 +141,8 @@ a {
 @media (min-width: 640px) {
   .container {
     max-width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 @media (min-width: 768px) {
@@ -945,28 +945,32 @@ h6 {
 }
 .common-hero-section-background-image {
   background-image: url("/assets/images/about-us-background.webp");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (min-width: 1540px) {
   .common-hero-section-background-image {
     background-image: url("/assets/images/about-us-background.webp");
-    background-size: cover;
-    background-position: bottom;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 .service-details-hero-section-background-image {
   background-image: url("/assets/images/about-us-background.webp");
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 @media (min-width: 1540px) {
   .service-details-hero-section-background-image {
     background-image: url("/assets/images/about-us-background.webp");
-    background-size: cover;
-    background-position: bottom;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 
@@ -2006,10 +2010,10 @@ h6 {
 
 @media (max-width: 640px) {
   .ql-editor {
-    padding: 12px 0px;
+    padding: 0px 0px;
   }
   .ql-editor p {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .ql-editor ol > li,
@@ -2017,8 +2021,7 @@ h6 {
     font-size: 16px;
   }
 
-  .ql-editor p,
-  .ql-editor ol,
+   .ql-editor ol,
   .ql-editor ul,
   .ql-editor pre,
   .ql-editor blockquote {
@@ -2038,10 +2041,7 @@ h6 {
   .ql-editor li.ql-indent-1:not(.ql-direction-rtl) {
     padding-left: 3em;
   }
-
-  .ql-editor p {
-    margin: 10px 0px;
-  }
+ 
 }
 
 @media (max-width: 321px) {
@@ -2054,8 +2054,7 @@ h6 {
     font-size: 14px;
   }
 
-  .ql-editor p,
-  .ql-editor ol,
+   .ql-editor ol,
   .ql-editor ul,
   .ql-editor pre,
   .ql-editor blockquote {
@@ -2072,9 +2071,7 @@ h6 {
     font-size: 20px;
   }
 
-  .ql-editor p {
-    margin: 8px 0px;
-  }
+  
 }
 
 .hero-section-title {
@@ -2188,7 +2185,7 @@ h6 {
   .service-details-content-title {
     font-weight: 700;
     font-size: 16px;
-    line-height: 19.2px;
+    line-height: 22.2px;
     letter-spacing: 0%;
   }
 
@@ -2251,4 +2248,20 @@ linear-gradient(96.88deg, rgba(125, 193, 233, 0.2) 10.64%, rgba(133, 76, 255, 0.
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px; /* Adjust the gap as needed */
+}
+
+.web-version-image {
+  display: block;
+}
+.mobile-version-image {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .web-version-image {
+    display: none;
+  }
+  .mobile-version-image {
+    display: block;
+  }
 }

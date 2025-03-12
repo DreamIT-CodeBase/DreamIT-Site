@@ -24,9 +24,16 @@ const AboutUsSection = () => {
       <section className="container pt-60 pb-60">
         <Row align={"middle"} gutter={[24, 24]} justify={"space-between"}>
           <Col xl={11} lg={12} md={12} sm={24} xs={24}>
-            <div>
+            <div className="web-version-image">
               <img
                 src="/assets/images/aboutUs-image.webp"
+                alt="Professional working with city view"
+                loading="lazy"
+              />
+            </div>
+            <div className="mobile-version-image">
+              <img
+                src="/assets/images/aboutUs-image-mobile-image.webp"
                 alt="Professional working with city view"
                 loading="lazy"
               />
