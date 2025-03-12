@@ -14,35 +14,32 @@ const ServiceDetailPage = ({
   caseStudy,
   pageInfo,
 }: any) => {
-
-  debugger
-
   if (!service) {
     return <div>Service not found</div>;
   }
-   const pageTag = pageInfo.tags[0];
-   let displayedCaseStudies;
+  const pageTag = pageInfo.tags[0];
+  let displayedCaseStudies;
 
-   if (!pageTag) {
-      displayedCaseStudies = caseStudy;
-   } else {
-      const matchingCaseStudies = caseStudy.filter((cs: any) =>
-       cs.tags.includes(pageTag)
-     );
- 
-      const remainingCaseStudies = caseStudy.filter(
-       (cs: any) => !cs.tags.includes(pageTag)
-     );
- 
-     displayedCaseStudies = [
-       ...matchingCaseStudies,
-       ...remainingCaseStudies.slice(0, 3 - matchingCaseStudies.length),
-     ].slice(0, 3);  
-   }
+  if (!pageTag) {
+    displayedCaseStudies = caseStudy;
+  } else {
+    const matchingCaseStudies = caseStudy.filter((cs: any) =>
+      cs.tags.includes(pageTag)
+    );
+
+    const remainingCaseStudies = caseStudy.filter(
+      (cs: any) => !cs.tags.includes(pageTag)
+    );
+
+    displayedCaseStudies = [
+      ...matchingCaseStudies,
+      ...remainingCaseStudies.slice(0, 3 - matchingCaseStudies.length),
+    ].slice(0, 3);
+  }
 
   return (
     <Layout pageInfo={pageInfo}>
-       <ServiceDetailsHome servicedata={service} />
+      <ServiceDetailsHome servicedata={service} />
       <DataDrivenSolutions />
 
       <ServiceContent servicedata={pageInfo} />
@@ -59,7 +56,7 @@ export const getStaticPaths = async () => {
   const pagesRes = await fetch(`${AHD_HOST}/page?filter[groups][]=services`);
   const pagePages = await pagesRes.json();
   console.log(pagePages);
-  const paths = pagePages.rows.map((page:any) => ({
+  const paths = pagePages.rows.map((page: any) => ({
     params: { slug: page.slug },
   }));
   return {
@@ -67,7 +64,7 @@ export const getStaticPaths = async () => {
     fallback: false,
   };
 };
- 
+
 export async function getStaticProps({ params }: any) {
   const pageSlug = params.slug;
 
