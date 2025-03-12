@@ -6,7 +6,7 @@ const CommonHeroSection = ({ servicedata }: any) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <div className="service-details-hero-section-background-image">
-      <div className="container pat-30 pb-60">
+      <div className="container ph-50 pd-40">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
           <div className=" ">
             <div>

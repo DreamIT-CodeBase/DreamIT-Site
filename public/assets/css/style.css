@@ -98,6 +98,21 @@ a {
 .pat-30 {
   padding-top: 30px;
 }
+.ph-50 {
+  padding-top: 50px;
+}
+.pd-40 {
+  padding-bottom: 40px;
+}
+
+@media(max-width:640px){
+  .ph-50 {
+    padding-top: 30px;
+  }
+  .pd-40 {
+    padding-bottom: 30px;
+  }
+}
 .pab-30 {
   padding-bottom: 30px;
 }

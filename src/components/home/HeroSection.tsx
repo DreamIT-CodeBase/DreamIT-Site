@@ -20,7 +20,7 @@ const HeroSection = () => {
   ];
   return (
     <div className="home-page-hero-section-background-image pb-[10px]">
-      <div className="container pat-30 pb-60">
+      <div className="container ph-50 pd-40">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
           <div>
             <h1 className="text-black-700 hero-section-title">
