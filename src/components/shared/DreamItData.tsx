@@ -1,25 +1,25 @@
 export const aboutUsHeroSectionContent = {
-  title: "A journey guided by values, driven by quality",
+  title: "A Journey Guided by Values, Driven by Quality",
 tag:"ABOUT US",
   image: "/assets/images/about-us-hero-section-image.webp",
 };
 export const industriesHeroSectionContent = {
-  title: "Solutions built for industries that shape the world",
+  title: "Solutions Built for Industries That Shape The World",
   tag:"INDUSTRIES WE SERVE",
   image: "/assets/images/industries-hero-section-image.webp",
 };
 export const insightsSectionContent = {
-  title: "Insights & innovations, stay ahead with us",
+  title: "Insights & Innovations, Stay Ahead with Us",
   tag:"INSIGHTS",
   image: "/assets/images/insights-hero-section-image.webp",
 };
 export const servicesHeroSectionContent = {
-  title: "A commitment to quality & trust",
+  title: "A Commitment to Quality & Trust",
   tag:"SERVICES",
   image: "/assets/images/services-hero-section-image.webp",
 };
 export const careerHeroSectionContent = {
-  title: "Join our team & grow with us",
+  title: "Join Our Team & Grow with Us",
 tag:"CAREER",
   image: "/assets/images/career-page-hero-section.webp",
 };
@@ -28,7 +28,7 @@ tag:"CAREER",
   
 export const ourServies = {
   tag: "OUR SERVICES",
-  title: "Personalized solutions crafted to meet your business needs",
+  title: "Personalized Solutions Crafted to Meet Your Business Needs",
   subtitle:
     "We deliver custom-fit solutions and strategic plans to accelerate your business growth in the competitive digital landscape.",
   backgroundImage: " ",
@@ -148,7 +148,7 @@ export const ourServiesDetails = {
 export const serviceDetails: any = [
   {
     slug: "cloud-data-management",
-    title: "Cloud data management & migration",
+    title: "Cloud Data Management & Migration",
      description:
       "Transform Data chaos into clarity with cutting-edge cloud solutions",
       heroImage: "/assets/images/cloud-data-hero-sec-image.webp",
@@ -212,7 +212,7 @@ export const serviceDetails: any = [
 
   {
     slug: "advanced-analytics",
-    title: "Advanced data analytics and visualization",
+    title: "Advanced Data Analytics and Visualization",
      description: "Unlock the power of Data Storytelling  or “with us”",
     heroImage: "/assets/images/advanced-visualisation-hero-sec-image.webp",
 
@@ -283,7 +283,7 @@ export const serviceDetails: any = [
 
   {
     slug: "business-applications",
-    title: "Business-centric IT ecosystem",
+    title: "Business-centric IT Ecosystem",
      heroImage: "/assets/images/buisness-application-hero-sec-image.webp",
     description: "Building Tomorrow's Business Tools, Today! ",
     contentImage: "/assets/images/buisness-centeric-content-image.webp",
@@ -407,7 +407,7 @@ export const serviceDetails: any = [
 
   {
     slug: "erp-implementation",
-    title: "Enterprise resource planning implementation",
+    title: "Enterprise Resource Planning Implementation",
     description: "Simplify, Automate and Scale with Our Advanced ERP Solutions",
     contentImage: "/assets/images/erp-content-image.webp",
     heroImage: "/assets/images/erp-hero-sec-image.webp",
@@ -461,7 +461,7 @@ export const serviceDetails: any = [
 
   {
     slug: "digital-transformation",
-    title: "Digital transformation & process automation",
+    title: "Digital Transformation & Process Automation",
     description:
       "Where Digital Transformation Meets Effortless Automation For Real Impact ",
       heroImage: "/assets/images/digital-transformation-hero-sec-image.webp",
@@ -516,7 +516,7 @@ export const serviceDetails: any = [
 
   {
     slug: "digital-marketing",
-    title: "Digital marketing",
+    title: "Digital Marketing",
     heroImage: "/assets/images/digital-marketing-hero-sec-image.webp",
     description: "Turning clicks into conversions with Innovative Strategies",
     contentImage: "/assets/images/digital-marketing-content-image.webp",

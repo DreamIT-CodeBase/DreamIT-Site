@@ -1,5 +1,5 @@
 import React from "react";
- 
+
 const expertiseData = [
   {
     bgColor: "#FFFFFF",
@@ -44,7 +44,7 @@ const PerksAndBenefits = () => {
         </span>
       </div>
       <h2 className="xl:mb-12 lg:mb-12 md:mb-12 sm:mb-4 xs:mb-4 max-w-[44rem] m-auto">
-      Empowering you with the tools and support to thrive at work and beyond
+        Empowering You with the Tools & Support to Thrive at Work & Beyond{" "}
       </h2>
 
       <div className="our-expertise-container">
@@ -52,9 +52,16 @@ const PerksAndBenefits = () => {
           <div
             key={index}
             className={`rounded-lg pt-4 pb-4 pl-6 pr-8 flex items-center gap-2 hover:shadow-lg transition-shadow color-containers`}
-            style={{ backgroundColor: item.bgColor,border:"2px solid #EAEAEA" }}
+            style={{
+              backgroundColor: item.bgColor,
+              border: "2px solid #EAEAEA",
+            }}
           >
-            <img src="/assets/icons/pers-check-icon.svg" alt="icon" className="xl:h-[35px] lg:h-[35px] md:h-[35px] sm:h-[20px] xs:h-[20px]"/>
+            <img
+              src="/assets/icons/pers-check-icon.svg"
+              alt="icon"
+              className="xl:h-[35px] lg:h-[35px] md:h-[35px] sm:h-[20px] xs:h-[20px]"
+            />
             <h6 className="text-black-100 font-semibold">{item.text}</h6>
           </div>
         ))}

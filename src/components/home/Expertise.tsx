@@ -48,7 +48,7 @@ const Expertise = () => {
             </div>
 
             <h3 className="text-white mb-3 px-2">
-              Where innovation meets powerful IT tools
+              Where Innovation Meets Powerful IT Tools{" "}
             </h3>
 
             <h6 className="text-[#FFFFFF] font-[500]  mx-auto md:max-w-[48rem] px-2">

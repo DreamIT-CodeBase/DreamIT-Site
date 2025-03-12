@@ -21,7 +21,7 @@ const OurStory = () => {
             </span>
           </div>
 
-          <h2>Turning data into stories that drive success</h2>
+          <h2>Turning Data Into Stories That Drive Success</h2>
 
           <p className="xl:text-18 lg:text-16 md:text-16 sm:text-[12px] xs:text-[12px] text-[#2D2D2D] xl:max-w-[40rem]">
             Founded in 2020, we began with a strong focus on Advanced Data

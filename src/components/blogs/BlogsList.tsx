@@ -31,7 +31,7 @@ const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
           </div>
         </div>
         <h2 className="text-center mb-6">
-        Future-focused insights for your industry
+          Future-Focused Insights For Your Industry{" "}
         </h2>
 
         {/* <p className="text-gray-800 mb-6 xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] max-w-3xl mx-auto">
@@ -78,7 +78,6 @@ const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
                       width={"100%"}
                       className="mb-4 rounded-[18px]"
                       loading="lazy"
-
                     />
 
                     <div className="relative table-cell bg-[#FFFFFF] mt-4 px-4 py-1 rounded-full border-[2px] border-[#eaeaea]">

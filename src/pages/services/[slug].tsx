@@ -71,7 +71,7 @@ export async function getStaticProps({ params }: any) {
   let pageDeatils: any = {};
   let pageInfo = {};
   let caseStudy = [];
-
+ 
   try {
     pageDeatils = serviceDetails.find(
       (service: any) => service.slug === pageSlug

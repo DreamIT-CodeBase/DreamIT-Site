@@ -20,7 +20,7 @@ const CaseStudyList = ({ data }: any) => {
           </div>
         </div>
         <h2 className="text-center mb-6">
-          Real results, real impact: this is how we drive success
+          Real Results, Real Impact: This Is How We Drive Success{" "}
         </h2>
 
         <div

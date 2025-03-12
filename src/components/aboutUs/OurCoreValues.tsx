@@ -4,7 +4,7 @@ import React from "react";
 const OurCoreValues = () => {
   const values = [
     {
-      title: "Delight", 
+      title: "Delight",
       description:
         "Creating moments that leave a lasting smile and exceed expectations.",
       url: "/assets/icons/delight-icon.svg",
@@ -35,10 +35,7 @@ const OurCoreValues = () => {
   ];
 
   return (
-    <div
-      
-      className="our-core-values-section-container"
-    >
+    <div className="our-core-values-section-container">
       <section className="container pt-60 pb-60 ">
         <div className="text-center  xl:mb-10 lg:mb-10 md:mb-10 sm:mb-0 xs:mb-0">
           <div className="relative inline-block bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full ">
@@ -47,7 +44,7 @@ const OurCoreValues = () => {
             </span>
           </div>
           <h2 className=" xl:mt-6 lg:mt-6 md:mt-6 max-w-[40rem] m-auto sm:mt-4 xs:mt-4  tracking-tight text-black-100">
-          Committed to quality, driven by integrity, focused on you
+            Committed to Quality, Driven by integrity, Focused on you{" "}
           </h2>
         </div>
 
@@ -77,5 +74,3 @@ const OurCoreValues = () => {
 };
 
 export default OurCoreValues;
-
-

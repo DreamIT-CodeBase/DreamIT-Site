@@ -86,15 +86,25 @@ const DataDrivenSolutions = ({ showInsightsIndustries = false }: any) => {
     { name: "HubSpot", src: "/assets/icons/industriesIcon/hubspot-logo23.svg" },
   ];
 
-  const industries1 = [...industries, ...industries, ...industries, ...industries];
-  const industries2 = [...industriesLogo, ...industriesLogo,...industriesLogo,...industriesLogo];
+  const industries1 = [
+    ...industries,
+    ...industries,
+    ...industries,
+    ...industries,
+  ];
+  const industries2 = [
+    ...industriesLogo,
+    ...industriesLogo,
+    ...industriesLogo,
+    ...industriesLogo,
+  ];
   return (
     <div>
       <div className=" mx-auto  xl:pt-10 lg:pt-10 md:pt-10 sm:pt-2 xs:pt-2 xl:pb-10 lg:pb-10 md:pb-5 sm:pb-5 xs:pb-5">
         {!showInsightsIndustries && (
           <>
             <h4 className="font-medium text-center mb-8 data-driven-title">
-              Empowering industries with data-driven solutions
+              Empowering Industries with Data-Driven Solutions{" "}
             </h4>
             <Marquee gradient={false} speed={50}>
               <div className="flex flex-wrap justify-center xl:gap-7 lg:gap-7 md:gap-7 sm:gap-4 xs:gap-3 ml-5 mr-5">
@@ -124,7 +134,7 @@ const DataDrivenSolutions = ({ showInsightsIndustries = false }: any) => {
           <>
             {" "}
             <h4 className="font-medium text-center mb-8 data-driven-title">
-            Where innovation meets powerful IT tools
+              Where Innovation Meets Powerful IT Tools{" "}
             </h4>
             <Marquee gradient={false} speed={50}>
               <div className="flex flex-wrap justify-center gap-7 ml-5 mr-5">

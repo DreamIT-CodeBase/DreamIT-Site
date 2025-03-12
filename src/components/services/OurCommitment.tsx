@@ -37,7 +37,7 @@ const OurCommitment = () => {
                 OUR COMMITMENT
               </span>
             </div>
-            <h2>Data-driven success: from information to execution</h2>
+            <h2>Data-Driven Success: From Information to Execution</h2>
             <h6 className="max-w-[800px] text-[#596168] m-auto xl:text-20 lg:text-16 md:text-16 sm:text-13 xs:text-13">
               However, we are not static and limit ourselves to a specific
               field. We are dedicated to data visualization along with

@@ -24,7 +24,7 @@ const RoomForGrowth = () => {
           </div>
 
           <h2 className="mb-4 mt-4 sm:mb-2 sm:mt-2 xs:mb-2 xs:mt-2 md:mb-4 md:mt-4 lg:mb-4 lg:mt-4 xl:mb-4 xl:mt-4">
-            Why work with us?
+            Why Work With Us?{" "}
           </h2>
 
           <p className="xl:text-20 lg:text-16 md:text-16 sm:text-13 xs:text-13 xl:leading-[26.04px] font-400 text-[#596168] xl:max-w-[32rem]">
@@ -39,7 +39,9 @@ const RoomForGrowth = () => {
           <ul className="list-disc pl-5 xl:text-[20px] lg:text-[18px] md:text-[16px] sm:text-[14px] xs:text-[14px] text-[#596168] mb-4 mt-4 sm:mb-2 sm:mt-2 xs:mb-2 xs:mt-2 md:mb-4 md:mt-4 lg:mb-4 lg:mt-4 xl:mb-4 xl:mt-4 font-bold">
             <li>Continuous upskilling</li>
             <li>A supportive environment</li>
-            <li>Flexible work schedules to promote productivity and well-being</li>
+            <li>
+              Flexible work schedules to promote productivity and well-being
+            </li>
           </ul>
         </Col>
       </Row>
