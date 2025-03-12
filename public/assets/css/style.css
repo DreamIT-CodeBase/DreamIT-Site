@@ -929,16 +929,18 @@ h6 {
 }
 
 .home-page-hero-section-background-image {
-  background-image: url("/assets/images/home-page-her-section-background.webp");
-  background-size: cover;
+  background-image: url("/assets/images/home-page-her-section-background.png");
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (min-width: 1540px) {
   .home-page-hero-section-background-image {
-    background-image: url("/assets/images/home-page-her-section-background.webp");
-    background-size: cover;
-    background-position: bottom;
+    background-image: url("/assets/images/home-page-her-section-background.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 .common-hero-section-background-image {

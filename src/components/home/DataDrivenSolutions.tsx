@@ -103,7 +103,7 @@ const DataDrivenSolutions = ({ showInsightsIndustries = false }: any) => {
       <div className=" mx-auto  xl:pt-10 lg:pt-10 md:pt-10 sm:pt-2 xs:pt-2 xl:pb-10 lg:pb-10 md:pb-5 sm:pb-5 xs:pb-5">
         {!showInsightsIndustries && (
           <>
-            <h4 className="font-medium text-center mb-8 data-driven-title">
+            <h4 className="font-medium text-center xl:mb-8 lg:mb-8 md:mb-8 sm:mb-4 xs:mb-4 data-driven-title">
               Empowering Industries with Data-Driven Solutions{" "}
             </h4>
             <Marquee gradient={false} speed={50}>
@@ -129,7 +129,7 @@ const DataDrivenSolutions = ({ showInsightsIndustries = false }: any) => {
             </Marquee>
           </>
         )}
-
+ 
         {showInsightsIndustries && (
           <>
             {" "}
