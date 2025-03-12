@@ -332,64 +332,73 @@ export const serviceDetails: any = [
         title: "Our Custom Development Tech Stack",
         techLogos: [
           {
-            logos: "/assets/images/microsoft-fabric.png",
+            logos: "/assets/images/buisnessApplicationLogo/looker.png",
           },
           {
-            logos: "/assets/images/microsoft-azure-logo2.png",
+            logos: "/assets/images/buisnessApplicationLogo/amazon-quicksight.png",
           },
           {
-            logos: "/assets/images/databricks-logo.png ",
+            logos: "/assets/images/buisnessApplicationLogo/knime.png",
           },
           {
-            logos: "/assets/images/purview-logo4.png",
+            logos: "/assets/images/buisnessApplicationLogo/microsoft-fabric.png",
           },
           {
-            logos: "/assets/images/dynamic-365-logo8.png",
+            logos: "/assets/images/buisnessApplicationLogo/microsoft-azure-logo2.png",
           },
           {
-            logos: "/assets/images/powerbi-logo5.png",
+            logos: "/assets/images/buisnessApplicationLogo/databricks-logo.png ",
           },
           {
-            logos: "/assets/images/power-automate.png",
+            logos: "/assets/images/buisnessApplicationLogo/purview-logo4.png",
           },
           {
-            logos: "/assets/images/power-pages-logo.png",
+            logos: "/assets/images/buisnessApplicationLogo/dynamic-365-logo8.png",
           },
           {
-            logos: "/assets/images/google-ads.png",
+            logos: "/assets/images/buisnessApplicationLogo/powerbi-logo5.png",
           },
           {
-            logos: "/assets/images/bing.png",
+            logos: "/assets/images/buisnessApplicationLogo/power-automate.png",
           },
           {
-            logos:"/assets/images/meta-ads.png",
+            logos: "/assets/images/buisnessApplicationLogo/power-pages-logo.png",
           },
           {
-            logos: "/assets/images/linkedinAds-logo15.png",
+            logos: "/assets/images/buisnessApplicationLogo/google-ads.png",
           },
           {
-            logos: "/assets/images/google-analytics.png",
+            logos: "/assets/images/buisnessApplicationLogo/bing.png",
           },
           {
-            logos: "/assets/images/semrush-logo9.png",
+            logos:"/assets/images/buisnessApplicationLogo/meta-ads.png",
           },
           {
-            logos: "/assets/images/ahrefs-logo.png",
+            logos: "/assets/images/buisnessApplicationLogo/linkedinAds-logo15.png",
           },
           {
-            logos: "/assets/images/moz-logo.png",
+            logos: "/assets/images/buisnessApplicationLogo/google-analytics.png",
           },
           {
-            logos: "/assets/images/hootsuite-logo16.png",
+            logos: "/assets/images/buisnessApplicationLogo/semrush-logo9.png",
           },
           {
-            logos: "/assets/images/canva-logo19.png",
+            logos: "/assets/images/buisnessApplicationLogo/ahrefs-logo.png",
           },
           {
-            logos: "/assets/images/mailChimp-logo22.png",
+            logos: "/assets/images/buisnessApplicationLogo/moz-logo.png",
           },
           {
-            logos: "/assets/images/hubspot-logo23.png",
+            logos: "/assets/images/buisnessApplicationLogo/hootsuite-logo16.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/canva-logo19.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/mailChimp-logo22.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/hubspot-logo23.png",
           },
         ],
       },
