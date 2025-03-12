@@ -461,7 +461,16 @@ export const serviceDetails: any = [
         title: "Our Next-Gen Tech Stack",
         techLogos: [
           {
-            logos: "/assets/icons/dynamics-365-logo.svg",
+            logos: "/assets/images/buisnessApplicationLogo/microsoft-fabric.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/microsoft-azure-logo2.png",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/databricks-logo.png ",
+          },
+          {
+            logos: "/assets/images/buisnessApplicationLogo/purview-logo4.png",
           },
         ],
       },
@@ -639,31 +648,31 @@ export const serviceDetails: any = [
 
 export const industriesWeServeData: any = [
   {
-    title: "Healthcare & pharmaceuticals",
+    title: "Healthcare & Pharmaceuticals",
     description:
       "Driving Innovation in healthcare and pharmaceuticals with secure, data-driven IT Solutions to enhance patient care, optimize operations and ensure compliance.",
     image: "/assets/images/health-care.webp",
   },
   {
-    title: "Retail & distribution",
+    title: "Retail & Distribution",
     description:
       "Harnessing AI and advanced technologies to transform businesses, optimize operations and enable smarter decision making for a competitive edge.",
     image: "/assets/images/retail-and-distribution.webp",
   },
   {
-    title: "Energy & resources",
+    title: "Energy & Resources",
     description:
       "Revolutionizing real estate and construction with cutting-edge solutions that improve project executions boost operational efficiency and drive sustainable growth",
     image: "/assets/images/energy-and-resources.webp",
   },
   {
-    title: "Travel & hospitality",
+    title: "Travel & Hospitality",
     description:
       "Transforming e-commerce and retail distribution with smart solutions to enhance customer experiences, optimize supply chain and improve inventory management for greater operational efficiency.",
     image: "/assets/images/travel-and-hospitality.webp",
   },
   {
-    title: "Consumer goods",
+    title: "Consumer Goods",
     description:
       "Providing energy and resources companies with solutions that enhance operational efficiency, improve energy management and support sustainability efforts.",
     image: "/assets/images/consumer-goods.webp",
@@ -681,7 +690,7 @@ export const industriesWeServeData: any = [
     image: "/assets/images/automotive.webp",
   },
   {
-    title: "Real estate",
+    title: "Real Estate",
     description:
       "Revolutionizing the automotive industry with cutting edge IT solutions that enhance manufacturing efficiency, improve customer experiences and drive innovation. From smart production to connected vehicles we help brands accelerate growth and stay relevant.",
     image: "/assets/images/real-estate.webp",

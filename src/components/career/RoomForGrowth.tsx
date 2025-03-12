@@ -1,5 +1,6 @@
 import { Col, Row } from "antd";
 import React from "react";
+import { FaCheck } from "react-icons/fa6";
 
 const RoomForGrowth = () => {
   return (
@@ -15,9 +16,9 @@ const RoomForGrowth = () => {
           xl={11}
           lg={12}
           md={12}
-          className="  xl:text-left lg:text-left md:text-left sm:text-center xs:text-center"
+          className="xl:text-left lg:text-left md:text-left sm:text-center xs:text-center"
         >
-          <div className="relative inline-block bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full ">
+          <div className="relative inline-block bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
               ROOM FOR GROWTH
             </span>
@@ -36,11 +37,29 @@ const RoomForGrowth = () => {
             professional growth.
           </p>
 
-          <ul className="list-disc pl-5 xl:text-[20px] lg:text-[18px] md:text-[16px] sm:text-[14px] xs:text-[14px] text-[#596168] mb-4 mt-4 sm:mb-2 sm:mt-2 xs:mb-2 xs:mt-2 md:mb-4 md:mt-4 lg:mb-4 lg:mt-4 xl:mb-4 xl:mt-4 font-bold">
-            <li>Continuous upskilling</li>
-            <li>A supportive environment</li>
-            <li>
-              Flexible work schedules to promote productivity and well-being
+          <ul className="xl:text-[20px] lg:text-[18px] md:text-[16px] sm:text-[14px] xs:text-[14px] text-[#596168] mb-4 mt-4 font-bold space-y-3">
+            <li className="flex items-start gap-2">
+              <FaCheck
+                className="text-[#1c1c1c] self-start mt-[6px]"
+                size={20}
+              />
+              <span>Continuous upskilling</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <FaCheck
+                className="text-[#1c1c1c] self-start mt-[6px]"
+                size={20}
+              />
+              <span>A supportive environment</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <FaCheck
+                className="text-[#1c1c1c] self-start mt-[6px]"
+                size={20}
+              />
+              <span>
+                Flexible work schedules to promote productivity and well-being
+              </span>
             </li>
           </ul>
         </Col>
