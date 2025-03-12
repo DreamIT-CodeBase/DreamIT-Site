@@ -20,29 +20,30 @@ const HeroSection = () => {
   ];
   return (
     <div className="home-page-hero-section-background-image pb-[10px]">
-      <div className="container pt-60 pb-60">
-        <div className="flex items-center justify-between lg:flex-nowrap md:flex-nowrap  gap-6 xs:flex-wrap">
-          <div className="">
-            <h1 className=" text-black-700 hero-section-title">
+      <div className="container pat-30 pb-60">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+          <div>
+            <h1 className="text-black-700 hero-section-title">
               Cloud Powered,
               <br /> Data Driven & Future Ready!
             </h1>
 
-            <h6 className="  max-w-[34rem] text-black-700 hero-section-subtitle">
+            <h6 className="max-w-[34rem] text-black-700 hero-section-subtitle">
               Seamless, interconnected solutions for unparalleled digital
               transformation.
             </h6>
 
-            <div className="xl:mt-8 lg:mt-8 md:mt-8 sm:mt-8 xs:mt-6   sm:text-center xs:text-center xl:text-left lg:text-left md:text-left">
+            <div className="mt-6 md:mt-8 text-center md:text-left">
               <Link
                 href={"#contactForm"}
-                className="bg-[#072032] text-white py-3 px-6  sm:px-8 xs:px-8 text-lg sm:text-[12px] xs:text-[12px] md:text-lg lg:text-xl xl:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105"
+                className="bg-[#072032] text-white py-3 px-6 sm:px-8 text-lg sm:text-[12px] md:text-lg lg:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105"
               >
                 Talk to Us
               </Link>
             </div>
           </div>
-          <div>
+
+          <div className="flex justify-center">
             <img
               src="/assets/images/home-page-hero-sec-image.png"
               alt="Cloud Powered, Data Driven & Future Ready!"
@@ -52,7 +53,7 @@ const HeroSection = () => {
       </div>
 
       <div>
-        <h4 className="font-medium text-center xl:mb-8 lg:mb-8 md:mb-8 sm:mb-4 xs:mb-4 data-driven-title">
+        <h4 className="font-medium text-center xl:mb-6 lg:mb-6 md:mb-6 sm:mb-4 xs:mb-4 data-driven-title">
           Empowering Industries with Data-Driven Solutions{" "}
         </h4>
         <Marquee gradient={false} speed={50}>
