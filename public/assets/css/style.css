@@ -169,17 +169,17 @@ a {
 
 @media screen and (min-width: 1400px) {
   .container {
-    max-width: 100% ;
-    padding-left: 157px ;
-    padding-right: 157px ;
+    max-width: 100%;
+    padding-left: 157px;
+    padding-right: 157px;
     font-family: "Lato", sans-serif;
   }
 }
 @media screen and (min-width: 2000px) {
   .container {
     max-width: 2000px;
-    padding-left: 157px ;
-    padding-right: 157px ;
+    padding-left: 157px;
+    padding-right: 157px;
     font-family: "Lato", sans-serif;
   }
 }
@@ -515,7 +515,6 @@ h6 {
 
 @media (max-width: 370px) {
   .services-grid-for-mobile {
-   
     padding: 0 16px;
   }
 }
@@ -1053,7 +1052,6 @@ h6 {
 .ql-editor > * {
   cursor: text;
 }
-.ql-editor p,
 .ql-editor ol,
 .ql-editor ul,
 .ql-editor pre,
@@ -1071,7 +1069,7 @@ h6 {
 }
 
 .ql-editor h4 {
-  margin: 10px 0px;
+  margin: 0px 0px;
 }
 .ql-editor h2,
 .ql-editor h1 {
@@ -1083,8 +1081,11 @@ h6 {
   line-height: 40px;
 }
 .ql-editor p {
-  font-size: 18px;
-  color: #1b1b1f;
+  font-size: 20px;
+  color: #596168;
+}
+.ql-editor p strong {
+  color: #1c1c1c;
 }
 .ql-editor p img {
   margin: 15px 0px !important;
@@ -2244,10 +2245,8 @@ linear-gradient(96.88deg, rgba(125, 193, 233, 0.2) 10.64%, rgba(133, 76, 255, 0.
   }
 }
 
-
-.case-studuuuuu{
+.case-studuuuuu {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px; /* Adjust the gap as needed */
-
 }
