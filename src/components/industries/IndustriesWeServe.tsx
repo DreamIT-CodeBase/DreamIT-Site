@@ -17,7 +17,12 @@ const IndustriesWeServe = ({ industriesWeServeData }: any) => {
               <img
                 src={industry.image}
                 alt={industry.title}
-                className="w-full object-cover"
+                className="w-full object-cover web-version-image"
+              />
+              <img
+                src={industry.mobileImage}
+                alt={industry.title}
+                className="w-full object-cover mobile-version-image"
               />
             </div>
             <div className="flex justify-between items-center xl:mt-4 lg:mt-4 md:mt-4 sm:mt-2 xs:mt-2">

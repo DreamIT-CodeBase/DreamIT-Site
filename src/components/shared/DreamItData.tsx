@@ -646,7 +646,7 @@ export const serviceDetails: any = [
           },
         ],
       },
-    ],
+    ], 
   },
 ];
 
@@ -656,53 +656,70 @@ export const industriesWeServeData: any = [
     description:
       "Driving Innovation in healthcare and pharmaceuticals with secure, data-driven IT Solutions to enhance patient care, optimize operations and ensure compliance.",
     image: "/assets/images/health-care.webp",
+    mobileImage: "/assets/images/health-care-mobile-version.webp",
   },
   {
     title: "Retail & Distribution",
     description:
       "Harnessing AI and advanced technologies to transform businesses, optimize operations and enable smarter decision making for a competitive edge.",
     image: "/assets/images/retail-and-distribution.webp",
+    mobileImage: "/assets/images/retail-and-distribution-mobile-version.webp",
+
   },
   {
     title: "Energy & Resources",
     description:
       "Revolutionizing real estate and construction with cutting-edge solutions that improve project executions boost operational efficiency and drive sustainable growth",
     image: "/assets/images/energy-and-resources.webp",
+    mobileImage: "/assets/images/energy-and-resources-mobile-version.webp",
+
   },
   {
     title: "Travel & Hospitality",
     description:
       "Transforming e-commerce and retail distribution with smart solutions to enhance customer experiences, optimize supply chain and improve inventory management for greater operational efficiency.",
     image: "/assets/images/travel-and-hospitality.webp",
+    mobileImage: "/assets/images/travel-and-hospitality-mobile-version.webp",
+
   },
   {
     title: "Consumer Goods",
     description:
       "Providing energy and resources companies with solutions that enhance operational efficiency, improve energy management and support sustainability efforts.",
     image: "/assets/images/consumer-goods.webp",
+    mobileImage: "/assets/images/consumer-goods-mobile-version.webp",
+
   },
   {
     title: "Technology & AI",
     description:
       "Delivering custom-fit packages that enhance customer experiences and drive business growth. From personalized services and booking systems to data-driven insights, we help companies improve efficiency, boost customer satisfaction and stay competitive in a dynamic market.",
     image: "/assets/images/technology-and-ai.webp",
+    mobileImage: "/assets/images/technology-and-ai-mobile-version.webp",
+
   },
   {
     title: "Automotive",
     description:
       "Transforming the consumer goods industry with solutions that streamline operations and drive growth. We help brands leverage data, optimize supply chains and stay ahead of market trends.",
     image: "/assets/images/automotive.webp",
+    mobileImage: "/assets/images/automotive-mobile-version.webp",
+
   },
   {
     title: "Real Estate",
     description:
       "Revolutionizing the automotive industry with cutting edge IT solutions that enhance manufacturing efficiency, improve customer experiences and drive innovation. From smart production to connected vehicles we help brands accelerate growth and stay relevant.",
     image: "/assets/images/real-estate.webp",
+    mobileImage: "/assets/images/real-estate-mobile-version.webp",
+
   },
   {
     title: "Logistics",
     description:
       "Optimizing logistics with advanced technology that streamlines operations, improves delivery efficiency and enhances real-time tracking. We help businesses reduce costs and elevate service across the supply chain.",
     image: "/assets/images/logistics.webp",
+    mobileImage: "/assets/images/logistics-mobile-version.webp",
+
   },
 ];

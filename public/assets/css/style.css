@@ -685,12 +685,17 @@ h6 {
 }
 @media (max-width: 640px) {
   .industries-we-serve-container {
-    min-height: 410px;
+    min-height: 360px;
   }
 }
 @media (max-width: 376px) {
   .industries-we-serve-container {
     min-height: 340px;
+  }
+}
+@media (max-width: 321px) {
+  .industries-we-serve-container {
+    min-height: 300px;
   }
 }
 
