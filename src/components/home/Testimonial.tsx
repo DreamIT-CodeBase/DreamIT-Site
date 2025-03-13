@@ -17,9 +17,15 @@ const Testimonial = () => {
     },
     {
       quote:
-        "The team at Dream IT helped us transform our data into clear, impactful visuals that have revolutionized our decision-making process. Their expertise and commitment to our success made all the difference.",
-      author: "John Son",
-      position: "Operations Manager of Tesseli",
+        "We have relied upon and time-tested Dream IT for their integration, expertise, and delivery of high-quality work since 2022. They recently completed the MS Fabric pilot and will continue supporting the business to achieve our long term business goals.",
+      author: "Ken Davies",
+      position: "Strategic Insights Manager, Uniphar Group",
+    },
+    {
+      quote:
+        "Had a great experience with Dream IT to complete a project for Power BI. They took our current excel process and automated a comprehensive dashboard for us that will save us many hours. Fantastic work from their team! Couldn’t be happier!",
+      author: "Rikesh Mistry",
+      position: "Director of Operations, Meerby",
     },
   ];
 
