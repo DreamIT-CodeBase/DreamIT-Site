@@ -1,12 +1,12 @@
 {
   "projects": {
-    "default": "emt-stock-trendz"
+    "default": "unbranded-projects"
   },
   "targets": {
-    "emt-stock-trendz": {
+    "unbranded-projects": {
       "hosting": {
-        "alpha-testing": [
-          "alpha-testing"
+        "dream-itcs": [
+          "dream-itcs"
         ]
       }
     }

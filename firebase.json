@@ -1,6 +1,6 @@
 {
     "hosting": {
-      "target": "alpha-testing",
+      "target": "dream-itcs",
       "public": "out",
       "cleanUrls": true,
       "ignore": [
