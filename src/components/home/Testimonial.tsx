@@ -11,7 +11,7 @@ const Testimonial = () => {
   const testimonials = [
     {
       quote:
-        "The team at Dream IT helped us transform our data into clear, impactful visuals that have revolutionized our decision-making process. Their expertise and commitment to our success made all the difference.",
+        "We have relied upon and time-tested Dream IT for their integration, expertise, and delivery of high-quality work since 2022. They recently completed the MS Fabric pilot and will continue supporting the business to achieve our long term business goals.",
       author: "John Son",
       position: "Operations Manager of Tesseli",
     },

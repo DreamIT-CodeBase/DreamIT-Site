@@ -15,7 +15,7 @@ const Footer = () => {
           <div className="flex items-center mb-4">
             <img
               className="w-40 h-auto"
-              src="/assets/icons/dream-it-logo.svg"
+              src="/assets/images/dream-it-logo-mobile-version.png"
               alt="Logo"
             />
           </div>
