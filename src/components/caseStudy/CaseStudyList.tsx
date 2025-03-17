@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -50,7 +50,7 @@ const CaseStudyList = ({ data }: any) => {
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
-            modules={[Autoplay]}
+            modules={[Autoplay, Pagination]}
             keyboard={{ enabled: true }}
           >
             {data.map((item: any, index: any) => (
@@ -74,7 +74,7 @@ const CaseStudyList = ({ data }: any) => {
                         </span>
                       ))}
                     </div>
-                    <div className="flex flex-col items-start gap-3 justify-between mt-4">
+                    <div className="flex flex-col items-start gap-3 justify-between mt-4 ">
                       <h6
                         className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
                         style={{
@@ -82,6 +82,8 @@ const CaseStudyList = ({ data }: any) => {
                           WebkitBoxOrient: "vertical",
                           WebkitLineClamp: 2,
                           overflow: "hidden",
+                          maxWidth:"400px"
+
                         }}
                       >
                         {item.title}

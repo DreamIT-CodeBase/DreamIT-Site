@@ -545,7 +545,7 @@ h6 {
   height: 100%;
   position: relative;
   margin: 0px 10px;
-  min-height: 445px;
+  min-height: 450px;
 }
 
 .swiper-pagination {
@@ -616,11 +616,7 @@ h6 {
   background: #00a9ff;
 }
 
-@media (max-width: 1442px) {
-  .industry-insights-container {
-    min-height: 460px;
-  }
-}
+ 
 
 @media (max-width: 1025px) {
   .industry-insights-container {

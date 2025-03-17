@@ -94,6 +94,7 @@ const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
                           WebkitBoxOrient: "vertical",
                           WebkitLineClamp: 2,
                           overflow: "hidden",
+                          maxWidth:"400px"
                         }}
                       >
                         {item.title}
