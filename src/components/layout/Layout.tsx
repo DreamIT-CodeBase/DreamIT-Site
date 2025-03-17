@@ -3,13 +3,12 @@ import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useRouter } from "next/router";
-import Parser from 'html-react-parser';
- 
+import Parser from "html-react-parser";
 
 const Layout = (props: any) => {
   const router = useRouter();
   const metaData = props.pageInfo;
-   const baseUrl = "https://alpha-testing.web.app";
+  const baseUrl = "https://dreamitcs.com";
 
   const canonicalUrl = `${baseUrl}${router.asPath.split("?")[0]}`;
   const ogImageUrl =
@@ -17,7 +16,7 @@ const Layout = (props: any) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Head>
-      {Parser(metaData?.head || "")}
+        {Parser(metaData?.head || "")}
 
         <title>{metaData?.title}</title>
         <meta name="title" content={metaData?.metaTitle} />
@@ -51,10 +50,8 @@ const Layout = (props: any) => {
       <Header />
       <main className="flex-grow">{props.children}</main>
       <Footer />
-      <div >
-        {Parser(metaData?.bodyBottom || "")}
-      </div>
-     </div>
+      <div>{Parser(metaData?.bodyBottom || "")}</div>
+    </div>
   );
 };
 

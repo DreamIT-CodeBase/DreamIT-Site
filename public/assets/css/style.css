@@ -618,6 +618,12 @@ h6 {
 
  
 
+/* @media (max-width: 1540px) {
+  .industry-insights-container {
+    min-height: 500px;
+  }
+} */
+ 
 @media (max-width: 1025px) {
   .industry-insights-container {
     min-height: 485px;
