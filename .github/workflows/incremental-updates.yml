@@ -1,0 +1,32 @@
+name: Build And Deploy for Preview
+
+on:
+    schedule:
+      - cron: "1 */1 * * *"
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [20.9]
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: npm install and test on client
+              run: |
+                  npm install  --ignore-peer --force --legacy-peer-deps 
+                  npm run export
+              env:
+                  CI: true
+            - name: Deployment
+              uses: w9jds/firebase-action@v12.8.0
+              with:
+                  args: deploy  --project ${{ secrets.FIREBASE_PROJECT }} --only hosting:${{ secrets.FIREBASE_HOSTING }}
+              env:
+                  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
