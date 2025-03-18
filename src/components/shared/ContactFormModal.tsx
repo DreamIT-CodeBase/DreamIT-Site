@@ -98,7 +98,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
     <div>
       <StyledModal
         title={null}
-        visible={isModalVisible}
+        open={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={null}

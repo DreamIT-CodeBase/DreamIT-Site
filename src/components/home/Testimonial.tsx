@@ -11,9 +11,9 @@ const Testimonial = () => {
   const testimonials = [
     {
       quote:
-        "The team at Dream IT helped us transform our data into clear, impactful visuals that have revolutionized our decision-making process. Their expertise and commitment to our success made all the difference.",
-      author: "John Son",
-      position: "Operations Manager of Tesseli",
+        "Excellent work partnering with the Team who knew their stuff and helped us achieve perfect analytics.",
+      author: "Robert Harrison",
+      position: " President, Maximus Auto Group",
     },
     {
       quote:
