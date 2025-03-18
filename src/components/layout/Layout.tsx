@@ -12,7 +12,7 @@ const Layout = (props: any) => {
 
   const canonicalUrl = `${baseUrl}${router.asPath.split("?")[0]}`;
   const ogImageUrl =
-    metaData?.heroImage?.[0]?.publicUrl || metaData?.metaImageUrl;
+    metaData?.heroImage?.[0]?.publicUrl || metaData?.metaImageUrl || "/assets/icons/dreamItLogo.png";
   return (
     <div className="flex flex-col min-h-screen">
       <Head>

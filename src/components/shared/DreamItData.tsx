@@ -240,25 +240,34 @@ export const serviceDetails: any = [
         expertiseContent: [
           {
             bgColor: "#E6FBFE",
-            text: "CLOUD DATA INTEGRATION",
-          },
-          {
-            bgColor: "#E3EBFD",
-            text: "DATA MIGRATION AND MODERNIZATION",
-          },
-          {
-            bgColor: "#DCFDE7",
-            text: "DATA BACKUP & RECOVERY",
+            text: "PREDICTIVE DATA ANALYTICS",
           },
           {
             bgColor: "#EDDDFB",
-            text: "DATA GOVERNANCE",
+            text: "DESCRIPTIVE ANALYTICS",
+          },
+          {
+            bgColor: "#E3EBFD",
+            text: "INTERACTIVE DASHBOARDS",
+          },
+          {
+            bgColor: "#DCFDE7",
+            text: "SELF SERVICE REPORTING",
+          },
+          {
+            bgColor: "#EDDDFB",
+            text: "DATA STORYTELLING",
           },
           {
             bgColor: "#F6F4EE",
-            text: "CLOUD DATA PRIVACY & SECURITY",
+            text: "CUSTOMIZED REPORTS",
           },
-        ],
+          {
+            bgColor: "#E3EBFD",
+            text: "DATA MODELLING",
+          },
+        ]
+        ,
       },
     ],
     techData: [
@@ -315,6 +324,10 @@ export const serviceDetails: any = [
             text: "Sales And  Marketing",
           },
           {
+            bgColor: "#E6FBFE",
+            text: "Finance & Operations",
+          },
+          {
             bgColor: "#F6F4EE",
             text: "Field Service",
           },
@@ -326,6 +339,10 @@ export const serviceDetails: any = [
         tag: "THE HEARTBEAT OF ERP",
         title: "Our Next-Gen Tech Stack",
         techLogos: [
+          {
+            logos:
+              "/assets/images/buisnessApplicationLogo/dynamic-365-logo8.png",
+          },
           {
             logos:
               "/assets/images/buisnessApplicationLogo/microsoft-fabric.png",
@@ -562,7 +579,7 @@ export const serviceDetails: any = [
     ],
     techData: [
       {
-        tag: "THE CODE BEHIND BUISNESS EVOLUTION",
+        tag: "THE CODE BEHIND BUSINESS EVOLUTION",
         title: "Our Custom Development Tech Stack",
         techLogos: [
           {
