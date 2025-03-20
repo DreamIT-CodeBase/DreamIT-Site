@@ -1,17 +1,21 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 
+const NEXT_PUBLIC_GOOGLE_ANALYTICS = "G-MQDCHW14ES";
+
 export default function Document() {
   return (
     <Html lang="en" style={{ scrollBehavior: "smooth" }}>
-      <Head>
+      <Head />
+
+      <body>
         <Script
           strategy="beforeInteractive"
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-MQDCHW14ES"
+          src={`https://www.googletagmanager.com/gtag/js?id=${NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
         />
 
-        <Script strategy="lazyOnload">
+        <Script strategy="lazyOnload" id="google-analytics">
           {`
              window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -24,8 +28,6 @@ export default function Document() {
           src="https://smtpjs.com/v3/smtp.js"
           strategy="beforeInteractive"
         />
-      </Head>
-      <body>
         <Main />
 
         <NextScript />
