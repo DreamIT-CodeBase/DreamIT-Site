@@ -3,29 +3,25 @@ import { BlogDetails } from "@/components/blogs/BlogsDetails";
 import Layout from "@/components/layout/Layout";
 import { AHD_HOST } from "@/utils/constant";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CaseStudyArticle = () => {
   const router = useRouter();
   const { id } = router.query;
-
   const [pageData, setPageData] = useState(null);
 
   useEffect(() => {
-    if (!id) return; 
+    if (!id) return;
 
     const fetchData = async () => {
       try {
-        const response = await fetch(`${AHD_HOST}/case-studies/preview/?id=${id}`);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch: ${response.statusText}`);
-        }
-        const data = await response.json();
-        setPageData(data);
+        const response = await axios.get(`${AHD_HOST}/case-studies/${id}`);
+        setPageData(response.data);
       } catch (err: any) {
         console.error("Error fetching case study:", err);
-        toast.error(`Error: ${err.message}`, {
+        toast.error(`Error: ${err.response?.data?.message || err.message}`, {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
