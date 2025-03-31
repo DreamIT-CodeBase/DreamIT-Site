@@ -17,8 +17,9 @@ const CaseStudyArticle = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${AHD_HOST}/case-studies/${id}`);
+        const response = await axios.get(`${AHD_HOST}/page/${id}`);
         setPageData(response.data);
+        
       } catch (err: any) {
         console.error("Error fetching case study:", err);
         toast.error(`Error: ${err.response?.data?.message || err.message}`, {
