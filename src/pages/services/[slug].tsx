@@ -54,10 +54,10 @@ const ServiceDetailPage = ({
 
 export const getStaticPaths = async () => {
   const pagesRes = await fetch(`${AHD_HOST}/page?filter[groups][]=services`);
-  const pagePages = await pagesRes.json();
+  const pagePages = await pagesRes?.json();
   console.log(pagePages);
-  const paths = pagePages.rows.map((page: any) => ({
-    params: { slug: page.slug },
+  const paths = pagePages?.rows.map((page: any) => ({
+    params: { slug: page?.slug },
   }));
   return {
     paths: paths,
@@ -74,7 +74,7 @@ export async function getStaticProps({ params }: any) {
  
   try {
     pageDeatils = serviceDetails.find(
-      (service: any) => service.slug === pageSlug
+      (service: any) => service?.slug === pageSlug
     );
   } catch {
     console.log("NO PAGE INFO FOUND FOR " + pageSlug);
@@ -87,7 +87,7 @@ export async function getStaticProps({ params }: any) {
     if (!resOfBlogs.ok) {
       throw new Error(`Failed to fetch blogs: ${resOfBlogs.status}`);
     }
-    const caseStudyData = await resOfBlogs.json();
+    const caseStudyData = await resOfBlogs?.json();
     caseStudy = caseStudyData?.rows || [];
   } catch (error) {
     console.error("Error fetching blogs in getStaticProps:", error);
@@ -98,7 +98,7 @@ export async function getStaticProps({ params }: any) {
     if (!pageRes.ok) {
       throw new Error(`Failed to fetch page info: ${pageRes.status}`);
     }
-    pageInfo = await pageRes.json();
+    pageInfo = await pageRes?.json();
   } catch (error) {
     console.error("Error fetching page info:", error);
   }

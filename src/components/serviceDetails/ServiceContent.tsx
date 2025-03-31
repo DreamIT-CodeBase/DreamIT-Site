@@ -40,7 +40,7 @@ const ServiceContent = ({ servicedata }: any) => {
 
   // Extract layout type from servicedata
   const layoutType =
-    servicedata.sections[0]?.layoutType || "LEFT_IMAGE_RIGHT_CONTENT";
+    servicedata?.sections[0]?.layoutType || "LEFT_IMAGE_RIGHT_CONTENT";
 
   return (
     <div>
@@ -59,7 +59,7 @@ const ServiceContent = ({ servicedata }: any) => {
               >
                 <div>
                   <img
-                    src={servicedata.sections[0].imageUrls}
+                    src={servicedata?.sections[0].imageUrls}
                     alt="Professional working with city view"
                     loading="lazy"
                   />
@@ -76,11 +76,11 @@ const ServiceContent = ({ servicedata }: any) => {
                 className="space-y-3 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[100%] xs:max-h-[100%] overflow-auto service-content-container"
               >
                 <h3 className="service-details-content-title">
-                  {servicedata.sections[0].title}
+                  {servicedata?.sections[0].title}
                 </h3>
                 <SectionContent
-                  editor={servicedata.editor}
-                  sections={servicedata.sections}
+                  editor={servicedata?.editor}
+                  sections={servicedata?.sections}
                 />
               </Col>
             </>
@@ -97,11 +97,11 @@ const ServiceContent = ({ servicedata }: any) => {
                 className="space-y-3 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[100%] xs:max-h-[100%] overflow-auto service-content-container"
               >
                 <h3 className="service-details-content-title">
-                  {servicedata.sections[0].title}
+                  {servicedata?.sections[0].title}
                 </h3>
                 <SectionContent
-                  editor={servicedata.editor}
-                  sections={servicedata.sections}
+                  editor={servicedata?.editor}
+                  sections={servicedata?.sections}
                 />
               </Col>
               {/* Left Image */}
@@ -115,7 +115,7 @@ const ServiceContent = ({ servicedata }: any) => {
               >
                 <div>
                   <img
-                    src={servicedata.sections[0].imageUrls}
+                    src={servicedata?.sections[0].imageUrls}
                     alt="Professional working with city view"
                     loading="lazy"
                   />
