@@ -533,7 +533,7 @@ export const serviceDetails: any = [
   },
 
   {
-    slug: "business-applications",
+    slug: "business-centric-it-ecosystem",
     title: "Business-centric IT Ecosystem",
     heroImage: "/assets/images/buisness-application-hero-sec-image.webp",
     description: "Building Tomorrow's Business Tools, Today! ",

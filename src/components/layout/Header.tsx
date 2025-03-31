@@ -30,7 +30,7 @@ const Header = () => {
     },
 
     { name: "Digital Marketing", slug: "digital-marketing" },
-    { name: "Business-Centric IT Ecosystem", slug: "business-applications" },
+    { name: "Business-Centric IT Ecosystem", slug: "business-centric-it-ecosystem" },
   ];
 
   const isActive = (path: any) => router.pathname === path;
