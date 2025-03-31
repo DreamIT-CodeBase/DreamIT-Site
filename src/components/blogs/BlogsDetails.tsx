@@ -16,7 +16,7 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
             <Col xl={15} lg={15} md={24} sm={24} xs={24}>
               {" "}
               <div className="">
-                {post.tags.map((tag: any, index: number) => (
+                {post?.tags.map((tag: any, index: number) => (
                   <Tag
                     key={index}
                     className="font-semibold bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] border-none outline-none leading-[16.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[12px] xs:text-[12px] mb-3 rounded-full px-4 py-2"
@@ -25,7 +25,7 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
                   </Tag>
                 ))}
                 <h1 className="font-bold xl:leading-[33.6px] lg:leading-[33.6px] md:leading-[33.6px] sm:leading-[28.6px] xs:leading-[28.6px] xl:text-[28px] lg:text-[28px] md:text-[28px] sm:text-[20px] xs:text-[20px] mb-2">
-                  {post.title}
+                  {post?.title}
                 </h1>
                 <div className="flex items-center gap-2">
                   <p className="font-bold leading-[33.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] text-[#596168]">
