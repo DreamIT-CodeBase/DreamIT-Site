@@ -55,22 +55,22 @@ const CaseStudyList = ({ data }: any) => {
           >
             {data.map((item: any, index: any) => (
               <SwiperSlide key={index}>
-                <Link href={`/case-studies/${item.slug}`}>
+                <Link href={`/case-studies/${item?.slug}`}>
                   <div className="industry-insights-container">
                     <img
-                      src={item.thumbnailImage[0].publicUrl}
+                      src={item?.thumbnailImage[0]?.publicUrl}
                       alt=""
                       width={"100%"}
                       className="mb-4"
                       loading="lazy"
                     />
                     <div className="flex flex-wrap gap-3 mb-3">
-                      {item.tags.map((tag: any) => (
+                      {item?.tags.map((tag: any) => (
                         <span
                           key={tag}
                           className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[12px] font-semibold rounded-2xl text-left"
                         >
-                          {tag.toUpperCase()}
+                          {tag?.toUpperCase()}
                         </span>
                       ))}
                     </div>
@@ -86,7 +86,7 @@ const CaseStudyList = ({ data }: any) => {
 
                         }}
                       >
-                        {item.title}
+                        {item?.title}
                       </h6>
 
                       <div>

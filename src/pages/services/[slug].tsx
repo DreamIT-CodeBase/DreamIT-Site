@@ -41,12 +41,10 @@ const ServiceDetailPage = ({
     <Layout pageInfo={pageInfo}>
       <ServiceDetailsHome servicedata={service} />
       <DataDrivenSolutions />
-
       <ServiceContent servicedata={pageInfo} />
       <OurExpertise servicedata={service} />
       <Technologies technology={service} />
       <CaseStudyList data={displayedCaseStudies} />
-
       <OurCommitment />
     </Layout>
   );
@@ -71,7 +69,7 @@ export async function getStaticProps({ params }: any) {
   let pageDeatils: any = {};
   let pageInfo = {};
   let caseStudy = [];
- 
+
   try {
     pageDeatils = serviceDetails.find(
       (service: any) => service?.slug === pageSlug

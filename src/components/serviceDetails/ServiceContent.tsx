@@ -24,7 +24,7 @@ const ServiceContent = ({ servicedata }: any) => {
   };
 
   useEffect(() => {
-    const imageContainerEl = imageContainerRef.current;
+    const imageContainerEl = imageContainerRef?.current;
     if (imageContainerEl) {
       imageContainerEl.addEventListener("wheel", handleScroll, {
         passive: false,
@@ -76,7 +76,7 @@ const ServiceContent = ({ servicedata }: any) => {
                 className="space-y-3 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[100%] xs:max-h-[100%] overflow-auto service-content-container"
               >
                 <h3 className="service-details-content-title">
-                  {servicedata?.sections[0].title}
+                  {servicedata?.sections[0]?.title}
                 </h3>
                 <SectionContent
                   editor={servicedata?.editor}
@@ -97,7 +97,7 @@ const ServiceContent = ({ servicedata }: any) => {
                 className="space-y-3 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[100%] xs:max-h-[100%] overflow-auto service-content-container"
               >
                 <h3 className="service-details-content-title">
-                  {servicedata?.sections[0].title}
+                  {servicedata?.sections[0]?.title}
                 </h3>
                 <SectionContent
                   editor={servicedata?.editor}
@@ -115,7 +115,7 @@ const ServiceContent = ({ servicedata }: any) => {
               >
                 <div>
                   <img
-                    src={servicedata?.sections[0].imageUrls}
+                    src={servicedata?.sections[0]?.imageUrls}
                     alt="Professional working with city view"
                     loading="lazy"
                   />
