@@ -86,7 +86,12 @@ const Footer = () => {
                   className="h-[20px]"
                   loading="lazy"
                 />
-                +91 94164-84500
+                <Link
+                  href="tel:+919416484500"
+                  className="text-gray-400 hover:text-white"
+                >
+                  +91 94164-84500
+                </Link>{" "}
               </li>
               <li className="flex p-medium gap-2 items-center">
                 <img
@@ -95,7 +100,12 @@ const Footer = () => {
                   className="h-[20px] mt-[2px]"
                   loading="lazy"
                 />
-                connect@dreamitcs.com{" "}
+                <Link
+                  href="mailto:connect@dreamitcs.com"
+                  className="text-gray-400 hover:text-white"
+                >
+                  connect@dreamitcs.com
+                </Link>{" "}
               </li>
 
               <li className="flex p-medium gap-2 items-start">
@@ -105,9 +115,16 @@ const Footer = () => {
                   className="h-[20px] mt-[2px]"
                   loading="lazy"
                 />
-                1st Floor, Orchid Business
-                <br /> Park, Central Park II, Sector 48,
-                <br /> Gurugram, Haryana 122004
+                <Link
+                  href="https://maps.google.com/?q=1st+Floor,+Orchid+Business+Park,+Central+Park+II,+Sector+48,+Gurugram,+Haryana+122004"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white"
+                >
+                  1st Floor, Orchid Business <br />
+                  Park, Central Park II, Sector 48, <br />
+                  Gurugram, Haryana 122004
+                </Link>
               </li>
             </ul>
           </div>

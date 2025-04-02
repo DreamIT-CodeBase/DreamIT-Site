@@ -104,7 +104,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
         footer={null}
         width={700}
       >
-        <h4>Contact With Us</h4>
+        <h4>Connect with Us</h4>
         <div className=" px-2 py-5 rounded-[18px]  ">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-wrap -mx-2">
