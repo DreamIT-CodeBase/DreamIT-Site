@@ -8,7 +8,45 @@
         "**/.*",
         "**/node_modules/**"
       ],
-      
+      "redirects": [
+      {
+        "source": "/contact-us/",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/pay-per-click/",
+        "destination": "/services/digital-marketing",
+        "type": 301
+      },
+      {
+        "source": "/data-management/",
+        "destination": "/services/cloud-data-management",
+        "type": 301
+      },
+      {
+        "source": "/search-engine-optimization/",
+        "destination": "/services/digital-marketing",
+        "type": 301
+      },
+      {
+        "source": "/tableau/",
+        "destination": "/services/advanced-analytics",
+        "type": 301
+      },
+      {
+        "source": "/app-store-optimization/",
+        "destination": "/services/digital-marketing",
+        "type": 301
+
+      },
+      {
+        "source": "/code-generator",
+        "destination": "/code-gen",
+        "type": 301
+
+      }
+    ],
       "headers": [
         {
           "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",

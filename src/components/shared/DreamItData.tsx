@@ -500,9 +500,6 @@ export const serviceDetails: any = [
             logos: "/assets/images/digitalMarketingLogo/hootsuite.png",
           },
           {
-            logos: "/assets/images/digitalMarketingLogo/tableau.png",
-          },
-          {
             logos: "/assets/images/digitalMarketingLogo/hubspot.png",
           },
           {
@@ -548,31 +545,19 @@ export const serviceDetails: any = [
         expertiseContent: [
           {
             bgColor: "#E6FBFE",
-            text: "Custom Software Development",
+            text: "IT Strategy Consulting & Implementation",
           },
           {
             bgColor: "#E3EBFD",
-            text: "Enterprise Application Development",
+            text: "Enterprise Architecture & Systems Integration",
           },
           {
             bgColor: "#DCFDE7",
-            text: "Web Application Development",
+            text: "Digital Marketing Strategy & Analytics",
           },
           {
             bgColor: "#EDDDFB",
-            text: "E-commerce Application Development",
-          },
-          {
-            bgColor: "#E6FBFE",
-            text: "Legacy System Modernization",
-          },
-          {
-            bgColor: "#E3EBFD",
-            text: "Scalability & Performance Optimization",
-          },
-          {
-            bgColor: "#DCFDE7",
-            text: "Application Maintenance & Support",
+            text: "Cloud Data Strategy & Migration",
           },
         ],
       },
