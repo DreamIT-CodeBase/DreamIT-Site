@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { LEAD_API } from "@/utils/constant";
+import { useRouter } from "next/router";
 
 const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
   const handleOk = () => {
@@ -15,7 +16,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
   };
 
   const [loading, setLoading] = useState(false);
-
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -63,6 +64,7 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
           });
           reset();
           handleCancel();
+          router.push("/thank-you");
         } else {
           const errorData = JSON.parse(xhr.responseText || "{}");
           toast.error(
