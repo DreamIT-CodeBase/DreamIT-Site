@@ -102,7 +102,7 @@ export const getStaticProps = async () => {
       throw new Error(`Failed to fetch blogs: ${resOfBlogs.statusText}`);
     }
 
-    const blogsData = await resOfBlogs.json();
+    const blogsData = await resOfBlogs?.json();
     blogs = blogsData?.rows || [];
 
     const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
@@ -111,7 +111,7 @@ export const getStaticProps = async () => {
       throw new Error(`Failed to fetch page info: ${pageRes.statusText}`);
     }
 
-    pageInfo = await pageRes.json();
+    pageInfo = await pageRes?.json();
   } catch (ex: any) {
     console.error("Error in getStaticProps:", ex);
     error = ex.message;

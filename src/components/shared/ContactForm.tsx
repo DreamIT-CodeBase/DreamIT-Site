@@ -1,4 +1,5 @@
 import { LEAD_API } from "@/utils/constant";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
@@ -6,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = ({ showContactFormLeftSection }: any) => {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const {
     register,
@@ -52,6 +54,7 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
             closeOnClick: true,
           });
           reset();
+          router.push("/thank-you");
         } else {
           const errorData = JSON.parse(xhr.responseText || "{}");
           toast.error(

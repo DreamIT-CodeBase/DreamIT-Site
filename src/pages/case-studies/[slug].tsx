@@ -55,7 +55,7 @@ export const getStaticProps = async ({ params }: any) => {
     if (!pageRes.ok) {
       throw new Error(`Failed to fetch page info: ${pageRes.statusText}`);
     }
-    const pageInfo = await pageRes.json();
+    const pageInfo = await pageRes?.json();
 
     const resOfCaseStudies = await fetch(
       `${AHD_HOST}/page?filter[groups][]=case-studies`
