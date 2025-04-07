@@ -52,7 +52,7 @@ export const getStaticProps = async () => {
     if (!pageRes.ok) {
       throw new Error(`Failed to fetch page info: ${pageRes.status}`);
     }
-    pageInfo = await pageRes.json();
+    pageInfo = await pageRes?.json();
   } catch (error) {
     console.error("Error fetching page info:", error);
   }
