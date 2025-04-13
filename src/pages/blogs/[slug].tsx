@@ -33,10 +33,8 @@ const BlogArticle = ({ pageInfo, pageSlug, blogs }: any) => {
   }, [pageSlug]);
 
   return (
-    <Layout>
+    <Layout pageInfo={pageInfo}>
       <BlogDetails post={pageData} featureBlogsData={blogs} />
-
-
       <BlogsList
         data={blogs}
         showBackground={true}

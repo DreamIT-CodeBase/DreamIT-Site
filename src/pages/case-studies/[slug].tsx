@@ -8,8 +8,7 @@ const CaseStudyArticle = ({ pageInfo, pageSlug, caseStudy }: any) => {
   const [pageData, setPageData] = useState(() => pageInfo);
   const [error, setError] = useState<any>(null);
   console.log(error);
-  console.log(pageData);
- 
+  
   useEffect(() => {
     const fetcher = async () => {
       try {
@@ -31,7 +30,7 @@ const CaseStudyArticle = ({ pageInfo, pageSlug, caseStudy }: any) => {
   }, [pageSlug]);
 
   return (
-    <Layout>
+    <Layout pageInfo={pageInfo}>
       <BlogDetails post={pageData} featureBlogsData={caseStudy} />
       <CaseStudyList data={caseStudy} />
     </Layout>

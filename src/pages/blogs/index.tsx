@@ -5,7 +5,7 @@ import { Pagination } from "antd";
 import Layout from "@/components/layout/Layout";
 import BlogsList from "@/components/blogs/BlogsList";
 
-const BlogsLi = ({ blogs }: any) => {
+const BlogsLi = ({ blogs,pageInfo }: any) => {
   const [blogsRecords, setBlogsRecords] = useState(() => blogs);
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState<string | null>(null);
@@ -47,7 +47,7 @@ const BlogsLi = ({ blogs }: any) => {
 
   return (
     <>
-      <Layout>
+      <Layout pageInfo={pageInfo}>
         <div
           style={{
             marginTop: "-20px",

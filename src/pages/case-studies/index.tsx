@@ -3,7 +3,7 @@ import Layout from "@/components/layout/Layout";
 import { AHD_HOST, PREVIEW } from "@/utils/constant";
 import React, { useEffect, useState } from "react";
 
-const CaseStudyLi = ({ caseStudies }: any) => {
+const CaseStudyLi = ({ caseStudies,pageInfo }: any) => {
   const [caseStudyRecords, setCaseStudyRecords] = useState(() => caseStudies);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const CaseStudyLi = ({ caseStudies }: any) => {
   }, []);
 
   return (
-    <Layout>
+    <Layout pageInfo={pageInfo}>
       <CaseStudyList data={caseStudyRecords} />
     </Layout>
   );
