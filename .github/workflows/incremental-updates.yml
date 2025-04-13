@@ -13,11 +13,11 @@ jobs:
                 node-version: [20.9]
 
         steps:
-            - name: Check API Response
+            - name: FAB Builder PagePilot Check API Response
               id: check_api
               run: |
                 RESPONSE=$(curl -s https://pagepilot.fabbuilder.com/api/tenant/6754c71afc22646fb4a77d0b/check-data-changed)
-                echo "API Response: $RESPONSE"
+                echo "FAB Builder PagePilot API Response: $RESPONSE"
                 if [ "$RESPONSE" != "true" ]; then
                   echo "API returned false, exiting job."
                   exit 1
@@ -39,3 +39,12 @@ jobs:
                   args: deploy  --project ${{ secrets.FIREBASE_PROJECT }} --only hosting:${{ secrets.FIREBASE_HOSTING }}
               env:
                   FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+            - name: Acknowledge Check API
+              id: pagepilot_fabbuilder_acknowledge_changes_api
+              run: |
+                RESPONSE=$(curl -s https://pagepilot.fabbuilder.com/api/tenant/6754c71afc22646fb4a77d0b/acknowledged-data-changed)
+                echo "API Response: $RESPONSE"
+                if [ "$RESPONSE" != "DONE" ]; then
+                  echo "API returned, exiting job."
+                  exit 1
+                fi
