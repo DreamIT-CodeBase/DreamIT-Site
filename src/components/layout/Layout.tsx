@@ -53,14 +53,7 @@ const Layout = (props: any) => {
           rel="stylesheet"
         /> */}
 
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-NVHNXS3T"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
+       
       </Head>
       <Header />
       <main className="flex-grow">{props.children}</main>
