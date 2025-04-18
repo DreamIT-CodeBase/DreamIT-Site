@@ -46,7 +46,7 @@ const CaseStudyList = ({ data }: any) => {
             }}
             loop={true}
             autoplay={{
-              delay: 350000000,
+              delay: 3500,
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
