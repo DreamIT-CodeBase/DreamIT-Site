@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useRouter } from "next/router";
 import Parser from "html-react-parser";
+import CallIcon from "./CallIcon";
 
 const Layout = (props: any) => {
   const router = useRouter();
@@ -57,6 +58,7 @@ const Layout = (props: any) => {
       </Head>
       <Header />
       <main className="flex-grow">{props.children}</main>
+      <CallIcon/>
       <Footer />
       <div>{Parser(metaData?.bodyBottom || "")}</div>
     </div>
