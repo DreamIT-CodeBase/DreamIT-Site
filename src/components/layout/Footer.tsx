@@ -24,6 +24,14 @@ const Footer = () => {
             cutting-edge technology solutions like Cloud Data Management,
             Advanced Analytics & Visualisation, Digital Marketing, and more.
           </h6>
+
+          <div>
+            <img
+              src="/assets/icons/isoCertification.svg"
+              alt="iso"
+              className="mt-[15px]"
+            />
+          </div>
         </div>
 
         {/* Right Section */}

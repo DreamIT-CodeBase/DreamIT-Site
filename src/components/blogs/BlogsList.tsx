@@ -71,7 +71,7 @@ const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
             {data?.map((item: any, index: any) => (
               <SwiperSlide key={index}>
                 <Link href={`/blogs/${item.slug}`}>
-                  <div key={index} className="industry-insights-container">
+                  <div key={index} className="blogs-insights-container">
                     <img
                       src={item.thumbnailImage[0].publicUrl}
                       alt=""

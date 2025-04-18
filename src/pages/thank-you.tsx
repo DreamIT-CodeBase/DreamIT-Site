@@ -6,7 +6,6 @@ import { AHD_HOST } from "@/utils/constant";
 const ThankYouPage = ({ pageInfo }: any) => {
   return (
     <Layout pageInfo={pageInfo}>
-      
       <div
         className="xl:pt-[50px] lg:pt-[50px] md:pt-[50px] sm:pt-[10px] xs:pt-[10px] xl:pb-[230px] lg:pb-[200px] md:pb-[150px] sm:pb-[50px] xs:pb-[50px] w-full flex items-center justify-center bg-no-repeat bg-contain bg-bottom"
         style={{ backgroundImage: "url(/assets/images/thankyoupagebg.png)" }}
@@ -24,7 +23,7 @@ const ThankYouPage = ({ pageInfo }: any) => {
             Thank You for Your Submission! 🎉
           </h1>
 
-          <p className="text-[#596168] xl:text-lg lg:text-lg md:text-lg sm:text-[14px] xs:text-[14px] xl:mb-8 lg:mb-8 md:mb-8 sm:mb-4 xs:mb-4">
+          <p className="text-[#596168] xl:text-lg lg:text-lg md:text-lg sm:text-[14px] xs:text-[14px] xl:mb-8 lg:mb-8 md:mb-8 sm:mb-4 xs:mb-4 xl:ml-[-35px] lg:ml-[-35px] md:ml-[-35px] sm:ml-[0px] xs:ml-[0px]">
             We&apos;ve received your details and will get back to you soon.
           </p>
 

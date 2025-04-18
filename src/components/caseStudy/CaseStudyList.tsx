@@ -46,7 +46,7 @@ const CaseStudyList = ({ data }: any) => {
             }}
             loop={true}
             autoplay={{
-              delay: 3500,
+              delay: 350000000,
               disableOnInteraction: false,
             }}
             pagination={{ clickable: true }}
@@ -61,14 +61,14 @@ const CaseStudyList = ({ data }: any) => {
                       src={item?.thumbnailImage[0]?.publicUrl}
                       alt=""
                       width={"100%"}
-                      className="mb-4"
+                      className="mb-4 xl:max-h-[247px] lg:max-h-[247px] md:max-h-[auto] sm:max-h-[198px] xs:max-h-[auto] xl:min-h-[247px] lg:min-h-[247px] md:min-h-[auto] sm:min-h-[198px] xs:min-h-[auto]"
                       loading="lazy"
                     />
-                    <div className="flex flex-wrap gap-3 mb-3">
-                      {item?.tags.map((tag: any) => (
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {item?.tags.slice(0, 2).map((tag: any) => (
                         <span
                           key={tag}
-                          className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[12px] font-semibold rounded-2xl text-left"
+                          className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[10px] font-semibold rounded-2xl text-left"
                         >
                           {tag?.toUpperCase()}
                         </span>
@@ -93,7 +93,7 @@ const CaseStudyList = ({ data }: any) => {
                         <img
                           src="/assets/icons/upward-arrow.svg"
                           alt="upward-icon"
-                          className="h-[30px] blogs-upward-icon mr-0  "
+                          className="h-[30px] blogs-upward-icon mr-0 absolute bottom-[10px]"
                           loading="lazy"
                         />
                       </div>
