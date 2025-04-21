@@ -16,7 +16,7 @@ jobs:
             - name: FAB Builder PagePilot Check API Response
               id: check_api
               run: |
-                RESPONSE=$(curl -s https://pagepilot.fabbuilder.com/api/tenant/6754c71afc22646fb4a77d0b/check-data-changed)
+                RESPONSE=$(curl -s https://pagepilot.fabbuilder.com/api/tenant/67beb76503c96859162a68f7/check-data-changed)
                 echo "FAB Builder PagePilot API Response: $RESPONSE"
                 if [ "$RESPONSE" != "true" ]; then
                   echo "API returned false, exiting job."
@@ -42,7 +42,7 @@ jobs:
             - name: Acknowledge Check API
               id: pagepilot_fabbuilder_acknowledge_changes_api
               run: |
-                RESPONSE=$(curl -s https://pagepilot.fabbuilder.com/api/tenant/6754c71afc22646fb4a77d0b/acknowledged-data-changed)
+                RESPONSE=$(curl -s https://pagepilot.fabbuilder.com/api/tenant/67beb76503c96859162a68f7/acknowledged-data-changed)
                 echo "API Response: $RESPONSE"
                 if [ "$RESPONSE" != "DONE" ]; then
                   echo "API returned, exiting job."
