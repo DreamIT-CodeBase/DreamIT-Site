@@ -5,6 +5,7 @@ import { FaLinkedin } from "react-icons/fa6";
 export default function AuthorDetails({ post }: any) {
   const authorName = post?.author?.authorInfo?.name;
   const aboutAuthor = post?.author?.authorInfo?.headline;
+  const aboutImage = post?.author?.avatars[0]?.publicUrl ||"/assets/images/author-image.png";
   const aboutLinkedinUrl =
     post?.author?.authorInfo?.linkedinUrl ||
     "https://www.linkedin.com/company/dreamitcs";
@@ -14,7 +15,7 @@ export default function AuthorDetails({ post }: any) {
     <Card className="mt-4 rounded-[10px] py-2">
       <div className="flex xl:flex-nowrap lg:flex-nowrap md:flex-nowrap sm:flex-wrap xs:flex-wrap items-center gap-4">
         <div className="w-20 h-20   flex items-center justify-center">
-          <img alt="author" src="/assets/images/author-image.png" />
+          <img alt="author" src={aboutImage} />
         </div>
         <div className="w-full flex items-start justify-between ">
           <div>
