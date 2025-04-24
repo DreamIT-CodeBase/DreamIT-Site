@@ -78,6 +78,16 @@
         "source": "/msbi",
         "destination": "/services/advanced-analytics",
         "type": 301
+      },
+      {
+        "source": "/power-bi/",
+        "destination": "/services/advanced-analytics",
+        "type": 301
+      },
+      {
+        "source": "/power-bi",
+        "destination": "/services/advanced-analytics",
+        "type": 301
       }
     ],
       "headers": [
