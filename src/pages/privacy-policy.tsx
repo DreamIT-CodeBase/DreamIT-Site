@@ -6,7 +6,7 @@ import { SectionContent } from '@/components/content';
 const PrivacyAndPolicy = ({ pageInfo }:any) => {
     
     return (
-        <Layout>
+        <Layout pageInfo={pageInfo}>
             <div className="container pt-85 pb-60">
                 <h1 className="font-bold text-[28px] mb-6 text-center">{pageInfo?.name}</h1>
                 {pageInfo?.sections && (
