@@ -36,11 +36,12 @@ const Insights = ({ blogs, pageInfo, caseStudy }: any) => {
   return (
     <Layout pageInfo={pageInfo}>
       <CommonHeroSection data={insightsSectionContent} />
-       <CaseStudyList data={caseStudy} />
+       <CaseStudyList data={caseStudy} showViewButton={true} useSwiper={true} />
       <BlogsList
         data={blogsRecords}
         showBackground={true}
         backgroundImageUrl="/assets/images/success-stories-bg.webp"
+        showViewButton={true}
       />
     </Layout>
   );

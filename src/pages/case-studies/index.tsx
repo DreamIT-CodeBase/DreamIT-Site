@@ -2,9 +2,13 @@ import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 import Layout from "@/components/layout/Layout";
 import { AHD_HOST, PREVIEW } from "@/utils/constant";
 import React, { useEffect, useState } from "react";
+import { Pagination } from "antd";
 
 const CaseStudyLi = ({ caseStudies }: any) => {
   const [caseStudyRecords, setCaseStudyRecords] = useState(() => caseStudies);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [error, setError] = useState<string | null>(null);
+  const itemsPerPage = 6;
 
   useEffect(() => {
     const fetcher = async () => {
@@ -14,13 +18,14 @@ const CaseStudyLi = ({ caseStudies }: any) => {
         );
 
         if (!resOfBlogs.ok) {
-          throw new Error(`Failed to fetch blogs: ${resOfBlogs.statusText}`);
+          throw new Error(`Failed to fetch case studies: ${resOfBlogs.statusText}`);
         }
 
         const cs = await resOfBlogs.json();
         setCaseStudyRecords(cs?.rows || []);
       } catch (error: any) {
-        console.error("Error fetching blogs:", error);
+        console.error("Error fetching case studies:", error);
+        setError("Failed to load case studies. Please try again later.");
       }
     };
 
@@ -30,9 +35,40 @@ const CaseStudyLi = ({ caseStudies }: any) => {
     }
   }, []);
 
+  const handlePaginationChange = (page: any) => {
+    setCurrentPage(page);
+  };
+
+  const currentCaseStudies = caseStudyRecords?.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
     <Layout>
-      <CaseStudyList data={caseStudyRecords} />
+      <div>
+        <div>
+          {error ? (
+            <p style={{ color: "red" }}>{error}</p>
+          ) : currentCaseStudies?.length > 0 ? (
+            <CaseStudyList 
+              data={currentCaseStudies} 
+              showViewButton={false} 
+              useSwiper={false} 
+            />
+          ) : (
+            <p>No case studies found</p>
+          )}
+
+          <Pagination
+            current={currentPage}
+            pageSize={itemsPerPage}
+            total={caseStudyRecords?.length}
+            onChange={handlePaginationChange}
+            showSizeChanger={false}
+          />
+        </div>
+      </div>
     </Layout>
   );
 };
@@ -62,7 +98,7 @@ export const getStaticProps = async () => {
     );
 
     if (!resOfCaseStudy.ok) {
-      throw new Error(`Failed to fetch blogs: ${resOfCaseStudy.statusText}`);
+      throw new Error(`Failed to fetch case studies: ${resOfCaseStudy.statusText}`);
     }
 
     const caseStudyData = await resOfCaseStudy.json();

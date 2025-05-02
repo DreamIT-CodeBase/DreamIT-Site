@@ -48,16 +48,16 @@ const BlogsLi = ({ blogs }: any) => {
   return (
     <>
       <Layout>
-        <div
-          style={{
-            marginTop: "-20px",
-          }}
-        >
-          <div className="container">
+        <div>
+          <div>
             {error ? (
               <p style={{ color: "red" }}>{error}</p>
             ) : currentPosts?.length > 0 ? (
-              <BlogsList data={currentPosts} showBackground={true}/>
+              <BlogsList data={currentPosts}
+               showBackground={true} 
+               showViewButton={false}
+               useSwiper={false}
+                />
             ) : (
               <p>No blog posts found</p>
             )}

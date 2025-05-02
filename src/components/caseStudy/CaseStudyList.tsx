@@ -1,12 +1,11 @@
 import Link from "next/link";
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
-const CaseStudyList = ({ data }: any) => {
+const CaseStudyList = ({ data, showViewButton = false, useSwiper = true }: any) => {
   const swiperRef = useRef<any>(null);
 
   return (
@@ -23,87 +22,151 @@ const CaseStudyList = ({ data }: any) => {
           Real Results, Real Impact: This Is How We Drive Success{" "}
         </h2>
 
-        <div
-          className="industry-insights-carousel"
-          onMouseEnter={() => swiperRef.current?.autoplay.stop()}
-          onMouseLeave={() => swiperRef.current?.autoplay.start()}
-        >
-          <Swiper
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-              },
-              768: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 2,
-              },
-              1440: {
-                slidesPerView: 3,
-              },
-            }}
-            loop={true}
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-            }}
-            pagination={{ clickable: true }}
-            modules={[Autoplay, Pagination]}
-            keyboard={{ enabled: true }}
+        {useSwiper ? (
+          // Swiper carousel layout (original)
+          <div
+            className="industry-insights-carousel"
+            onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+            onMouseLeave={() => swiperRef.current?.autoplay.start()}
           >
-            {data.map((item: any, index: any) => (
-              <SwiperSlide key={index}>
-                <Link href={`/case-studies/${item?.slug}`}>
-                  <div className="industry-insights-container">
-                    <img
-                      src={item?.thumbnailImage[0]?.publicUrl}
-                      alt=""
-                      width={"100%"}
-                      className="mb-4"
-                      loading="lazy"
-                    />
-                    <div className="flex flex-wrap gap-3 mb-3">
-                      {item?.tags.map((tag: any) => (
-                        <span
-                          key={tag}
-                          className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[12px] font-semibold rounded-2xl text-left"
+            <Swiper
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 2,
+                },
+                1440: {
+                  slidesPerView: 3,
+                },
+              }}
+              loop={true}
+              autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              keyboard={{ enabled: true }}
+            >
+              {data.map((item: any, index: any) => (
+                <SwiperSlide key={index}>
+                  <Link href={`/case-studies/${item?.slug}`}>
+                    <div className="industry-insights-container">
+                      <img
+                        src={item?.thumbnailImage[0]?.publicUrl}
+                        alt=""
+                        width={"100%"}
+                        className="mb-4"
+                        loading="lazy"
+                      />
+                      <div className="flex flex-wrap gap-3 mb-3">
+                        {item?.tags.map((tag: any) => (
+                          <span
+                            key={tag}
+                            className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[12px] font-semibold rounded-2xl text-left"
+                          >
+                            {tag?.toUpperCase()}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex flex-col items-start gap-3 justify-between mt-4 ">
+                        <h6
+                          className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
+                          style={{
+                            display: "-webkit-box",
+                            WebkitBoxOrient: "vertical",
+                            WebkitLineClamp: 2,
+                            overflow: "hidden",
+                            maxWidth:"400px"
+                          }}
                         >
-                          {tag?.toUpperCase()}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex flex-col items-start gap-3 justify-between mt-4 ">
-                      <h6
-                        className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
-                        style={{
-                          display: "-webkit-box",
-                          WebkitBoxOrient: "vertical",
-                          WebkitLineClamp: 2,
-                          overflow: "hidden",
-                          maxWidth:"400px"
+                          {item?.title}
+                        </h6>
 
-                        }}
-                      >
-                        {item?.title}
-                      </h6>
-
-                      <div>
-                        <img
-                          src="/assets/icons/upward-arrow.svg"
-                          alt="upward-icon"
-                          className="h-[30px] blogs-upward-icon mr-0  "
-                          loading="lazy"
-                        />
+                        <div>
+                          <img
+                            src="/assets/icons/upward-arrow.svg"
+                            alt="upward-icon"
+                            className="h-[30px] blogs-upward-icon mr-0  "
+                            loading="lazy"
+                          />
+                        </div>
                       </div>
                     </div>
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        ) : (
+          // Grid layout
+          <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-6">
+            {data.map((item: any, index: any) => (
+              <Link href={`/case-studies/${item?.slug}`} key={index}>
+                <div className="industry-insights-container">
+                  <img
+                    src={item?.thumbnailImage[0]?.publicUrl}
+                    alt=""
+                    width={"100%"}
+                    className="mb-4"
+                    loading="lazy"
+                  />
+                  <div className="flex flex-wrap gap-3 mb-3">
+                    {item?.tags.map((tag: any) => (
+                      <span
+                        key={tag}
+                        className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[12px] font-semibold rounded-2xl text-left"
+                      >
+                        {tag?.toUpperCase()}
+                      </span>
+                    ))}
                   </div>
-                </Link>
-              </SwiperSlide>
+                  <div className="flex flex-col items-start gap-3 justify-between mt-4 ">
+                    <h6
+                      className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
+                      style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 2,
+                        overflow: "hidden",
+                        maxWidth:"400px"
+                      }}
+                    >
+                      {item?.title}
+                    </h6>
+
+                    <div>
+                      <img
+                        src="/assets/icons/upward-arrow.svg"
+                        alt="upward-icon"
+                        className="h-[30px] blogs-upward-icon mr-0  "
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Link>
             ))}
-          </Swiper>
-        </div>
+          </div>
+        )}
+        
+        {showViewButton && (
+          <div className="mt-8">
+            <Link
+              href={"/case-studies"}
+              className="bg-[#072032] text-white py-3 px-6 sm:px-8 text-sm sm:text-[12px] md:text-lg lg:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105"
+              target="_blank"
+              rel="noopener noreferrer" 
+            >
+              View All
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

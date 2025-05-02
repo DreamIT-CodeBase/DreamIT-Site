@@ -1,12 +1,11 @@
 import Link from "next/link";
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 
-const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
+const BlogsList = ({ data, showBackground, backgroundImageUrl, showViewButton = false, useSwiper = true }: any) => {
   const swiperRef = useRef<any>(null);
 
   return (
@@ -34,86 +33,141 @@ const BlogsList = ({ data, showBackground, backgroundImageUrl }: any) => {
           Future-Focused Insights For Your Industry{" "}
         </h2>
 
-        {/* <p className="text-gray-800 mb-6 xl:text-20 lg:text-16 md:text-16 sm:text-[14px] xs:text-[14px] max-w-3xl mx-auto">
-          {data?.description}
-        </p> */}
-
-        <div
-          className="industry-insights-carousel"
-          onMouseEnter={() => swiperRef.current?.autoplay.stop()}
-          onMouseLeave={() => swiperRef.current?.autoplay.start()}
-        >
-          <Swiper
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-              },
-              768: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 2,
-              },
-              1440: {
-                slidesPerView: 3,
-              },
-            }}
-            loop={true}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            pagination={{ clickable: true }}
-            modules={[Autoplay, Pagination]}
-            keyboard={{ enabled: true }}
+        {useSwiper ? (
+          <div
+            className="industry-insights-carousel"
+            onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+            onMouseLeave={() => swiperRef.current?.autoplay.start()}
           >
-            {data?.map((item: any, index: any) => (
-              <SwiperSlide key={index}>
-                <Link href={`/blogs/${item.slug}`}>
-                  <div key={index} className="industry-insights-container">
-                    <img
-                      src={item.thumbnailImage[0].publicUrl}
-                      alt=""
-                      width={"100%"}
-                      className="mb-4 rounded-[18px]"
-                      loading="lazy"
-                    />
+            <Swiper
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 2,
+                },
+                1440: {
+                  slidesPerView: 3,
+                },
+              }}
+              loop={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
+              keyboard={{ enabled: true }}
+            >
+              {data?.map((item: any, index: any) => (
+                <SwiperSlide key={index}>
+                  <Link href={`/blogs/${item.slug}`}>
+                    <div key={index} className="industry-insights-container">
+                      <img
+                        src={item.thumbnailImage[0].publicUrl}
+                        alt=""
+                        width={"100%"}
+                        className="mb-4 rounded-[18px]"
+                        loading="lazy"
+                      />
 
-                    <div className="relative table-cell bg-[#FFFFFF] mt-4 px-4 py-1 rounded-full border-[2px] border-[#eaeaea]">
-                      <span className="text-[#072032]  text-[13px] text-center font-semibold">
-                        IT TRENDS
-                      </span>
-                    </div>
+                      <div className="relative table-cell bg-[#FFFFFF] mt-4 px-4 py-1 rounded-full border-[2px] border-[#eaeaea]">
+                        <span className="text-[#072032]  text-[13px] text-center font-semibold">
+                          IT TRENDS
+                        </span>
+                      </div>
 
-                    <div className="flex flex-col items-start gap-3 justify-between mt-4">
-                      <h6
-                        className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
-                        style={{
-                          display: "-webkit-box",
-                          WebkitBoxOrient: "vertical",
-                          WebkitLineClamp: 2,
-                          overflow: "hidden",
-                          maxWidth:"400px"
-                        }}
-                      >
-                        {item.title}
-                      </h6>
-                      <div>
-                        <img
-                          src="/assets/icons/upward-arrow.svg"
-                          alt="upward-icon"
-                          className="h-[30px] mr-0 blogs-upward-icon "
-                          loading="lazy"
-                        />
+                      <div className="flex flex-col items-start gap-3 justify-between mt-4">
+                        <h6
+                          className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
+                          style={{
+                            display: "-webkit-box",
+                            WebkitBoxOrient: "vertical",
+                            WebkitLineClamp: 2,
+                            overflow: "hidden",
+                            maxWidth:"400px"
+                          }}
+                        >
+                          {item.title}
+                        </h6>
+                        <div>
+                          <img
+                            src="/assets/icons/upward-arrow.svg"
+                            alt="upward-icon"
+                            className="h-[30px] mr-0 blogs-upward-icon "
+                            loading="lazy"
+                          />
+                        </div>
                       </div>
                     </div>
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        ) : (
+          <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-6">
+            {data?.map((item: any, index: any) => (
+              <Link href={`/blogs/${item.slug}`} key={index}>
+                <div className="industry-insights-container">
+                  <img
+                    src={item.thumbnailImage[0].publicUrl}
+                    alt=""
+                    width={"100%"}
+                    className="mb-4 rounded-[18px]"
+                    loading="lazy"
+                  />
+
+                  <div className="relative table-cell bg-[#FFFFFF] mt-4 px-4 py-1 rounded-full border-[2px] border-[#eaeaea]">
+                    <span className="text-[#072032]  text-[13px] text-center font-semibold">
+                      IT TRENDS
+                    </span>
                   </div>
-                </Link>
-              </SwiperSlide>
+
+                  <div className="flex flex-col items-start gap-3 justify-between mt-4">
+                    <h6
+                      className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
+                      style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 2,
+                        overflow: "hidden",
+                        maxWidth:"400px"
+                      }}
+                    >
+                      {item.title}
+                    </h6>
+                    <div>
+                      <img
+                        src="/assets/icons/upward-arrow.svg"
+                        alt="upward-icon"
+                        className="h-[30px] mr-0 blogs-upward-icon "
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Link>
             ))}
-          </Swiper>
-        </div>
+          </div>
+        )}
+        
+        {showViewButton && (
+          <div className="mt-8">
+            <Link
+              href={"/blogs"}
+              className="bg-[#072032] text-white py-3 px-6 sm:px-8 text-sm sm:text-[12px] md:text-lg lg:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View All
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
