@@ -8,6 +8,11 @@ import ShareWithFriends from "../shared/ShareWithFriends";
 import AuthorDetails from "../shared/AuthorDetails";
 
 export const BlogDetails = ({ post, featureBlogsData }: any) => {
+  const timeToRead =
+  post?.metadata?.["case-studies"]?.timeToRead ||
+  post?.metadata?.["blogs"]?.timeToRead ||
+  "10 min";
+  
   return (
     <>
       <TestPageWrapper>
@@ -35,8 +40,8 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
                     })}
                   </p>
                   <span className="text-[#596168]">•</span>
-                  <p className="font-bold leading-[16.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] text-[#596168]">
-                    10 min read
+                   <p className="font-bold leading-[16.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] text-[#596168]">
+                   {timeToRead} read
                   </p>
                 </div>
                 <div>
@@ -55,7 +60,7 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
               </div>
               <div>
                 <ShareWithFriends />
-                <AuthorDetails />
+                <AuthorDetails post={post}/>
               </div>
             </Col>
 

@@ -5,7 +5,7 @@ import { Pagination } from "antd";
 import Layout from "@/components/layout/Layout";
 import BlogsList from "@/components/blogs/BlogsList";
 
-const BlogsLi = ({ blogs }: any) => {
+const BlogsLi = ({ blogs,pageInfo }: any) => {
   const [blogsRecords, setBlogsRecords] = useState(() => blogs);
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState<string | null>(null);
@@ -47,7 +47,7 @@ const BlogsLi = ({ blogs }: any) => {
 
   return (
     <>
-      <Layout>
+      <Layout pageInfo={pageInfo}>
         <div>
           <div>
             {error ? (
@@ -102,7 +102,7 @@ export const getStaticProps = async () => {
       throw new Error(`Failed to fetch blogs: ${resOfBlogs.statusText}`);
     }
 
-    const blogsData = await resOfBlogs.json();
+    const blogsData = await resOfBlogs?.json();
     blogs = blogsData?.rows || [];
 
     const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
@@ -111,7 +111,7 @@ export const getStaticProps = async () => {
       throw new Error(`Failed to fetch page info: ${pageRes.statusText}`);
     }
 
-    pageInfo = await pageRes.json();
+    pageInfo = await pageRes?.json();
   } catch (ex: any) {
     console.error("Error in getStaticProps:", ex);
     error = ex.message;

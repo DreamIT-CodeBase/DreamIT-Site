@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useRouter } from "next/router";
 import Parser from "html-react-parser";
+import CallIcon from "./CallIcon";
 
 const Layout = (props: any) => {
   const router = useRouter();
@@ -12,7 +13,9 @@ const Layout = (props: any) => {
 
   const canonicalUrl = `${baseUrl}${router.asPath.split("?")[0]}`;
   const ogImageUrl =
-    metaData?.heroImage?.[0]?.publicUrl || metaData?.metaImageUrl || "/assets/icons/dreamItLogo.png";
+    metaData?.heroImage?.[0]?.publicUrl ||
+    metaData?.metaImageUrl ||
+    "/assets/icons/dreamItLogo.png";
   return (
     <div className="flex flex-col min-h-screen">
       <Head>
@@ -23,6 +26,10 @@ const Layout = (props: any) => {
         <meta name="description" content={metaData?.metaDescription} />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="google-site-verification"
+          content="sIeCps1_7B-FTbdFVM1PCa7jzKJRTjWURLpB1lcMUxc"
+        />
 
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:url" content={canonicalUrl} />
@@ -46,9 +53,12 @@ const Layout = (props: any) => {
           href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css"
           rel="stylesheet"
         /> */}
+
+       
       </Head>
       <Header />
       <main className="flex-grow">{props.children}</main>
+      <CallIcon/>
       <Footer />
       <div>{Parser(metaData?.bodyBottom || "")}</div>
     </div>

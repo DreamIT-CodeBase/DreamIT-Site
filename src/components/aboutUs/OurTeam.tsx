@@ -11,7 +11,7 @@ const OurTeam = () => {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
-  const teamData = [
+  const teamData = [ 
     {
       name: "Anu Kamboj",
       title: "CEO & Co-Founder",
@@ -20,7 +20,7 @@ const OurTeam = () => {
         "11+ yrs in IT & Performance",
         "Marketing roles",
       ],
-      backgroundImage: "/assets/images/team-member1.png",
+      backgroundImage: "/assets/images/team-member1.webp",
       linkedinAcc: "https://www.linkedin.com/in/anu-kamboj-37309b74/",
     },
     {
@@ -118,7 +118,7 @@ const OurTeam = () => {
         >
           {teamData.map((member, index) => (
             <SwiperSlide key={index}>
-              <div className="group relative xl:h-[467px] lg:h-[467px] md:h-[467px] sm:h-[420px] xs:h-[340px] overflow-hidden rounded-[20px] bg-[#ECEFF1] transition-all duration-300 hover:bg-zinc-900">
+              <div className="group relative xl:h-[467px] lg:h-[467px] md:h-[467px] sm:h-[420px] xs:h-[340px] overflow-hidden rounded-[24px] bg-[#ECEFF1] transition-all duration-300 hover:bg-zinc-900">
                 <div className="absolute inset-0 p-6 flex flex-col justify-between transition-all duration-300">
                   <div
                     style={{

@@ -4,7 +4,7 @@ import { AHD_HOST, PREVIEW } from "@/utils/constant";
 import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
 
-const CaseStudyLi = ({ caseStudies }: any) => {
+const CaseStudyLi = ({ caseStudies,pageInfo }: any) => {
   const [caseStudyRecords, setCaseStudyRecords] = useState(() => caseStudies);
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState<string | null>(null);
@@ -45,7 +45,7 @@ const CaseStudyLi = ({ caseStudies }: any) => {
   );
 
   return (
-    <Layout>
+    <Layout pageInfo={pageInfo}>
       <div>
         <div>
           {error ? (

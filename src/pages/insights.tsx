@@ -63,7 +63,7 @@ export const getStaticProps = async () => {
     if (!resOfBlogs.ok) {
       throw new Error(`Failed to fetch blogs: ${resOfBlogs.status}`);
     }
-    const blogsData = await resOfBlogs.json();
+    const blogsData = await resOfBlogs?.json();
     blogs = blogsData?.rows || [];
   } catch (error) {
     console.error("Error fetching blogs in getStaticProps:", error);
@@ -75,7 +75,7 @@ export const getStaticProps = async () => {
     if (!resOfBlogs.ok) {
       throw new Error(`Failed to fetch blogs: ${resOfBlogs.status}`);
     }
-    const caseStudyData = await resOfBlogs.json();
+    const caseStudyData = await resOfBlogs?.json();
     caseStudy = caseStudyData?.rows || [];
   } catch (error) {
     console.error("Error fetching blogs in getStaticProps:", error);
@@ -86,7 +86,7 @@ export const getStaticProps = async () => {
     if (!pageRes.ok) {
       throw new Error(`Failed to fetch page info: ${pageRes.status}`);
     }
-    pageInfo = await pageRes.json();
+    pageInfo = await pageRes?.json();
   } catch (error) {
     console.error("Error fetching page info:", error);
   }

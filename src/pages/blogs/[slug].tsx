@@ -19,7 +19,7 @@ const BlogArticle = ({ pageInfo, pageSlug, blogs }: any) => {
         if (!pageRes.ok) {
           throw new Error(`Failed to fetch page info: ${pageRes.statusText}`);
         }
-        const pageInfo = await pageRes.json();
+        const pageInfo = await pageRes?.json();
         setPageData(pageInfo);
       } catch (err: any) {
         console.error("Error fetching page data:", err);
@@ -33,19 +33,8 @@ const BlogArticle = ({ pageInfo, pageSlug, blogs }: any) => {
   }, [pageSlug]);
 
   return (
-    <Layout>
+    <Layout pageInfo={pageInfo}>
       <BlogDetails post={pageData} featureBlogsData={blogs} />
-      {/* <Row className="container flex-col">
-        <Col xl={15} lg={15} md={24} sm={24} xs={24}>
-          <SectionContent
-            editor={pageData?.editor}
-            sections={pageData?.sections}
-          />
-          <ShareWithFriends />
-          <AuthorDetails />
-        </Col>{" "}
-      </Row> */}
-
       <BlogsList
         data={blogs}
         showBackground={true}
@@ -64,13 +53,13 @@ export const getStaticProps = async ({ params }: any) => {
     if (!faqRes.ok) {
       throw new Error(`Failed to fetch FAQs: ${faqRes.statusText}`);
     }
-    const contentFaqs = await faqRes.json();
+    const contentFaqs = await faqRes?.json();
 
     const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
     if (!pageRes.ok) {
       throw new Error(`Failed to fetch page info: ${pageRes.statusText}`);
     }
-    const pageInfo = await pageRes.json();
+    const pageInfo = await pageRes?.json();
 
     const resOfCaseStudies = await fetch(
       `${AHD_HOST}/page?filter[groups][]=blogs`
@@ -92,7 +81,7 @@ export const getStaticPaths = async () => {
     if (!blogRes.ok) {
       throw new Error(`Failed to fetch blog pages: ${blogRes.statusText}`);
     }
-    const blogPages = await blogRes.json();
+    const blogPages = await blogRes?.json();
     const paths = blogPages.rows.map((blg: any) => ({
       params: { slug: blg.slug },
     }));

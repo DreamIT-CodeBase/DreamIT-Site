@@ -8,8 +8,7 @@ const CaseStudyArticle = ({ pageInfo, pageSlug, caseStudy }: any) => {
   const [pageData, setPageData] = useState(() => pageInfo);
   const [error, setError] = useState<any>(null);
   console.log(error);
-  console.log(pageData);
- 
+  
   useEffect(() => {
     const fetcher = async () => {
       try {
@@ -31,7 +30,7 @@ const CaseStudyArticle = ({ pageInfo, pageSlug, caseStudy }: any) => {
   }, [pageSlug]);
 
   return (
-    <Layout>
+    <Layout pageInfo={pageInfo}>
       <BlogDetails post={pageData} featureBlogsData={caseStudy} />
       <CaseStudyList data={caseStudy} />
     </Layout>
@@ -55,7 +54,7 @@ export const getStaticProps = async ({ params }: any) => {
     if (!pageRes.ok) {
       throw new Error(`Failed to fetch page info: ${pageRes.statusText}`);
     }
-    const pageInfo = await pageRes.json();
+    const pageInfo = await pageRes?.json();
 
     const resOfCaseStudies = await fetch(
       `${AHD_HOST}/page?filter[groups][]=case-studies`

@@ -545,6 +545,18 @@ h6 {
   height: 100%;
   position: relative;
   margin: 0px 10px;
+  min-height: 455px;
+}
+
+.blogs-insights-container {
+  border: 2px solid #eaeaea;
+  border-radius: 18px;
+  padding: 14px 14px 16px 14px;
+  background: white;
+  color: black;
+  height: 100%;
+  position: relative;
+  margin: 0px 10px;
   min-height: 450px;
 }
 
@@ -618,24 +630,33 @@ h6 {
 
  
 
-/* @media (max-width: 1540px) {
+@media (max-width: 1540px) {
   .industry-insights-container {
-    min-height: 500px;
+    min-height: 470px;
   }
-} */
+}
  
 @media (max-width: 1025px) {
   .industry-insights-container {
+    min-height: 455px;
+  }
+  .blogs-insights-container {
     min-height: 485px;
   }
 }
 @media (max-width: 991px) {
   .industry-insights-container {
+    min-height: 430px;
+  }
+  .blogs-insights-container {
     min-height: 410px;
   }
 }
 @media (max-width: 640px) {
   .industry-insights-container {
+    min-height: 400px;
+  }
+  .blogs-insights-container {
     min-height: 400px;
   }
 
@@ -645,6 +666,9 @@ h6 {
 }
 @media (max-width: 321px) {
   .industry-insights-container {
+    min-height: 350px;
+  }
+  .blogs-insights-container {
     min-height: 350px;
   }
 
