@@ -46,27 +46,40 @@ const CaseStudyLi = ({ caseStudies,pageInfo }: any) => {
 
   return (
     <Layout pageInfo={pageInfo}>
-      <div>
-        <div>
+      <div className="w-full">
+        <div className="py-3 px-4 md:px-8 lg:px-16 xl:px-24 flex items-center">
+          <nav className="text-gray-600 text-sm font-medium">
+            <span className="text-gray-800 cursor-pointer">
+              Insights
+            </span>
+            <span className="mx-2 text-gray-800">{" > "}</span>
+            <span className="text-gray-700 font-bold">Case Studies</span>
+          </nav>
+        </div>
+        
+        <div >
           {error ? (
             <p style={{ color: "red" }}>{error}</p>
           ) : currentCaseStudies?.length > 0 ? (
             <CaseStudyList 
               data={currentCaseStudies} 
               showViewButton={false} 
-              useSwiper={false} 
+              useSwiper={false}
+              showSearchAndFilter={true}
             />
           ) : (
             <p>No case studies found</p>
           )}
 
-          <Pagination
-            current={currentPage}
-            pageSize={itemsPerPage}
-            total={caseStudyRecords?.length}
-            onChange={handlePaginationChange}
-            showSizeChanger={false}
-          />
+          <div className="mt-8 mb-12 flex justify-center">
+            <Pagination
+              current={currentPage}
+              pageSize={itemsPerPage}
+              total={caseStudyRecords?.length}
+              onChange={handlePaginationChange}
+              showSizeChanger={false}
+            />
+          </div>
         </div>
       </div>
     </Layout>
