@@ -61,7 +61,7 @@ const SearchAndFilter: React.FC<any> = ({
     onFilterChange("service", e.target.value);
   };
 
-  const removeFilter = (type: any, value: any) => {
+  const removeFilter = (type: any) => {
     onFilterChange(type, "");
   };
 
@@ -204,7 +204,7 @@ const SearchAndFilter: React.FC<any> = ({
             className="flex items-center bg-gradient-to-r from-[#cbe4f3] to-[#dacff3] text-[#072032] px-4 py-1 rounded-full"
           >
             <button
-              onClick={() => removeFilter(filter.type, filter.value)}
+              onClick={() => removeFilter(filter.type)}
               className="mr-2 text-[#072032]"
             >
               <svg
