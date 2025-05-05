@@ -45,15 +45,15 @@ const BlogsList: React.FC<BlogsListProps> = ({
 
   useEffect(() => {
     const extractUniqueTagsOfType = (
-      data: BlogItem[], 
+      data: BlogItem[],
       categoryTerms: string[]
     ): FilterOption[] => {
       const allMatchingTags: string[] = [];
-      
-      data.forEach(item => {
+
+      data.forEach((item) => {
         if (item.tags) {
-          item.tags.forEach(tag => {
-            const matchesCategory = categoryTerms.some(term => 
+          item.tags.forEach((tag) => {
+            const matchesCategory = categoryTerms.some((term) =>
               tag.toLowerCase().includes(term.toLowerCase())
             );
             if (matchesCategory && !allMatchingTags.includes(tag)) {
@@ -62,23 +62,40 @@ const BlogsList: React.FC<BlogsListProps> = ({
           });
         }
       });
-      
+
       return allMatchingTags.map((tag, index) => ({
         id: (index + 1).toString(),
-        name: tag
+        name: tag,
       }));
     };
 
     const industryTerms = [
-      "Healthcare", "Pharmaceuticals", "Retail", "Distribution", 
-      "Energy", "Resources", "Travel", "Hospitality", 
-      "Consumer", "Goods", "Technology", "AI", 
-      "Automotive", "Real Estate", "Logistics"
+      "Healthcare",
+      "Pharmaceuticals",
+      "Retail",
+      "Distribution",
+      "Energy",
+      "Resources",
+      "Travel",
+      "Hospitality",
+      "Consumer",
+      "Goods",
+      "Technology",
+      "AI",
+      "Automotive",
+      "Real Estate",
+      "Logistics",
     ];
 
     const serviceTerms = [
-      "Cloud", "Data", "Digital", "Transformation", 
-      "Enterprise", "Resource", "Marketing", "Business"
+      "Cloud",
+      "Data",
+      "Digital",
+      "Transformation",
+      "Enterprise",
+      "Resource",
+      "Marketing",
+      "Business",
     ];
 
     setIndustryOptions(extractUniqueTagsOfType(data, industryTerms));
@@ -88,37 +105,48 @@ const BlogsList: React.FC<BlogsListProps> = ({
   useEffect(() => {
     const filterData = () => {
       let result = [...data];
-      
-      if (searchQuery && searchQuery.trim() !== '') {
+
+      if (searchQuery && searchQuery.trim() !== "") {
         const normalizedQuery = searchQuery.toLowerCase().trim();
-        result = result.filter(item => 
+        result = result.filter((item) =>
           item.title.toLowerCase().includes(normalizedQuery)
         );
       }
-      
+
       if (selectedIndustry && industryOptions.length > 0) {
-        const industry = industryOptions.find(ind => ind.id === selectedIndustry);
+        const industry = industryOptions.find(
+          (ind) => ind.id === selectedIndustry
+        );
         if (industry && result[0]?.tags) {
-          result = result.filter(item => 
-            item.tags?.some(tag => tag === industry.name)
+          result = result.filter((item) =>
+            item.tags?.some((tag) => tag === industry.name)
           );
         }
       }
-      
+
       if (selectedService && serviceOptions.length > 0) {
-        const service = serviceOptions.find(serv => serv.id === selectedService);
+        const service = serviceOptions.find(
+          (serv) => serv.id === selectedService
+        );
         if (service && result[0]?.tags) {
-          result = result.filter(item => 
-            item.tags?.some(tag => tag === service.name)
+          result = result.filter((item) =>
+            item.tags?.some((tag) => tag === service.name)
           );
         }
       }
-      
+
       setFilteredData(result);
     };
 
     filterData();
-  }, [data, searchQuery, selectedIndustry, selectedService, industryOptions, serviceOptions]);
+  }, [
+    data,
+    searchQuery,
+    selectedIndustry,
+    selectedService,
+    industryOptions,
+    serviceOptions,
+  ]);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
@@ -183,7 +211,7 @@ const BlogsList: React.FC<BlogsListProps> = ({
 
   return (
     <section
-      className="container xl:pt-14 lg:pt-14 md:pt-0 sm:pt-5 xs:pt-5 pb-10"
+      className="container xl:pt-8 lg:pt-8 md:pt-0 sm:pt-5 xs:pt-5 pb-12 "
       style={
         showBackground
           ? {
@@ -205,7 +233,7 @@ const BlogsList: React.FC<BlogsListProps> = ({
         <h2 className="text-center mb-6">
           Future-Focused Insights For Your Industry{" "}
         </h2>
-        
+
         {showSearchAndFilter && (
           <SearchAndFilter
             industries={industryOptions}
@@ -247,12 +275,17 @@ const BlogsList: React.FC<BlogsListProps> = ({
                 },
               }}
               loop={filteredData.length > 3}
-              autoplay={filteredData.length > 1 ? {
-                delay: 3000,
-                disableOnInteraction: false,
-              } : false}
+              autoplay={
+                filteredData.length > 1
+                  ? {
+                      delay: 3000,
+                      disableOnInteraction: false,
+                    }
+                  : false
+              }
               modules={[Autoplay]}
               keyboard={{ enabled: true }}
+              spaceBetween={20}
             >
               {filteredData.map((item, index) => (
                 <SwiperSlide key={index}>
@@ -268,10 +301,10 @@ const BlogsList: React.FC<BlogsListProps> = ({
         )}
 
         {showViewButton && (
-          <div className="mt-8">
+          <div>
             <Link
               href={"/blogs"}
-              className="bg-[#072032] text-white py-3 px-6 sm:px-8 text-sm sm:text-[12px] md:text-lg lg:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105"           
+              className="bg-[#072032] text-white py-3 px-6 sm:px-8 text-sm sm:text-[12px] md:text-lg lg:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105"
             >
               View All
             </Link>

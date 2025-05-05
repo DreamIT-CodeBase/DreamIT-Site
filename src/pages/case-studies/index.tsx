@@ -47,7 +47,7 @@ const CaseStudyLi = ({ caseStudies,pageInfo }: any) => {
   return (
     <Layout pageInfo={pageInfo}>
       <div className="w-full">
-        <div className="py-3 px-4 md:px-8 lg:px-16 xl:px-24 flex items-center">
+        <div className="container xl:mt-5 lg:mt-5 md:mt-5 sm:mt-4 xs:mt-4 flex items-center">
           <nav className="text-gray-600 text-sm font-medium">
             <span className="text-gray-800 cursor-pointer">
               Insights
@@ -71,7 +71,7 @@ const CaseStudyLi = ({ caseStudies,pageInfo }: any) => {
             <p>No case studies found</p>
           )}
 
-          <div className="mt-8 mb-12 flex justify-center">
+          <div className="mt-0 mb-4 flex justify-center">
             <Pagination
               current={currentPage}
               pageSize={itemsPerPage}

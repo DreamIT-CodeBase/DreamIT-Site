@@ -1,24 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-interface FilterOption {
-  id: string;
-  name: string;
-}
-
-interface SearchAndFilterProps {
-  industries: FilterOption[];
-  services: FilterOption[];
-  onSearch: (query: string) => void;
-  onFilterChange: (type: string, value: string) => void;
-  onClearAllFilters: () => void;
-  searchQuery: string;
-  selectedIndustry: string | null;
-  selectedService: string | null;
-  currentPage?: 'blogs' | 'case-studies'; 
-}
-
-const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
+const SearchAndFilter: React.FC<any> = ({
   industries,
   services,
   onSearch,
@@ -27,37 +10,37 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
   searchQuery,
   selectedIndustry,
   selectedService,
-  currentPage = 'blogs' 
+  currentPage = "blogs",
 }) => {
-  const [activeFilters, setActiveFilters] = useState<
-    Array<{ type: string; value: string; label: string }>
-  >([]);
+  const [activeFilters, setActiveFilters] = useState<any[]>([]);
 
   useEffect(() => {
-    const newActiveFilters: Array<{ type: string; value: string; label: string }> = [];
-    
+    const newActiveFilters: any[] = [];
+
     if (selectedIndustry) {
-      const industry = industries.find(ind => ind.id === selectedIndustry);
+      const industry = industries.find(
+        (ind: any) => ind.id === selectedIndustry
+      );
       if (industry) {
         newActiveFilters.push({
           type: "industry",
           value: selectedIndustry,
-          label: industry.name
+          label: industry.name,
         });
       }
     }
-    
+
     if (selectedService) {
-      const service = services.find(serv => serv.id === selectedService);
+      const service = services.find((serv: any) => serv.id === selectedService);
       if (service) {
         newActiveFilters.push({
           type: "service",
           value: selectedService,
-          label: service.name
+          label: service.name,
         });
       }
     }
-    
+
     setActiveFilters(newActiveFilters);
   }, [selectedIndustry, selectedService, industries, services]);
 
@@ -78,13 +61,12 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
     onFilterChange("service", e.target.value);
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const removeFilter = (type: string, value: string) => {
+  const removeFilter = (type: any, value: any) => {
     onFilterChange(type, "");
   };
 
   const renderConditionalLink = () => {
-    if (currentPage === 'blogs') {
+    if (currentPage === "blogs") {
       return (
         <Link
           href="/case-studies"
@@ -95,10 +77,7 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
       );
     } else {
       return (
-        <Link
-          href="/blogs"
-          className="ml-auto text-[#00A9FF] hover:none"
-        >
+        <Link href="/blogs" className="ml-auto text-[#00A9FF] hover:none">
           Go to Blogs
         </Link>
       );
@@ -137,62 +116,63 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
       </form>
 
       <div className="flex flex-wrap gap-4 mb-6">
-        <div className="relative w-56">
-          <select
-            value={selectedIndustry || ""}
-            onChange={handleIndustryChange}
-            className="w-full appearance-none bg-white border border-gray-300 rounded-full py-2 pl-4 pr-10 text-gray-700 cursor-pointer focus:outline-none focus:border-gray-700"
-          >
-            <option value="">Industry</option>
-            {industries?.map((industry) => (
-              <option key={industry.id} value={industry.id}>
-                {industry.name}
-              </option>
-            ))}
-          </select>
-          <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-            <svg
-              className="w-5 h-5 text-gray-400"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+        <div className="flex gap-2">
+          <div className="relative xl:w-56 lg:w-56 md:w-56 sm:w-[50%] xs:w-[50%]">
+            <select
+              value={selectedIndustry || ""}
+              onChange={handleIndustryChange}
+              className="w-full appearance-none bg-white border border-gray-300 rounded-full py-2 pl-4 pr-10 text-gray-700 cursor-pointer focus:outline-none focus:border-gray-700"
             >
-              <path
-                fillRule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
+              <option value="">Industry</option>
+              {industries?.map((industry: any) => (
+                <option key={industry.id} value={industry.id}>
+                  {industry.name}
+                </option>
+              ))}
+            </select>
+            <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+              <svg
+                className="w-5 h-5 text-gray-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div className="relative xl:w-56 lg:w-56 md:w-56 sm:w-[50%] xs:w-[50%]">
+            <select
+              value={selectedService || ""}
+              onChange={handleServiceChange}
+              className="w-full appearance-none bg-white border border-gray-300 rounded-full py-2 pl-4 pr-10 text-gray-700 cursor-pointer focus:outline-none focus:border-gray-700"
+            >
+              <option value="">Service</option>
+              {services?.map((service: any) => (
+                <option key={service.id} value={service.id}>
+                  {service.name}
+                </option>
+              ))}
+            </select>
+            <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+              <svg
+                className="w-5 h-5 text-gray-400"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
           </div>
         </div>
-
-        <div className="relative w-56">
-          <select
-            value={selectedService || ""}
-            onChange={handleServiceChange}
-            className="w-full appearance-none bg-white border border-gray-300 rounded-full py-2 pl-4 pr-10 text-gray-700 cursor-pointer focus:outline-none focus:border-gray-700"
-          >
-            <option value="">Service</option>
-            {services?.map((service) => (
-              <option key={service.id} value={service.id}>
-                {service.name}
-              </option>
-            ))}
-          </select>
-          <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-            <svg
-              className="w-5 h-5 text-gray-400"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-        </div>
-
         {activeFilters.length > 0 && (
           <button
             onClick={onClearAllFilters}
@@ -240,7 +220,7 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
                 />
               </svg>
             </button>
-            <span className="font-semibold uppercase text-sm">
+            <span className="font-semibold uppercase xl:text-sm lg:text-sm md:text-sm sm:text-[12px] xs:text-[12px]">
               {filter.label}
             </span>
           </div>

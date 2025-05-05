@@ -27,16 +27,16 @@ const Footer = () => {
         </div>
 
         {/* ISO Certification  */}
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex xl:flex-col lg:flex-col md:flex-col sm:flex-row xs:flex-row items-center xl:justify-center lg:justify-center md:justify-center sm:justify-between xs:justify-between xl:w-auto lg:w-auto md:w-auto sm:w-full xs:w-full">
           <img
             src="/assets/icons/ISOcertification1.png"
             alt="ISO 9001:2015"
-            className="mb-8 w-20 h-auto"
+            className="xl:mb-8 lg:mb-8 md:mb-8 sm:mb-0 xs:mb-0 w-20 h-auto"
           />
           <img
             src="/assets/icons/ISOcertification2.png"
             alt="iso"
-            className="mb-4 w-20 h-auto"
+            className="xl:mb-4 lg:mb-4 md:mb-4 sm:mb-0 xs:mb-0 w-20 h-auto"
           />
         </div>
 
