@@ -48,27 +48,41 @@ const BlogsLi = ({ blogs,pageInfo }: any) => {
   return (
     <>
       <Layout pageInfo={pageInfo}>
-        <div
-          style={{
-            marginTop: "-20px",
-          }}
-        >
-          <div className="container">
+        <div className="w-full">
+        <div className="container xl:mt-5 lg:mt-5 md:mt-5 sm:mt-4 xs:mt-4 flex items-center">
+            <nav className="text-gray-600 text-sm font-medium">
+              <span className="text-gray-800 cursor-pointer">
+                Insights
+              </span>
+              <span className="mx-2 text-gray-800">{" > "}</span>
+              <span className="text-gray-700 font-bold">Blogs</span>
+            </nav>
+          </div>
+          
+          <div>
             {error ? (
               <p style={{ color: "red" }}>{error}</p>
             ) : currentPosts?.length > 0 ? (
-              <BlogsList data={currentPosts} showBackground={true}/>
+              <BlogsList
+                data={currentPosts}
+                showBackground={true}
+                showViewButton={false}
+                useSwiper={false}
+                showSearchAndFilter={true}
+              />
             ) : (
               <p>No blog posts found</p>
             )}
 
-            <Pagination
-              current={currentPage}
-              pageSize={itemsPerPage}
-              total={blogsRecords?.length}
-              onChange={handlePaginationChange}
-              showSizeChanger={false}
-            />
+            <div className="mt-0 mb-4  flex justify-center">
+              <Pagination
+                current={currentPage}
+                pageSize={itemsPerPage}
+                total={blogsRecords?.length}
+                onChange={handlePaginationChange}
+                showSizeChanger={false}
+              />
+            </div>
           </div>
         </div>
       </Layout>

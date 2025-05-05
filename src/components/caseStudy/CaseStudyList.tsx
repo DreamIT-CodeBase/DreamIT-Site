@@ -1,16 +1,192 @@
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
+import SearchAndFilter from "../blogs/SearchAndFilter";
 
-const CaseStudyList = ({ data }: any) => {
+const CaseStudyList: React.FC<any> = ({
+  data,
+  showViewButton = false,
+  showSearchAndFilter = false,
+  useSwiper = true,
+}) => {
   const swiperRef = useRef<any>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [filteredData, setFilteredData] = useState<any>(data);
+  const [industryOptions, setIndustryOptions] = useState<any>([]);
+  const [serviceOptions, setServiceOptions] = useState<any>([]);
+
+  useEffect(() => {
+    const extractUniqueTagsOfType = (data: any, categoryTerms: any): any => {
+      const allMatchingTags: string[] = [];
+
+      data.forEach((item: any) => {
+        item.tags.forEach((tag: any) => {
+          const matchesCategory = categoryTerms.some((term: any) =>
+            tag.toLowerCase().includes(term.toLowerCase())
+          );
+          if (matchesCategory && !allMatchingTags.includes(tag)) {
+            allMatchingTags.push(tag);
+          }
+        });
+      });
+
+      return allMatchingTags.map((tag, index) => ({
+        id: (index + 1).toString(),
+        name: tag,
+      }));
+    };
+
+    const industryTerms = [
+      "Healthcare",
+      "Pharmaceuticals",
+      "Retail",
+      "Distribution",
+      "Energy",
+      "Resources",
+      "Travel",
+      "Hospitality",
+      "Consumer",
+      "Goods",
+      "Technology",
+      "AI",
+      "Automotive",
+      "Real Estate",
+      "Logistics",
+    ];
+
+    const serviceTerms = [
+      "Cloud",
+      "Data",
+      "Digital",
+      "Transformation",
+      "Enterprise",
+      "Resource",
+      "Marketing",
+      "Business",
+    ];
+
+    setIndustryOptions(extractUniqueTagsOfType(data, industryTerms));
+    setServiceOptions(extractUniqueTagsOfType(data, serviceTerms));
+  }, [data]);
+
+  useEffect(() => {
+    const filterData = () => {
+      let result = [...data];
+
+      if (searchQuery && searchQuery.trim() !== "") {
+        const normalizedQuery = searchQuery.toLowerCase().trim();
+        result = result.filter((item) =>
+          item.title.toLowerCase().includes(normalizedQuery)
+        );
+      }
+
+      if (selectedIndustry) {
+        const industry = industryOptions.find(
+          (ind: any) => ind.id === selectedIndustry
+        );
+        if (industry) {
+          result = result.filter((item) =>
+            item.tags.some((tag: any) => tag === industry.name)
+          );
+        }
+      }
+
+      if (selectedService) {
+        const service = serviceOptions.find(
+          (serv: any) => serv.id === selectedService
+        );
+        if (service) {
+          result = result.filter((item) =>
+            item.tags.some((tag: any) => tag === service.name)
+          );
+        }
+      }
+
+      setFilteredData(result);
+    };
+
+    filterData();
+  }, [
+    data,
+    searchQuery,
+    selectedIndustry,
+    selectedService,
+    industryOptions,
+    serviceOptions,
+  ]);
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+  };
+
+  const handleFilterChange = (type: string, value: string) => {
+    if (type === "industry") {
+      setSelectedIndustry(value || null);
+    } else if (type === "service") {
+      setSelectedService(value || null);
+    }
+  };
+
+  const handleClearAllFilters = () => {
+    setSearchQuery("");
+    setSelectedIndustry(null);
+    setSelectedService(null);
+  };
+
+  const renderCaseStudyItem = (item: any, index: number) => (
+    <Link href={`/case-studies/${item?.slug}`} key={index}>
+      <div className="industry-insights-container">
+        <img
+          src={item?.thumbnailImage[0]?.publicUrl}
+          alt=""
+          width={"100%"}
+          className="mb-4 xl:max-h-[247px] lg:max-h-[247px] md:max-h-[auto] sm:max-h-[198px] xs:max-h-[auto] xl:min-h-[247px] lg:min-h-[247px] md:min-h-[auto] sm:min-h-[198px] xs:min-h-[auto]"
+          loading="lazy"
+        />
+        <div className="flex flex-wrap gap-2 mb-3">
+          {item?.tags.slice(0, 2).map((tag: any) => (
+            <span
+              key={tag}
+              className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[10px] font-semibold rounded-2xl text-left"
+            >
+              {tag?.toUpperCase()}
+            </span>
+          ))}
+        </div>
+        <div className="flex flex-col items-start gap-3 justify-between mt-4 ">
+          <h6
+            className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
+            style={{
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: 2,
+              overflow: "hidden",
+              maxWidth: "400px",
+            }}
+          >
+            {item?.title}
+          </h6>
+
+          <div>
+            <img
+              src="/assets/icons/upward-arrow.svg"
+              alt="upward-icon"
+              className="h-[30px] blogs-upward-icon mr-0 absolute bottom-[10px]"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
 
   return (
-    <section className="container xl:pt-14 lg:pt-14 md:pt-0 sm:pt-5 xs:pt-5 pb-12 bg-[#F9FDFF]">
+    <section className="container xl:pt-8 lg:pt-8 md:pt-0 sm:pt-5 xs:pt-5 pb-12 ">
       <div className="text-center">
         <div className="flex justify-center text-center mb-4">
           <div className="relative inline-block text-center bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full">
@@ -23,87 +199,84 @@ const CaseStudyList = ({ data }: any) => {
           Real Results, Real Impact: This Is How We Drive Success{" "}
         </h2>
 
-        <div
-          className="industry-insights-carousel"
-          onMouseEnter={() => swiperRef.current?.autoplay.stop()}
-          onMouseLeave={() => swiperRef.current?.autoplay.start()}
-        >
-          <Swiper
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-              },
-              768: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 2,
-              },
-              1440: {
-                slidesPerView: 3,
-              },
-            }}
-            loop={true}
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-            }}
-            pagination={{ clickable: true }}
-            modules={[Autoplay, Pagination]}
-            keyboard={{ enabled: true }}
+        {showSearchAndFilter && (
+          <SearchAndFilter
+            industries={industryOptions}
+            services={serviceOptions}
+            onSearch={handleSearch}
+            onFilterChange={handleFilterChange}
+            onClearAllFilters={handleClearAllFilters}
+            searchQuery={searchQuery}
+            selectedIndustry={selectedIndustry}
+            selectedService={selectedService}
+            currentPage="case-studies"
+          />
+        )}
+
+        {filteredData.length === 0 ? (
+          <div className="py-10 text-center">
+            <p className="text-gray-700 text-lg">No case studies found</p>
+          </div>
+        ) : useSwiper ? (
+          <div
+            className="industry-insights-carousel"
+            onMouseEnter={() => swiperRef.current?.autoplay.stop()}
+            onMouseLeave={() => swiperRef.current?.autoplay.start()}
           >
-            {data.map((item: any, index: any) => (
-              <SwiperSlide key={index}>
-                <Link href={`/case-studies/${item?.slug}`}>
-                  <div className="industry-insights-container">
-                    <img
-                      src={item?.thumbnailImage[0]?.publicUrl}
-                      alt=""
-                      width={"100%"}
-                      className="mb-4 xl:max-h-[247px] lg:max-h-[247px] md:max-h-[auto] sm:max-h-[198px] xs:max-h-[auto] xl:min-h-[247px] lg:min-h-[247px] md:min-h-[auto] sm:min-h-[198px] xs:min-h-[auto]"
-                      loading="lazy"
-                    />
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {item?.tags.slice(0, 2).map((tag: any) => (
-                        <span
-                          key={tag}
-                          className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[10px] font-semibold rounded-2xl text-left"
-                        >
-                          {tag?.toUpperCase()}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex flex-col items-start gap-3 justify-between mt-4 ">
-                      <h6
-                        className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
-                        style={{
-                          display: "-webkit-box",
-                          WebkitBoxOrient: "vertical",
-                          WebkitLineClamp: 2,
-                          overflow: "hidden",
-                          maxWidth:"400px"
+            <Swiper
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 2,
+                },
+                1440: {
+                  slidesPerView: 3,
+                },
+              }}
+              loop={filteredData.length > 3}
+              autoplay={
+                filteredData.length > 1
+                  ? {
+                      delay: 3500,
+                      disableOnInteraction: false,
+                    }
+                  : false
+              }
+              modules={[Autoplay]}
+              keyboard={{ enabled: true }}
+              spaceBetween={20}
+            >
+              {filteredData.map((item: any, index: any) => (
+                <SwiperSlide key={index}>
+                  {renderCaseStudyItem(item, index)}
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        ) : (
+          <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-5">
+            {filteredData.map((item: any, index: any) =>
+              renderCaseStudyItem(item, index)
+            )}
+          </div>
+        )}
 
-                        }}
-                      >
-                        {item?.title}
-                      </h6>
-
-                      <div>
-                        <img
-                          src="/assets/icons/upward-arrow.svg"
-                          alt="upward-icon"
-                          className="h-[30px] blogs-upward-icon mr-0 absolute bottom-[10px]"
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        {showViewButton && (
+          <div>
+            <Link
+              href={"/case-studies"}
+              className="bg-[#072032] text-white py-3 px-6 sm:px-8 text-sm sm:text-[12px] md:text-lg lg:text-xl font-bold rounded-lg transition-transform duration-300 hover:scale-105"
+            >
+              View All
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
