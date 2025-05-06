@@ -15,7 +15,7 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
   "10 min";
 
   const isCaseStudy = post?.groups?.includes("case-studies");
-  const breadcrumbText = isCaseStudy ? "Success Studies" : "Blogs";
+  const breadcrumbText = isCaseStudy ? "Success stories" : "Blogs";
   
   return (
     <>
@@ -28,6 +28,9 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
             </span></Link>
             <span className="mx-2 text-gray-800">{" > "}</span>
             <span className="text-gray-700 font-bold">{breadcrumbText}</span>
+            <span className="mx-2 text-gray-800">{" > "}</span>
+            <span className="text-gray-700 font-bold">detail</span>
+
           </nav>
         </div>
         <div className="container pt-60 pb-60  ">
