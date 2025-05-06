@@ -55,7 +55,7 @@ const CaseStudyLi = ({ caseStudies,pageInfo }: any) => {
               Insights
             </span></Link>
             <span className="mx-2 text-gray-800">{" > "}</span>
-            <span className="text-gray-700 font-bold">Case Studies</span>
+            <span className="text-gray-700 font-bold">Success Studies</span>
           </nav>
         </div>
         

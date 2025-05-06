@@ -6,16 +6,30 @@ import ShareWithCommunity from "../shared/ShareWithCommunity";
 import FeaturedBlogs from "./FeaturedBlogs";
 import ShareWithFriends from "../shared/ShareWithFriends";
 import AuthorDetails from "../shared/AuthorDetails";
+import Link from "next/link";
 
 export const BlogDetails = ({ post, featureBlogsData }: any) => {
   const timeToRead =
   post?.metadata?.["case-studies"]?.timeToRead ||
   post?.metadata?.["blogs"]?.timeToRead ||
   "10 min";
+
+  const isCaseStudy = post?.groups?.includes("case-studies");
+  const breadcrumbText = isCaseStudy ? "Success Studies" : "Blogs";
   
   return (
     <>
       <TestPageWrapper>
+      <div className="container xl:mt-5 lg:mt-5 md:mt-5 sm:mt-4 xs:mt-4 flex items-center">
+          <nav className="text-gray-600 text-sm font-medium">
+            <Link href="/insights" className="cursor-pointer">
+            <span className="text-gray-800 cursor-pointer">
+              Insights
+            </span></Link>
+            <span className="mx-2 text-gray-800">{" > "}</span>
+            <span className="text-gray-700 font-bold">{breadcrumbText}</span>
+          </nav>
+        </div>
         <div className="container pt-60 pb-60  ">
           <Row gutter={[16, 16]} align={"top"} justify={"space-between"}>
             <Col xl={15} lg={15} md={24} sm={24} xs={24}>
