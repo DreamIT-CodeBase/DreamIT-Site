@@ -2,7 +2,7 @@ import { insightsSectionContent } from "@/components/shared/DreamItData";
 import Layout from "@/components/layout/Layout";
 import CommonHeroSection from "@/components/shared/CommonHeroSection";
 import React, { useEffect, useState } from "react";
- import { AHD_HOST, PREVIEW } from "@/utils/constant";
+import { AHD_HOST, PREVIEW } from "@/utils/constant";
 import BlogsList from "@/components/blogs/BlogsList";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 
@@ -36,7 +36,12 @@ const Insights = ({ blogs, pageInfo, caseStudy }: any) => {
   return (
     <Layout pageInfo={pageInfo}>
       <CommonHeroSection data={insightsSectionContent} />
-       <CaseStudyList data={caseStudy} showViewButton={true} useSwiper={true} showSearchAndFilter={false} />
+      <CaseStudyList
+        data={caseStudy}
+        showViewButton={true}
+        useSwiper={true}
+        showSearchAndFilter={false}
+      />
       <BlogsList
         data={blogsRecords}
         showBackground={true}

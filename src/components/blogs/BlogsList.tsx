@@ -6,28 +6,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import SearchAndFilter from "./SearchAndFilter";
 
-interface BlogItem {
-  slug: string;
-  thumbnailImage: { publicUrl: string }[];
-  tags?: string[];
-  title: string;
-}
-
-interface FilterOption {
-  id: string;
-  name: string;
-}
-
-interface BlogsListProps {
-  data: BlogItem[];
-  showBackground?: boolean;
-  backgroundImageUrl?: string;
-  showViewButton?: boolean;
-  useSwiper?: boolean;
-  showSearchAndFilter?: boolean;
-}
-
-const BlogsList: React.FC<BlogsListProps> = ({
+ 
+ 
+const BlogsList: React.FC<any> = ({
   data,
   showBackground = false,
   backgroundImageUrl = "",
@@ -36,24 +17,24 @@ const BlogsList: React.FC<BlogsListProps> = ({
   showSearchAndFilter = false,
 }) => {
   const swiperRef = useRef<any>(null);
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<any>("");
+  const [selectedIndustry, setSelectedIndustry] = useState<any>(null);
   const [selectedService, setSelectedService] = useState<string | null>(null);
-  const [filteredData, setFilteredData] = useState<BlogItem[]>(data);
-  const [industryOptions, setIndustryOptions] = useState<FilterOption[]>([]);
-  const [serviceOptions, setServiceOptions] = useState<FilterOption[]>([]);
+  const [filteredData, setFilteredData] = useState<any>(data);
+  const [industryOptions, setIndustryOptions] = useState<any>([]);
+  const [serviceOptions, setServiceOptions] = useState<any>([]);
 
   useEffect(() => {
     const extractUniqueTagsOfType = (
-      data: BlogItem[],
-      categoryTerms: string[]
-    ): FilterOption[] => {
-      const allMatchingTags: string[] = [];
+      data: any,
+      categoryTerms: any
+    ): any => {
+      const allMatchingTags: any = [];
 
-      data.forEach((item) => {
+      data.forEach((item:any) => {
         if (item.tags) {
-          item.tags.forEach((tag) => {
-            const matchesCategory = categoryTerms.some((term) =>
+          item.tags.forEach((tag:any) => {
+            const matchesCategory = categoryTerms.some((term:any) =>
               tag.toLowerCase().includes(term.toLowerCase())
             );
             if (matchesCategory && !allMatchingTags.includes(tag)) {
@@ -63,7 +44,7 @@ const BlogsList: React.FC<BlogsListProps> = ({
         }
       });
 
-      return allMatchingTags.map((tag, index) => ({
+      return allMatchingTags.map((tag:any, index:any) => ({
         id: (index + 1).toString(),
         name: tag,
       }));
@@ -115,22 +96,22 @@ const BlogsList: React.FC<BlogsListProps> = ({
 
       if (selectedIndustry && industryOptions.length > 0) {
         const industry = industryOptions.find(
-          (ind) => ind.id === selectedIndustry
+          (ind:any) => ind.id === selectedIndustry
         );
         if (industry && result[0]?.tags) {
           result = result.filter((item) =>
-            item.tags?.some((tag) => tag === industry.name)
+            item.tags?.some((tag:any) => tag === industry.name)
           );
         }
       }
 
       if (selectedService && serviceOptions.length > 0) {
         const service = serviceOptions.find(
-          (serv) => serv.id === selectedService
+          (serv:any) => serv.id === selectedService
         );
         if (service && result[0]?.tags) {
           result = result.filter((item) =>
-            item.tags?.some((tag) => tag === service.name)
+            item.tags?.some((tag:any) => tag === service.name)
           );
         }
       }
@@ -166,7 +147,7 @@ const BlogsList: React.FC<BlogsListProps> = ({
     setSelectedService(null);
   };
 
-  const renderBlogItem = (item: BlogItem, index: number) => (
+  const renderBlogItem = (item: any, index: any) => (
     <Link href={`/blogs/${item?.slug}`} key={index}>
       <div className="industry-insights-container">
         <img
@@ -287,7 +268,7 @@ const BlogsList: React.FC<BlogsListProps> = ({
               keyboard={{ enabled: true }}
               spaceBetween={20}
             >
-              {filteredData.map((item, index) => (
+              {filteredData.map((item:any, index:any) => (
                 <SwiperSlide key={index}>
                   {renderBlogItem(item, index)}
                 </SwiperSlide>
@@ -296,7 +277,7 @@ const BlogsList: React.FC<BlogsListProps> = ({
           </div>
         ) : (
           <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-6">
-            {filteredData.map((item, index) => renderBlogItem(item, index))}
+            {filteredData.map((item:any, index:any) => renderBlogItem(item, index))}
           </div>
         )}
 

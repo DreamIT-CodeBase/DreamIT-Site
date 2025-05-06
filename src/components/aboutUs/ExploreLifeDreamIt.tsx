@@ -10,13 +10,7 @@ const ExploreLifeDreamIt = () => {
   return (
     <section className="bg-[#E3F6FF] container relative">
       <Row align={"middle"} justify={"space-between"} className=" ">
-        <Col
-          xl={12}
-          lg={12}
-          md={12}
-          sm={24}
-          className="content-center z-[1000]"
-        >
+        <Col xl={12} lg={12} md={12} sm={24} className="content-center z-[100]">
           <h2 className=" text-black-600 font-bold sm:mt-5 xs:mt-5">
             Explore Life @Dream IT
           </h2>
@@ -27,12 +21,11 @@ const ExploreLifeDreamIt = () => {
 
           <div className="mt-6">
             <Link href={"/career"}>
-            <button
-               className="bg-[#072032] inline-flex gap-2 items-center text-[18px] cursor-pointer transition-transform duration-300 hover:scale-105 hover:text-white   py-3 px-4 font-bold rounded-[7px] border-[1.5px]  text-[#FFFFFF]"
-            >
-              Explore More
-              <FaArrowRightLong />
-            </button></Link>
+              <button className="bg-[#072032] inline-flex gap-2 items-center xl:text-[18px] lg:text-[18px] md:text-[18px] sm:text-[14px] xs:text-[14px]  cursor-pointer transition-transform duration-300 hover:scale-105 hover:text-white   py-3 px-4 font-bold rounded-[7px] border-[1.5px]  text-[#FFFFFF]">
+                Explore More
+                <FaArrowRightLong />
+              </button>
+            </Link>
           </div>
         </Col>
 
@@ -52,7 +45,7 @@ const ExploreLifeDreamIt = () => {
       </Row>
       <div>
         <img
-          className="absolute xl:top-[-150px] lg:top-[-80px] md:top-[-30px] left-0 explore-dream-it-bg-image"
+          className="absolute  xl:top-[-150px] lg:top-[-80px] md:top-[-30px] left-0 explore-dream-it-bg-image"
           src="/assets/images/explore-dream-it-bg-image.webp"
           alt=""
         />

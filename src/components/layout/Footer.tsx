@@ -8,7 +8,7 @@ const Footer = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
-    <footer className="bg-[#072032] text-white   container  pt-12 pb-6">
+    <footer className="bg-[#072032] text-white   container  pt-12 pb-6 z-[1000]">
       <div className="flex flex-col md:flex-row justify-between items-start gap-4">
         {/* Left Section */}
         <div className="flex flex-col">
