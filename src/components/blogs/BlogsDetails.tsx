@@ -63,7 +63,7 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
                 </div>
                 <div>
                   <img
-                    src={post?.heroImage[0].publicUrl}
+                    src={post?.heroImage[0]?.publicUrl}
                     alt="Test Image"
                     className="w-full mt-4"
                   />
