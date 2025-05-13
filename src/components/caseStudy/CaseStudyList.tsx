@@ -145,7 +145,7 @@ const CaseStudyList: React.FC<any> = ({
           src={item?.thumbnailImage[0]?.publicUrl}
           alt=""
           width={"100%"}
-          className="mb-4 xl:max-h-[247px] lg:max-h-[247px] md:max-h-[auto] sm:max-h-[198px] xs:max-h-[auto] xl:min-h-[247px] lg:min-h-[247px] md:min-h-[auto] sm:min-h-[198px] xs:min-h-[auto]"
+          className="mb-4 rounded-[18px]"
           loading="lazy"
         />
         <div className="flex flex-wrap gap-2 mb-3">
@@ -158,7 +158,7 @@ const CaseStudyList: React.FC<any> = ({
             </span>
           ))}
         </div>
-        <div className="flex flex-col items-start gap-3 justify-between mt-4 ">
+        <div className="flex flex-col items-start gap-3 justify-between mt-4">
           <h6
             className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
             style={{
@@ -176,7 +176,7 @@ const CaseStudyList: React.FC<any> = ({
             <img
               src="/assets/icons/upward-arrow.svg"
               alt="upward-icon"
-              className="h-[30px] blogs-upward-icon mr-0 absolute bottom-[10px]"
+              className="h-[30px] mr-0 blogs-upward-icon"
               loading="lazy"
             />
           </div>
@@ -260,7 +260,7 @@ const CaseStudyList: React.FC<any> = ({
             </Swiper>
           </div>
         ) : (
-          <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-5">
+          <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-6">
             {filteredData.map((item: any, index: any) =>
               renderCaseStudyItem(item, index)
             )}
