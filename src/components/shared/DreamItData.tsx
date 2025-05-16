@@ -656,14 +656,14 @@ export const industriesWeServeData: any = [
   {
     title: "Healthcare & Pharmaceuticals",
     description:
-      "Driving Innovation in healthcare and pharmaceuticals with secure, data-driven IT Solutions to enhance patient care, optimize operations and ensure compliance.",
+      "Driving Innovation in healthcare and pharmaceuticals with secure, data-driven IT Solutions to enhance patient care, optimize sales & operations, better decision making and ensure compliance.",
     image: "/assets/images/health-care.webp",
     mobileImage: "/assets/images/health-care-mobile-version.webp",
   },
   {
     title: "Retail & Distribution",
     description:
-      "Harnessing AI and advanced technologies to transform businesses, optimize operations and enable smarter decision making for a competitive edge.",
+      "Enhancing retail and distribution with near real time data analytics for sales, KPIs, Supply chains etc. Iur solutions improve inventory management and customer experiences.",
     image: "/assets/images/retail-and-distribution.webp",
     mobileImage: "/assets/images/retail-and-distribution-mobile-version.webp",
 
@@ -671,7 +671,7 @@ export const industriesWeServeData: any = [
   {
     title: "Energy & Resources",
     description:
-      "Revolutionizing real estate and construction with cutting-edge solutions that improve project executions boost operational efficiency and drive sustainable growth",
+      "Driving innovation in energy and resources companies with Iot-enabled solutions that enhance operational efficiency, enable real time monitoring, improve energy management and support sustainability efforts.",
     image: "/assets/images/energy-and-resources.webp",
     mobileImage: "/assets/images/energy-and-resources-mobile-version.webp",
 
@@ -679,7 +679,7 @@ export const industriesWeServeData: any = [
   {
     title: "Travel & Hospitality",
     description:
-      "Transforming e-commerce and retail distribution with smart solutions to enhance customer experiences, optimize supply chain and improve inventory management for greater operational efficiency.",
+      "Delivering custom-fit packages that enhance customer experiences and drive business growth. From personalized services to tracking customer journeys, we help companies improve efficiency, boost customer satisfaction and stay competitive in a dynamic market.",
     image: "/assets/images/travel-and-hospitality.webp",
     mobileImage: "/assets/images/travel-and-hospitality-mobile-version.webp",
 
@@ -687,7 +687,7 @@ export const industriesWeServeData: any = [
   {
     title: "Consumer Goods",
     description:
-      "Providing energy and resources companies with solutions that enhance operational efficiency, improve energy management and support sustainability efforts.",
+      "Transforming the consumer goods industry with solutions that streamline operations and drive growth. We help brands leverage data, optimize supply chains and stay ahead of market trends.",
     image: "/assets/images/consumer-goods.webp",
     mobileImage: "/assets/images/consumer-goods-mobile-version.webp",
 
@@ -695,7 +695,7 @@ export const industriesWeServeData: any = [
   {
     title: "Technology & AI",
     description:
-      "Delivering custom-fit packages that enhance customer experiences and drive business growth. From personalized services and booking systems to data-driven insights, we help companies improve efficiency, boost customer satisfaction and stay competitive in a dynamic market.",
+      "Empowering the technology & AI industries with scalable IT solutions to optimize operations, improve efficiency and support digital transformation for competitive growth.",
     image: "/assets/images/technology-and-ai.webp",
     mobileImage: "/assets/images/technology-and-ai-mobile-version.webp",
 
@@ -703,7 +703,7 @@ export const industriesWeServeData: any = [
   {
     title: "Automotive",
     description:
-      "Transforming the consumer goods industry with solutions that streamline operations and drive growth. We help brands leverage data, optimize supply chains and stay ahead of market trends.",
+      "Revolutionizing the automotive industry with cutting edge IT solutions that enhance manufacturing efficiency, improve customer experiences and drive innovation. From smart production to connected vehicles, we help brands accelerate growth and stay relevant.",
     image: "/assets/images/automotive.webp",
     mobileImage: "/assets/images/automotive-mobile-version.webp",
 
@@ -711,7 +711,7 @@ export const industriesWeServeData: any = [
   {
     title: "Real Estate",
     description:
-      "Revolutionizing the automotive industry with cutting edge IT solutions that enhance manufacturing efficiency, improve customer experiences and drive innovation. From smart production to connected vehicles we help brands accelerate growth and stay relevant.",
+      "Revolutionizing real estate and construction with cutting-edge solutions that improve project executions, boost operational efficiency and drive sustainable growth.",
     image: "/assets/images/real-estate.webp",
     mobileImage: "/assets/images/real-estate-mobile-version.webp",
 
