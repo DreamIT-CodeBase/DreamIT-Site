@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 const Technologies = ({ technology }: any) => {
   const techLogo = technology.techData[0].techLogos;
-  const logo = [...techLogo, ...techLogo];
+  const logo = [...techLogo, ...techLogo, ...techLogo];
   return (
     <div className="container pt-60 pb-60 text-center" id="jobOpening">
       <div className="relative inline-block bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full mb-3 ">
@@ -32,7 +32,7 @@ const Technologies = ({ technology }: any) => {
 
       <div className=" ">
         <Marquee gradient={false} speed={50}>
-          <div className="flex   justify-center gap-7 ml-4 mr-4">
+          <div className="flex justify-center gap-7 2xl:gap-16 ml-4 mr-4">
             {logo?.map((logo: { logos: string }, index: number) => (
               <img
                 key={index}
