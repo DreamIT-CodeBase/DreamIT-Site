@@ -32,7 +32,7 @@ const Technologies = ({ technology }: any) => {
 
       <div className=" ">
         <Marquee gradient={false} speed={50}>
-          <div className="flex justify-center gap-10 2xl:gap-16 ml-4 mr-4">
+          <div className="flex justify-center gap-7 2xl:gap-16 ml-4 mr-4">
             {logo?.map((logo: { logos: string }, index: number) => (
               <img
                 key={index}
