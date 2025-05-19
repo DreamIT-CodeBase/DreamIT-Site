@@ -16,7 +16,8 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
 
   const isCaseStudy = post?.groups?.includes("case-studies");
   const breadcrumbText = isCaseStudy ? "Success Stories" : "Blogs";
-  
+  const breadcrumbLink = isCaseStudy ? "/case-studies" : "/blogs";
+
   return (
     <>
       <TestPageWrapper>
@@ -27,7 +28,13 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
               Insights
             </span></Link>
             <span className="mx-2 text-gray-800">{" > "}</span>
-            <span className="text-gray-700 font-bold">{breadcrumbText}</span>
+            <Link href={breadcrumbLink} className="cursor-pointer">
+              <span
+                className="text-gray-700 hover:text-[#00A9FF] transition-colors duration-300 ease-in-out font-bold cursor-pointer"
+              >
+                {breadcrumbText}
+              </span>
+            </Link>
             <span className="mx-2 text-gray-800">{" > "}</span>
             <span className="text-gray-700 font-bold">Detail</span>
 
