@@ -38,7 +38,7 @@ const CaseStudyArticle = () => {
   }, [id]);
 
   return (
-    <Layout>
+    <Layout pageInfo={pageData}>
       <ToastContainer />
       <BlogDetails post={pageData} featureBlogsData={[]} />
     </Layout>

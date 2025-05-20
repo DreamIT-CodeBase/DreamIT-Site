@@ -18,7 +18,7 @@ const BlogArticle = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${AHD_HOST}/page/${id}`);
-        setPageData(response.data);
+        setPageData(response?.data);
         
       } catch (err: any) {
         console.error("Error fetching case study:", err);
@@ -38,7 +38,7 @@ const BlogArticle = () => {
   }, [id]);
 
   return (
-    <Layout>
+    <Layout pageInfo={pageData}>
       <ToastContainer />
       <BlogDetails post={pageData} featureBlogsData={[]} />
     </Layout>
