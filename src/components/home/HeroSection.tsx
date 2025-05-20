@@ -25,7 +25,7 @@ const HeroSection = () => {
           <div>
             <h1 className="text-black-700 hero-section-title">
               Cloud Powered,
-              <br /> Data Driven & Future Ready!
+              <br /> Data Driven & Future Ready - Your Data Visualization Company  
             </h1>
 
             <h6 className="max-w-[34rem] text-black-700 hero-section-subtitle">

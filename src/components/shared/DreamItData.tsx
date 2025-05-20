@@ -85,7 +85,7 @@ export const ourServies = {
       link: "/services/business-applications",
 
       subtitle:
-        "Aligning with the overall needs of the business to target Marketing, enhance efficiencies, revenue optimisation & insight-powered  decision making. Providing end-to-end solutions through our all-in-one IT framework.",
+        "Aligning with the overall needs of the business to target Marketing, enhance efficiencies, revenue optimization & insight-powered  decision making. Providing end-to-end solutions through our all-in-one IT framework.",
     },
   ],
 };
@@ -147,9 +147,9 @@ export const ourServiesDetails = {
 export const serviceDetails: any = [
   {
     slug: "cloud-data-management",
-    title: "Cloud Data Management & Migration",
+    title: "Cloud Data Management Services & Azure Consulting Services",
     description:
-      "Transform Data chaos into clarity with cutting-edge cloud solutions",
+      "Organizing data can sometimes feel like a mad puzzle. Stalled storage, migration issues, and governance problems can inhibit collaboration and waste valuable resources.",
     heroImage: "/assets/images/cloud-data-hero-sec-image.webp",
     contentImage: "/assets/images/cloud-management-content-image.webp",
     contentTitle: "Conquer the Cloud: Data management made effortless",
@@ -158,7 +158,7 @@ export const serviceDetails: any = [
     article2:
       "But data management isn’t just about handling your data; it's about mastering it. Imagine a treasure hunt where the map is torn, and the treasure keeps moving.",
     article3:
-      "Challenging? Absolutely. That’s where we step in. Our cutting-edge cloud solutions simplify your journey, helping you conquer the cloud, master your data, and achieve results effortlessly.",
+      "Absolutely. That’s where we step in. Our cutting-edge cloud solutions simplify your journey, helping you conquer the cloud, master your data, and achieve results effortlessly.",
     ourExpertise: [
       {
         tag: "OUR EXPERTISE AND CAPABILITIES",
@@ -211,7 +211,7 @@ export const serviceDetails: any = [
 
   {
     slug: "advanced-analytics",
-    title: "Advanced Data Analytics and Visualization",
+    title: "Power BI Consulting & Dashboard Development Services",
     description: "Unlock the power of Data Storytelling  or “with us”",
     heroImage: "/assets/images/advanced-visualisation-hero-sec-image.webp",
 
@@ -291,7 +291,7 @@ export const serviceDetails: any = [
 
   {
     slug: "erp-implementation",
-    title: "Enterprise Resource Planning Implementation",
+    title: "Comprehensive ERP Implementation Services for Business Success",
     description: "Simplify, Automate and Scale with Our Advanced ERP Solutions",
     contentImage: "/assets/images/erp-content-image.webp",
     heroImage: "/assets/images/erp-hero-sec-image.webp",
@@ -365,7 +365,7 @@ export const serviceDetails: any = [
 
   {
     slug: "digital-transformation",
-    title: "Digital Transformation & Process Automation",
+    title: "Digital Transformation & Consulting Services Company",
     description:
       "Where Digital Transformation Meets Effortless Automation For Real Impact ",
     heroImage: "/assets/images/digital-transformation-hero-sec-image.webp",

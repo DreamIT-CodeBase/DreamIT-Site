@@ -48,12 +48,11 @@ const Expertise = () => {
             </div>
 
             <h3 className="text-white mb-3 px-2">
-              Where Innovation Meets Powerful IT Tools{" "}
+              Where Innovation Meets Great IT Tools{" "}
             </h3>
 
             <h6 className="text-[#FFFFFF] font-[500]  mx-auto md:max-w-[48rem] px-2">
-              Harnessing advanced technologies to deliver scalable and efficient
-              solutions
+              As a data visualization company driven by results, we leverage technologies well suited for better scaled and efficient, insight driven solutions.
             </h6>
           </div>
 
