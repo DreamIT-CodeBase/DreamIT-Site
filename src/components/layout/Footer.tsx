@@ -22,7 +22,7 @@ const Footer = () => {
           <h6 className="text-gray-400  xl:text-[18px] lg:text-[16px] md:text-[14px] sm:text-[14px] xs:text-[14px] max-w-[25rem]">
             At Dream IT, we specialize in helping businesses thrive through
             cutting-edge technology solutions like Cloud Data Management,
-            Advanced Analytics & Visualisation, Digital Marketing, and more.
+            Advanced Analytics & Visualization, Digital Marketing, and more.
           </h6>
         </div>
 

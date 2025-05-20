@@ -109,7 +109,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
     >
       <div className="relative inline-block bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full mb-3 ">
         <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
-          CURRENT OPENINGS
+          JOIN OUR TALENT POOL
         </span>
       </div>
       <h2 className="xl:mb-12 lg:mb-12 md:mb-12 sm:mb-2 xs:mb-2 max-w-[44rem] m-auto">

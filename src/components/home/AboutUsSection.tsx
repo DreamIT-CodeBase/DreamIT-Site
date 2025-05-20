@@ -5,17 +5,17 @@ import React from "react";
 const AboutUsSection = () => {
   const features = [
     {
-      title: "Enhance Performance:",
+      title: "Increase Performance:",
       description:
-        "Streamline workflows tailored to your needs to boost efficiency",
+        "Achieve time saving workflows catered to your organizational buying habits.",
     },
     {
-      title: "Optimize Revenue:",
-      description: "Make data driven decisions to boost profitability",
+      title: "Increase Revenue:",
+      description: "Make good sustainable data-driven decisions that immediately affect your bottom line.",
     },
     {
-      title: "Accelerate Growth:",
-      description: "Unlock a competitive edge with powerful data visualization",
+      title: "Increase Growth:",
+      description: "Create strategic differentiations through great data visualizations and predictive analysis.",
     },
   ];
 
@@ -55,13 +55,16 @@ const AboutUsSection = () => {
             </div>
 
             <h2 className="font-bold   about-us-section-title ">
-              Turning Data Into Stories That Drive Success{" "}
+              Turning Data Into Stories That Deliver Results{" "}
             </h2>
 
             <h6 className="xl:text-20 text-[#596168] lg:text-16 md:text-16  about-use-section-subtitle">
-              At Dream IT, we specialize in helping businesses thrive through
-              cutting-edge technology solutions like Cloud Data Management,
-              Advanced Analytics & Visualisation, Digital Marketing, and more.
+              At Dream IT, we focus on performance improvement through
+              leading-edge IT and data visualization consulting services.
+              Whether managing your organization cloud data or being involved
+              with your digital marketing actions, we help organizations throw
+              out the guesswork and provide you with insight driven and
+              operationally excellent decisions.
             </h6>
 
             <div className="xl:space-y-4 lg:space-y-4 md:space-y-4 sm:space-y-2 xs:space-y-2 sm:text-left xs:text-left xl:text-left lg:text-left md:text-left">
