@@ -8,7 +8,7 @@ import ShareWithFriends from "../shared/ShareWithFriends";
 import AuthorDetails from "../shared/AuthorDetails";
 import Link from "next/link";
 
-export const BlogDetails = ({ post, featureBlogsData }: any) => {
+export const BlogDetails = ({ post, featureBlogsData,showFeaturedBlogs }: any) => {
   const timeToRead =
   post?.metadata?.["case-studies"]?.timeToRead ||
   post?.metadata?.["blogs"]?.timeToRead ||
@@ -97,7 +97,9 @@ export const BlogDetails = ({ post, featureBlogsData }: any) => {
               style={{ position: "sticky", top: "80px", alignSelf: "start" }}
             >
               <ShareWithCommunity />
+              {showFeaturedBlogs &&(
               <FeaturedBlogs featureBlogsData={featureBlogsData} />
+              )}
             </Col>
           </Row>
         </div>

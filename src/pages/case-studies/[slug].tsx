@@ -31,7 +31,7 @@ const CaseStudyArticle = ({ pageInfo, pageSlug, caseStudy }: any) => {
 
   return (
     <Layout pageInfo={pageInfo}>
-      <BlogDetails post={pageData} featureBlogsData={caseStudy} />
+      <BlogDetails post={pageData} featureBlogsData={caseStudy} showFeaturedBlogs={true}/>
       <CaseStudyList data={caseStudy} />
     </Layout>
   );

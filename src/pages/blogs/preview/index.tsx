@@ -40,7 +40,7 @@ const BlogArticle = () => {
   return (
     <Layout pageInfo={pageData}>
       <ToastContainer />
-      <BlogDetails post={pageData} featureBlogsData={[]} />
+      <BlogDetails post={pageData} featureBlogsData={[]} showFeaturedBlogs={false}/>
     </Layout>
   );
 };
