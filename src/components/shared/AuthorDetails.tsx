@@ -4,16 +4,16 @@ import { FaLinkedin } from "react-icons/fa6";
 
 export default function AuthorDetails({ post }: any) {
   const authorInfo = post?.author?.authorInfo || {};
-  const authorName = authorInfo.name || "Prateek S Malhan";
+  const authorName = authorInfo.name || "R&D Team";
   const authorHeadline =
     authorInfo.headline ||
-    "With 11 years in SaaS, I've built MillionVerifier and SAAS First. Passionate about SaaS, data, and AI. Let's connect if you share the same drive for success!";
+    "We explore new tech, build prototypes, and turn ideas into scalable solutions — fueling innovation across the organization.";
   const authorImage =
     post?.author?.avatars?.[0]?.publicUrl || "/assets/images/author-image.png";
   const linkedinUrl =
     authorInfo.linkedinUrl || "https://www.linkedin.com/company/dreamitcs";
   const designation =
-    authorInfo.designation || "Chief Growth & Strategy Officer";
+    authorInfo.designation || "Dream IT";
 
   return (
     <Card className="mt-4 rounded-[10px] py-2">
