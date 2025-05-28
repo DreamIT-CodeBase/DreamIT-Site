@@ -9,7 +9,7 @@ export default function AuthorDetails({ post }: any) {
     authorInfo.headline ||
     "We explore new tech, build prototypes, and turn ideas into scalable solutions — fueling innovation across the organization.";
   const authorImage =
-    post?.author?.avatars?.[0]?.publicUrl || "/assets/images/author-image.png";
+    post?.author?.avatars?.[0]?.publicUrl || "/assets/images/dreamIt-logo.png";
   const linkedinUrl =
     authorInfo.linkedinUrl || "https://www.linkedin.com/company/dreamitcs";
   const designation =
