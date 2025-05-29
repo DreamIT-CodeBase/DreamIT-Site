@@ -20,7 +20,7 @@ const OurTeam = () => {
         "11+ yrs in IT & Performance",
         "Marketing roles",
       ],
-      backgroundImage: "/assets/images/team-member1.webp",
+      backgroundImage: "/assets/images/team-member-new.png",
       linkedinAcc: "https://www.linkedin.com/in/anu-kamboj-37309b74/",
     },
     {
