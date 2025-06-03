@@ -1104,6 +1104,7 @@ h6 {
 .ql-editor > * {
   cursor: text;
 }
+.ql-editor p,
 .ql-editor ol,
 .ql-editor ul,
 .ql-editor pre,
@@ -1121,7 +1122,7 @@ h6 {
 }
 
 .ql-editor h4 {
-  margin: 0px 0px;
+  margin: 10px 0px;
 }
 .ql-editor h2,
 .ql-editor h1 {
@@ -1151,7 +1152,8 @@ h6 {
 .ql-editor ol > li,
 .ql-editor ul > li {
   list-style-type: none;
-  font-size: 18px;
+  font-size: 20px;
+  color: #596168;
 }
 .ql-editor ul > li::before {
   content: "\2022";
@@ -2064,7 +2066,7 @@ h6 {
 
   .ql-editor ol > li,
   .ql-editor ul > li {
-    font-size: 16px;
+    font-size: 14px;
   }
 
    .ql-editor ol,
