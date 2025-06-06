@@ -149,7 +149,7 @@ const CaseStudyList: React.FC<any> = ({
         />
 
         <div className="flex flex-col gap-2 mb-3 min-h-[64px]">
-          {item?.tags?.slice(0, 2).map((tag: any, index: number) => (
+          {item?.tags?.slice(0, 2).map((tag: any) => (
             <span
               key={tag}
               className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 text-[12px] font-semibold rounded-2xl w-fit text-left"
