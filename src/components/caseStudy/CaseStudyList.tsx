@@ -139,47 +139,45 @@ const CaseStudyList: React.FC<any> = ({
   };
 
   const renderCaseStudyItem = (item: any, index: number) => (
-    <Link href={`/case-studies/${item?.slug}`} key={index}>
-      <div className="industry-insights-container">
+    <Link href={`/case-studies/${item?.slug}`} key={item?.slug || index}>
+      <div className="blogs-insights-container flex flex-col justify-between h-full  rounded-[18px] p-4 bg-white">
         <img
-          src={item?.thumbnailImage[0]?.publicUrl}
-          alt=""
-          width={"100%"}
-          className="mb-4 rounded-[18px]"
+          src={item?.thumbnailImage?.[0]?.publicUrl}
+          alt={item?.title || "Case study image"}
+          className="w-full rounded-[18px] mb-4"
           loading="lazy"
         />
-        <div className="flex flex-wrap gap-2 mb-3">
-          {item?.tags.slice(0, 2).map((tag: any) => (
+
+        <div className="flex flex-col gap-2 mb-3 min-h-[64px]">
+          {item?.tags?.slice(0, 2).map((tag: any, index: number) => (
             <span
               key={tag}
-              className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 xl:text-[12px] lg:text-[12px] md:text-[12px] sm:text-[12px] xs:text-[10px] font-semibold rounded-2xl text-left"
+              className="bg-gradient-to-r from-[#E5F3FB] to-[#EEE6FF] py-1 px-3 text-[12px] font-semibold rounded-2xl w-fit text-left"
             >
               {tag?.toUpperCase()}
             </span>
           ))}
         </div>
-        <div className="flex flex-col items-start gap-3 justify-between mt-4">
+
+        <div className="flex flex-col justify-between flex-1 mt-auto">
           <h6
-            className="text-left text-[#1c1c1c] font-semibold line-clamp-2"
+            className="text-left text-[#1c1c1c] font-semibold line-clamp-2 mb-2 min-h-[48px]"
             style={{
               display: "-webkit-box",
               WebkitBoxOrient: "vertical",
               WebkitLineClamp: 2,
               overflow: "hidden",
-              maxWidth: "400px",
             }}
           >
             {item?.title}
           </h6>
 
-          <div>
-            <img
-              src="/assets/icons/upward-arrow.svg"
-              alt="upward-icon"
-              className="h-[30px] mr-0 blogs-upward-icon"
-              loading="lazy"
-            />
-          </div>
+          <img
+            src="/assets/icons/upward-arrow.svg"
+            alt="upward-icon"
+            className="h-[30px] mr-auto blogs-upward-icon"
+            loading="lazy"
+          />
         </div>
       </div>
     </Link>
