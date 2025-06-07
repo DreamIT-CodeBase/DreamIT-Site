@@ -183,6 +183,15 @@ const CaseStudyList: React.FC<any> = ({
     </Link>
   );
 
+    // useEffect(() => {
+    //   const handleResize = () => {
+    //     console.log("Width:", window.innerWidth);
+    //   };
+    //   window.addEventListener("resize", handleResize);
+    //   handleResize();
+    //   return () => window.removeEventListener("resize", handleResize);
+    // }, []);
+
   return (
     <section className="container xl:pt-8 lg:pt-8 md:pt-0 sm:pt-5 xs:pt-5 pb-12 ">
       <div className="text-center">
