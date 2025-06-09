@@ -556,7 +556,7 @@ h6 {
   color: black;
   height: 100%;
   position: relative;
-  min-height: 490px;
+  min-height: 485px;
 }
 
 .swiper-pagination {
@@ -636,6 +636,11 @@ h6 {
 @media (min-width: 1919px) {
   .blogs-insights-container {
     min-height: 590px;
+  }
+}
+@media (min-width: 2047px) {
+  .blogs-insights-container {
+    min-height: 600px;
   }
 }
 
