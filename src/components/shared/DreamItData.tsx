@@ -147,7 +147,7 @@ export const ourServiesDetails = {
 export const serviceDetails: any = [
   {
     slug: "cloud-data-management",
-    title: "Cloud Data Management Services & Azure Consulting Services",
+    title: "Cloud Data Management Services & Azure Services",
     description:
       "Organizing data can sometimes feel like a mad puzzle. Stalled storage, migration issues, and governance problems can inhibit collaboration and waste valuable resources.",
     heroImage: "/assets/images/cloud-data-hero-sec-image.webp",
@@ -365,7 +365,7 @@ export const serviceDetails: any = [
 
   {
     slug: "digital-transformation",
-    title: "Digital Transformation & Consulting Services Company",
+    title: "Digital Transformation & Consulting Services",
     description:
       "Where Digital Transformation Meets Effortless Automation For Real Impact ",
     heroImage: "/assets/images/digital-transformation-hero-sec-image.webp",
