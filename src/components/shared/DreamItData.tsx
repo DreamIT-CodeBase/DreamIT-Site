@@ -147,7 +147,7 @@ export const ourServiesDetails = {
 export const serviceDetails: any = [
   {
     slug: "cloud-data-management",
-    title: "Cloud Data Management Services",
+    title: "Cloud Data Management",
     description:
       "Organizing data can sometimes feel like a mad puzzle. Stalled storage, migration issues, and governance problems can inhibit collaboration and waste valuable resources.",
     heroImage: "/assets/images/cloud-data-hero-sec-image.webp",
