@@ -39,10 +39,12 @@ const Header = () => {
     <header className="bg-white   header_content">
       {/* Mobile Navbar */}
       <div className="navbar-for-tab flex justify-between items-center xl:p-4 lg:p-4 md:p-4 sm:p-3 xs:p-2">
+        
         <Link href="/">
           <img
-            className=" dream-it-logo"
-            src="/assets/icons/dreamItLogo.png"
+            className="w-48 h-auto" 
+            // src="/assets/icons/Combined LOGO DreamIT X Microsoft2.png"
+            src="/assets/icons/Frame 5.png"
             alt="Logo"
           />
         </Link>
@@ -50,10 +52,12 @@ const Header = () => {
         <div className="flex justify-between items-center gap-4">
           <button
             onClick={() => setIsModalVisible(true)}
-            className=" bg-[#072032] max-w-[186px] items-center text-[#FFFFFF]   sm:px-4 xs:px-4   xl:px-6 lg:px-6 md:px-6  sm:py-2 xs:py-2   xl:py-3 lg:py-3 md:py-3 font-bold rounded-[7px]   transition-transform duration-300 hover:scale-105   cursor-pointer xl:text-[18px] lg:text-[18px] md:text-[16px] sm:text-[12px] xs:text-[12px] "
+            className="bg-[#072032] max-w-[150px] items-center text-[#FFFFFF] sm:px-3 xs:px-3 xl:px-5 lg:px-5 md:px-5 sm:py-1 xs:py-1 xl:py-2 lg:py-2 md:py-2 font-bold rounded-[7px] transition-transform duration-300 hover:scale-105 cursor-pointer xl:text-[16px] lg:text-[16px] md:text-[14px] sm:text-[10px] xs:text-[10px] text-[clamp(10px, 1.2vw, 16px)] whitespace-nowrap"
           >
             Get Started
           </button>
+          {/* className=" bg-[#072032] max-w-[186px] items-center text-[#FFFFFF]   sm:px-4 xs:px-4   xl:px-6 lg:px-6 md:px-6  sm:py-2 xs:py-2   xl:py-3 lg:py-3 md:py-3 font-bold rounded-[7px]   transition-transform duration-300 hover:scale-105   cursor-pointer xl:text-[18px] lg:text-[18px] md:text-[16px] sm:text-[12px] xs:text-[12px] " */}
+          
 
           <button onClick={toggleDrawer} aria-label="Toggle menu">
             <svg
@@ -190,10 +194,15 @@ const Header = () => {
 
       {/* Desktop Navbar */}
       <div className="navbar-for-web justify-between items-center container h-16">
-        <Link href="/">
+        <Link href="/" className="flex items-center space-x-4">
           <img
             className="lg:w-36 h-auto md:w-28"
             src="/assets/icons/dreamit-new-logo.png"
+            alt="Logo"
+          />
+          <img
+            className="lg:w-36 h-auto md:w-28"
+            src="/assets/icons/microsoft-solution-partner-logo.png"
             alt="Logo"
           />
         </Link>
