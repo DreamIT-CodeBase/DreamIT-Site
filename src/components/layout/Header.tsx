@@ -39,25 +39,10 @@ const Header = () => {
     <header className="bg-white   header_content">
       {/* Mobile Navbar */}
       <div className="navbar-for-tab flex justify-between items-center xl:p-4 lg:p-4 md:p-4 sm:p-3 xs:p-2">
-        {/* <Link href="/">
+        <Link href="/">
           <img
             className=" dream-it-logo"
-           
-            alt="Logo"
-          />
-        </Link> */}
-        <Link href="/" className="flex items-center gap-1 flex-wrap">
-          <img
-            className="lg:w-36 h-auto md:w-28"
             src="/assets/icons/dreamItLogo.png"
-            alt="Logo"
-          />
-          
-          <div className="w-0.5 h-8 bg-gray-400"></div>
-          
-          <img
-            className="lg:w-36 h-auto md:w-28"
-            src="/assets/icons/microsoft-solution-partner-logo.png"
             alt="Logo"
           />
         </Link>
@@ -205,18 +190,10 @@ const Header = () => {
 
       {/* Desktop Navbar */}
       <div className="navbar-for-web justify-between items-center container h-16">
-        <Link href="/" className="flex items-center gap-4">
+        <Link href="/">
           <img
             className="lg:w-36 h-auto md:w-28"
             src="/assets/icons/dreamit-new-logo.png"
-            alt="Logo"
-          />
-          
-          <div className="w-0.5 h-8 bg-gray-400"></div>
-          
-          <img
-            className="lg:w-36 h-auto md:w-28"
-            src="/assets/icons/microsoft-solution-partner-logo.png"
             alt="Logo"
           />
         </Link>
