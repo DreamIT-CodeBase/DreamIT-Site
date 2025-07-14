@@ -20,7 +20,7 @@ jobs:
                 echo "FAB Builder PagePilot API Response: $RESPONSE"
                 if [ "$RESPONSE" != "true" ]; then
                   echo "API returned false, exiting job."
-                  exit 0
+                  exit 1
                 fi
             - uses: actions/checkout@v1
             - name: Use Node.js ${{ matrix.node-version }}
