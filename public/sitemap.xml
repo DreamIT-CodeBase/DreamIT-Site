@@ -1,4 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<sitemap><loc>https://dreamitcs.com/sitemap-0.xml</loc></sitemap>
-</sitemapindex>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://dreamitcs.com/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/about-us/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/services/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/industries/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/insights/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/career/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/services/cloud-data-management/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/services/advanced-analytics/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/services/digital-transformation/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/services/erp-implementation/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/services/digital-marketing/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/blogs/5-things-you-didn-t-know-microsoft-fabric-could-do/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/blogs/predict-prevent-personalize-how-real-time-analytics-is-reshaping-patient-care/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/blogs/data-governance-in-healthcare-the-fine-line-between-innovation-regulation/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/blogs/siloed-data-fragmented-strategy-the-hidden-barrier-to-digital-transformation/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/blogs/the-business-cost-of-dirty-data-quantifying-the-hidden-losses-in-your-operations/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/blogs/how-to-make-complex-data-simple-best-practices-for-dashboard-design/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/blogs/code-less-achieve-more-key-fabcon-2025-updates-for-powerapps-and-microsoft-fabric/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/blogs/microsoft-fabric-vs-azure-synapse/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/blogs/time-travel-in-microsoft-fabric/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/privacy-policy/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/terms/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/case-studies/optimizing-real-time-energy-asset-management/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/case-studies/secure-ai-driven-data-visualization-reporting/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/case-studies/real-time-predictive-analytics-for-prescription-deliveries/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/case-studies/instant-insights-for-retail/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/case-studies/streamlining-sustainability-reporting-for-a-skincare-brand/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/case-studies/aligning-kam-customer-feedback/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/case-studies/optimizing-job-requests-with-custom-power-apps-streamlined-engineering-workflow/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/case-studies/building-scalable-unified-data-warehouse-with-microsoft-fabric/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/case-studies/optimizing-customer-data-management-with-azure-a-scalable-solution-for-efficient-insights/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/case-studies/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/blogs/</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://dreamitcs.com/services/cloud-data-management</loc>
+  <lastmod>2025-07-15T11:10:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
