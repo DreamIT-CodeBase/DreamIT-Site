@@ -54,11 +54,53 @@ const Layout = (props: any) => {
           rel="stylesheet"
         /> */}
 
-       
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Dream IT Consulting Services",
+            url: "https://dreamitcs.com/",
+            logo: "https://dreamitcs.com/assets/icons/dreamit-new-logo.png",
+            description:
+              "Dream IT Consulting Services offers data-driven solutions including Microsoft Fabric, Power BI, AI consulting, and digital marketing services.",
+            email: "connect@dreamitcs.com",
+            telephone: "+91-94164-84500",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress:
+                "1st Floor, Orchid Business Park, Central Park II, Sector 48",
+              addressLocality: "Gurugram",
+              addressRegion: "Haryana",
+              postalCode: "122004",
+              addressCountry: "IN",
+            },
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                telephone: "+91-94164-84500",
+                contactType: "customer support",
+                areaServed: "IN",
+                availableLanguage: ["en", "hi"],
+              },
+              {
+                "@type": "ContactPoint",
+                email: "connect@dreamitcs.com",
+                contactType: "sales",
+                availableLanguage: ["en", "hi"],
+              },
+            ],
+            sameAs: [
+              "https://www.instagram.com/dreamitcs/",
+              "https://www.linkedin.com/company/dreamitcs",
+              "https://www.facebook.com/DreamITweb",
+              "https://x.com/Dreamitcs",
+            ],
+          })}
+        </script>
       </Head>
       <Header />
       <main className="flex-grow">{props.children}</main>
-      <CallIcon/>
+      <CallIcon />
       <Footer />
       <div>{Parser(metaData?.bodyBottom || "")}</div>
     </div>
