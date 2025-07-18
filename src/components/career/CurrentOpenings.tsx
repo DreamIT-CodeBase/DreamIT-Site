@@ -9,6 +9,50 @@ import { LEAD_API } from "@/utils/constant";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// Centralized job data structure
+const JOB_DATA = {
+  "Data Analyst": {
+    title: "Data Analyst",
+    experienceRequired: "-",
+    positions: 0
+  },
+  "Data Engineer": {
+    title: "Data Engineer",
+    experienceRequired: "-",
+    positions: 0
+  },
+  "Power Platform Developer": {
+    title: "Power Platform Developer",
+    experienceRequired: "-",
+    positions: 0
+  },
+  "AI/ML Engineer": {
+    title: "AI/ML Engineer",
+    experienceRequired: "-",
+    positions: 0
+  },
+  "D365 CRM Developer": {
+    title: "D365 CRM Developer",
+    experienceRequired: "2-5 Years",
+    positions: 1
+  },
+  "D365 CRM Senior Developer": {
+    title: "D365 CRM Senior Developer",
+    experienceRequired: "5-8 Years",
+    positions: 3
+  },
+  "D365 CRM Team Lead/Solution Architect": {
+    title: "D365 CRM Team Lead/Solution Architect",
+    experienceRequired: "8+ Years",
+    positions: 1
+  },
+  "Open for Work": {
+    title: "Open for Work",
+    experienceRequired: "-",
+    positions: 1
+  }
+};
+
 const CurrentOpenings = ({ pageInfo }: any) => {
    const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
@@ -16,8 +60,11 @@ const CurrentOpenings = ({ pageInfo }: any) => {
 
    const storage = Storage.values?.leadAttachment;
 
-  const { register, handleSubmit, reset, watch, setValue } = useForm();
+  const { register, handleSubmit, reset, watch, setValue, formState: { errors } } = useForm();
   const resumeFile = watch("resume");
+
+
+
   const uploadResume = async (file: any) => {
     try {
       FileUploader.validate(file, { storage });
@@ -122,10 +169,10 @@ const CurrentOpenings = ({ pageInfo }: any) => {
               <Row
                 align={"bottom"}
                 justify={"center"}
-                className=" w-full lg:gap-6 md:gap-4 sm:gap-4 xs:gap-4 rounded-2xl   xl:pt-8 lg:pt-8 md:pt-8 sm:pt-4 xs:pt-4 xl:pb-8 lg:pb-8 md:pb-8 sm:pb-6 xs:pb-6 xl:pl-8 lg:pl-8 md:pl-8 sm:pl-4 xs:pl-4 xl:pr-8 lg:pr-8 md:pr-8 sm:pr-4 xs:pr-4 bg-transparent"
+                className=" w-full lg:gap-4 md:gap-3 sm:gap-3 xs:gap-3 rounded-2xl   xl:pt-8 lg:pt-8 md:pt-8 sm:pt-4 xs:pt-4 xl:pb-8 lg:pb-8 md:pb-8 sm:pb-6 xs:pb-6 xl:pl-8 lg:pl-8 md:pl-8 sm:pl-4 xs:pl-4 xl:pr-8 lg:pr-8 md:pr-8 sm:pr-4 xs:pr-4 bg-transparent"
                 style={{ backdropFilter: "blur(18.899999618530273px)" }}
               >
-                <Col lg={10} md={24} sm={24} xs={24}>
+                <Col lg={6} md={12} sm={24} xs={24}>
                   <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
                     Select Job Category
                   </h2>
@@ -136,17 +183,33 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                     <option value="" disabled selected>
                       Select job title
                     </option>
-                    <option value="Data Analyst">Data Analyst</option>
-                    <option value="Data Engineer">Data Engineer </option>
-                    <option value="Power Platform Developer">
-                      Power Platform Developer
-                    </option>
-                    <option value="AI/ML Engineer">AI/ML Engineer</option>
-                    <option value="Open for Work">Open for Work</option>
+                    {Object.values(JOB_DATA).map((job) => (
+                      <option key={job.title} value={job.title} disabled={job.positions === 0}>
+                        {job.title} {job.positions === 0 ? "(No openings)" : ""}
+                      </option>
+                    ))}
                   </select>
                 </Col>
 
-                <Col lg={10} md={24} sm={24} xs={24}>
+                <Col lg={5} md={12} sm={24} xs={24}>
+                  <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
+                    Experience Required
+                  </h2>
+                  <div className="w-full rounded-lg border-2 bg-[#F5F5F5] text-[#072032] border-[#EAEAEA] px-4 py-2 text-sm">
+                    {watch("role") ? JOB_DATA[watch("role") as keyof typeof JOB_DATA]?.experienceRequired || "-" : "-"}
+                  </div>
+                </Col>
+
+                <Col lg={4} md={12} sm={24} xs={24}>
+                  <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
+                    Positions
+                  </h2>
+                  <div className="w-full rounded-lg border-2 bg-[#F5F5F5] text-[#072032] border-[#EAEAEA] px-4 py-2 text-sm">
+                    {watch("role") ? JOB_DATA[watch("role") as keyof typeof JOB_DATA]?.positions || 0 : 0}
+                  </div>
+                </Col>
+
+                <Col lg={6} md={12} sm={24} xs={24}>
                   <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
                     Upload Resume
                   </h2>
@@ -156,9 +219,28 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                       id="leadAttachment"
                       {...register("resume", {
                         required: "Resume is required",
+                        validate: {
+                          fileType: (files) => {
+                            if (!files || files.length === 0) return true;
+                            const file = files[0];
+                            if (file.type !== "application/pdf") {
+                              return "Only PDF files are allowed.";
+                            }
+                            return true;
+                          },
+                          fileSize: (files) => {
+                            if (!files || files.length === 0) return true;
+                            const file = files[0];
+                            const maxSize = 10 * 1024 * 1024; // 10MB
+                            if (file.size > maxSize) {
+                              return "File size must be less than 10MB.";
+                            }
+                            return true;
+                          }
+                        }
                       })}
                       className="hidden border-2  border-[#EAEAEA] rounded-lg text-black-100  focus:border-gray-300 focus:outline-none"
-                      accept=".pdf,.doc,.docx"
+                      accept=".pdf"
                     />
                     <label
                       htmlFor="leadAttachment"
@@ -167,8 +249,11 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                       <MdOutlineFileUpload className="text-[20px]" />
                       {resumeFile?.length > 0
                         ? resumeFile[0].name
-                        : "Upload here"}{" "}
+                        : "Upload PDF here"}{" "}
                     </label>
+                    {errors.resume && (
+                      <p className="text-red-500 text-sm mt-1">{errors.resume.message as string}</p>
+                    )}
                   </div>
                 </Col>
                 <button
@@ -248,10 +333,10 @@ const CurrentOpenings = ({ pageInfo }: any) => {
           <Row
             align={"bottom"}
             justify={"start"}
-            className=" w-full lg:gap-6 md:gap-4 sm:gap-4 xs:gap-4 rounded-2xl   xl:pt-4 lg:pt-4 md:pt-4 sm:pt-4 xs:pt-4 xl:pb-4 lg:pb-8 md:pb-8 sm:pb-6 xs:pb-6  bg-transparent"
+            className=" w-full lg:gap-4 md:gap-3 sm:gap-3 xs:gap-3 rounded-2xl   xl:pt-4 lg:pt-4 md:pt-4 sm:pt-4 xs:pt-4 xl:pb-4 lg:pb-8 md:pb-8 sm:pb-6 xs:pb-6  bg-transparent"
             style={{ backdropFilter: "blur(18.899999618530273px)" }}
           >
-            <Col lg={10} md={24} sm={24} xs={24}>
+            <Col lg={12} md={12} sm={24} xs={24}>
               <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
                 Select Job Category
               </h2>
@@ -262,38 +347,77 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                 <option value="" disabled selected>
                   Select job title
                 </option>
-                <option value="Data Analyst">Data Analyst</option>
-                <option value="Data Engineer">Data Engineer </option>
-                <option value="Power Platform Developer">
-                  Power Platform Developer
-                </option>
-                <option value="AI/ML Engineer">AI/ML Engineer</option>
-                <option value="Open for Work">Open for Work</option>
+                {Object.values(JOB_DATA).map((job) => (
+                  <option key={job.title} value={job.title} disabled={job.positions === 0}>
+                    {job.title} {job.positions === 0 ? "(No openings)" : ""}
+                  </option>
+                ))}
               </select>
             </Col>
-            <Col lg={11} md={24} sm={24} xs={24}>
+            
+            <Col lg={6} md={12} sm={24} xs={24}>
+              <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
+                Experience Required
+              </h2>
+              <div className="w-full rounded-lg border-2 bg-[#F5F5F5] text-[#072032] border-[#EAEAEA] px-4 py-2 text-sm">
+                {watch("role") ? JOB_DATA[watch("role") as keyof typeof JOB_DATA]?.experienceRequired || "-" : "-"}
+              </div>
+            </Col>
+
+            <Col lg={6} md={12} sm={24} xs={24}>
+              <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
+                Positions
+              </h2>
+              <div className="w-full rounded-lg border-2 bg-[#F5F5F5] text-[#072032] border-[#EAEAEA] px-4 py-2 text-sm">
+                {watch("role") ? JOB_DATA[watch("role") as keyof typeof JOB_DATA]?.positions || 0 : 0}
+              </div>
+            </Col>
+            
+            <Col lg={12} md={24} sm={24} xs={24}>
               <h2 className="xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold mb-2 text-black-100">
                 Upload Resume
               </h2>
               <div className="relative">
                 <input
                   type="file"
-                  id="leadAttachment"
+                  id="leadAttachmentModal"
                   {...register("resume", {
                     required: "Resume is required",
+                    validate: {
+                      fileType: (files) => {
+                        if (!files || files.length === 0) return true;
+                        const file = files[0];
+                        if (file.type !== "application/pdf") {
+                          return "Only PDF files are allowed.";
+                        }
+                        return true;
+                      },
+                      fileSize: (files) => {
+                        if (!files || files.length === 0) return true;
+                        const file = files[0];
+                        const maxSize = 10 * 1024 * 1024; // 10MB
+                        if (file.size > maxSize) {
+                          return "File size must be less than 10MB.";
+                        }
+                        return true;
+                      }
+                    }
                   })}
                   className="hidden border-2  border-[#EAEAEA] rounded-lg text-black-100  focus:border-gray-300 focus:outline-none"
-                  accept=".pdf,.doc,.docx"
+                  accept=".pdf"
                 />
                 <label
-                  htmlFor="leadAttachment"
+                  htmlFor="leadAttachmentModal"
                   className=" flex items-center gap-2 w-full cursor-pointer rounded-lg border-2 border-[#EAEAEA] px-4 py-2 text-sm  text-[#072032] bg-[#FAFAFA] hover:bg-gray-50"
                 >
                   <MdOutlineFileUpload className="text-[20px]" />
                   {resumeFile?.length > 0
                     ? resumeFile[0].name
-                    : "Upload here"}{" "}
+                    : "Upload PDF here"}{" "}
                 </label>
+                {errors.resume && (
+                  <p className="text-red-500 text-sm mt-1">{errors.resume.message as string}</p>
+                )}
               </div>
             </Col>
             <button
