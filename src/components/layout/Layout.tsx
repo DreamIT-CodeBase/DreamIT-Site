@@ -47,6 +47,9 @@ const Layout = (props: any) => {
         <meta name="twitter:image" content={ogImageUrl} />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta name="linkedin-site-verification" content="b2c6fdfe-4331-43a1-a475-931d2b52c007" />
+
         <link rel="icon" href="/favicon.jpg" />
 
         {/* <link
