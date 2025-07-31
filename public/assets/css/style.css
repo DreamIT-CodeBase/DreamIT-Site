@@ -1,4 +1,64 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+/* MDXEditor link styles - override all nested elements */
+.prose a,
+.mdxeditor a,
+.markdown-body a,
+[contenteditable="true"] a {
+  text-decoration: underline !important;
+  color: #0066cc !important;
+}
+
+/* Force all elements inside links to inherit the link color */
+.prose a *,
+.mdxeditor a *,
+.markdown-body a *,
+[contenteditable="true"] a * {
+  color: inherit !important;
+  text-decoration: inherit !important;
+}
+
+/* Additional specificity for strong, em, and other common text formatting */
+.prose a strong,
+.prose a em,
+.prose a b,
+.prose a i,
+.prose a span,
+.mdxeditor a strong,
+.mdxeditor a em,
+.mdxeditor a b,
+.mdxeditor a i,
+.mdxeditor a span,
+.markdown-body a strong,
+.markdown-body a em,
+.markdown-body a b,
+.markdown-body a i,
+.markdown-body a span,
+[contenteditable="true"] a strong,
+[contenteditable="true"] a em,
+[contenteditable="true"] a b,
+[contenteditable="true"] a i,
+[contenteditable="true"] a span {
+  color: #0066cc !important;
+  text-decoration: underline !important;
+}
+
+/* Ultra-specific selector to override the exact element from the DOM */
+.container p a strong,
+.ant-col p a strong,
+div > div > div > p > a > strong,
+p a strong {
+  color: #0066cc !important;
+  text-decoration: underline !important;
+  font-weight: inherit !important;
+}
+
+/* Even more specific - target any strong inside any link anywhere */
+a strong[style],
+a strong {
+  color: #0066cc !important;
+  text-decoration: underline !important;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -40,8 +100,14 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-a {
+a, Link {
   text-decoration: none;
+  color: #0066cc;
+}
+
+/* Default style for Next.js Link components */
+a[href]:not(.dream-it-cta-button):not(.nav-link-active):not(.nav-link-unactive):not([class*="bg-"]):not([class*="text-"]) {
+  color: #0066cc;
 }
 
 *::-webkit-scrollbar-track {
@@ -1718,7 +1784,8 @@ h6 {
   text-decoration: underline;
 }
 .ql-editor a {
-  color: #1677ff !important;
+  color: #0066cc !important;
+  text-decoration: underline !important;
 }
 .ql-snow .ql-editor blockquote {
   border-left: 4px solid #ccc;
@@ -2064,7 +2131,7 @@ h6 {
   content: "Enter video:";
 }
 .ql-snow a {
-  color: #06c;
+  color: #0066cc;
 }
 .ql-container.ql-snow {
   border: 1px solid #ccc;
