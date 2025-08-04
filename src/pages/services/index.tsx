@@ -5,7 +5,7 @@ import {
   servicesHeroSectionContent,
 } from "@/components/shared/DreamItData";
 import React from "react";
-import OurCommitment from "@/components/services/OurCommitment";
+// import OurCommitment from "@/components/services/OurCommitment";
 import { AHD_HOST } from "@/utils/constant";
 import MainPageServices from "@/components/shared/MainPageServices";
 
