@@ -1,6 +1,8 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Link from "next/link";
+import OurCommitment from "@/components/services/OurCommitment";
+import FAQ from "./FAQ";
 
 const MainPageServices = ({
   data,
@@ -63,6 +65,8 @@ const MainPageServices = ({
             )
           )}
         </div>
+        <OurCommitment/>
+        <FAQ />
       </div>
     </section>
   );

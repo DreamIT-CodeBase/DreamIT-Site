@@ -20,7 +20,7 @@ const services = ({pageInfo}:any) => {
         showDescription={true}
         showCrousalForMobile={false}
       />
-      <OurCommitment />
+      {/* <OurCommitment /> */}
     </Layout>
   );
 };

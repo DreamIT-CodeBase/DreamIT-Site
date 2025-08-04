@@ -5,6 +5,7 @@ import { SectionContent } from "../content";
 const ServiceContent = ({ servicedata }: any) => {
    const contentRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   const handleScroll = (e: WheelEvent) => {
     if (contentRef.current) {
@@ -23,20 +24,41 @@ const ServiceContent = ({ servicedata }: any) => {
     }
   };
 
+  const updateContentHeight = () => {
+    if (imageRef.current) {
+      const imageHeight = imageRef.current.offsetHeight;
+      document.documentElement.style.setProperty('--image-height', `${imageHeight}px`);
+    }
+  };
+
   useEffect(() => {
     const imageContainerEl = imageContainerRef?.current;
+    const imageEl = imageRef?.current;
+
     if (imageContainerEl) {
       imageContainerEl.addEventListener("wheel", handleScroll, {
         passive: false,
       });
     }
 
+    if (imageEl) {
+      imageEl.addEventListener('load', updateContentHeight);
+      // Also update on window resize
+      window.addEventListener('resize', updateContentHeight);
+      // Initial height set
+      updateContentHeight();
+    }
+
     return () => {
       if (imageContainerEl) {
         imageContainerEl.removeEventListener("wheel", handleScroll);
       }
+      if (imageEl) {
+        imageEl.removeEventListener('load', updateContentHeight);
+      }
+      window.removeEventListener('resize', updateContentHeight);
     };
-  }, []);
+  }, [servicedata]);
 
   // Extract layout type from servicedata
   const layoutType =
@@ -45,23 +67,26 @@ const ServiceContent = ({ servicedata }: any) => {
   return (
     <div>
       <section className="pt-60 pab-30 container">
-        <Row align={"middle"} justify={"space-between"} gutter={[24, 24]}>
+        <Row align={"top"} justify={"center"} gutter={[24, 24]} className="flex items-start">
           {layoutType === "LEFT_IMAGE_RIGHT_CONTENT" ? (
             <>
               {/* Left Image */}
               <Col
-                xl={11}
+                xl={12}
                 lg={12}
                 md={12}
                 sm={24}
                 xs={24}
                 ref={imageContainerRef}
+                className="image-column"
               >
                 <div>
                   <img
+                    ref={imageRef}
                     src={servicedata?.sections[0].imageUrls}
                     alt="Professional working with city view"
                     loading="lazy"
+                    className="w-full h-auto"
                   />
                 </div>
               </Col>
@@ -73,7 +98,7 @@ const ServiceContent = ({ servicedata }: any) => {
                 sm={24}
                 xs={24}
                 ref={contentRef}
-                className="space-y-3 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[100%] xs:max-h-[100%] overflow-auto service-content-container"
+                className="space-y-3 service-content-container content-column"
               >
                 <h3 className="service-details-content-title">
                   {servicedata?.sections[0]?.title}
@@ -94,7 +119,7 @@ const ServiceContent = ({ servicedata }: any) => {
                 sm={24}
                 xs={24}
                 ref={contentRef}
-                className="space-y-3 xl:max-h-[500px] lg:max-h-[400px] md:max-h-[400px] sm:max-h-[100%] xs:max-h-[100%] overflow-auto service-content-container"
+                className="space-y-3 service-content-container content-column"
               >
                 <h3 className="service-details-content-title">
                   {servicedata?.sections[0]?.title}
@@ -106,18 +131,21 @@ const ServiceContent = ({ servicedata }: any) => {
               </Col>
               {/* Left Image */}
               <Col
-                xl={11}
+                xl={12}
                 lg={12}
                 md={12}
                 sm={24}
                 xs={24}
                 ref={imageContainerRef}
+                className="image-column"
               >
                 <div>
                   <img
+                    ref={imageRef}
                     src={servicedata?.sections[0]?.imageUrls}
                     alt="Professional working with city view"
                     loading="lazy"
+                    className="w-full h-auto"
                   />
                 </div>
               </Col>

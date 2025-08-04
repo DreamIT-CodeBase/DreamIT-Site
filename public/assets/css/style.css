@@ -5,7 +5,7 @@
 .mdxeditor a,
 .markdown-body a,
 [contenteditable="true"] a {
-  text-decoration: underline !important;
+  text-decoration: none !important;
   color: #0066cc !important;
 }
 
@@ -15,7 +15,7 @@
 .markdown-body a *,
 [contenteditable="true"] a * {
   color: inherit !important;
-  text-decoration: inherit !important;
+  text-decoration: none !important;
 }
 
 /* Additional specificity for strong, em, and other common text formatting */
@@ -40,7 +40,7 @@
 [contenteditable="true"] a i,
 [contenteditable="true"] a span {
   color: #0066cc !important;
-  text-decoration: underline !important;
+  text-decoration: none !important;
 }
 
 /* Ultra-specific selector to override the exact element from the DOM */
@@ -49,7 +49,7 @@
 div > div > div > p > a > strong,
 p a strong {
   color: #0066cc !important;
-  text-decoration: underline !important;
+  text-decoration: none !important;
   font-weight: inherit !important;
 }
 
@@ -57,11 +57,35 @@ p a strong {
 a strong[style],
 a strong {
   color: #0066cc !important;
-  text-decoration: underline !important;
+  text-decoration: none !important;
 }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Protect only essential Ant Design flexbox display */
+.ant-row {
+  display: flex !important;
+}
+
+/* Service content column height matching */
+.image-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: var(--image-height);
+  overflow-y: auto;
+}
+
+/* JavaScript will set this CSS variable */
+:root {
+  --image-height: auto;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -93,12 +117,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+/* *:not([class*="ant-"]) {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: "Lato", sans-serif;
-}
+} */
 
 a, Link {
   text-decoration: none;
@@ -111,16 +135,26 @@ a[href]:not(.dream-it-cta-button):not(.nav-link-active):not(.nav-link-unactive):
 }
 
 *::-webkit-scrollbar-track {
-  background: #00003e;
+  background: #ffffff;
+  border-radius: 10px;
 }
 
 *::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
 
-*::-webkit-scrollbar-button,
 *::-webkit-scrollbar-thumb {
-  background-color: #5732c6;
+  background-color: #000000;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #333333;
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
 }
 
 .service-content-container {
@@ -1781,11 +1815,11 @@ h6 {
   font-size: 0.67em;
 }
 .ql-snow .ql-editor a {
-  text-decoration: underline;
+  text-decoration: none;
 }
 .ql-editor a {
   color: #0066cc !important;
-  text-decoration: underline !important;
+  text-decoration: none !important;
 }
 .ql-snow .ql-editor blockquote {
   border-left: 4px solid #ccc;
