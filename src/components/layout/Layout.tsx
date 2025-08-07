@@ -57,7 +57,7 @@ const Layout = (props: any) => {
           rel="stylesheet"
         /> */}
 
-        <script type="application/ld+json">
+        {/* <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
@@ -99,7 +99,7 @@ const Layout = (props: any) => {
               "https://x.com/Dreamitcs",
             ],
           })}
-        </script>
+        </script> */}
       </Head>
       <Header />
       <main className="flex-grow">{props.children}</main>
