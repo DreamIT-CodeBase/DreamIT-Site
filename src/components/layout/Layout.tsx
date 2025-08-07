@@ -48,7 +48,10 @@ const Layout = (props: any) => {
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <meta name="linkedin-site-verification" content="b2c6fdfe-4331-43a1-a475-931d2b52c007" />
+        <meta
+          name="linkedin-site-verification"
+          content="b2c6fdfe-4331-43a1-a475-931d2b52c007"
+        />
 
         <link rel="icon" href="/favicon.jpg" />
 
@@ -57,49 +60,77 @@ const Layout = (props: any) => {
           rel="stylesheet"
         /> */}
 
-        {/* <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "Dream IT Consulting Services",
-            url: "https://dreamitcs.com/",
-            logo: "https://dreamitcs.com/assets/icons/dreamit-new-logo.png",
-            description:
-              "Dream IT Consulting Services offers data-driven solutions including Microsoft Fabric, Power BI, AI consulting, and digital marketing services.",
-            email: "connect@dreamitcs.com",
-            telephone: "+91-94164-84500",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress:
-                "1st Floor, Orchid Business Park, Central Park II, Sector 48",
-              addressLocality: "Gurugram",
-              addressRegion: "Haryana",
-              postalCode: "122004",
-              addressCountry: "IN",
-            },
-            contactPoint: [
-              {
-                "@type": "ContactPoint",
-                telephone: "+91-94164-84500",
-                contactType: "customer support",
-                areaServed: "IN",
-                availableLanguage: ["en", "hi"],
-              },
-              {
-                "@type": "ContactPoint",
-                email: "connect@dreamitcs.com",
-                contactType: "sales",
-                availableLanguage: ["en", "hi"],
-              },
-            ],
-            sameAs: [
-              "https://www.instagram.com/dreamitcs/",
-              "https://www.linkedin.com/company/dreamitcs",
-              "https://www.facebook.com/DreamITweb",
-              "https://x.com/Dreamitcs",
-            ],
-          })}
-        </script> */}
+        <script type="application/ld+json">
+          {JSON.stringify(
+            // <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://dreamitcs.com/#organization",
+                  name: "Dream IT Consulting Services",
+                  url: "https://dreamitcs.com",
+                  logo: "https://dreamitcs.com/assets/icons/dreamit-new-logo.png",
+                  email: "connect@dreamitcs.com",
+                  telephone: "+91 94164-84500",
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress:
+                      "1st Floor, Orchid Business Park, Central Park II, Sector 48",
+                    addressLocality: "Gurugram",
+                    addressRegion: "Haryana",
+                    postalCode: "122004",
+                    addressCountry: "IN",
+                  },
+                  sameAs: [
+                    "https://www.linkedin.com/company/dreamitcs/",
+                    "https://www.instagram.com/dreamitcs/",
+                    "https://www.facebook.com/DreamITweb",
+                    "https://x.com/Dreamitcs",
+                  ],
+                },
+                {
+                  "@type": "BreadcrumbList",
+                  "@id": "https://dreamitcs.com/#breadcrumbs",
+                  itemListElement: [
+                    {
+                      "@type": "ListItem",
+                      position: 1,
+                      name: "About Us",
+                      item: "https://dreamitcs.com/about-us/",
+                    },
+                    {
+                      "@type": "ListItem",
+                      position: 2,
+                      name: "Life at Dream IT",
+                      item: "https://dreamitcs.com/career/",
+                    },
+                    {
+                      "@type": "ListItem",
+                      position: 3,
+                      name: "Advanced Data Analytics & Visualization",
+                      item: "https://dreamitcs.com/services/advanced-analytics/",
+                    },
+                    {
+                      "@type": "ListItem",
+                      position: 4,
+                      name: "Cloud Data Management",
+                      item: "https://dreamitcs.com/services/cloud-data-management/",
+                    },
+                    {
+                      "@type": "ListItem",
+                      position: 5,
+                      name: "Digital Marketing",
+                      item: "https://dreamitcs.com/services/digital-marketing/",
+                    },
+                  ],
+                },
+              ],
+            }
+            // </script>
+          )}
+        </script>
       </Head>
       <Header />
       <main className="flex-grow">{props.children}</main>
