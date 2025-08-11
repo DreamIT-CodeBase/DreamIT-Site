@@ -96,7 +96,7 @@ const Footer = () => {
               <li className="flex p-medium gap-2 items-center">
                 <img
                   src="/assets/icons/call-icon.svg"
-                  alt="call-icon"
+                  alt=""
                   className="h-[20px]"
                   loading="lazy"
                 />
@@ -110,7 +110,7 @@ const Footer = () => {
               <li className="flex p-medium gap-2 items-center">
                 <img
                   src="/assets/icons/mail-icon.svg"
-                  alt="call-icon"
+                  alt=""
                   className="h-[20px] mt-[2px]"
                   loading="lazy"
                 />
@@ -125,7 +125,7 @@ const Footer = () => {
               <li className="flex p-medium gap-2 items-start">
                 <img
                   src="/assets/icons/location-icon.svg"
-                  alt="call-icon"
+                  alt=""
                   className="h-[20px] mt-[2px]"
                   loading="lazy"
                 />
