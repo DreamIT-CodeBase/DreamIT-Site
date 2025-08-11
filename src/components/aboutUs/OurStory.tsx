@@ -31,8 +31,7 @@ const OurStory = () => {
           <h2>Turning Data Into Stories That Drive Success</h2>
 
           <p className="xl:text-18 lg:text-16 md:text-16 sm:text-[12px] xs:text-[12px] text-[#2D2D2D] xl:max-w-[40rem]">
-            Founded in 2020, we began with a strong focus on Advanced Data
-            Analytics and Digital Marketing. Over the years we have
+            Founded in 2020, we began with a strong focus on <a href="https://dreamitcs.com/services/advanced-analytics/" className="text-[#00A9FF]">Advanced Data Analytics</a> and <a href="https://dreamitcs.com/services/digital-marketing/" className="text-[#00A9FF]">Digital Marketing</a>. Over the years we have
             strategically expanded our expertise to offer a comprehensive range
             of services including Cloud Data Management, ERP/CRM Implementation,
             Robotic Process Automation (RPA), Digital Transformation and Custom
