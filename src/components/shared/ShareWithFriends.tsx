@@ -26,9 +26,9 @@ const ShareWithFriends = () => {
   const linkedinMessageUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
     pageUrl
   )}&source=Dream IT Consulting Services Private Limited`;
-  const emailShareUrl = `mailto:?subject=Check this out!&body=${encodeURIComponent(
-    pageUrl
-  )}`;
+  // const emailShareUrl = `mailto:?subject=Check this out!&body=${encodeURIComponent(
+  //   pageUrl
+  // )}`;
   const xPostUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
     pageUrl
   )}&text=Check out this blog by dream it consulting services private limited`;
@@ -58,7 +58,7 @@ const ShareWithFriends = () => {
           >
             <FaLinkedin className="w-6 h-6" />
           </Link>
-          
+
           <Link href={xPostUrl} aria-label="Email" target="_blank">
             <FaXTwitter className="w-6 h-6" />
           </Link>
