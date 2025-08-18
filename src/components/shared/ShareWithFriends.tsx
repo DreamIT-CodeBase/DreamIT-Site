@@ -14,15 +14,26 @@ const ShareWithFriends = () => {
     }
   }, []);
 
-  const facebookMessageUrl = `https://m.me/?link=${encodeURIComponent(
+  // const facebookMessageUrl = `https://m.me/?link=${encodeURIComponent(
+  //   pageUrl
+  // )}`;
+  const facebookMessageUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
     pageUrl
   )}`;
-  const linkedinMessageUrl = `https://www.linkedin.com/messaging/compose/?body=${encodeURIComponent(
+  // const linkedinMessageUrl = `https://www.linkedin.com/messaging/compose/?body=${encodeURIComponent(
+  //   pageUrl
+  // )}`;
+  const linkedinMessageUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
     pageUrl
-  )}`;
+  )}&source=Dream IT Consulting Services Private Limited`;
   const emailShareUrl = `mailto:?subject=Check this out!&body=${encodeURIComponent(
     pageUrl
   )}`;
+  const xPostUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+    pageUrl
+  )}&text=Check out this blog by dream it consulting services private limited`;
+
+  // const xPostUrl = `https://twitter.com/intent/tweet?url=https://dreamitcs.com/case-studies/real-time-predictive-analytics-for-prescription-deliveries/&text=Check out this blog by dream it consulting services private limited`;
 
   return (
     <Card className="bg-[#D6F1FF] rounded-[10px] mt-4">
@@ -39,6 +50,7 @@ const ShareWithFriends = () => {
           >
             <FaFacebook className="w-6 h-6" />
           </Link>
+
           <Link
             href={linkedinMessageUrl}
             aria-label="LinkedIn Message"
@@ -46,9 +58,30 @@ const ShareWithFriends = () => {
           >
             <FaLinkedin className="w-6 h-6" />
           </Link>
-          <Link href={emailShareUrl} aria-label="Email" target="_blank">
+          
+          <Link href={xPostUrl} aria-label="Email" target="_blank">
             <FaXTwitter className="w-6 h-6" />
           </Link>
+          {/* <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+              pageUrl
+            )}`}
+            target="_blank"
+          >
+            <button>Share on Facebook</button>
+          </a> */}
+          {/* <a
+            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=Check%20out%20this%20awesome%20blog%20post!&via=YourXUsername&hashtags=blog,tech`}
+            target="_blank"
+          >
+            <button>Share on X</button>
+          </a> */}
+          {/* <a
+            href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(pageUrl)}&title=Your%20Blog%20Post%20Title&summary=A%20brief%20summary%20of%20your%20blog%20post.&source=YourBlogName`}
+            target="_blank"
+          >
+            <button>Share on LinkedIn</button>
+          </a> */}
         </div>
       </div>
     </Card>
