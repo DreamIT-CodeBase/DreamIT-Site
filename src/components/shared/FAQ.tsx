@@ -5,18 +5,54 @@ import { IoAdd } from "react-icons/io5";
 export const faqData = [
   {
     question: "What services does Dream IT Consulting Services offer?",
-    answer:
-      "Dream IT Consulting Services is a trustworthy provider of IT services that offers end-to-end digital transformations that give businesses scalable solutions for expansion, productivity, and competitive advantage. These services include cloud data management, Microsoft Power BI, and D365 CRM implementation.",
+    answer: (
+      <>
+        Dream IT Consulting Services is a trustworthy provider of IT services that offers end-to-end digital transformations that give businesses scalable solutions for expansion, productivity, and competitive advantage. These services include{" "}
+        <a 
+          href="https://dreamitcs.com/services/cloud-data-management/" 
+          className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          cloud data management
+        </a>
+        , Microsoft Power BI, and D365 CRM implementation.
+      </>
+    ),
   },
   {
     question: "How does cloud data management benefit my business?",
-    answer:
-      "Our cloud data management services ensure a safe, secure and scalable data ecosystem. Combined with Microsoft Power BI services, we help businesses centralise assets, streamline procedures, and take advantage of insights for lasting digital success.",
+    answer: (
+      <>
+        Our cloud data management services ensure a safe, secure and scalable data ecosystem. Combined with{" "}
+        <a 
+          href="https://dreamitcs.com/services/advanced-analytics/" 
+          className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Microsoft Power BI services
+        </a>
+        , we help businesses centralise assets, streamline procedures, and take advantage of insights for lasting digital success.
+      </>
+    ),
   },
   {
     question: "Can you help us migrate our existing data on the cloud?",
-    answer:
-      "Yes. As an experienced IT service company, we provide easy migration through cloud data management services, minimum downtime, safe data and future data infrastructure, ensuring alignment with enterprise compliance standards.",
+    answer: (
+      <>
+        Yes. As an{" "}
+        <a 
+          href="https://dreamitcs.com/" 
+          className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          experienced IT service company
+        </a>
+        , we provide easy migration through cloud data management services, minimum downtime, safe data and future data infrastructure, ensuring alignment with enterprise compliance standards.
+      </>
+    ),
   },
   {
     question: "Which tools do you use for data analytics and visualisation?",
@@ -25,13 +61,37 @@ export const faqData = [
   },
   {
     question: "Do you provide a custom dashboard and report?",
-    answer:
-      "Yes. We provide Power BI dashboard development services that suit KPI during retail, CPG, manufacturing, automotive, real estate, and technology and AI, which are accompanied by sales, operations, human resources, and finance with actionable insights.",
+    answer: (
+      <>
+        Yes. We provide{" "}
+        <a 
+          href="https://dreamitcs.com/services/advanced-analytics/" 
+          className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Power BI dashboard development services
+        </a>
+        {" "}that suit KPI during retail, CPG, manufacturing, automotive, real estate, and technology and AI, which are accompanied by sales, operations, human resources, and finance with actionable insights.
+      </>
+    ),
   },
   {
     question: "How can your digital marketing services help my brand grow?",
-    answer:
-      "Our digital marketing solutions combine dashboard development services with advanced analytics and Microsoft Power BI services, which create data-operated strategies using SEO, PPC and social media to increase visibility, engagement and average growth.",
+    answer: (
+      <>
+        Our digital marketing solutions combine dashboard development services with advanced analytics and Microsoft Power BI services, which create data-operated strategies using{" "}
+        <a 
+          href="https://dreamitcs.com/services/digital-marketing/" 
+          className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SEO, PPC and social media
+        </a>
+        {" "}to increase visibility, engagement and average growth.
+      </>
+    ),
   },
   {
     question:
@@ -41,8 +101,20 @@ export const faqData = [
   },
   {
     question: "Do you offer ongoing support and adaptation?",
-    answer:
-      "Definitely. Dream IT Consulting Services provides continuous adaptation in cloud data management services and Microsoft Power BI services, which ensure long-term system reliability, developed performance and average results for modern business ecosystems.",
+    answer: (
+      <>
+        Definitely. Dream IT Consulting Services provides continuous adaptation in cloud data management services and Microsoft Power BI services, which ensure long-term system reliability, developed performance and average results for{" "}
+        <a 
+          href="https://dreamitcs.com/services/business-centric-it-ecosystem/" 
+          className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          modern business ecosystems
+        </a>
+        .
+      </>
+    ),
   },
 ];
 
