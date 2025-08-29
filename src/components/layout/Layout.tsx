@@ -60,7 +60,7 @@ const Layout = (props: any) => {
           rel="stylesheet"
         /> */}
 
-        <script type="application/ld+json">
+        {/* <script type="application/ld+json">
           {JSON.stringify(
             // <script type="application/ld+json">
             {
@@ -130,7 +130,7 @@ const Layout = (props: any) => {
             }
             // </script>
           )}
-        </script>
+        </script> */}
       </Head>
       <Header />
       <main className="flex-grow">{props.children}</main>
