@@ -12,6 +12,7 @@ const Header = () => {
   const router = useRouter();
 
   const toggleDrawer = () => setIsDrawerVisible((prev) => !prev);
+  const toggleDropdown = () => setShowDropdown((prev) => !prev);
 
   const services = [
     { name: "Cloud Data Management", slug: "cloud-data-management" },
@@ -30,7 +31,10 @@ const Header = () => {
     },
 
     { name: "Digital Marketing", slug: "digital-marketing" },
-    { name: "Business-Centric IT Ecosystem", slug: "business-centric-it-ecosystem" },
+    {
+      name: "Business-Centric IT Ecosystem",
+      slug: "business-centric-it-ecosystem",
+    },
   ];
 
   const isActive = (path: any) => router.pathname === path;
@@ -39,10 +43,9 @@ const Header = () => {
     <header className="bg-white   header_content">
       {/* Mobile Navbar */}
       <div className="navbar-for-tab flex justify-between items-center xl:p-4 lg:p-4 md:p-4 sm:p-3 xs:p-2">
-        
         <Link href="/">
           <img
-            className="w-48 h-auto" 
+            className="w-48 h-auto"
             // src="/assets/icons/Combined LOGO DreamIT X Microsoft2.png"
             src="/assets/icons/Frame 5.png"
             alt="Logo"
@@ -57,7 +60,6 @@ const Header = () => {
             Get Started
           </button>
           {/* className=" bg-[#072032] max-w-[186px] items-center text-[#FFFFFF]   sm:px-4 xs:px-4   xl:px-6 lg:px-6 md:px-6  sm:py-2 xs:py-2   xl:py-3 lg:py-3 md:py-3 font-bold rounded-[7px]   transition-transform duration-300 hover:scale-105   cursor-pointer xl:text-[18px] lg:text-[18px] md:text-[16px] sm:text-[12px] xs:text-[12px] " */}
-          
 
           <button onClick={toggleDrawer} aria-label="Toggle menu">
             <svg
@@ -101,7 +103,7 @@ const Header = () => {
           <li>
             <Link
               href="/"
-              className={`text-black-700 font-bold ${
+              className={`text-black-700 font-bold hover:text-[#00a9ff] ${
                 isActive("/") ? "nav-link-active" : " "
               }`}
             >
@@ -111,7 +113,7 @@ const Header = () => {
           <li>
             <Link
               href="/about-us"
-              className={`text-black-700 font-bold ${
+              className={`text-black-700 font-bold hover:text-[#00a9ff] ${
                 isActive("/about-us") ? "nav-link-active" : ""
               }`}
             >
@@ -122,7 +124,7 @@ const Header = () => {
             <div className="flex flex-col">
               <Link
                 href="/services"
-                className="text-black-700 font-bold flex items-center"
+                className="text-black-700 font-bold flex items-center hover:text-[#00a9ff]"
               >
                 Services
                 <svg
@@ -162,7 +164,7 @@ const Header = () => {
           <li>
             <Link
               href="/industries"
-              className={`text-black-700 font-bold ${
+              className={`text-black-700 font-bold hover:text-[#00a9ff] ${
                 isActive("/industries") ? "nav-link-active" : ""
               }`}
             >
@@ -172,7 +174,7 @@ const Header = () => {
           <li>
             <Link
               href="/insights"
-              className={`text-black-700 font-bold ${
+              className={`text-black-700 font-bold hover:text-[#00a9ff] ${
                 isActive("/insights") ? "nav-link-active" : ""
               }`}
             >
@@ -182,7 +184,7 @@ const Header = () => {
           <li>
             <Link
               href="/career"
-              className={`text-black-700 font-bold ${
+              className={`text-black-700 font-bold hover:text-[#00a9ff] ${
                 isActive("/career") ? "nav-link-active" : ""
               }`}
             >
@@ -209,7 +211,7 @@ const Header = () => {
         <nav className="flex space-x-8">
           <Link
             href="/"
-            className={`${
+            className={`hover:text-[#00a9ff] ${
               isActive("/") ? "nav-link-active" : "nav-link-unactive"
             }`}
           >
@@ -217,7 +219,7 @@ const Header = () => {
           </Link>
           <Link
             href="/about-us"
-            className={`${
+            className={`hover:text-[#00a9ff] ${
               isActive("/about-us") ? "nav-link-active" : "nav-link-unactive"
             }`}
           >
@@ -225,30 +227,32 @@ const Header = () => {
           </Link>
           <div
             className="relative group"
-            onMouseEnter={() => setShowDropdown(true)}
-            onMouseLeave={() => setShowDropdown(false)}
+            // onMouseEnter={() => setShowDropdown(true)}
+            // onMouseLeave={() => setShowDropdown(false)}
           >
             <button
-              className={`flex items-center ${
+              className={`flex items-center hover:text-[#00a9ff] ${
                 isActive("/services") ? "nav-link-active" : "nav-link-unactive"
               }`}
             >
-              <Link className="flex items-center" href="/services">
-                Services
-                <svg
-                  className="ml-2 mt-1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="13"
-                  height="13"
-                  viewBox="0 0 8 6"
-                  fill="none"
-                >
-                  <path
-                    d="M1.14286 0.714233L4 3.57138L6.85714 0.714233L8 1.28566L4 5.28566L0 1.28566L1.14286 0.714233Z"
-                    fill="#212529"
-                  />
-                </svg>
-              </Link>
+              <div className="flex items-center">
+                <Link href="/services" className="text-inherit hover:text-[#00a9ff]">Services</Link>
+                <button onClick={toggleDropdown}>
+                  <svg
+                    className="ml-2 mt-1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 8 6"
+                    fill="none"
+                  >
+                    <path
+                      d="M1.14286 0.714233L4 3.57138L6.85714 0.714233L8 1.28566L4 5.28566L0 1.28566L1.14286 0.714233Z"
+                      fill="#212529"
+                    />
+                  </svg>
+                </button>
+              </div>
             </button>
             {showDropdown && (
               <ul className="absolute z-[1000] left-[-10] top-4 py-4 px-2 mt-2 w-[300px] bg-white border rounded-[18px] shadow-lg">
@@ -272,7 +276,7 @@ const Header = () => {
           </div>
           <Link
             href="/industries"
-            className={`${
+            className={`hover:text-[#00a9ff] ${
               isActive("/industries") ? "nav-link-active" : "nav-link-unactive"
             }`}
           >
@@ -280,7 +284,7 @@ const Header = () => {
           </Link>
           <Link
             href="/insights"
-            className={`${
+            className={`hover:text-[#00a9ff] ${
               isActive("/insights") ? "nav-link-active" : "nav-link-unactive"
             }`}
           >
@@ -288,7 +292,7 @@ const Header = () => {
           </Link>
           <Link
             href="/career"
-            className={`${
+            className={`hover:text-[#00a9ff] ${
               isActive("/career") ? "nav-link-active" : "nav-link-unactive"
             }`}
           >
