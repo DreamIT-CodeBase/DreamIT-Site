@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { AHD_HOST, PREVIEW } from "@/utils/constant";
 import BlogsList from "@/components/blogs/BlogsList";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 const Insights = ({ blogs, pageInfo, caseStudy }: any) => {
   const [blogsRecords, setBlogsRecords] = useState(blogs || []);
@@ -34,7 +35,9 @@ const Insights = ({ blogs, pageInfo, caseStudy }: any) => {
   }, []);
 
   return (
-    <Layout pageInfo={pageInfo}>
+    <>
+      <OrganizationSEO />
+      <Layout pageInfo={pageInfo}>
       <CommonHeroSection data={insightsSectionContent} />
       <CaseStudyList
         data={caseStudy}
@@ -50,6 +53,7 @@ const Insights = ({ blogs, pageInfo, caseStudy }: any) => {
         showSearchAndFilter={false}
       />
     </Layout>
+    </>
   );
 };
 

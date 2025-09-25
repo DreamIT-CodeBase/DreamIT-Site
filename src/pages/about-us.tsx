@@ -9,10 +9,12 @@ import React from "react";
 import ExploreLifeDreamIt from "../components/aboutUs/ExploreLifeDreamIt";
 import { AHD_HOST } from "@/utils/constant";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 const AboutUs = ({ pageInfo, caseStudy }: any) => {
   return (
     <Layout pageInfo={pageInfo}>
+      <OrganizationSEO/>
       <CommonHeroSection data={aboutUsHeroSectionContent} />
       <OurStory />
       <MissionAndVission />

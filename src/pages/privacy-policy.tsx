@@ -2,11 +2,14 @@ import React from 'react';
 import { AHD_HOST } from '../utils/constant';
 import Layout from "@/components/layout/Layout";
 import { SectionContent } from '@/components/content';
+import OrganizationSEO from '@/components/shared/OrganizationSEO';
 
 const PrivacyAndPolicy = ({ pageInfo }:any) => {
     
     return (
-        <Layout pageInfo={pageInfo}>
+        <>
+            <OrganizationSEO />
+            <Layout pageInfo={pageInfo}>
             <div className="container pt-85 pb-60">
                 <h1 className="font-bold text-[28px] mb-6 text-center">{pageInfo?.name}</h1>
                 {pageInfo?.sections && (
@@ -17,6 +20,7 @@ const PrivacyAndPolicy = ({ pageInfo }:any) => {
                 )}
             </div>
         </Layout>
+        </>
     );
 };
 

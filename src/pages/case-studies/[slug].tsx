@@ -3,6 +3,7 @@ import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 import Layout from "@/components/layout/Layout";
 import { AHD_HOST } from "@/utils/constant";
 import React, { useEffect, useState } from "react";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 const CaseStudyArticle = ({ pageInfo, pageSlug, caseStudy }: any) => {
   const [pageData, setPageData] = useState(() => pageInfo);
@@ -30,10 +31,13 @@ const CaseStudyArticle = ({ pageInfo, pageSlug, caseStudy }: any) => {
   }, [pageSlug]);
 
   return (
-    <Layout pageInfo={pageInfo}>
+    <>
+      <OrganizationSEO />
+      <Layout pageInfo={pageInfo}>
       <BlogDetails post={pageData} featureBlogsData={caseStudy} showFeaturedBlogs={true}/>
       <CaseStudyList data={caseStudy} />
     </Layout>
+    </>
   );
 };
 

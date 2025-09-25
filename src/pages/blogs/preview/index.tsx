@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 const BlogArticle = () => {
   const router = useRouter();
@@ -38,10 +39,13 @@ const BlogArticle = () => {
   }, [id]);
 
   return (
-    <Layout pageInfo={pageData}>
+    <>
+      <OrganizationSEO />
+      <Layout pageInfo={pageData}>
       <ToastContainer />
       <BlogDetails post={pageData} featureBlogsData={[]} showFeaturedBlogs={false}/>
     </Layout>
+    </>
   );
 };
 

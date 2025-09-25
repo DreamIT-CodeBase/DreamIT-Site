@@ -8,10 +8,13 @@ import CommonHeroSection from "@/components/shared/CommonHeroSection";
 import React from "react";
 import { AHD_HOST } from "@/utils/constant";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 const industries = ({ pageInfo, caseStudy }: any) => {
   return (
-    <Layout pageInfo={pageInfo}>
+    <>
+      <OrganizationSEO />
+      <Layout pageInfo={pageInfo}>
       <CommonHeroSection
         data={industriesHeroSectionContent}
         showInsightsIndustries={true}
@@ -19,6 +22,7 @@ const industries = ({ pageInfo, caseStudy }: any) => {
       <IndustriesWeServe industriesWeServeData={industriesWeServeData} />
       <CaseStudyList data={caseStudy} />
     </Layout>
+    </>
   );
 };
 

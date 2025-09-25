@@ -3,6 +3,7 @@ import { AHD_HOST } from "../../utils/constant";
 import Layout from "@/components/layout/Layout";
 import { BlogDetails } from "@/components/blogs/BlogsDetails";
 import BlogsList from "@/components/blogs/BlogsList";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 // import { SectionContent } from "@/components/content";
 // import ShareWithFriends from "@/components/shared/ShareWithFriends";
 // import AuthorDetails from "@/components/shared/AuthorDetails";
@@ -33,7 +34,9 @@ const BlogArticle = ({ pageInfo, pageSlug, blogs }: any) => {
   }, [pageSlug]);
 
   return (
-    <Layout pageInfo={pageInfo}>
+    <>
+      <OrganizationSEO />
+      <Layout pageInfo={pageInfo}>
       <BlogDetails post={pageData} featureBlogsData={blogs} showFeaturedBlogs={true}/>
       <BlogsList
         data={blogs}
@@ -41,6 +44,7 @@ const BlogArticle = ({ pageInfo, pageSlug, blogs }: any) => {
         backgroundImageUrl="/assets/images/background-stripes.png"
       />
     </Layout>
+    </>
   );
 };
 

@@ -8,6 +8,7 @@ import ServiceContent from "@/components/serviceDetails/ServiceContent";
 import DataDrivenSolutions from "@/components/home/DataDrivenSolutions";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 import { AHD_HOST } from "@/utils/constant";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 const ServiceDetailPage = ({
   serviceDetails: service,
@@ -38,7 +39,9 @@ const ServiceDetailPage = ({
   }
 
   return (
-    <Layout pageInfo={pageInfo}>
+    <>
+      <OrganizationSEO />
+      <Layout pageInfo={pageInfo}>
       <ServiceDetailsHome servicedata={service} />
       <DataDrivenSolutions />
       <ServiceContent servicedata={pageInfo} />
@@ -47,6 +50,7 @@ const ServiceDetailPage = ({
       <CaseStudyList data={displayedCaseStudies} />
       <OurCommitment />
     </Layout>
+    </>
   );
 };
 

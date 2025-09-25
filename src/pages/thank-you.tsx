@@ -2,10 +2,13 @@ import Layout from "@/components/layout/Layout";
 import React from "react";
 import Link from "next/link";
 import { AHD_HOST } from "@/utils/constant";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 const ThankYouPage = ({ pageInfo }: any) => {
   return (
-    <Layout pageInfo={pageInfo}>
+    <>
+      <OrganizationSEO />
+      <Layout pageInfo={pageInfo}>
       <div
         className="xl:pt-[50px] lg:pt-[50px] md:pt-[50px] sm:pt-[10px] xs:pt-[10px] xl:pb-[230px] lg:pb-[200px] md:pb-[150px] sm:pb-[50px] xs:pb-[50px] w-full flex items-center justify-center bg-no-repeat bg-contain bg-bottom"
         style={{ backgroundImage: "url(/assets/images/thankyoupagebg.png)" }}
@@ -36,6 +39,7 @@ const ThankYouPage = ({ pageInfo }: any) => {
         </div>
       </div>
     </Layout>
+    </>
   );
 };
 

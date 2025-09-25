@@ -5,7 +5,7 @@ import { Pagination } from "antd";
 import Layout from "@/components/layout/Layout";
 import BlogsList from "@/components/blogs/BlogsList";
 import Link from "next/link";
-
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 const BlogsLi = ({ blogs,pageInfo }: any) => {
   const [blogsRecords, setBlogsRecords] = useState(() => blogs);
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,6 +48,7 @@ const BlogsLi = ({ blogs,pageInfo }: any) => {
 
   return (
     <>
+      <OrganizationSEO />
       <Layout pageInfo={pageInfo}>
         <div className="w-full">
         <div className="container xl:mt-5 lg:mt-5 md:mt-5 sm:mt-4 xs:mt-4 flex items-center">

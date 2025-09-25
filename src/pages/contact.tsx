@@ -2,12 +2,16 @@ import Layout from "@/components/layout/Layout";
 import ContactForm from "@/components/shared/ContactForm";
 import React from "react";
 import { AHD_HOST } from "@/utils/constant";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 const Contact = ({ pageInfo }: any) => {
   return (
-    <Layout pageInfo={pageInfo}>
+    <>
+      <OrganizationSEO />
+      <Layout pageInfo={pageInfo}>
       <ContactForm showContactFormLeftSection="true" />
     </Layout>
+    </>
   );
 };
 

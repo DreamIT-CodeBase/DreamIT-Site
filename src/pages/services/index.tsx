@@ -8,10 +8,13 @@ import React from "react";
 // import OurCommitment from "@/components/services/OurCommitment";
 import { AHD_HOST } from "@/utils/constant";
 import MainPageServices from "@/components/shared/MainPageServices";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 const services = ({pageInfo}:any) => {
   return (
-    <Layout pageInfo={pageInfo}>
+    <>
+      <OrganizationSEO />
+      <Layout pageInfo={pageInfo}>
       <CommonHeroSection data={servicesHeroSectionContent} />
       <MainPageServices
         data={ourServies}
@@ -22,6 +25,7 @@ const services = ({pageInfo}:any) => {
       />
       {/* <OurCommitment /> */}
     </Layout>
+    </>
   );
 };
 

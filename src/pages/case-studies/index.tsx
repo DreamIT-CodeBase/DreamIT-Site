@@ -4,6 +4,7 @@ import { AHD_HOST, PREVIEW } from "@/utils/constant";
 import React, { useEffect, useState } from "react";
 import { Pagination } from "antd";
 import Link from "next/link";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 const CaseStudyLi = ({ caseStudies,pageInfo }: any) => {
   const [caseStudyRecords, setCaseStudyRecords] = useState(() => caseStudies);
@@ -46,7 +47,9 @@ const CaseStudyLi = ({ caseStudies,pageInfo }: any) => {
   );
 
   return (
-    <Layout pageInfo={pageInfo}>
+    <>
+      <OrganizationSEO />
+      <Layout pageInfo={pageInfo}>
       <div className="w-full">
         <div className="container xl:mt-5 lg:mt-5 md:mt-5 sm:mt-4 xs:mt-4 flex items-center">
           <nav className="text-gray-600 text-sm font-medium">
@@ -85,6 +88,7 @@ const CaseStudyLi = ({ caseStudies,pageInfo }: any) => {
         </div>
       </div>
     </Layout>
+    </>
   );
 };
 

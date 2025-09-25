@@ -1,9 +1,12 @@
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
+import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 export default function FourOhFour() {
   return (
-    <Layout>
+    <>
+      <OrganizationSEO />
+      <Layout>
       <div className="pt-60 pb-60">
         <div className="  flex items-center flex-col gap-6 justify-center  ">
           <img
@@ -21,5 +24,6 @@ export default function FourOhFour() {
         </div>
       </div>
     </Layout>
+    </>
   );
 }
