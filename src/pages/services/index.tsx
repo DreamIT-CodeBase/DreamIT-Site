@@ -1,4 +1,4 @@
- import Layout from "@/components/layout/Layout";
+import Layout from "@/components/layout/Layout";
 import CommonHeroSection from "@/components/shared/CommonHeroSection";
 import {
   ourServies,
@@ -10,21 +10,21 @@ import { AHD_HOST } from "@/utils/constant";
 import MainPageServices from "@/components/shared/MainPageServices";
 import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
-const services = ({pageInfo}:any) => {
+const services = ({ pageInfo }: any) => {
   return (
     <>
       <OrganizationSEO />
       <Layout pageInfo={pageInfo}>
-      <CommonHeroSection data={servicesHeroSectionContent} />
-      <MainPageServices
-        data={ourServies}
-        showTag={true}
-        showTitle={true}
-        showDescription={true}
-        showCrousalForMobile={false}
-      />
-      {/* <OurCommitment /> */}
-    </Layout>
+        <CommonHeroSection data={servicesHeroSectionContent} />
+        <MainPageServices
+          data={ourServies}
+          showTag={true}
+          showTitle={true}
+          showDescription={true}
+          showCrousalForMobile={false}
+        />
+        {/* <OurCommitment /> */}
+      </Layout>
     </>
   );
 };
