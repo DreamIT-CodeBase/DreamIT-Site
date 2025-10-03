@@ -3,20 +3,20 @@ export default [
     slug: "cloud-data-management",
     faq: [
       {
-        question: "What exactly is cloud data management at Dream ITCS?",
+        question: "What exactly is cloud data management at Dream IT?",
         answer:
-          "Dream ITCS offers comprehensive cloud data management services, providing an integrated approach to secure and optimise enterprise data, ensuring smarter decisions, operational efficiency, and seamless business continuity.",
+          "Dream IT offers comprehensive cloud data management services, providing an integrated approach to secure and optimise enterprise data, ensuring smarter decisions, operational efficiency, and seamless business continuity.",
       },
       {
         question:
-          "How can Dream ITCS assist us with data migration and modernization?",
+          "How can Dream IT assist us with data migration and modernization?",
         answer:
           "Through our specialised cloud data migration services, we help organisations safely transfer, modernise, and optimise their workloads with minimal downtime, accelerate digital transformation by reducing risk, and improve scalability.",
       },
       {
         question: "Which types of data governance and security do you offer?",
         answer:
-          "As a reliable cloud data management company, Dream IT CS delivers cloud data security solutions, including encryption, compliance frameworks, monitoring and advanced governance to protect sensitive commercial data in all environments.",
+          "As a reliable cloud data management company, Dream IT delivers cloud data security solutions, including encryption, compliance frameworks, monitoring and advanced governance to protect sensitive commercial data in all environments.",
       },
       {
         question: "Do you integrate with Azure and other cloud platforms?",
@@ -66,7 +66,7 @@ export default [
         question:
           "What type of analytics do you provide—just historical or future-looking?",
         answer:
-          "We provide Power BI descriptive analytics for previous trends and predictive data analytics services for future insights, ensuring a balanced approach to growth and risk management.",
+          "We provide descriptive analytics to interpret past trends and predictive analytics to anticipate future outcomes. As a tool - agnostic partner, we leverage Power BI, Tableau, SAS, Python, R, and other leading technologies - ensuring the right technology suite to achieve your business goals.",
       },
       {
         question: "Can you support us if we already use Power BI?",
@@ -89,7 +89,7 @@ export default [
         question:
           "Which cloud platform is best for AI: Azure, Microsoft Fabric, Databricks, or others?",
         answer:
-          "Azure provides strong enterprise AI, Microsoft Fabric integrates AI into analytics, and Databricks excels in ML. As a predictive analytics consulting firm, we recommend your AI on the basis of maturity.",
+          "The best cloud platform for AI depends on specific business needs. Azure offers robust enterprise AI capabilities, Microsoft Fabric integrates AI into analytics, and Databricks excels in machine learning. For businesses preferring open or flexible cloud platforms, options like AWS, Google Cloud, or multi-cloud strategies can provide more versatility. Ultimately, the choice depends on factors like data management needs, scalability, and integration requirements.",
       },
       {
         question: "How does AI readiness factor into cloud and data decisions?",
