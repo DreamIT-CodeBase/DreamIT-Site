@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { AHD_HOST, PREVIEW } from "../../utils/constant";
+import React, { useState } from "react";
+import { AHD_HOST } from "../../utils/constant";
 
 import { Pagination } from "antd";
 import Layout from "@/components/layout/Layout";
@@ -7,35 +7,9 @@ import BlogsList from "@/components/blogs/BlogsList";
 import Link from "next/link";
 import OrganizationSEO from "@/components/shared/OrganizationSEO";
 const BlogsLi = ({ blogs,pageInfo }: any) => {
-  const [blogsRecords, setBlogsRecords] = useState(() => blogs);
+  const blogsRecords= blogs
   const [currentPage, setCurrentPage] = useState(1);
-  const [error, setError] = useState<string | null>(null);
   const itemsPerPage = 6;
-
-  useEffect(() => {
-    const fetcher = async () => {
-      try {
-        const resOfBlogs = await fetch(
-          `${AHD_HOST}/page?filter[groups][]=blogs&orderBy=&limit=50&offset=0`
-        );
-
-        if (!resOfBlogs.ok) {
-          throw new Error(`Failed to fetch blogs: ${resOfBlogs.statusText}`);
-        }
-
-        const blogs = await resOfBlogs.json();
-        setBlogsRecords(blogs?.rows || []);
-      } catch (error: any) {
-        console.error("Error fetching blogs:", error);
-        setError("Failed to load blogs. Please try again later.");
-      }
-    };
-
-    const mode = new URL(window.location.href).searchParams.get("mode");
-    if (mode === PREVIEW) {
-      fetcher();
-    }
-  }, []);
 
   const handlePaginationChange = (page: any) => {
     setCurrentPage(page);
@@ -64,9 +38,7 @@ const BlogsLi = ({ blogs,pageInfo }: any) => {
           </div>
           
           <div>
-            {error ? (
-              <p style={{ color: "red" }}>{error}</p>
-            ) : currentPosts?.length > 0 ? (
+            {currentPosts?.length > 0 ? (
               <BlogsList
                 data={currentPosts}
                 showBackground={true}
@@ -96,46 +68,41 @@ const BlogsLi = ({ blogs,pageInfo }: any) => {
 
 export const getStaticProps = async () => {
   const pageSlug = "website-blogs";
-  let faqs = [];
   let blogs = [];
   let pageInfo = {};
-  let error = null;
-
+ 
   try {
-    const resFaqs = await fetch(
-      `${AHD_HOST}/faq?filter%5Blanguage%5D=&filter%5Bslugs%5D=${pageSlug}&filter%5Btags%5D=&orderBy=&limit=50&offset=0`
-    );
-
-    if (!resFaqs.ok) {
-      throw new Error(`Failed to fetch FAQs: ${resFaqs.statusText}`);
-    }
-
-    faqs = await resFaqs.json();
-
-    const resOfBlogs = await fetch(
-      `${AHD_HOST}/page?filter[groups][]=blogs&orderBy=&limit=50&offset=0`
-    );
-
-    if (!resOfBlogs.ok) {
-      throw new Error(`Failed to fetch blogs: ${resOfBlogs.statusText}`);
-    }
-
-    const blogsData = await resOfBlogs?.json();
-    blogs = blogsData?.rows || [];
-
-    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
-
+    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          includes: [
+            {
+              key: "relatedBlogs",
+              entity: "pages",
+              filter: {
+                groups: ["blogs"],
+                status: "live",
+              },
+             },
+            
+          ],
+        },
+      }),
+    });
     if (!pageRes.ok) {
-      throw new Error(`Failed to fetch page info: ${pageRes.statusText}`);
+      throw new Error(`Failed to fetch page info: ${pageRes.status}`);
     }
-
-    pageInfo = await pageRes?.json();
-  } catch (ex: any) {
-    console.error("Error in getStaticProps:", ex);
-    error = ex.message;
+    const data = await pageRes.json();
+    pageInfo = data.page || {};
+    blogs = data.relatedBlogs || [];
+  } catch (error) {
+    console.error("Error fetching page info:", error);
   }
-
-  return { props: { faqs, pageInfo, blogs, error } };
+  return { props: {  pageInfo, blogs } };
 };
 
 export default BlogsLi;
