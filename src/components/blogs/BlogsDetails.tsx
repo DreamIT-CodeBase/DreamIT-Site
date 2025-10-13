@@ -14,9 +14,18 @@ export const BlogDetails = ({ post, featureBlogsData,showFeaturedBlogs }: any) =
   post?.metadata?.["blogs"]?.timeToRead ||
   "10 min";
 
+  const formattedDate = new Date(post?.updatedAt).toLocaleDateString("en-US", {
+    month: "short",
+    day: "2-digit",
+  });
+
   const isCaseStudy = post?.groups?.includes("case-studies");
   const breadcrumbText = isCaseStudy ? "Success Stories" : "Blogs";
   const breadcrumbLink = isCaseStudy ? "/case-studies" : "/blogs";
+
+  // console.log(post?.updatedAt)
+  // console.log(formattedDate)
+  // console.log(post)
 
   return (
     <>
@@ -58,10 +67,11 @@ export const BlogDetails = ({ post, featureBlogsData,showFeaturedBlogs }: any) =
                 </h1>
                 <div className="flex items-center gap-2">
                   <p className="font-bold leading-[33.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] text-[#596168]">
-                    {new Date(post?.createdAt).toLocaleDateString("en-US", {
+                    {/* {new Date(post?.createdAt).toLocaleDateString("en-US", {
                       month: "short",
                       day: "2-digit",
-                    })}
+                    })} */}
+                    {formattedDate}
                   </p>
                   <span className="text-[#596168]">•</span>
                    <p className="font-bold leading-[16.6px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[14px] xs:text-[14px] text-[#596168]">
