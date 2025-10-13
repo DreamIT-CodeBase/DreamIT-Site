@@ -33,29 +33,28 @@ export default services;
 
 export const getStaticProps = async () => {
   const pageSlug = "website-services";
-  let faqs = [];
 
   let pageInfo = {};
-
   try {
-    const faqRes = await fetch(
-      `${AHD_HOST}/faq-group-list?filter[slug]=${pageSlug}&filter[status]=published&limit=10&orderBy=order_ASC`
-    );
-    faqs = await faqRes.json();
-  } catch (error) {
-    console.error("Error fetching FAQs:", error);
-    error = "Failed to fetch FAQs.";
-  }
-
-  try {
-    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
+    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          includes: [],
+        },
+      }),
+    });
     if (!pageRes.ok) {
       throw new Error(`Failed to fetch page info: ${pageRes.status}`);
     }
-    pageInfo = await pageRes.json();
-  } catch (error) {
+    const data = await pageRes.json();
+    pageInfo = data.page || {};
+   } catch (error) {
     console.error("Error fetching page info:", error);
   }
 
-  return { props: { pageInfo, faqs } };
+  return { props: { pageInfo } };
 };

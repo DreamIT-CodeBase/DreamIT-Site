@@ -10,7 +10,7 @@ import { AHD_HOST } from "@/utils/constant";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
-const industries = ({ pageInfo, caseStudy }: any) => {
+const industries = ({ pageInfo, caseStudies }: any) => {
   return (
     <>
       <OrganizationSEO />
@@ -20,7 +20,7 @@ const industries = ({ pageInfo, caseStudy }: any) => {
         showInsightsIndustries={true}
       />
       <IndustriesWeServe industriesWeServeData={industriesWeServeData} />
-      <CaseStudyList data={caseStudy} />
+      <CaseStudyList data={caseStudies} />
     </Layout>
     </>
   );
@@ -30,43 +30,41 @@ export default industries;
 
 export const getStaticProps = async () => {
   const pageSlug = "website-industries";
-  let faqs = [];
-  let caseStudy = [];
+  let caseStudies = [];
 
   let pageInfo = {};
 
   try {
-    const faqRes = await fetch(
-      `${AHD_HOST}/faq-group-list?filter[slug]=${pageSlug}&filter[status]=published&limit=10&orderBy=order_ASC`
-    );
-    faqs = await faqRes?.json();
-  } catch (error) {
-    console.error("Error fetching FAQs:", error);
-    error = "Failed to fetch FAQs.";
-  }
-
-  try {
-    const resOfBlogs = await fetch(
-      `${AHD_HOST}/page?filter[groups][]=case-studies&orderBy=&limit=50&offset=0`
-    );
-    if (!resOfBlogs.ok) {
-      throw new Error(`Failed to fetch blogs: ${resOfBlogs.status}`);
-    }
-    const caseStudyData = await resOfBlogs?.json();
-    caseStudy = caseStudyData?.rows || [];
-  } catch (error) {
-    console.error("Error fetching blogs in getStaticProps:", error);
-  }
-
-  try {
-    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
+    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          includes: [
+            {
+              key: "relatedBlogs",
+              entity: "pages",
+              filter: {
+                groups: ["case-studies"],
+                status: "live",
+              },
+              limit: 10,
+            },
+          ],
+        },
+      }),
+    });
     if (!pageRes.ok) {
       throw new Error(`Failed to fetch page info: ${pageRes.status}`);
     }
-    pageInfo = await pageRes?.json();
+    const data = await pageRes.json();
+    pageInfo = data.page || {};
+    caseStudies = data.relatedBlogs || [];
   } catch (error) {
     console.error("Error fetching page info:", error);
   }
 
-  return { props: { pageInfo, faqs, caseStudy } };
+  return { props: { pageInfo, caseStudies } };
 };
