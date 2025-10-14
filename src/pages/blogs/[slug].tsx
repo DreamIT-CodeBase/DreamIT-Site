@@ -69,7 +69,7 @@ export const getStaticProps = async ({ params }: any) => {
 
 export const getStaticPaths = async () => {
   try {
-    const blogRes = await fetch(`${AHD_HOST}/page?filter[groups][]=blogs&includeSections=false&select=slug%20name`);
+    const blogRes = await fetch(`${AHD_HOST}/client/page?filter[groups][]=blogs&includeSections=false&select=slug%20name`);
     if (!blogRes.ok) {
       throw new Error(`Failed to fetch blog pages: ${blogRes.statusText}`);
     }
