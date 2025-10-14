@@ -73,7 +73,7 @@ const ServiceDetailPage = ({
 };
 
 export const getStaticPaths = async () => {
-  const pagesRes = await fetch(`${AHD_HOST}/page?filter[groups][]=services&includeSections=false&select=slug%20name`);
+  const pagesRes = await fetch(`${AHD_HOST}/client/page?filter[groups][]=services&includeSections=false&select=slug%20name`);
   const pagePages = await pagesRes?.json();
   console.log(pagePages);
   const paths = pagePages?.rows.map((page: any) => ({
