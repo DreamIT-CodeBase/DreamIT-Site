@@ -73,7 +73,7 @@ const ServiceDetailPage = ({
 };
 
 export const getStaticPaths = async () => {
-  const pagesRes = await fetch(`${AHD_HOST}/page?filter[groups][]=services`);
+  const pagesRes = await fetch(`${AHD_HOST}/client/page?filter[groups][]=services&includeSections=false&select=slug%20name`);
   const pagePages = await pagesRes?.json();
   console.log(pagePages);
   const paths = pagePages?.rows.map((page: any) => ({
@@ -100,28 +100,34 @@ export async function getStaticProps({ params }: any) {
   }
 
   try {
-    const resOfBlogs = await fetch(
-      `${AHD_HOST}/page?filter[groups][]=case-studies&orderBy=&limit=50&offset=0`
-    );
-
-    if (resOfBlogs.ok) {
-      const caseStudyData = await resOfBlogs?.json();
-      caseStudy = caseStudyData?.rows || [];
-    } else {
-      console.warn(`Failed to fetch blogs: ${resOfBlogs.status}`);
+    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          includes: [
+            {
+              key: "relatedCs",
+              entity: "pages",
+              filter: {
+                groups: ["case-studies"],
+                status: "live",
+              },
+              limit: 10,
+            },
+            
+          ],
+        },
+      }),
+    });
+    if (!pageRes.ok) {
+      throw new Error(`Failed to fetch page info: ${pageRes.status}`);
     }
-  } catch (error) {
-    console.error("Error fetching blogs in getStaticProps:", error);
-  }
-
-  try {
-    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
-
-    if (pageRes.ok) {
-      pageInfo = await pageRes?.json();
-    } else {
-      console.warn(`Failed to fetch page info: ${pageRes.status}`);
-    }
+    const data = await pageRes.json();
+    pageInfo = data.page || {};
+    caseStudy = data.relatedCs || [];
   } catch (error) {
     console.error("Error fetching page info:", error);
   }

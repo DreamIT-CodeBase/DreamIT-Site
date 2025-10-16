@@ -22,12 +22,23 @@ export const getStaticProps = async () => {
   let pageInfo = {};
 
   try {
-    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
+    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          includes: [],
+        },
+      }),
+    });
     if (!pageRes.ok) {
       throw new Error(`Failed to fetch page info: ${pageRes.status}`);
     }
-    pageInfo = await pageRes?.json();
-  } catch (error) {
+    const data = await pageRes.json();
+    pageInfo = data.page || {};
+   } catch (error) {
     console.error("Error fetching page info:", error);
   }
 

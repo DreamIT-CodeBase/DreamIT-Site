@@ -1,38 +1,13 @@
 import { insightsSectionContent } from "@/components/shared/DreamItData";
 import Layout from "@/components/layout/Layout";
 import CommonHeroSection from "@/components/shared/CommonHeroSection";
-import React, { useEffect, useState } from "react";
-import { AHD_HOST, PREVIEW } from "@/utils/constant";
+import { AHD_HOST } from "@/utils/constant";
 import BlogsList from "@/components/blogs/BlogsList";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
 const Insights = ({ blogs, pageInfo, caseStudy }: any) => {
-  const [blogsRecords, setBlogsRecords] = useState(blogs || []);
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await fetch(
-          `${AHD_HOST}/page?filter[groups][]=blogs&orderBy=&limit=50&offset=0`
-        );
-        if (!response.ok) {
-          throw new Error(`Failed to fetch blogs: ${response.status}`);
-        }
-        const data = await response.json();
-        setBlogsRecords(data?.rows || []);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      }
-    };
-
-    if (typeof window !== "undefined") {
-      const mode = new URL(window.location.href).searchParams.get("mode");
-      if (mode === PREVIEW) {
-        fetchBlogs();
-      }
-    }
-  }, []);
+  const blogsRecords = blogs;
 
   return (
     <>
@@ -67,39 +42,46 @@ export const getStaticProps = async () => {
   let pageInfo = {};
 
   try {
-    const resOfBlogs = await fetch(
-      `${AHD_HOST}/page?filter[groups][]=blogs&orderBy=&limit=50&offset=0`
-    );
-    if (!resOfBlogs.ok) {
-      throw new Error(`Failed to fetch blogs: ${resOfBlogs.status}`);
-    }
-    const blogsData = await resOfBlogs?.json();
-    blogs = blogsData?.rows || [];
-  } catch (error) {
-    console.error("Error fetching blogs in getStaticProps:", error);
-  }
-  try {
-    const resOfBlogs = await fetch(
-      `${AHD_HOST}/page?filter[groups][]=case-studies&orderBy=&limit=50&offset=0`
-    );
-    if (!resOfBlogs.ok) {
-      throw new Error(`Failed to fetch blogs: ${resOfBlogs.status}`);
-    }
-    const caseStudyData = await resOfBlogs?.json();
-    caseStudy = caseStudyData?.rows || [];
-  } catch (error) {
-    console.error("Error fetching blogs in getStaticProps:", error);
-  }
-
-  try {
-    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
+    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          includes: [
+            {
+              key: "relatedCs",
+              entity: "pages",
+              filter: {
+                groups: ["case-studies"],
+                status: "live",
+              },
+              limit: 10,
+            },
+            {
+              key: "relatedBlogs",
+              entity: "pages",
+              filter: {
+                groups: ["blogs"],
+                status: "live",
+              },
+              limit: 10,
+            },
+          ],
+        },
+      }),
+    });
     if (!pageRes.ok) {
       throw new Error(`Failed to fetch page info: ${pageRes.status}`);
     }
-    pageInfo = await pageRes?.json();
+    const data = await pageRes.json();
+    pageInfo = data.page || {};
+    caseStudy = data.relatedCs || [];
+    blogs = data.relatedBlogs || [];
   } catch (error) {
     console.error("Error fetching page info:", error);
   }
 
-  return { props: { pageInfo, blogs, caseStudy } };
+  return { props: { pageInfo, caseStudy, blogs   } };
 };

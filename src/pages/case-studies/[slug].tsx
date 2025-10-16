@@ -2,33 +2,12 @@ import { BlogDetails } from "@/components/blogs/BlogsDetails";
 import CaseStudyList from "@/components/caseStudy/CaseStudyList";
 import Layout from "@/components/layout/Layout";
 import { AHD_HOST } from "@/utils/constant";
-import React, { useEffect, useState } from "react";
 import OrganizationSEO from "@/components/shared/OrganizationSEO";
 
-const CaseStudyArticle = ({ pageInfo, pageSlug, caseStudy }: any) => {
-  const [pageData, setPageData] = useState(() => pageInfo);
-  const [error, setError] = useState<any>(null);
-  console.log(error);
-  
-  useEffect(() => {
-    const fetcher = async () => {
-      try {
-        const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
-        if (!pageRes.ok) {
-          throw new Error(`Failed to fetch page info: ${pageRes.statusText}`);
-        }
-        const pageInfo = await pageRes.json();
-        setPageData(pageInfo);
-      } catch (err: any) {
-        console.error("Error fetching page data:", err);
-        setError(err.message);
-      }
-    };
-
-    if (typeof window !== "undefined") {
-      fetcher();
-    }
-  }, [pageSlug]);
+const CaseStudyArticle = ({ pageInfo, caseStudy }: any) => {
+  const pageData = pageInfo
+   
+ 
 
   return (
     <>
@@ -45,41 +24,48 @@ export default CaseStudyArticle;
 
 export const getStaticProps = async ({ params }: any) => {
   const pageSlug = params.slug;
+    let pageInfo: any = null;
+  let caseStudy: any[] = [];
   try {
-    const faqRes = await fetch(
-      `${AHD_HOST}/faq-group-list?filter[slug]=${pageSlug}&filter[status]=published&limit=15&orderBy=order_ASC`
-    );
-    if (!faqRes.ok) {
-      throw new Error(`Failed to fetch FAQs: ${faqRes.statusText}`);
-    }
-    const contentFaqs = await faqRes.json();
-
-    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
+    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          includes: [
+            {
+              key: "relatedCs",
+              entity: "pages",
+              filter: {
+                groups: ["case-studies"],
+                status: "live",
+              },
+              limit: 10,
+            },
+            
+          ],
+        },
+      }),
+    });
     if (!pageRes.ok) {
-      throw new Error(`Failed to fetch page info: ${pageRes.statusText}`);
+      throw new Error(`Failed to fetch page info: ${pageRes.status}`);
     }
-    const pageInfo = await pageRes?.json();
-
-    const resOfCaseStudies = await fetch(
-      `${AHD_HOST}/page?filter[groups][]=case-studies`
-    );
-    const caseStudy = await resOfCaseStudies?.json();
-
-    return {
-      props: { contentFaqs, pageInfo, pageSlug, caseStudy: caseStudy?.rows },
-    };
-  } catch (err) {
-    console.error("Error fetching data for static props:", err);
-    return {
-      props: { contentFaqs: [], pageInfo: null, pageSlug },
-    };
+    const data = await pageRes.json();
+    pageInfo = data.page || {};
+    caseStudy = data.relatedCs || [];
+   } catch (error) {
+    console.error("Error fetching page info:", error);
   }
+
+  return { props: { pageInfo, caseStudy   } };
 };
 
 export const getStaticPaths = async () => {
   try {
     const blogRes = await fetch(
-      `${AHD_HOST}/page?filter[groups][]=case-studies`
+      `${AHD_HOST}/client/page?filter[groups][]=case-studies&includeSections=false&select=slug%20name`
     );
     if (!blogRes.ok) {
       throw new Error(`Failed to fetch blog pages: ${blogRes.statusText}`);

@@ -96,44 +96,39 @@ export default CaseStudyLi;
 
 export const getStaticProps = async () => {
   const pageSlug = "website-case-studies";
-  let faqs = [];
-  let caseStudies = [];
+   let caseStudies = [];
   let pageInfo = {};
-  let error = null;
-
+ 
   try {
-    const resFaqs = await fetch(
-      `${AHD_HOST}/faq?filter%5Blanguage%5D=&filter%5Bslugs%5D=${pageSlug}&filter%5Btags%5D=&orderBy=&limit=50&offset=0`
-    );
-
-    if (!resFaqs.ok) {
-      throw new Error(`Failed to fetch FAQs: ${resFaqs.statusText}`);
-    }
-
-    faqs = await resFaqs.json();
-
-    const resOfCaseStudy = await fetch(
-      `${AHD_HOST}/page?filter[groups][]=case-studies&orderBy=&limit=50&offset=0`
-    );
-
-    if (!resOfCaseStudy.ok) {
-      throw new Error(`Failed to fetch case studies: ${resOfCaseStudy.statusText}`);
-    }
-
-    const caseStudyData = await resOfCaseStudy.json();
-    caseStudies = caseStudyData?.rows || [];
-
-    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`);
-
+    const pageRes = await fetch(`${AHD_HOST}/pagebyslug/${pageSlug}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data: {
+          includes: [
+            {
+              key: "relatedCs",
+              entity: "pages",
+              filter: {
+                groups: ["case-studies"],
+                status: "live",
+              },
+             },
+            
+          ],
+        },
+      }),
+    });
     if (!pageRes.ok) {
-      throw new Error(`Failed to fetch page info: ${pageRes.statusText}`);
+      throw new Error(`Failed to fetch page info: ${pageRes.status}`);
     }
-
-    pageInfo = await pageRes.json();
-  } catch (ex: any) {
-    console.error("Error in getStaticProps:", ex);
-    error = ex.message;
+    const data = await pageRes.json();
+    pageInfo = data.page || {};
+    caseStudies = data.relatedCs || [];
+  } catch (error) {
+    console.error("Error fetching page info:", error);
   }
-
-  return { props: { faqs, pageInfo, caseStudies, error } };
+  return { props: {  pageInfo, caseStudies } };
 };
