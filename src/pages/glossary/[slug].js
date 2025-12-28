@@ -5,7 +5,6 @@ import path from 'path';
 // import fs from 'fs';
 // import path from 'path';
 // import cheerio from 'cheerio';
-import { useRouter } from 'next/router';
 import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
 
