@@ -1,276 +1,417 @@
-import React from 'react';
-import Header from '../../components/layout/Header';
-import Footer from '../../components/layout/Footer';
+// pages/glossary/index.js
 
-const Glossary = () => {
-    const [searchKeyword, setSearchKeyword] = React.useState('');
-    const topics = [
-    { letter: 'M', items: ['Model Context Protocol'] },
-    ];
+import React, { useEffect, useState } from "react";
+import Header from "../../components/layout/Header";
+import Footer from "../../components/layout/Footer";
 
+export default function Glossary() {
+  const [topics, setTopics] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showTopBtn, setShowTopBtn] = useState(false);
 
-    const filteredTopics = topics.filter((topic) =>
-        topic.items.some(item =>
-            item.toLowerCase().includes(searchKeyword.toLowerCase())
-        )
-    );
+  const HEADER_OFFSET = 88;
 
-    const alphabet = Array.from('ABCDEFGHIJKLMNOPQRSTUVWXYZ'); // Include all letters A to Z in the filters
+  /* ============================================
+     Scroll Button + Initial Load
+  ============================================ */
+  useEffect(() => {
+    const onScroll = () => setShowTopBtn(window.scrollY > 240);
 
-    const handleScrollToSection = (letter) => {
-        const section = document.getElementById(`section-${letter}`);
-        if (section) {
-            const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
-            const scrollPosition = sectionTop - (window.innerHeight / 2) + (section.offsetHeight / 2);
-            window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    loadGlossary();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  /* ============================================
+     Scroll to Hash Section After Load
+  ============================================ */
+  useEffect(() => {
+    if (!loading && window.location.hash) {
+      const id = window.location.hash.replace("#", "");
+      const el = document.getElementById(id);
+
+      if (el) {
+        setTimeout(() => scrollToElementWithOffset(el, HEADER_OFFSET), 50);
+      }
+    }
+  }, [loading]);
+
+  /* ============================================
+     Fetch Slug List from glossary.json
+  ============================================ */
+  async function fetchSlugsList() {
+    try {
+      const res = await fetch("/assets/files/glossary.json", {
+        cache: "no-store",
+      });
+
+      if (!res.ok) return [];
+
+      const arr = await res.json();
+      return arr.map((s) => s.replace(/\.html$/i, ""));
+    } catch {
+      return [];
+    }
+  }
+
+  /* ============================================
+     Extract Title + First Line Description
+  ============================================ */
+  function parseHtmlForMeta(htmlText, slug) {
+    try {
+      const doc = new DOMParser().parseFromString(htmlText, "text/html");
+
+      // Title Extraction
+      let titleEl = doc.querySelector("h1, h2, .c24, .title, [role='heading']");
+      if (!titleEl) {
+        titleEl =
+          doc.querySelector("[id^='h.'], .c24, .c34") ||
+          doc.querySelector("body > *");
+      }
+
+      let title = titleEl ? titleEl.textContent.trim() : slug;
+
+      // Description Extraction (Only 1 Line)
+      let desc = "";
+      const paragraphs = Array.from(doc.querySelectorAll("p"));
+
+      for (const p of paragraphs) {
+        const text = p.textContent.trim();
+
+        if (text.length > 30) {
+          desc = text.split(".")[0] + ".";
+
+          if (desc.length > 140) {
+            desc = desc.substring(0, 140) + "...";
+          }
+          break;
         }
-    };
+      }
 
-    return (
-        <div>
-            <Header />
-            <main>
-                <div className="glossary-container">
-                    <div className="left-section">
-                        <div className="search-container">
-                            <input
-                                type="text"
-                                placeholder="Search topics..."
-                                value={searchKeyword}
-                                onChange={(e) => setSearchKeyword(e.target.value)}
-                                onKeyDown={(e) => {
-                                    if (e.key === 'Enter') {
-                                        setSearchKeyword(e.target.value);
-                                    }
-                                }}
-                                className="search-bar"
-                            />
-                            <span className="search-icon"></span>
-                        </div>
-                        <div className="alphabet-filter">
-                            {alphabet.map((letter) => {
-                                const isDisabled = !filteredTopics.some((topic) => topic.letter === letter);
-                                return (
-                                    <button
-                                        key={letter}
-                                        onClick={() => handleScrollToSection(letter)}
-                                        disabled={isDisabled}
-                                        style={{
-                                            backgroundColor: isDisabled ? '#e0e0e0' : '#ecf9ff', /* Light grey for disabled, blue for active */
-                                            color: isDisabled ? '#555555' : '#00a9ff', /* Dark grey for disabled text */
-                                            cursor: isDisabled ? 'default' : 'pointer',
-                                            pointerEvents: isDisabled ? 'none' : 'auto',
-                                            margin: "4px", /* Added margin */
-                                            padding: "8px 12px", /* Added padding */
-                                            borderRadius: "6px" /* Rounded corners */
-                                        }}
-                                    >
-                                        {letter}
-                                    </button>
-                                );
-                            })}
-                        </div>
-                    </div>
-                    <div className="topics-list">
-                        {filteredTopics.map((topic) => (
-                            <div key={topic.letter} id={`section-${topic.letter}`}>
-                                <h2>{topic.letter}</h2>
-                                <ul>
-                                    {topic.items.map((item, index) => (
-                                        <li
-                                            key={index}
-                                            className="glossary-item"
-                                        >
-                                            <a href={`/glossary/${item.toLowerCase().replace(/\s+/g, '-')}`}>{item}</a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
+      // Meta fallback
+      if (!desc) {
+        const meta = doc.querySelector("meta[name='description']");
+        if (meta?.getAttribute("content")) {
+          desc = meta.getAttribute("content").trim();
+        }
+      }
+
+      return {
+        title: title.replace(/\s+/g, " "),
+        description: desc.replace(/\s+/g, " "),
+      };
+    } catch {
+      return { title: slug, description: "" };
+    }
+  }
+
+  /* ============================================
+     Group Topics Alphabetically
+  ============================================ */
+  function buildGroups(items) {
+    const map = {};
+
+    items.forEach((it) => {
+      const letter = it.title?.[0]?.toUpperCase() || "#";
+
+      if (!map[letter]) map[letter] = [];
+      map[letter].push(it);
+    });
+
+    return Object.keys(map)
+      .sort()
+      .map((letter) => ({
+        letter,
+        items: map[letter],
+      }));
+  }
+
+  /* ============================================
+     Load Glossary Items
+  ============================================ */
+  async function loadGlossary() {
+    setLoading(true);
+
+    const slugs = await fetchSlugsList();
+
+    if (!slugs.length) {
+      setTopics([]);
+      setLoading(false);
+      return;
+    }
+
+    const collected = [];
+
+    for (const slug of slugs) {
+      try {
+        const res = await fetch(`/assets/files/${slug}.html`);
+
+        if (!res.ok) continue;
+
+        const htmlText = await res.text();
+        const meta = parseHtmlForMeta(htmlText, slug);
+
+        collected.push({
+          slug,
+          title: meta.title,
+          description: meta.description,
+        });
+      } catch {
+        continue;
+      }
+    }
+
+    collected.sort((a, b) => a.title.localeCompare(b.title));
+
+    setTopics(buildGroups(collected));
+    setLoading(false);
+  }
+
+  /* ============================================
+     Smooth Scroll Helper
+  ============================================ */
+  function scrollToElementWithOffset(el, offset = 0) {
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+    const absoluteTop = rect.top + window.pageYOffset;
+
+    window.scrollTo({
+      top: absoluteTop - offset,
+      behavior: "smooth",
+    });
+  }
+
+  /* ============================================
+     Alphabet Navigation
+  ============================================ */
+  const alphabet = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+
+  const hasLetter = (letter) =>
+    topics.some((group) => group.letter === letter);
+
+  const handleScrollToSection = (letter) => {
+    const el = document.getElementById(`section-${letter}`);
+    if (el) scrollToElementWithOffset(el, HEADER_OFFSET);
+  };
+
+  /* ============================================
+     Scroll Top Button
+  ============================================ */
+  const scrollToTop = () =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  /* ============================================
+     CamelCase Slug Helper
+  ============================================ */
+  const toCamelCase = (text) =>
+    text.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+  /* ============================================
+     UI Render
+  ============================================ */
+  return (
+    <div>
+      <Header />
+
+      <main>
+        {/* HERO */}
+        <div className="home-page-hero-section-background-image pb-[10px]">
+          <div className="container ph-50 pd-40">
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+              <div>
+                <div className="-mt-24">
+                  <h1 className="text-black hero-section-title leading-tight">
+                    Glossary
+                  </h1>
+
+                  <h6 className="max-w-[34rem] text-black-800 hero-section-subtitle">
+                    Discover key terms in cloud, AI, analytics, and enterprise IT.
+                    A glossary designed to support your digital transformation.
+                  </h6>
                 </div>
-            </main>
-            <Footer />
-            <style jsx>{`
-                .glossary-container {
-                    padding: 60px 157px; /* Overall padding for glossary page contents */
-                    gap: 20px; /* Add margin between left section and topics list */
-                    display: flex;
-                    position: relative;
-                }
+              </div>
 
-                .left-section {
-                    width: 50%;
-                    flex-shrink: 0;
-                    padding: 10px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    height: 100vh; /* Ensure the section takes full height */
-                    position: sticky;
-                    top: 0;
-                    height: 100vh;
-                }
-
-                .topics-list {
-                    flex: 1;
-                    overflow-y: auto;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    justify-content: center;
-                    position: relative;
-                    width: 50%;
-                    margin: 0; /* remove centering margin */
-                }
-                
-                .topics-list ul {
-                    list-style: none;
-                    padding: 0;
-                    text-align: left;
-                }
-                .topics-list li {
-                    margin: 5px 0;
-                    text-align: left;
-                }
-                .topics-list a {
-                    color: #00a9ff;
-                    text-decoration: none;
-                }
-                .topics-list a:hover {
-                    text-decoration: underline;
-                }
-
-
-                }
-                
-                .topics-list div.current {
-                    font-size: 24px;
-                    font-weight: bold;
-                    background-color: var(--primary-color);
-                    color: var(--secondary-color);
-                    border: 2px solid var(--accent-color);
-                }
-                }
-                }
-                .left-section {
-                    width: 50%;
-                    flex-shrink: 0;
-                    padding: 10px;
-                }
-                .placeholder-toggle {
-                    margin-bottom: 10px;
-                }
-                .placeholder-toggle label {
-                    font-weight: 500;
-                    font-size: 14px;
-                    cursor: pointer;
-                }
-                .search-container {
-                    display: flex;
-                    align-items: center;
-                    position: relative;
-                    margin-bottom: 20px;
-                }
-
-                .search-bar {
-                    width: 100%;
-                    padding: 10px 12px 10px 35px;
-                    font-size: 14px;
-                    background-color: #ffffff;
-                    color: #333333;
-                    border: 1px solid #cccccc;
-                    border-radius: 8px;
-                    outline: none;
-                    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-                }
-
-                .search-bar:focus {
-                    border-color: #aaaaaa;
-                    background-color: #f9f9f9;
-                }
-
-                .search-icon {
-                    position: absolute;
-                    left: 12px;
-                    display: inline-block;
-                    width: 16px;
-                    height: 16px;
-                    background: url('/assets/icons/loupe.png') no-repeat center center; /* Use provided icon */
-                    background-size: 16px 16px; /* Scaled to fit without changing aspect ratio */
-                    background-size: contain;
-                }
-                }
-                .search-bar:focus {
-                    border-color: #aaaaaa; /* Darker grey when focused */
-                    background-color: #f9f9f9; /* Slightly darker white */
-                }
-                .search-bar:focus {
-                    border-color: #00a9ff;
-                    box-shadow: 0 0 4px #00a9ff;
-                }
-                    border: 1px solid var(--border-color);
-                    border-radius: 4px;
-                    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-                }
-                .alphabet-filter {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
-                    gap: 5px;
-                }
-                .alphabet-filter button:hover {
-                    transform: scale(1.1);
-                    transition: transform 0.3s ease; /* Minor size increase animation */
-                }
-                    margin-bottom: 15px;
-                }
-                .alphabet-filter button {
-                    background-color: #f0f0f0; /* Default background color */
-                    color: #00a9ff; /* Default text color */
-                    border: none; /* Remove border */
-                    padding: 10px 15px; /* Padding for visual clarity */
-                    border-radius: 6px; /* Curved edges */
-                }
-                .alphabet-filter button:enabled {
-                    background-color: #ecf9ff; /* Background color */
-                    color: #00a9ff; /* Text color */
-                    border: none; /* Removed borders */
-                    cursor: pointer;
-                    padding: 10px 15px; /* Padding for better visual appearance */
-                    border-radius: 6px; /* Curved edges */
-                }
-                    margin-right: 20px;
-                }
-                .alphabet-filter button:hover {
-                    transform: scale(1.1);
-                    transition: transform 0.3s ease; /* Minor size increase animation for filters */
-                    transition: transform 0.3s ease;
-                }
-                .topics-list {
-                    flex: 1;
-                    overflow-y: auto;
-                }
-                .topics-list h2 {
-                    margin-top: 20px;
-                    color: var(--primary-color);
-                }
-                .topics-list ul {
-                    list-style: none;
-                    padding: 0;
-                }
-                .topics-list li {
-                    margin: 5px 0;
-                }
-                .topics-list a {
-                    color: var(--secondary-color);
-                    text-decoration: none;
-                }
-                .topics-list a:hover {
-                    text-decoration: underline;
-                }
-            `}</style>
+              <div className="flex justify-end">
+                <img
+                  src="/assets/images/glossaryimg.png"
+                  alt="Glossary Banner"
+                  className="w-[520px] rounded-[28px] shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-    );
-};
 
-export default Glossary;
+        {/* CONTENT */}
+        <div className="glossary-container">
+          {/* Alphabet */}
+          <div className="alphabet-row">
+            {alphabet.map((letter) => {
+              const enabled = hasLetter(letter);
+
+              return (
+                <button
+                  key={letter}
+                  className={`alpha-btn ${
+                    enabled ? "enabled" : "disabled"
+                  }`}
+                  disabled={!enabled}
+                  onClick={() => enabled && handleScrollToSection(letter)}
+                >
+                  {letter}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Loading */}
+          {loading && (
+            <p style={{ textAlign: "center", margin: "18px 0" }}>
+              Loading glossary…
+            </p>
+          )}
+
+          {/* Items */}
+          <div className="glossary-content">
+            {topics.map((group) => (
+              <section
+                key={group.letter}
+                id={`section-${group.letter}`}
+              >
+                {group.items.map((item) => (
+                  <article key={item.slug} className="entry">
+                    <div className="entry-left">
+                      <h2 className="entry-title">
+                        {item.title || toCamelCase(item.slug)}
+                      </h2>
+                    </div>
+
+                    <div className="entry-right">
+                      <p className="entry-desc">{item.description}</p>
+
+                      <a
+                        href={`/glossary/${item.slug}`}
+                        className="read-more"
+                      >
+                        Read More ▸
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </section>
+            ))}
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+
+      {/* Scroll Top */}
+      {showTopBtn && (
+        <button className="scroll-top-btn" onClick={scrollToTop}>
+          ↑
+        </button>
+      )}
+
+      {/* ✅ SAME CSS (UNCHANGED) */}
+      <style jsx>{`
+        .glossary-container {
+          max-width: 1280px;
+          margin: 10px auto 80px;
+          padding: 0 20px;
+        }
+
+        .alphabet-row {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 14px;
+          padding: 8px 0;
+        }
+
+        .alpha-btn {
+          width: 52px;
+          height: 52px;
+          border-radius: 6px;
+          border: 1.5px solid #000;
+          background: #fff;
+          font-size: 16px;
+          font-weight: 600;
+          color: rgba(0, 0, 0, 0.6);
+        }
+
+        .alpha-btn.enabled {
+          cursor: pointer;
+          background: #fffaf0;
+          color: #000;
+        }
+
+        .alpha-btn.disabled {
+          opacity: 0.35;
+        }
+
+        .glossary-content {
+          margin-top: 18px;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+
+        .entry {
+          display: grid;
+          grid-template-columns: 320px 1fr;
+          gap: 32px;
+          padding: 40px 0;
+          border-bottom: 2px solid rgba(0, 0, 0, 0.14);
+        }
+
+        .entry-title {
+          font-size: 34px;
+          font-weight: 500;
+          color: #000;
+          margin: 0;
+        }
+
+        .entry-desc {
+          font-size: 18px;
+          line-height: 1.8;
+          color: #111;
+          margin-bottom: 14px;
+        }
+
+        .read-more {
+          font-weight: 700;
+          color: #0b61d6;
+          text-decoration: none;
+        }
+
+        .read-more:hover {
+          text-decoration: underline;
+        }
+
+        .scroll-top-btn {
+          position: fixed;
+          right: 22px;
+          bottom: 28px;
+          width: 46px;
+          height: 46px;
+          border-radius: 10px;
+          border: none;
+          background: rgba(11, 97, 214, 0.95);
+          color: #fff;
+          font-size: 20px;
+          cursor: pointer;
+        }
+
+        @media (max-width: 1000px) {
+          .entry {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}

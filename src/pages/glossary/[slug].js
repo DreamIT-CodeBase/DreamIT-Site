@@ -1,120 +1,71 @@
-import React from 'react';
-import Head from 'next/head';
-import fs from 'fs';
-import path from 'path';
-import Header from '../../components/layout/Header';
-import Footer from '../../components/layout/Footer';
+// pages/glossary/[slug].js
 
-export async function getStaticProps(context) {
-    const { slug } = context.params;
-    const filePath = path.join(process.cwd(), 'public', 'assets', 'files', `${slug}.html`);
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-    try {
-        const raw = fs.readFileSync(filePath, 'utf8');
-        const { load } = await import('cheerio');
-        const $ = load(raw);
+import Head from "next/head";
 
-        // Extract <link> tags from head (stylesheets, fonts)
-        const headLinks = [];
-        $('head link').each((i, el) => {
-            const attribs = el.attribs || {};
-            headLinks.push(attribs);
-        });
+import Header from "../../components/layout/Header";
+import Footer from "../../components/layout/Footer";
 
-        // Extract <style> blocks from head (concatenate)
-        let headStyles = '';
-        $('head style').each((i, el) => {
-            headStyles += $(el).html() || '';
-        });
+export default function GlossarySlug() {
+  const router = useRouter();
+  const { slug } = router.query;
 
-        // Extract body inner HTML
-        const bodyHtml = $('body').length ? $('body').html() : $.root().html();
+  const [html, setHtml] = useState("");
+  const [loading, setLoading] = useState(true);
 
-        return {
-            props: {
-                headLinks,
-                headStyles,
-                bodyHtml,
-            },
-        };
-    } catch (err) {
-        return { props: { error: err.message, headLinks: [], headStyles: '', bodyHtml: '' } };
+  useEffect(() => {
+    if (!slug) return;
+
+    async function loadFile() {
+      setLoading(true);
+
+      try {
+        const res = await fetch(`/assets/files/${slug}.html`);
+
+        if (!res.ok) throw new Error("Not found");
+
+        const data = await res.text();
+        setHtml(data);
+      } catch {
+        setHtml("<h2 style='text-align:center'>File not found ❌</h2>");
+      }
+
+      setLoading(false);
     }
-}
 
-export async function getStaticPaths() {
-    const filesDir = path.join(process.cwd(), 'public', 'assets', 'files');
-    const filenames = fs.readdirSync(filesDir).filter((file) => file.endsWith('.html'));
-    const paths = filenames.map((name) => ({
-        params: { slug: name.replace('.html', '') },
-    }));
+    loadFile();
+  }, [slug]);
 
-    return {
-        paths,
-        fallback: false,
-    };
-}
+  return (
+    <div>
+      <Header />
 
-const GlossaryItem = ({ headLinks = [], headStyles = '', bodyHtml = '', error }) => {
-    return (
-        <div>
-            <Head>
-                {/* Render link tags extracted from the HTML head */}
-                {headLinks.map((attrs, i) => {
-                    // Render only safe link types (stylesheet, preconnect, preload, etc.)
-                    const rel = attrs.rel || '';
-                    const href = attrs.href || '';
-                    return (
-                        <link
-                            key={i}
-                            rel={rel}
-                            href={href}
-                            as={attrs.as}
-                            crossOrigin={attrs.crossorigin}
-                            type={attrs.type}
-                            media={attrs.media}
-                        />
-                    );
-                })}
+      {/* ✅ Correct way to apply public CSS */}
+      <Head>
+        <link rel="stylesheet" href="/assets/files/style.css" />
+      </Head>
 
-                {/* Inject style blocks from the HTML head */}
-                {headStyles ? <style dangerouslySetInnerHTML={{ __html: headStyles }} /> : null}
-            </Head>
-
-            <Header />
-            <main>
-                <div className="container">
-                    <div className="slug-content">
-                        {error ? (
-                            <p>Error: {error}</p>
-                        ) : (
-                            <div dangerouslySetInnerHTML={{ __html: bodyHtml }} />
-                        )}
-                    </div>
-                </div>
-            </main>
-            <Footer />
-
-            <style jsx>{`
-                .container {
-                    width: 1190px;
-                    margin: 0 auto;
-                }
-                .slug-content {
-                    padding: 60px;
-                    text-align: center;
-                }
-                h1 {
-                    font-size: 36px;
-                    color: #333;
-                }
-                p {
-                    font-size: 18px;
-                    color: #666;
-                }
-            `}</style>
+      <main className="glossary-doc-page">
+        <div className="doc-content">
+          {loading ? (
+            <p style={{ textAlign: "center" }}>Loading…</p>
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+          )}
         </div>
-    );
-};
+      </main>
 
-export default GlossaryItem;
+      <Footer />
+
+      <style jsx>{`
+        .glossary-doc-page {
+          padding: 80px 20px;
+          background: #f9fafb;
+          min-height: 100vh;
+        }
+      `}</style>
+    </div>
+  );
+}

@@ -46,7 +46,8 @@ const Footer = () => {
             <h3 className="text-lg mr-2 font-semibold mb-4 text-white">
               Discover
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
+
               <li>
                 <Link href="/" className="text-gray-400 hover:text-white">
                   Home
@@ -68,6 +69,14 @@ const Footer = () => {
                   Services
                 </Link>
               </li>
+
+              {/* NEW Glossary Link inserted after Services */}
+              <li>
+                <Link href="/glossary" className="text-gray-400 hover:text-white">
+                  Glossary
+                </Link>
+              </li>
+
               <li>
                 <Link href="/career" className="text-gray-400 hover:text-white">
                   Career

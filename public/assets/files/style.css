@@ -1,0 +1,193 @@
+/* ==============================
+   DREAMIT GLOSSARY CONTENT THEME
+   (Structure inspired by reference image)
+   ============================== */
+
+.doc-content {
+  max-width: 980px;
+  margin: 70px auto;
+  padding: 70px 60px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  font-family: "Inter", sans-serif;
+}
+
+/* MAIN TITLES (WHAT IS / WHY ARE style) */
+.doc-content h1,
+.doc-content h2 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 22px;
+  color: #111111;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* SECTION SPACING */
+.doc-content h2 {
+  margin-top: 60px;
+}
+
+/* PARAGRAPHS */
+.doc-content p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333333;
+  margin-bottom: 22px;
+  max-width: 820px;
+}
+
+/* LIST STRUCTURE (arrow-style bullets like image) */
+.doc-content ul {
+  margin: 28px 0 30px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.doc-content li {
+  position: relative;
+  padding-left: 34px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #222222;
+}
+
+/* Arrow icon */
+.doc-content li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0b61d6; /* DreamIT blue */
+}
+
+/* LINKS */
+.doc-content a {
+  color: #0b61d6;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.doc-content a:hover {
+  color: #084ea8;
+  text-decoration: none;
+}
+
+/* RESET GARBAGE GOOGLE DOC CLASSES */
+.doc-content span {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  color: inherit !important;
+  font-weight: inherit !important;
+}
+
+/* IMAGES */
+.doc-content img {
+  max-width: 100%;
+  margin: 30px auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .doc-content {
+    padding: 45px 25px;
+    margin: 40px 16px;
+  }
+
+  .doc-content h1,
+  .doc-content h2 {
+    font-size: 32px;
+  }
+
+  .doc-content p,
+  .doc-content li {
+    font-size: 17px;
+  }
+}
+/* ==============================
+   FIX GOOGLE-DOC TABLES
+   ============================== */
+/* ============================================
+   DREAMIT TABLE FIX (Google Docs Export Cleanup)
+   ============================================ */
+.doc-content table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 40px 0 !important;
+  table-layout: auto !important;
+  font-size: 15px !important;
+}
+
+.doc-content th,
+.doc-content td {
+  padding: 16px 18px !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+
+  font-size: inherit !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+.doc-content th {
+  background: #f8fafc !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+}
+
+.doc-content td *,
+.doc-content th * {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+}
+/* ================================
+   TABLE FIX (DreamIT Clean Version)
+   ================================ */
+
+.doc-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 40px 0;
+  font-size: 16px;
+}
+
+/* Table Header */
+.doc-content th {
+  background: #f3f6fb;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #111 !important;
+  padding: 16px;
+  text-align: left;
+}
+
+/* Table Cells */
+.doc-content td {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #222 !important;
+  padding: 16px;
+  line-height: 1.6;
+}
+
+/* Borders */
+.doc-content th,
+.doc-content td {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* Center tick marks */
+.doc-content td:nth-child(2),
+.doc-content td:nth-child(3) {
+  text-align: center;
+  font-weight: 700;
+}
