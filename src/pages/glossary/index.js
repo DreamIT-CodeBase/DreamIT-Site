@@ -18,17 +18,7 @@ const topics = [
       },
     ],
   },
-  {
-    letter: "P",
-    items: [
-      {
-        title: "Power BI Desktop Projects",
-        slug: "power-bi-desktop-projects",
-        description:
-          "Power BI Desktop Projects enable structured development, version control, and collaborative management of Power BI reports by storing metadata and report assets in a source-friendly project format.",
-      },
-    ],
-  },
+  
 ];
 
 export default function Glossary() {
