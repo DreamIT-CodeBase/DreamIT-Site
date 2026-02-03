@@ -5,21 +5,26 @@ import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
 import Link from "next/link";
 
-/* ✅ Static Topics List (Best for Production Stability) */
-const topics = [
-  {
-    letter: "M",
-    items: [
-      {
-        title: "Model Context Protocol",
-        slug: "model-context-protocol",
-        description:
-          "Model Context Protocol (MCP) defines conventions for communicating context, metadata, and instructions to language models to improve reliability, safety, and interoperability across systems.",
-      },
-    ],
-  },
-  
-];
+import { glossaryTopics } from "../../data/glossaryTopics";
+
+/* ✅ Auto Group Topics by First Letter */
+const groupTopicsByLetter = (topics) => {
+  const grouped = {};
+
+  topics.forEach((topic) => {
+    const letter = topic.title.charAt(0).toUpperCase();
+
+    if (!grouped[letter]) grouped[letter] = [];
+    grouped[letter].push(topic);
+  });
+
+  return Object.keys(grouped)
+    .sort()
+    .map((letter) => ({
+      letter,
+      items: grouped[letter],
+    }));
+};
 
 export default function Glossary() {
   const alphabet = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
@@ -27,6 +32,9 @@ export default function Glossary() {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
   const HEADER_OFFSET = 88;
+
+  /* ✅ Group Topics Dynamically */
+  const groupedTopics = groupTopicsByLetter(glossaryTopics);
 
   /* Scroll Button Logic */
   useEffect(() => {
@@ -37,7 +45,8 @@ export default function Glossary() {
   }, []);
 
   /* Letter Exists Check */
-  const hasLetter = (letter) => topics.some((g) => g.letter === letter);
+  const hasLetter = (letter) =>
+    groupedTopics.some((g) => g.letter === letter);
 
   /* Smooth Scroll */
   const scrollToElementWithOffset = (el) => {
@@ -67,7 +76,7 @@ export default function Glossary() {
       <Header />
 
       <main>
-        {/* HERO */}
+        {/* ✅ HERO SECTION */}
         <div className="home-page-hero-section-background-image pb-[10px]">
           <div className="container ph-50 pd-40">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
@@ -100,7 +109,7 @@ export default function Glossary() {
           </h4>
         </div>
 
-        {/* CONTENT */}
+        {/* ✅ CONTENT */}
         <div className="glossary-container">
           {/* Alphabet Row */}
           <div className="alphabet-row">
@@ -120,9 +129,9 @@ export default function Glossary() {
             })}
           </div>
 
-          {/* Glossary Items */}
+          {/* ✅ Glossary Items */}
           <div className="glossary-content">
-            {topics.map((group) => (
+            {groupedTopics.map((group) => (
               <section key={group.letter} id={`section-${group.letter}`}>
                 {group.items.map((item) => (
                   <article key={item.slug} className="entry">
@@ -158,8 +167,6 @@ export default function Glossary() {
           ↑
         </button>
       )}
-   
-
 
       {/* ✅ SAME CSS (UNCHANGED) */}
       <style jsx>{`

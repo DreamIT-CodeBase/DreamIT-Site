@@ -21,8 +21,8 @@
 .doc-content h1 {
   font-size: 52px;
   font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 26px;
+  line-height: 1;
+  margin-bottom: 20px;
   color: #111;
   text-transform: none; /* ✅ REMOVE ALL CAPS */
   letter-spacing: 0;
@@ -30,7 +30,7 @@
 
 /* Section Titles */
 .doc-content h2 {
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 750;
   line-height: 1.25;
   margin-top: 55px;
@@ -45,7 +45,7 @@
    ============================== */
 
 .doc-content p {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.85;
   color: #333;
   margin-bottom: 22px;
