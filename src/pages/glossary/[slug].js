@@ -55,7 +55,7 @@ export default function GlossarySlug() {
               {/* LEFT */}
               <div>
                 <div className="-mt-14">
-                  <h1 className="text-black hero-section-title leading-tight">
+                  <h1 className="text-black-500 text-xl md:text-5xl font-semibold leading-[1.15] tracking-tight">
                     {pageTitle}
                   </h1>
 
