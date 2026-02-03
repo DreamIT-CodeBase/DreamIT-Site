@@ -2,7 +2,6 @@ module.exports = {
   reactStrictMode: true,
   images: { unoptimized: true },
 
-  // ✅ Force no trailing slash
   trailingSlash: false,
 
   async redirects() {
