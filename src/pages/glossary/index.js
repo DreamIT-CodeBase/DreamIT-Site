@@ -83,11 +83,11 @@ export default function Glossary() {
               {/* LEFT */}
               <div>
                 <div className="-mt-14">
-                  <h1 className="text-black hero-section-title leading-tight">
+                  <h1 className="text-black text-2xl md:text-5xl font-semibold mb-7">
                     Glossary
                   </h1>
 
-                  <h6 className="max-w-[34rem] text-black-800 hero-section-subtitle">
+                  <h6 className="max-w-[34rem] text-black-600 text-lg leading-relaxed">
                     Discover key terms in cloud, AI, analytics, and enterprise IT.
                   </h6>
                 </div>

@@ -1,86 +1,266 @@
-/* ==============================
-   DREAMIT GLOSSARY CONTENT THEME
-   Typography Fix Only (Tables unchanged)
-   ============================== */
+/* ============================================
+   DREAMIT GLOSSARY CONTENT THEME (PRO FINAL)
+   Clean Typography + Perfect Heading Scale
+   ============================================ */
 
 .doc-content {
-  max-width: 980px;
-  margin: 70px auto;
-  padding: 70px 60px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 55px 60px;
+
   background: #ffffff;
   border-radius: 18px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
   font-family: "Inter", sans-serif;
+  color: #1f2937;
+  line-height: 1.75;
 }
 
-/* ==============================
-   HEADINGS (FIXED FRONT LOOK)
-   ============================== */
+/* ============================================
+   GOOGLE DOCS RESET (Only Necessary Fix)
+   ============================================ */
 
-/* Main Page Title */
+/* Remove Docs weird margins + padding */
+.doc-content p,
+.doc-content h1,
+.doc-content h2,
+.doc-content h3 {
+  padding: 0 !important;
+}
+
+/* Kill Docs wrapper spacing */
+.doc-content .c3,
+.doc-content .c4,
+.doc-content .c5,
+.doc-content .c9,
+.doc-content .c10,
+.doc-content .c11,
+.doc-content .c12,
+.doc-content .c14,
+.doc-content .title,
+.doc-content .subtitle {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: inherit !important;
+}
+
+/* Remove empty junk paragraphs */
+.doc-content p:empty {
+  display: none !important;
+}
+
+/* ============================================
+   PERFECT HEADING TYPOGRAPHY (Modern Website)
+   ============================================ */
+
 .doc-content h1 {
-  font-size: 52px;
-  font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 26px;
-  color: #111;
-  text-transform: none; /* ✅ REMOVE ALL CAPS */
-  letter-spacing: 0;
-}
-
-/* Section Titles */
-.doc-content h2 {
-  font-size: 34px;
-  font-weight: 750;
-  line-height: 1.25;
-  margin-top: 55px;
-  margin-bottom: 18px;
-  color: #111;
-  text-transform: none;
-  letter-spacing: 0;
-}
-
-/* ==============================
-   PARAGRAPHS (FIXED READABILITY)
-   ============================== */
-
-.doc-content p {
-  font-size: 18px;
-  line-height: 1.85;
-  color: #333;
+  font-size: 38px;        /* ✅ Smaller than before */
+  font-weight: 700;       /* ✅ Not extra-bold */
+  letter-spacing: 1px;
   margin-bottom: 22px;
-  max-width: 860px;
-
-  text-align: justify; /* ✅ Proper justification */
-  text-justify: inter-word;
+  color: #111827;
 }
 
-/* ==============================
-   LIST STRUCTURE (Keep Arrow Style)
-   ============================== */
+.doc-content h2 {
+  font-size: 26px;
+  font-weight: 650;
+  margin-top: 42px;
+  margin-bottom: 14px;
+  color: #111827;
+}
+
+.doc-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+/* ============================================
+   PARAGRAPHS (Professional Readability)
+   ============================================ */
+.doc-content p {
+  font-size: 16.5px;
+  font-weight: 400;
+  line-height: 1.85;
+  margin: 14px 0;
+  color: #374151;
+
+  text-align: justify;      
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+@media (max-width: 768px) {
+  .doc-content p {
+    text-align: left !important;
+  }
+}
+
+/* ============================================
+   FIX RANDOM GOOGLE DOCS BOLD SPANS
+   ============================================ */
+
+/* Docs bold classes should not break layout */
+.doc-content span {
+  font-weight: inherit !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Only allow real strong tags to be bold */
+.doc-content strong {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ============================================
+   LINKS (Clean Modern)
+   ============================================ */
+
+.doc-content a {
+  color: #0b61d6;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.doc-content a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   LISTS (Perfect Glossary Bullets)
+   ============================================ */
 
 .doc-content ul {
-  margin: 26px 0 30px;
-  padding-left: 0;
-  list-style: none;
+  list-style: none !important;
+  margin: 18px 0 24px;
+  padding-left: 0 !important;
 }
 
 .doc-content li {
   position: relative;
-  padding-left: 34px;
-  margin-bottom: 15px;
-  font-size: 18px;
-  line-height: 1.75;
-  color: #222;
+  padding-left: 28px;
+  margin-bottom: 10px;
+
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: #374151;
 }
 
-/* Arrow icon */
+/* DreamIT arrow bullet */
 .doc-content li::before {
   content: "›";
   position: absolute;
   left: 0;
   top: 0;
-  font-size: 22px;
+
+  font-size: 20px;
   font-weight: 700;
   color: #0b61d6;
+}
+
+/* Kill Docs bullet pseudo */
+.doc-content li.li-bullet-0:before {
+  content: "" !important;
+}
+
+/* ============================================
+   IMAGES
+   ============================================ */
+
+.doc-content img {
+  max-width: 100%;
+  border-radius: 14px;
+  margin: 28px auto;
+  display: block;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+.doc-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 15.5px;
+}
+
+.doc-content th,
+.doc-content td {
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+}
+
+.doc-content th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+/* ============================================
+   CODE BLOCKS
+   ============================================ */
+
+.doc-content pre {
+  background: #0f172a;
+  color: #fff;
+  padding: 18px;
+  border-radius: 14px;
+  overflow-x: auto;
+  margin: 22px 0;
+}
+
+.doc-content code {
+  font-family: "Fira Code", monospace;
+  font-size: 14.5px;
+}
+
+/* ============================================
+   BLOCKQUOTES
+   ============================================ */
+
+.doc-content blockquote {
+  border-left: 4px solid #0b61d6;
+  padding-left: 18px;
+  margin: 26px 0;
+  font-style: italic;
+  color: #4b5563;
+}
+
+/* ============================================
+   TOC SCROLL OFFSET FIX
+   ============================================ */
+
+.doc-content h1,
+.doc-content h2,
+.doc-content h3 {
+  scroll-margin-top: 140px;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .doc-content {
+    padding: 32px 22px;
+  }
+
+  .doc-content h1 {
+    font-size: 30px;
+  }
+
+  .doc-content h2 {
+    font-size: 22px;
+  }
+
+  .doc-content p,
+  .doc-content li {
+    font-size: 15.5px;
+  }
 }
