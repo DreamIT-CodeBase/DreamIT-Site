@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import { useRouter } from "next/router";
 import Parser from "html-react-parser";
 import CallIcon from "./CallIcon";
+import WhatsAppIcon from "./WhatsAppIcon";
 
 
 
@@ -137,6 +138,7 @@ const Layout = (props: any) => {
       </Head>
       <Header />
       <main className="flex-grow">{props.children}</main>
+      <WhatsAppIcon />
       <CallIcon />
       <Footer />
       

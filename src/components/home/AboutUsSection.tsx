@@ -58,13 +58,31 @@ const AboutUsSection = () => {
               Turning Data Into Stories That Deliver Results{" "}
             </h2>
 
-            <h6 className="xl:text-20 text-[#596168] lg:text-16 md:text-16  about-use-section-subtitle">
+            <h6 className="xl:text-20 text-[#596168] lg:text-16 md:text-16 about-use-section-subtitle text-justify">
               At Dream IT, we focus on performance improvement through
-              leading-edge IT and data visualization consulting services.
-              Whether managing your organization cloud data or being involved
-              with your digital marketing actions, we help organizations throw
-              out the guesswork and provide you with insight driven and
-              operationally excellent decisions.
+              leading-edge IT and{" "}
+              <Link
+                href="/services/advanced-analytics"
+                className="text-[#00A9FF] font-semibold hover:underline"
+              >
+                data visualization consulting services
+              </Link>
+              . Whether managing your organization&apos;s{" "}
+              <Link
+                href="/services/cloud-data-management"
+                className="text-[#00A9FF] font-semibold hover:underline"
+              >
+                cloud data
+              </Link>{" "}
+              or being involved with your{" "}
+              <Link
+                href="/services/digital-marketing"
+                className="text-[#00A9FF] font-semibold hover:underline"
+              >
+                digital marketing
+              </Link>{" "}
+              actions, we help organizations remove guesswork and provide
+              insight-driven, operationally sound decisions.
             </h6>
 
             <div className="xl:space-y-4 lg:space-y-4 md:space-y-4 sm:space-y-2 xs:space-y-2 sm:text-left xs:text-left xl:text-left lg:text-left md:text-left">

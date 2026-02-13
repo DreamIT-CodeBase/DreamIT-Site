@@ -4,46 +4,99 @@ export default [
     faq: [
       {
         question: "What exactly is cloud data management at Dream IT?",
-        answer:
-          "Dream IT offers comprehensive cloud data management services, providing an integrated approach to secure and optimise enterprise data, ensuring smarter decisions, operational efficiency, and seamless business continuity.",
+        answer: (
+          <>
+            Dream IT offers comprehensive{" "}
+            <a
+              href="https://dreamitcs.com/services/cloud-data-management/"
+              className="text-[#00A9FF] font-semibold hover:underline"
+            >
+              cloud data management services
+            </a>
+            , with an integrated approach to secure and optimize enterprise
+            data for smarter decisions, operational efficiency, and business
+            continuity.
+          </>
+        ),
       },
       {
         question:
           "How can Dream IT assist us with data migration and modernization?",
-        answer:
-          "Through our specialised cloud data migration services, we help organisations safely transfer, modernise, and optimise their workloads with minimal downtime, accelerate digital transformation by reducing risk, and improve scalability.",
+        answer: (
+          <>
+            Through our specialized cloud data migration services, we help
+            organizations safely transfer, modernize, and optimize workloads
+            with minimal downtime, and{" "}
+            <a
+              href="https://dreamitcs.com/services/digital-transformation/"
+              className="text-[#00A9FF] font-semibold hover:underline"
+            >
+              accelerate digital transformation
+            </a>{" "}
+            by reducing risk and improving scalability.
+          </>
+        ),
       },
       {
         question: "Which types of data governance and security do you offer?",
         answer:
-          "As a reliable cloud data management company, Dream IT delivers cloud data security solutions, including encryption, compliance frameworks, monitoring and advanced governance to protect sensitive commercial data in all environments.",
+          "As a reliable cloud data management company, Dream IT delivers cloud data security solutions, including encryption, compliance frameworks, monitoring, and advanced governance to protect sensitive commercial data across environments.",
       },
       {
         question: "Do you integrate with Azure and other cloud platforms?",
-        answer:
-          "Yes, our expert cloud data integration services enable easy connections in Azure, AWS, and hybrid ecosystems, which ensures real-time access to flexibility, scalability and enterprise data wherever it resides.",
+        answer: (
+          <>
+            Yes. Our cloud data integration services connect Azure, AWS, and
+            hybrid ecosystems. We also support{" "}
+            <a
+              href="https://dreamitcs.com/blogs/top-5-reasons-to-combine-power-bi-with-microsoft-fabric-for-seamless-analytics/"
+              className="text-[#00A9FF] font-semibold hover:underline"
+            >
+              Microsoft Fabric
+            </a>{" "}
+            use cases for unified analytics and scalable enterprise data access.
+          </>
+        ),
       },
       {
-        question: "What makes Dream IT’s cloud data management exceptional?",
+        question: "What makes Dream IT's cloud data management exceptional?",
         answer:
-          "Our innovative cloud data management solution blends governance, scalability and automation. Dream IT helps businesses to improve performance, unlock agility and ensure compliance - a driver of real changes by creating cloud data.",
+          "Our cloud data management solution combines governance, scalability, and automation to improve performance, unlock agility, and maintain compliance.",
       },
       {
         question:
           "How do you decide the right cloud architecture for our business?",
         answer:
-          "We tailor by analysing assignments, compliance requirements, scalability goals and industry preferences, design a safe architecture that aligns with business strategy and long - term growth.",
+          "We design architecture by analyzing workloads, compliance requirements, scalability goals, and industry needs, so your platform aligns with business strategy and long-term growth.",
       },
       {
         question:
           "How do cloud data management services tie into broader digital transformation services?",
-        answer:
-          "Dream IT’s cloud data management services are basically integrated with analytics, automation and AI initiatives, enabling organizations  to build a strong data foundation that accelerates the comprehensive digital transformation results.",
+        answer: (
+          <>
+            Our cloud data management services are integrated with{" "}
+            <a
+              href="https://dreamitcs.com/services/advanced-analytics/"
+              className="text-[#00A9FF] font-semibold hover:underline"
+            >
+              advanced analytics
+            </a>
+            , automation, and AI initiatives, helping organizations build a
+            strong foundation for{" "}
+            <a
+              href="https://dreamitcs.com/services/digital-transformation/"
+              className="text-[#00A9FF] font-semibold hover:underline"
+            >
+              business transformation
+            </a>
+            .
+          </>
+        ),
       },
       {
         question: "Who at Dream IT delivers these services?",
         answer:
-          "Certified experts and consultants in Dream IT provide cloud data integration services and cloud data security solutions, ensuring that enterprises receive end-to-end guidance, implementation and support of unique business challenges.",
+          "Certified experts and consultants at Dream IT provide cloud data integration and cloud data security solutions, ensuring enterprises receive end-to-end guidance, implementation, and support for unique business challenges.",
       },
     ],
   },
