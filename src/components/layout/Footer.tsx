@@ -8,13 +8,93 @@ const Footer = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
-    <footer className="bg-[#072032] text-white   container  pt-12 pb-6 z-[1000]">
-      <div className="flex flex-col md:flex-row justify-between items-start gap-4">
+    <footer className="w-full pt-0 pb-0 z-[1000] overflow-x-hidden">
+      <div className="bg-white text-[#072032] py-6 md:py-8 border-b border-[#F1F5F9]">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-20">
+          <h3 className="text-center text-[34px] leading-tight font-semibold mb-6 md:mb-8">
+            Recognitions & Certifications
+          </h3>
+          <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-24 md:gap-y-10 lg:gap-x-28 xl:gap-x-32">
+            <div className="h-[74px] w-[90px] flex items-center justify-center">
+              <img
+                src="/assets/icons/ISOcertification1.png"
+                alt="ISO 9001:2015"
+                className="max-h-full max-w-full object-contain"
+                style={{ filter: "brightness(0) saturate(100%)" }}
+              />
+            </div>
+            <div className="h-[74px] w-[90px] flex items-center justify-center">
+              <img
+                src="/assets/icons/ISOcertification2.png"
+                alt="ISO 27001:2022"
+                className="max-h-full max-w-full object-contain"
+                style={{ filter: "brightness(0) saturate(100%)" }}
+              />
+            </div>
+            <a
+              href="https://marketplace.microsoft.com/en-us/partners/0d1140e7-b7b2-4f63-9354-31e03923ad5d/overview"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Dream IT Microsoft Partner Profile"
+              className="h-[74px] w-[145px] flex items-center justify-center hover:opacity-80 transition-opacity"
+            >
+              <img
+                src="/assets/images/mssolutionpartnerdataandaiazure.png"
+                alt="Microsoft Solution Partner Data & AI Azure"
+                className="max-h-full max-w-full object-contain"
+              />
+            </a>
+            <a
+              href="https://marketplace.microsoft.com/en-us/partners/0d1140e7-b7b2-4f63-9354-31e03923ad5d/overview"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Dream IT Microsoft Digital & App Innovation Profile"
+              className="h-[74px] w-[145px] flex items-center justify-center hover:opacity-80 transition-opacity"
+            >
+              <img
+                src="/assets/images/microsftsolutionandappinnovation.png"
+                alt="Microsoft Solution Partner Digital & App Innovation"
+                className="max-h-full max-w-full object-contain"
+              />
+            </a>
+            <a
+              href="https://clutch.co/profile/dream-it-consulting-services"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Dream IT Clutch Profile"
+              className="h-[74px] w-[150px] flex items-center justify-center hover:opacity-80 transition-opacity"
+            >
+              <img
+                src="/assets/images/clutch.png"
+                alt="Clutch 5.0/5.0"
+                className="max-h-full max-w-full object-contain"
+              />
+            </a>
+            <a
+              href="https://www.goodfirms.co/company/dream-it-consulting-services"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Dream IT GoodFirms Profile"
+              className="h-[74px] w-[150px] flex items-center justify-center hover:opacity-80 transition-opacity"
+            >
+              <img
+                src="/assets/images/goodfirms.png"
+                alt="GoodFirms 5.0/5.0"
+                className="max-h-full max-w-full object-contain"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-[#072032] text-white">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-20 pt-12">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-10 lg:gap-20">
         {/* Left Section */}
-        <div className="flex flex-col">
+        <div className="flex flex-col max-w-[34rem]">
           <div className="flex items-center mb-4">
             <img
-              className="w-40 h-auto"
+              className="w-44 h-auto"
               src="/assets/images/dream-it-logo-mobile-version.png"
               alt="Logo"
             />
@@ -26,23 +106,9 @@ const Footer = () => {
           </h6>
         </div>
 
-        {/* ISO Certification  */}
-        <div className="flex xl:flex-col lg:flex-col md:flex-col sm:flex-row xs:flex-row items-center xl:justify-center lg:justify-center md:justify-center sm:justify-between xs:justify-between xl:w-auto lg:w-auto md:w-auto sm:w-full xs:w-full">
-          <img
-            src="/assets/icons/ISOcertification1.png"
-            alt="ISO 9001:2015"
-            className="xl:mb-8 lg:mb-8 md:mb-8 sm:mb-0 xs:mb-0 w-20 h-auto"
-          />
-          <img
-            src="/assets/icons/ISOcertification2.png"
-            alt="iso"
-            className="xl:mb-4 lg:mb-4 md:mb-4 sm:mb-0 xs:mb-0 w-20 h-auto"
-          />
-        </div>
-
         {/* Right Section */}
-        <div className="flex justify-between  xl:gap-28 lg:gap-28 md:gap-16 sm:gap-20 xs:gap-8">
-          <div className="flex  flex-col md:items-end mt-8 md:mt-0">
+        <div className="flex justify-between  xl:gap-28 lg:gap-28 md:gap-20 sm:gap-20 xs:gap-8">
+          <div className="flex  flex-col md:items-end mt-0">
             <h3 className="text-lg mr-2 font-semibold mb-4 text-white">
               Discover
             </h3>
@@ -97,7 +163,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="flex  flex-col   mt-8 md:mt-0">
+          <div className="flex  flex-col   mt-0">
             <h3 className="text-lg text-left mr-2 font-semibold mb-4 text-white">
               Contact Us
             </h3>
@@ -156,7 +222,7 @@ const Footer = () => {
 
       {/* Social Links and Copyright */}
 
-      <div className="border-t-[2px] border-[#1E3D54] mt-8 pt-6  ">
+      <div className="border-t-[2px] border-[#1E3D54] mt-8 pt-6">
         <div className="  flex flex-col md:flex-row justify-between items-center">
           {/* Social Media */}
           <div className="flex items-center justify-center space-x-5 mb-4 md:mb-0">
@@ -230,7 +296,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-[#FFFFFF] text-sm mt-4 md:mt-0">
-            Copyright © {year}. All rights reserved.
+            Copyright &copy; {year}. All rights reserved.
           </div>
         </div>
       </div>
@@ -238,6 +304,8 @@ const Footer = () => {
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
       />
+      </div>
+      </div>
     </footer>
   );
 };

@@ -11,6 +11,8 @@ const CaseStudyList: React.FC<any> = ({
   showViewButton = false,
   showSearchAndFilter = false,
   useSwiper = true,
+  badgeTitle = "SUCCESS STORIES",
+  sectionTitle = "Real Results, Real Impact: This Is How We Drive Success",
 }) => {
   const swiperRef = useRef<any>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -198,12 +200,12 @@ const CaseStudyList: React.FC<any> = ({
         <div className="flex justify-center text-center mb-4">
           <div className="relative inline-block text-center bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
-              SUCCESS STORIES
+              {badgeTitle}
             </span>
           </div>
         </div>
         <h2 className="text-center mb-6">
-          Real Results, Real Impact: This Is How We Drive Success{" "}
+          {sectionTitle}{" "}
         </h2>
 
         {showSearchAndFilter && (

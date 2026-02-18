@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import ContactFormModal from "../shared/ContactFormModal";
 import { Drawer } from "antd";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Header = () => {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
@@ -38,6 +39,11 @@ const Header = () => {
   ];
 
   const isActive = (path: any) => router.pathname === path;
+  const whatsappNumber = "919416484500";
+  const welcomeMessage = "Welcome to Dream IT. How may I help you?";
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    welcomeMessage
+  )}`;
 
   return (
     <header className="bg-white   header_content">
@@ -53,6 +59,15 @@ const Header = () => {
         </Link>
 
         <div className="flex justify-between items-center gap-4">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="bg-[#25D366] text-white rounded-[7px] sm:px-3 xs:px-3 xl:px-4 lg:px-4 md:px-4 sm:py-1 xs:py-1 xl:py-2 lg:py-2 md:py-2 transition-transform duration-300 hover:scale-105"
+          >
+            <FaWhatsapp className="xl:w-5 xl:h-5 lg:w-5 lg:h-5 md:w-5 md:h-5 sm:w-4 sm:h-4 xs:w-4 xs:h-4" />
+          </a>
           <button
             onClick={() => setIsModalVisible(true)}
             className="bg-[#072032] max-w-[150px] items-center text-[#FFFFFF] sm:px-3 xs:px-3 xl:px-5 lg:px-5 md:px-5 sm:py-1 xs:py-1 xl:py-2 lg:py-2 md:py-2 font-bold rounded-[7px] transition-transform duration-300 hover:scale-105 cursor-pointer xl:text-[16px] lg:text-[16px] md:text-[14px] sm:text-[10px] xs:text-[10px] text-[clamp(10px, 1.2vw, 16px)] whitespace-nowrap"
@@ -299,12 +314,23 @@ const Header = () => {
             Life @DreamIT
           </Link>
         </nav>
-        <button
-          onClick={() => setIsModalVisible(true)}
-          className="lg:px-4 lg:py-2.5 md:p-[8px] transition-transform duration-300 hover:scale-105 bg-blue-600 lg:font-bold text-white rounded-[8px]"
-        >
-          Get Started
-        </button>
+        <div className="flex items-center gap-3">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="lg:px-3 lg:py-2.5 md:p-[8px] transition-transform duration-300 hover:scale-105 bg-[#25D366] text-white rounded-[8px]"
+          >
+            <FaWhatsapp className="w-5 h-5" />
+          </a>
+          <button
+            onClick={() => setIsModalVisible(true)}
+            className="lg:px-4 lg:py-2.5 md:p-[8px] transition-transform duration-300 hover:scale-105 bg-blue-600 lg:font-bold text-white rounded-[8px]"
+          >
+            Get Started
+          </button>
+        </div>
       </div>
       {isModalVisible && (
         <ContactFormModal

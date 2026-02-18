@@ -6,7 +6,15 @@ type FAQItem = {
   answer: ReactNode;
 };
 
-const FAQ = ({ items }: { items?: FAQItem[] }) => {
+const FAQ = ({
+  items,
+  title = "Frequently Asked Questions",
+  subtitle,
+}: {
+  items?: FAQItem[];
+  title?: string;
+  subtitle?: string;
+}) => {
   const [openIndices, setOpenIndices] = useState<number[]>([0]);
 
   const toggleQuestion = (index: number) => {
@@ -24,9 +32,12 @@ const FAQ = ({ items }: { items?: FAQItem[] }) => {
               FAQ
             </span>
           </div>
-          <h2 className="text-[40px] font-bold text-black">
-            Frequently Asked Questions
-          </h2>
+          <h2 className="text-[40px] font-bold text-black">{title}</h2>
+          {subtitle ? (
+            <p className="mx-auto max-w-[60rem] text-black-300 xl:text-[20px] lg:text-[20px] md:text-[18px] sm:text-[15px] xs:text-[14px]">
+              {subtitle}
+            </p>
+          ) : null}
         </div>
 
         <div className="lg:mt-10 xl:mt-10 md:mt-6 sm:mt-6 xs:mt-6">

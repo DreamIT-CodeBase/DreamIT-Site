@@ -31,6 +31,9 @@ const CommonHeroSection = ({ servicedata }: any) => {
             <img
               src={servicedata?.heroImage}
               alt="Cloud Powered, Data Driven & Future Ready!"
+              className={`w-full h-auto ${
+                servicedata?.heroImageClassName || ""
+              }`}
             />
           </div>
         </div>

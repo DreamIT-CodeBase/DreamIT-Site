@@ -3,9 +3,11 @@ import React, { useEffect, useRef } from "react";
 import { SectionContent } from "../content";
 
 const ServiceContent = ({ servicedata }: any) => {
-   const contentRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+  const imageClassName = servicedata?.sections?.[0]?.imageClassName || "";
+  const contentClassName = servicedata?.sections?.[0]?.contentClassName || "";
 
   const handleScroll = (e: WheelEvent) => {
     if (contentRef.current) {
@@ -86,7 +88,7 @@ const ServiceContent = ({ servicedata }: any) => {
                     src={servicedata?.sections[0].imageUrls}
                     alt="Professional working with city view"
                     loading="lazy"
-                    className="w-full h-auto"
+                    className={`w-full h-auto ${imageClassName}`}
                   />
                 </div>
               </Col>
@@ -98,7 +100,7 @@ const ServiceContent = ({ servicedata }: any) => {
                 sm={24}
                 xs={24}
                 ref={contentRef}
-                className="space-y-3 service-content-container content-column"
+                className={`space-y-3 service-content-container content-column ${contentClassName}`}
               >
                 <h3 className="service-details-content-title">
                   {servicedata?.sections[0]?.title}
@@ -119,7 +121,7 @@ const ServiceContent = ({ servicedata }: any) => {
                 sm={24}
                 xs={24}
                 ref={contentRef}
-                className="space-y-3 service-content-container content-column"
+                className={`space-y-3 service-content-container content-column ${contentClassName}`}
               >
                 <h3 className="service-details-content-title">
                   {servicedata?.sections[0]?.title}
@@ -145,7 +147,7 @@ const ServiceContent = ({ servicedata }: any) => {
                     src={servicedata?.sections[0]?.imageUrls}
                     alt="Professional working with city view"
                     loading="lazy"
-                    className="w-full h-auto"
+                    className={`w-full h-auto ${imageClassName}`}
                   />
                 </div>
               </Col>

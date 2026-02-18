@@ -21,7 +21,7 @@ const ServiceDetailPage = ({
   if (!service) {
     return <div>Service not found</div>;
   }
-  const pageTag = pageInfo.tags[0];
+  const pageTag = pageInfo?.tags?.[0];
   let displayedCaseStudies;
 
   if (!pageTag) {
@@ -73,16 +73,31 @@ const ServiceDetailPage = ({
 };
 
 export const getStaticPaths = async () => {
-  const pagesRes = await fetch(`${AHD_HOST}/client/page?filter[groups][]=services&includeSections=false&select=slug%20name`);
-  const pagePages = await pagesRes?.json();
-  console.log(pagePages);
-  const paths = pagePages?.rows.map((page: any) => ({
-    params: { slug: page?.slug },
-  }));
-  return {
-    paths: paths,
-    fallback: false,
-  };
+  try {
+    const pagesRes = await fetch(
+      `${AHD_HOST}/client/page?filter[groups][]=services&includeSections=false&select=slug%20name`
+    );
+    if (!pagesRes.ok) {
+      throw new Error(
+        `Failed to fetch service pages: ${pagesRes.status} ${pagesRes.statusText}`
+      );
+    }
+    const pagePages = await pagesRes.json();
+    const paths = (pagePages?.rows || []).map((page: any) => ({
+      params: { slug: page?.slug },
+    }));
+
+    return {
+      paths,
+      fallback: false,
+    };
+  } catch (error) {
+    console.error("Error generating service paths:", error);
+    return {
+      paths: [],
+      fallback: false,
+    };
+  }
 };
 
 export async function getStaticProps({ params }: any) {
