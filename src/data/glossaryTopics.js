@@ -15,4 +15,9 @@ export const glossaryTopics = [
     title:"Power BI Desktop Projects",
     description:"Power BI Desktop Projects are a feature that allows you to work with multiple datasets in a single Power BI Desktop file."
   },
+  {
+    slug:"sql-server-reporting-services",
+    title:"SQL Server Reporting Services",
+    description:"SQL Server Reporting Services (SSRS) is a server-based report generating software system from Microsoft."
+  }
 ];
