@@ -33,6 +33,14 @@ jobs:
                   npm run export
               env:
                   CI: true
+            - name: Verify glossary export path
+              run: |
+                  if [ -f out/glossary/sql-server-reporting-services.html ] || [ -f out/glossary/sql-server-reporting-services/index.html ]; then
+                    echo "Glossary export verified."
+                  else
+                    echo "Missing exported glossary page: sql-server-reporting-services"
+                    exit 1
+                  fi
             - name: Deployment
               uses: w9jds/firebase-action@v12.8.0
               with:

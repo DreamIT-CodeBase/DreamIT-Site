@@ -17,7 +17,7 @@ const Layout = (props: any) => {
   const normalizedPath = (() => {
     const path = router.asPath.split("?")[0].split("#")[0] || "/";
     if (path === "/") return "/";
-    return path.endsWith("/") ? path : `${path}/`;
+    return path.endsWith("/") ? path.slice(0, -1) : path;
   })();
   const canonicalUrl = `${baseUrl}${normalizedPath}`;
   const ogImageUrl =
