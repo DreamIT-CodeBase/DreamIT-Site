@@ -14,7 +14,12 @@ const Layout = (props: any) => {
   const metaData = props.pageInfo;
   const baseUrl = "https://dreamitcs.com";
 
-  const canonicalUrl = `${baseUrl}${router.asPath.split("?")[0]}`;
+  const normalizedPath = (() => {
+    const path = router.asPath.split("?")[0].split("#")[0] || "/";
+    if (path === "/") return "/";
+    return path.endsWith("/") ? path : `${path}/`;
+  })();
+  const canonicalUrl = `${baseUrl}${normalizedPath}`;
   const ogImageUrl =
     metaData?.heroImage?.[0]?.publicUrl ||
     metaData?.metaImageUrl ||

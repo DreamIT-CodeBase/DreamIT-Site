@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 
@@ -7,9 +6,7 @@ import Footer from "../../components/layout/Footer";
 
 import { glossaryTopics } from "../../data/glossaryTopics";
 
-export default function GlossarySlug() {
-  const router = useRouter();
-  const { slug } = router.query;
+export default function GlossarySlug({ slug }) {
 
   const [html, setHtml] = useState("");
   const [loading, setLoading] = useState(true);
@@ -240,4 +237,23 @@ export default function GlossarySlug() {
       <Footer />
     </div>
   );
+}
+
+export async function getStaticPaths() {
+  const paths = glossaryTopics.map((topic) => ({
+    params: { slug: topic.slug },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      slug: params.slug,
+    },
+  };
 }

@@ -20,73 +20,98 @@
         "type": 301
       },
       {
+        "source": "/services",
+        "destination": "/services/",
+        "type": 301
+      },
+      {
+        "source": "/services/:slug",
+        "destination": "/services/:slug/",
+        "type": 301
+      },
+      {
+        "source": "/glossary",
+        "destination": "/glossary/",
+        "type": 301
+      },
+      {
+        "source": "/glossary/:slug",
+        "destination": "/glossary/:slug/",
+        "type": 301
+      },
+      {
         "source": "/pay-per-click/",
-        "destination": "/services/digital-marketing",
+        "destination": "/services/digital-marketing/",
         "type": 301
       },
       {
         "source": "/pay-per-click",
-        "destination": "/services/digital-marketing",
+        "destination": "/services/digital-marketing/",
         "type": 301
       },
       {
         "source": "/data-management/",
-        "destination": "/services/cloud-data-management",
+        "destination": "/services/cloud-data-management/",
         "type": 301
       },
       {
         "source": "/data-management",
-        "destination": "/services/cloud-data-management",
+        "destination": "/services/cloud-data-management/",
         "type": 301
       },
       {
         "source": "/search-engine-optimization/",
-        "destination": "/services/digital-marketing",
+        "destination": "/services/digital-marketing/",
         "type": 301
       },
       {
         "source": "/search-engine-optimization",
-        "destination": "/services/digital-marketing",
+        "destination": "/services/digital-marketing/",
         "type": 301
       },
       {
         "source": "/tableau/",
-        "destination": "/services/advanced-analytics",
+        "destination": "/services/advanced-analytics/",
         "type": 301
       },
       {
         "source": "/tableau",
-        "destination": "/services/advanced-analytics",
+        "destination": "/services/advanced-analytics/",
         "type": 301
       },
       {
         "source": "/app-store-optimization/",
-        "destination": "/services/digital-marketing",
+        "destination": "/services/digital-marketing/",
         "type": 301
       },
       {
         "source": "/app-store-optimization",
-        "destination": "/services/digital-marketing",
+        "destination": "/services/digital-marketing/",
         "type": 301
       },
       {
         "source": "/msbi/",
-        "destination": "/services/advanced-analytics",
+        "destination": "/services/advanced-analytics/",
         "type": 301
       },
       {
         "source": "/msbi",
-        "destination": "/services/advanced-analytics",
+        "destination": "/services/advanced-analytics/",
         "type": 301
       },
       {
         "source": "/power-bi/",
-        "destination": "/services/advanced-analytics",
+        "destination": "/services/advanced-analytics/",
         "type": 301
       },
       {
         "source": "/power-bi",
-        "destination": "/services/advanced-analytics",
+        "destination": "/services/advanced-analytics/",
+        "type": 301
+      },
+      {
+        "regex": "^/(?P<path>(?!.*\\.[^/]+$).+[^/])$",
+        "destination": "/:path/",
         "type": 301
       }
     ],
