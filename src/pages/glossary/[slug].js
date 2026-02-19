@@ -5,6 +5,7 @@ import path from "path";
 
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
+import DataDrivenSolutions from "../../components/home/DataDrivenSolutions";
 
 import { glossaryTopics } from "../../data/glossaryTopics";
 
@@ -17,6 +18,9 @@ export default function GlossarySlug({ slug, initialHtml }) {
 
   const topic = glossaryTopics.find((t) => t.slug === slug);
   const pageTitle = topic?.title || "Glossary Topic";
+  const pageSubtitle =
+    topic?.description ||
+    "Discover key terms in cloud, AI, analytics & enterprise IT.";
 
   useEffect(() => {
     if (!html) return;
@@ -116,7 +120,7 @@ export default function GlossarySlug({ slug, initialHtml }) {
                   </h1>
 
                   <h6 className="max-w-[34rem] text-black-600 text-lg leading-relaxed">
-                    Discover key terms in cloud, AI, analytics & enterprise IT.
+                    {pageSubtitle}
                   </h6>
                 </div>
               </div>
@@ -125,18 +129,18 @@ export default function GlossarySlug({ slug, initialHtml }) {
                 <img
                   src="/assets/images/glossarytopics.png"
                   alt="Glossary Banner"
-                  className="w-[480px] rounded-[28px] shadow-2xl"
+                  className="w-full max-w-[480px] rounded-[28px] shadow-2xl"
                 />
               </div>
             </div>
           </div>
 
-          <h4 className="text-center mt-16 text-2xl md:text-3xl font-medium text-black">
-            Empowering Industries with Data-Driven Solutions
-          </h4>
+          <div className="pt-6 md:pt-10">
+            <DataDrivenSolutions />
+          </div>
         </div>
 
-        <section className="max-w-[1350px] mx-auto mt-[60px] px-[25px] grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-[45px] items-start">
+        <section className="max-w-[1350px] mx-auto mt-[36px] md:mt-[60px] px-4 md:px-[25px] grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-6 md:gap-[45px] items-start">
           <div className="doc-content">
             {loading ? (
               <p className="text-center">Loading...</p>
@@ -145,7 +149,7 @@ export default function GlossarySlug({ slug, initialHtml }) {
             )}
           </div>
 
-          <aside className="sticky top-[120px]">
+          <aside className="lg:sticky lg:top-[120px]">
             <div className="rounded-[15px] bg-white shadow-[0px_4px_13.2px_0px_rgba(142,142,142,0.25)] py-6 min-h-[200px] max-h-[380px] overflow-y-auto featured-blogs-scrollbar">
               <h2 className="mb-4 text-[20px] ml-6 font-semibold">Table of Content</h2>
 

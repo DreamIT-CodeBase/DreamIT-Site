@@ -11,11 +11,11 @@ const Footer = () => {
     <footer className="w-full pt-0 pb-0 z-[1000] overflow-x-hidden">
       <div className="bg-white text-[#072032] py-6 md:py-8 border-b border-[#F1F5F9]">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-20">
-          <h3 className="text-center text-[34px] leading-tight font-semibold mb-6 md:mb-8">
+          <h3 className="text-center text-[24px] md:text-[34px] leading-tight font-semibold mb-6 md:mb-8">
             Recognitions & Certifications
           </h3>
-          <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-24 md:gap-y-10 lg:gap-x-28 xl:gap-x-32">
-            <div className="h-[74px] w-[90px] flex items-center justify-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-nowrap items-center justify-center gap-x-5 gap-y-6 md:gap-x-24 md:gap-y-10 lg:gap-x-28 xl:gap-x-32">
+            <div className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[90px] flex items-center justify-center mx-auto">
               <img
                 src="/assets/icons/ISOcertification1.png"
                 alt="ISO 9001:2015"
@@ -23,7 +23,7 @@ const Footer = () => {
                 style={{ filter: "brightness(0) saturate(100%)" }}
               />
             </div>
-            <div className="h-[74px] w-[90px] flex items-center justify-center">
+            <div className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[90px] flex items-center justify-center mx-auto">
               <img
                 src="/assets/icons/ISOcertification2.png"
                 alt="ISO 27001:2022"
@@ -36,7 +36,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Dream IT Microsoft Partner Profile"
-              className="h-[74px] w-[145px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[145px] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
             >
               <img
                 src="/assets/images/mssolutionpartnerdataandaiazure.png"
@@ -49,7 +49,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Dream IT Microsoft Digital & App Innovation Profile"
-              className="h-[74px] w-[145px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[145px] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
             >
               <img
                 src="/assets/images/microsftsolutionandappinnovation.png"
@@ -62,7 +62,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Dream IT Clutch Profile"
-              className="h-[74px] w-[150px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[150px] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
             >
               <img
                 src="/assets/images/clutch.png"
@@ -75,7 +75,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Dream IT GoodFirms Profile"
-              className="h-[74px] w-[150px] flex items-center justify-center hover:opacity-80 transition-opacity"
+              className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[150px] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
             >
               <img
                 src="/assets/images/goodfirms.png"
@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex justify-between  xl:gap-28 lg:gap-28 md:gap-20 sm:gap-20 xs:gap-8">
+        <div className="w-full md:w-auto grid grid-cols-1 sm:grid-cols-2 gap-10 md:flex md:justify-between md:gap-20 lg:gap-28">
           <div className="flex  flex-col md:items-end mt-0">
             <h3 className="text-lg mr-2 font-semibold mb-4 text-white">
               Discover
@@ -223,7 +223,7 @@ const Footer = () => {
       {/* Social Links and Copyright */}
 
       <div className="border-t-[2px] border-[#1E3D54] mt-8 pt-6">
-        <div className="  flex flex-col md:flex-row justify-between items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Social Media */}
           <div className="flex items-center justify-center space-x-5 mb-4 md:mb-0">
             <Link
@@ -284,7 +284,7 @@ const Footer = () => {
           </div>
 
           {/* Privacy Links */}
-          <div className="flex items-center space-x-4 text-[#FFFFFF] text-sm">
+          <div className="flex items-center justify-center flex-wrap gap-x-4 gap-y-1 text-[#FFFFFF] text-sm">
             <Link href="/privacy-policy" className="hover:text-white">
               Privacy
             </Link>

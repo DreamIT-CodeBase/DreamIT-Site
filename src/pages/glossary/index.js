@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
 import Link from "next/link";
+import DataDrivenSolutions from "../../components/home/DataDrivenSolutions";
 
 import { glossaryTopics } from "../../data/glossaryTopics";
 
@@ -98,15 +99,15 @@ export default function Glossary() {
                 <img
                   src="/assets/images/glossaryimg.png"
                   alt="Glossary Banner"
-                  className="w-[520px] rounded-[28px] shadow-2xl"
+                  className="w-full max-w-[520px] rounded-[28px] shadow-2xl"
                 />
               </div>
             </div>
           </div>
 
-          <h4 className="font-medium text-center xl:mb-6 data-driven-title">
-            Empowering Industries with Data-Driven Solutions
-          </h4>
+          <div className="pt-6 md:pt-10">
+            <DataDrivenSolutions />
+          </div>
         </div>
 
         {/* ✅ CONTENT */}
@@ -261,6 +262,50 @@ export default function Glossary() {
         @media (max-width: 1000px) {
           .entry {
             grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .glossary-container {
+            margin: 0 auto 60px;
+            padding: 0 14px;
+          }
+
+          .alphabet-row {
+            justify-content: flex-start;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 6px 0 10px;
+          }
+
+          .alpha-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 14px;
+            flex: 0 0 auto;
+          }
+
+          .entry {
+            gap: 16px;
+            padding: 22px 0;
+          }
+
+          .entry-title {
+            font-size: 26px;
+            line-height: 1.25;
+          }
+
+          .entry-desc {
+            font-size: 16px;
+            line-height: 1.65;
+          }
+
+          .scroll-top-btn {
+            right: 14px;
+            bottom: 18px;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
           }
         }
       `}</style>
