@@ -21,6 +21,9 @@ export default function GlossarySlug({ slug, initialHtml }) {
   const pageSubtitle =
     topic?.description ||
     "Discover key terms in cloud, AI, analytics & enterprise IT.";
+  const pageMetaTitle =
+    topic?.metaTitle || `${pageTitle} | Glossary – Dream IT Consulting Services`;
+  const pageMetaDescription = topic?.metaDescription || pageSubtitle;
 
   useEffect(() => {
     if (!html) return;
@@ -105,7 +108,8 @@ export default function GlossarySlug({ slug, initialHtml }) {
       <Header />
 
       <Head>
-        <title>{pageTitle} | DreamIT Glossary</title>
+        <title>{pageMetaTitle}</title>
+        <meta name="description" content={pageMetaDescription} />
         <link rel="stylesheet" href="/assets/files/style.css" />
       </Head>
 

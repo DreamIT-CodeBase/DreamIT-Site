@@ -4,11 +4,19 @@ export const glossaryTopics = [
     title: "Model Context Protocol",
     description:
       "Model Context Protocol (MCP) defines conventions for passing context and metadata to LLMs.",
+    metaTitle:
+      "Model Context Protocol (MCP) | Glossary – Dream IT Consulting Services",
+    metaDescription:
+      "Learn what Model Context Protocol (MCP) means in the context of data analytics, Microsoft Fabric, Power BI, AI, and digital solutions. Clear definition and real-world use cases.",
   },
   {
     slug:"one-lake",
     title:"One Lake",
-    description:"One Lake is a unified data lake solution that provides a single place to store and manage all your data."
+    description:"One Lake is a unified data lake solution that provides a single place to store and manage all your data.",
+    metaTitle:
+      "OneLake | Glossary – Glossary – Dream IT Consulting Services",
+    metaDescription:
+      "Explore the definition of OneLake in our Dream IT glossary — a unified data lake concept in Microsoft Fabric, Power BI and modern data analytics. Clear explanation for tech leaders and data professionals."
   },
   {
     slug:"powerbi-Desktop-projects",

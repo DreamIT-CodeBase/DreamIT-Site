@@ -1,6 +1,7 @@
 // pages/glossary/index.js
 
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
 import Link from "next/link";
@@ -74,6 +75,18 @@ export default function Glossary() {
 
   return (
     <div>
+      <Head>
+        <title>Glossary of Terms | Dream IT – Tech & Business Definitions</title>
+        <meta
+          name="title"
+          content="Glossary of Terms | Dream IT – Tech & Business Definitions"
+        />
+        <meta
+          name="description"
+          content="Explore the DreamIT glossary covering Microsoft Fabric, Power BI, data visualization, digital marketing, and AI terms. Clear, practical definitions for analysts, marketers, and tech professionals."
+        />
+      </Head>
+
       <Header />
 
       <main>
