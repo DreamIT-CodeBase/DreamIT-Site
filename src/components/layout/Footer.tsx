@@ -205,7 +205,7 @@ const Footer = () => {
                   loading="lazy"
                 />
                 <Link
-                  href="https://maps.google.com/?q=1st+Floor,+Orchid+Business+Park,+Central+Park+II,+Sector+48,+Gurugram,+Haryana+122004"
+                  href="https://share.google/5zGNE4Ul8ZT527d2J"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white"
