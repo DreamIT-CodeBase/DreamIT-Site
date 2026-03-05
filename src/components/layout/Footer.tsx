@@ -36,12 +36,12 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Dream IT Microsoft Partner Profile"
-              className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[145px] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
+              className="h-[76px] w-[155px] sm:w-[170px] md:h-[90px] md:w-[195px] p-2 rounded-[14px] border border-[#E5EDF5] bg-[#F8FBFF] flex items-center justify-center mx-auto shadow-[0_6px_18px_rgba(7,32,50,0.08)] hover:shadow-[0_10px_24px_rgba(7,32,50,0.14)] hover:-translate-y-[1px] transition-all duration-300"
             >
               <img
                 src="/assets/images/mssolutionpartnerdataandaiazure.png"
                 alt="Microsoft Solution Partner Data & AI Azure"
-                className="max-h-full max-w-full object-contain"
+                className="h-full w-full object-contain"
               />
             </a>
             <a
@@ -49,12 +49,12 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Dream IT Microsoft Digital & App Innovation Profile"
-              className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[145px] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
+              className="h-[76px] w-[155px] sm:w-[170px] md:h-[90px] md:w-[195px] p-2 rounded-[14px] border border-[#E5EDF5] bg-[#F8FBFF] flex items-center justify-center mx-auto shadow-[0_6px_18px_rgba(7,32,50,0.08)] hover:shadow-[0_10px_24px_rgba(7,32,50,0.14)] hover:-translate-y-[1px] transition-all duration-300"
             >
               <img
                 src="/assets/images/microsftsolutionandappinnovation.png"
                 alt="Microsoft Solution Partner Digital & App Innovation"
-                className="max-h-full max-w-full object-contain"
+                className="h-full w-full object-contain"
               />
             </a>
             <a
@@ -75,7 +75,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Dream IT GoodFirms Profile"
-              className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[150px] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
+              className="h-[64px] w-[150px] sm:w-[170px] md:h-[74px] md:w-[205px] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
             >
               <img
                 src="/assets/images/goodfirms.png"
@@ -88,8 +88,8 @@ const Footer = () => {
       </div>
 
       <div className="bg-[#072032] text-white">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-20 pt-12">
-      <div className="flex flex-col md:flex-row justify-between items-start gap-10 lg:gap-20">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-20 pt-10 pb-3">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-8 lg:gap-16">
         {/* Left Section */}
         <div className="flex flex-col max-w-[34rem]">
           <div className="flex items-center mb-4">
@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
 
         {/* Right Section */}
-        <div className="w-full md:w-auto grid grid-cols-1 sm:grid-cols-2 gap-10 md:flex md:justify-between md:gap-20 lg:gap-28">
+        <div className="w-full md:w-auto grid grid-cols-1 sm:grid-cols-2 gap-8 md:flex md:justify-between md:gap-16 lg:gap-24">
           <div className="flex  flex-col md:items-end mt-0">
             <h3 className="text-lg mr-2 font-semibold mb-4 text-white">
               Discover
@@ -222,10 +222,10 @@ const Footer = () => {
 
       {/* Social Links and Copyright */}
 
-      <div className="border-t-[2px] border-[#1E3D54] mt-8 pt-6">
+      <div className="border-t-[2px] border-[#1E3D54] mt-7 pt-5 pb-1">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Social Media */}
-          <div className="flex items-center justify-center space-x-5 mb-4 md:mb-0">
+          <div className="flex items-center justify-center gap-6 mb-3 md:mb-0">
             <Link
               href="https://in.linkedin.com/company/dreamitcs"
               aria-label="LinkedIn"
@@ -295,7 +295,7 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="text-[#FFFFFF] text-sm mt-4 md:mt-0">
+          <div className="text-[#FFFFFF] text-sm mt-2 md:mt-0">
             Copyright &copy; {year}. All rights reserved.
           </div>
         </div>

@@ -40,13 +40,14 @@ const Header = () => {
 
   const isActive = (path: any) => router.pathname === path;
   const whatsappNumber = "919416484500";
-  const welcomeMessage = "Welcome to Dream IT. How may I help you?";
+  const welcomeMessage =
+    "Hello Dream IT Team,\nI visited your website and would like to know more about your IT services. Please assist me with the details.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     welcomeMessage
   )}`;
 
   return (
-    <header className="bg-white   header_content">
+    <header className="bg-white header_content overflow-visible">
       {/* Mobile Navbar */}
       <div className="navbar-for-tab flex justify-between items-center xl:p-4 lg:p-4 md:p-4 sm:p-3 xs:p-2">
         <Link href="/">
@@ -210,7 +211,7 @@ const Header = () => {
       </Drawer>
 
       {/* Desktop Navbar */}
-      <div className="navbar-for-web justify-between items-center container h-16">
+      <div className="navbar-for-web relative z-[5100] justify-between items-center container h-16 overflow-visible">
         <Link href="/" className="flex items-center space-x-4">
           <img
             className="lg:w-36 h-auto md:w-28"
@@ -223,7 +224,7 @@ const Header = () => {
             alt="Logo"
           />
         </Link>
-        <nav className="flex space-x-8">
+        <nav className="flex items-center space-x-8 overflow-visible">
           <Link
             href="/"
             className={`hover:text-[#00a9ff] ${
@@ -270,7 +271,7 @@ const Header = () => {
               </div>
             </button>
             {showDropdown && (
-              <ul className="absolute z-[1000] left-[-10] top-4 py-4 px-2 mt-2 w-[300px] bg-white border rounded-[18px] shadow-lg">
+              <ul className="absolute z-[5200] left-0 top-full mt-3 py-4 px-2 w-[300px] bg-white border rounded-[18px] shadow-lg">
                 {services.map((service) => (
                   <li
                     key={service.slug}

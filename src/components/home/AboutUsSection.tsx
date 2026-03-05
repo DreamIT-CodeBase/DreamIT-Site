@@ -46,7 +46,7 @@ const AboutUsSection = () => {
             md={12}
             sm={24}
             xs={24}
-            className="xl:space-y-4 lg:space-y-4 sm:space-y-3 xs:space-y-3 sm:text-center xs:text-center xl:text-left lg:text-left md:text-left "
+            className="xl:space-y-4 lg:space-y-4 sm:space-y-3 xs:space-y-3 sm:text-left xs:text-left xl:text-left lg:text-left md:text-left "
           >
             <div className="relative inline-flex justify-center align-middle bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full  ">
               <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[10px] text-center font-bold mb-0">
@@ -58,30 +58,12 @@ const AboutUsSection = () => {
               Turning Data Into Stories That Deliver Results{" "}
             </h2>
 
-            <h6 className="xl:text-20 text-[#596168] lg:text-16 md:text-16 about-use-section-subtitle text-justify">
+            <h6 className="xl:text-20 text-[#596168] lg:text-16 md:text-16 about-use-section-subtitle text-left">
               At Dream IT, we focus on performance improvement through
-              leading-edge IT and{" "}
-              <Link
-                href="/services/advanced-analytics"
-                className="text-[#00A9FF] font-semibold hover:underline"
-              >
-                data visualization consulting services
-              </Link>
-              . Whether managing your organization&apos;s{" "}
-              <Link
-                href="/services/cloud-data-management"
-                className="text-[#00A9FF] font-semibold hover:underline"
-              >
-                cloud data
-              </Link>{" "}
-              or being involved with your{" "}
-              <Link
-                href="/services/digital-marketing"
-                className="text-[#00A9FF] font-semibold hover:underline"
-              >
-                digital marketing
-              </Link>{" "}
-              actions, we help organizations remove guesswork and provide
+              leading-edge IT and data visualization consulting services.
+              Whether managing your organization&apos;s cloud data or being
+              involved with your digital marketing actions, we help
+              organizations remove guesswork and provide
               insight-driven, operationally sound decisions.
             </h6>
 

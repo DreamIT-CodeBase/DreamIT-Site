@@ -442,7 +442,7 @@ h6 {
 
 .header_content {
   position: sticky;
-  z-index: 1000;
+  z-index: 5000;
   top: 0;
   width: 100%;
   box-shadow: 4.9px 4.9px 32.3px -6.13px #c2c2e240;
