@@ -27,5 +27,10 @@ export const glossaryTopics = [
     slug:"sql-server-reporting-services",
     title:"SQL Server Reporting Services",
     description:"SQL Server Reporting Services (SSRS) is a server-based report generating software system from Microsoft."
+  },
+  {
+    slug:"cloud_data_management",
+    title:"Cloud Data Management",
+    description:"Cloud Data Management refers to the practices and technologies used to manage data in cloud environments, ensuring data integrity, security, and accessibility."
   }
 ];
