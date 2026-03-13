@@ -9,49 +9,130 @@ import { LEAD_API } from "@/utils/constant";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Centralized job data structure
 const JOB_DATA = {
+
+  "Management Intern": {
+
+    title: "Management Intern",
+
+    experienceRequired: "0-6 Months",
+
+    positions: 1
+
+  },
+ 
+  "Digital Marketing Intern": {
+
+    title: "Digital Marketing Intern",
+
+    experienceRequired: "Fresher",
+
+    positions: 1
+
+  },
+ 
+  "Data Analyst / Data Engineer (Internship)": {
+
+    title: "Data Analyst / Data Engineer (Internship)",
+
+    experienceRequired: "0-6 Months",
+
+    positions: 2
+
+  },
+ 
+  "PowerApps Developer Intern": {
+
+    title: "PowerApps Developer Intern",
+
+    experienceRequired: "0-6 Months",
+
+    positions: 1
+
+  },
+ 
   "Data Analyst": {
+
     title: "Data Analyst",
+
     experienceRequired: "-",
+
     positions: 0
+
   },
+ 
   "Data Engineer": {
+
     title: "Data Engineer",
+
     experienceRequired: "-",
+
     positions: 0
+
   },
+ 
   "Power Platform Developer": {
+
     title: "Power Platform Developer",
+
     experienceRequired: "-",
+
     positions: 0
+
   },
+ 
   "AI/ML Engineer": {
+
     title: "AI/ML Engineer",
+
     experienceRequired: "-",
+
     positions: 0
+
   },
+ 
   "D365 CRM Developer": {
+
     title: "D365 CRM Developer",
+
     experienceRequired: "2-5 Years",
+
     positions: 1
+
   },
+ 
   "D365 CRM Senior Developer": {
+
     title: "D365 CRM Senior Developer",
+
     experienceRequired: "5-8 Years",
+
     positions: 3
+
   },
+ 
   "D365 CRM Team Lead/Solution Architect": {
+
     title: "D365 CRM Team Lead/Solution Architect",
+
     experienceRequired: "8+ Years",
+
     positions: 1
+
   },
+ 
   "Open for Work": {
+
     title: "Open for Work",
+
     experienceRequired: "-",
+
     positions: 1
+
   }
+
 };
+ 
 
 const CurrentOpenings = ({ pageInfo }: any) => {
    const [isModalOpen, setIsModalOpen] = useState(false);
