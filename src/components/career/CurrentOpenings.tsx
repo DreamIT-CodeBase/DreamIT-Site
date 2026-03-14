@@ -117,10 +117,22 @@ const resumeValidation = {
 const getJdAssetPath = (fileName: string) =>
   `/assets/jd/${encodeURIComponent(fileName)}`;
 
+const parseErrorResponse = (responseText: string) => {
+  try {
+    return JSON.parse(responseText || "{}");
+  } catch {
+    return {
+      message: responseText || "Submission failed. Try again later.",
+    };
+  }
+};
+
 const CurrentOpenings = ({ pageInfo }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const [loading, setLoading] = useState(false);
+  const [submittedRole, setSubmittedRole] = useState("");
 
   const storage = Storage.values?.leadAttachment;
 
@@ -145,7 +157,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   const uploadResume = async (file: File) => {
     try {
       FileUploader.validate(file, { storage });
-      return await FileUploader.upload(file, { storage, undefined });
+      return await FileUploader.upload(file, { storage });
     } catch (error) {
       console.error("File upload error:", error);
       throw new Error("Failed to upload resume.");
@@ -185,14 +197,12 @@ const CurrentOpenings = ({ pageInfo }: any) => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           setLoading(false);
           if (xhr.status === 200) {
-            toast.success("Form submitted successfully!", {
-              autoClose: 3000,
-              closeOnClick: true,
-            });
+            setSubmittedRole(formSubmissionData.role);
             resetForm();
             setIsModalOpen(false);
+            setIsSuccessModalOpen(true);
           } else {
-            const errorData = JSON.parse(xhr.responseText || "{}");
+            const errorData = parseErrorResponse(xhr.responseText);
             resetForm();
 
             toast.error(
@@ -491,6 +501,36 @@ const CurrentOpenings = ({ pageInfo }: any) => {
         width={960}
       >
         <div className="pt-2">{renderApplicationForm("leadAttachmentModal")}</div>
+      </Modal>
+
+      <Modal
+        title={null}
+        open={isSuccessModalOpen}
+        onCancel={() => setIsSuccessModalOpen(false)}
+        footer={null}
+        centered
+        width={520}
+      >
+        <div className="px-2 py-6 text-center">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#ECF9FF] text-[#00A9FF]">
+            <span className="text-sm font-semibold tracking-[0.24em]">OK</span>
+          </div>
+          <h3 className="text-[24px] font-semibold text-[#072032]">
+            Thanks for showing interest
+          </h3>
+          <p className="mt-3 text-sm leading-6 text-[#4F6473]">
+            {submittedRole
+              ? `We have received your application for ${submittedRole}. Our hiring team will review your profile and contact you if your experience matches the role requirements.`
+              : "We have received your application. Our hiring team will review your profile and contact you if your experience matches the role requirements."}
+          </p>
+          <button
+            type="button"
+            className="mt-6 rounded-lg bg-[#072032] px-5 py-2 text-sm font-medium text-white transition-transform duration-300 hover:scale-105"
+            onClick={() => setIsSuccessModalOpen(false)}
+          >
+            Back to Careers
+          </button>
+        </div>
       </Modal>
 
       <ToastContainer />

@@ -6,6 +6,16 @@ import { useState } from "react";
 import { LEAD_API } from "@/utils/constant";
 import { useRouter } from "next/router";
 
+const parseErrorResponse = (responseText: string) => {
+  try {
+    return JSON.parse(responseText || "{}");
+  } catch {
+    return {
+      message: responseText || "Submission failed. Try again later.",
+    };
+  }
+};
+
 const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
   const handleOk = () => {
     setIsModalVisible(false);
@@ -55,18 +65,18 @@ const ContactFormModal = ({ isModalVisible, setIsModalVisible }: any) => {
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        setLoading(false);
-        if (xhr.status === 200) {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          setLoading(false);
+          if (xhr.status === 200) {
           toast.success("Form submitted successfully!", {
             autoClose: 3000,
             closeOnClick: true,
           });
-          reset();
-          handleCancel();
-          router.push("/thank-you");
+           reset();
+           handleCancel();
+           router.push("/thank-you");
         } else {
-          const errorData = JSON.parse(xhr.responseText || "{}");
+          const errorData = parseErrorResponse(xhr.responseText);
           toast.error(
             errorData?.message || "Submission failed. Try again later.",
             {

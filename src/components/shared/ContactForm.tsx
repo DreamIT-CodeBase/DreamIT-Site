@@ -5,6 +5,16 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const parseErrorResponse = (responseText: string) => {
+  try {
+    return JSON.parse(responseText || "{}");
+  } catch {
+    return {
+      message: responseText || "Submission failed. Try again later.",
+    };
+  }
+};
+
 const ContactForm = ({ showContactFormLeftSection }: any) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -46,20 +56,20 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        setLoading(false);
-        if (xhr.status === 200) {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          setLoading(false);
+          if (xhr.status === 200) {
           toast.success("Form submitted successfully!", {
             autoClose: 3000,
             closeOnClick: true,
           });
-          reset();
-          router.push("/thank-you");
-        } else {
-          const errorData = JSON.parse(xhr.responseText || "{}");
-          toast.error(
-            errorData?.message || "Submission failed. Try again later.",
-            {
+            reset();
+            router.push("/thank-you");
+          } else {
+            const errorData = parseErrorResponse(xhr.responseText);
+            toast.error(
+              errorData?.message || "Submission failed. Try again later.",
+              {
               autoClose: 3000,
               closeOnClick: true,
             }
