@@ -6,223 +6,160 @@ const Footer = () => {
   const today = new Date();
   const year = today.getFullYear();
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const solutionLinks = [
+    { label: "Cloud Data Management", href: "/services/cloud-data-management" },
+    {
+      label: "Data Analytics & Visualization",
+      href: "/services/advanced-analytics",
+    },
+    {
+      label: "Digital Transformation",
+      href: "/services/digital-transformation",
+    },
+    {
+      label: "ERP Implementation",
+      href: "/services/erp-implementation",
+    },
+    { label: "Digital Marketing", href: "/services/digital-marketing" },
+    {
+      label: "Business IT Ecosystem",
+      href: "/services/business-centric-it-ecosystem",
+    },
+  ];
+  const discoverLinks = [
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about-us" },
+    { label: "Services", href: "/services" },
+    { label: "Glossary", href: "/glossary" },
+    { label: "Career", href: "/career" },
+  ];
 
   return (
     <footer className="w-full pt-0 pb-0 z-[1000] overflow-x-hidden">
-      <div className="bg-white text-[#072032] py-6 md:py-8 border-b border-[#F1F5F9]">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-20">
-          <h3 className="text-center text-[24px] md:text-[34px] leading-tight font-semibold mb-6 md:mb-8">
-            Recognitions & Certifications
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-nowrap items-center justify-center gap-x-5 gap-y-6 md:gap-x-24 md:gap-y-10 lg:gap-x-28 xl:gap-x-32">
-            <div className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[90px] flex items-center justify-center mx-auto">
-              <img
-                src="/assets/icons/ISOcertification1.png"
-                alt="ISO 9001:2015"
-                className="max-h-full max-w-full object-contain"
-                style={{ filter: "brightness(0) saturate(100%)" }}
-              />
-            </div>
-            <div className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[90px] flex items-center justify-center mx-auto">
-              <img
-                src="/assets/icons/ISOcertification2.png"
-                alt="ISO 27001:2022"
-                className="max-h-full max-w-full object-contain"
-                style={{ filter: "brightness(0) saturate(100%)" }}
-              />
-            </div>
-            <a
-              href="https://marketplace.microsoft.com/en-us/partners/0d1140e7-b7b2-4f63-9354-31e03923ad5d/overview"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Dream IT Microsoft Partner Profile"
-              className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[145px] flex items-center justify-center mx-auto"
-            >
-              <img
-                src="/assets/images/mssolutionpartnerdataandaiazure.png"
-                alt="Microsoft Solution Partner Data & AI Azure"
-                className="max-h-full max-w-full object-contain"
-              />
-            </a>
-            <a
-              href="https://marketplace.microsoft.com/en-us/partners/0d1140e7-b7b2-4f63-9354-31e03923ad5d/overview"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Dream IT Microsoft Digital & App Innovation Profile"
-              className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[145px] flex items-center justify-center mx-auto"
-            >
-              <img
-                src="/assets/images/microsftsolutionandappinnovation.png"
-                alt="Microsoft Solution Partner Digital & App Innovation"
-                className="max-h-full max-w-full object-contain"
-              />
-            </a>
-            <a
-              href="https://clutch.co/profile/dream-it-consulting-services"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Dream IT Clutch Profile"
-              className="h-[64px] w-[120px] sm:w-[130px] md:h-[74px] md:w-[150px] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
-            >
-              <img
-                src="/assets/images/clutch.png"
-                alt="Clutch 5.0/5.0"
-                className="max-h-full max-w-full object-contain"
-              />
-            </a>
-            <a
-              href="https://www.goodfirms.co/company/dream-it-consulting-services"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Dream IT GoodFirms Profile"
-              className="h-[64px] w-[150px] sm:w-[170px] md:h-[74px] md:w-[205px] flex items-center justify-center mx-auto hover:opacity-80 transition-opacity"
-            >
-              <img
-                src="/assets/images/goodfirms.png"
-                alt="GoodFirms 5.0/5.0"
-                className="max-h-full max-w-full object-contain"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-
       <div className="bg-[#072032] text-white">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-20 pt-10 pb-3">
-      <div className="flex flex-col md:flex-row justify-between items-start gap-8 lg:gap-16">
-        {/* Left Section */}
-        <div className="flex flex-col max-w-[34rem]">
-          <div className="flex items-center mb-4">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-20 pt-14 lg:pt-16 pb-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[minmax(0,1.45fr)_minmax(180px,0.92fr)_minmax(160px,0.78fr)_minmax(290px,1.12fr)] items-start gap-y-10 md:gap-x-12 xl:gap-x-16">
+        <div className="flex flex-col max-w-[31rem] xl:pr-6">
+          <div className="flex items-center mb-6">
             <img
               className="w-44 h-auto"
               src="/assets/images/dream-it-logo-mobile-version.png"
               alt="Logo"
             />
           </div>
-          <h6 className="text-gray-400  xl:text-[18px] lg:text-[16px] md:text-[14px] sm:text-[14px] xs:text-[14px] max-w-[25rem]">
+          <h6 className="text-[#D7E2F0] xl:text-[18px] lg:text-[17px] md:text-[15px] sm:text-[14px] xs:text-[14px] leading-[1.55]">
             At Dream IT, we specialize in helping businesses thrive through
             cutting-edge technology solutions like Cloud Data Management,
             Advanced Analytics & Visualization, Digital Marketing, and more.
           </h6>
         </div>
 
-        {/* Right Section */}
-        <div className="w-full md:w-auto grid grid-cols-1 sm:grid-cols-2 gap-8 md:flex md:justify-between md:gap-16 lg:gap-24">
-          <div className="flex  flex-col md:items-end mt-0">
-            <h3 className="text-lg mr-2 font-semibold mb-4 text-white">
-              Discover
-            </h3>
-            <ul className="space-y-2">
+        <div className="flex flex-col">
+          <h3 className="text-[20px] leading-none font-semibold mb-5 text-white">
+            Our Services
+          </h3>
+          <ul className="flex flex-col gap-[3px]">
+            {solutionLinks.map((solution) => (
+              <li key={solution.href}>
+                <Link
+                  href={solution.href}
+                  className="inline-block text-[#D7E2F0] hover:text-white text-[17px] leading-[1.55] transition-colors"
+                >
+                  {solution.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-              <li>
-                <Link href="/" className="text-gray-400 hover:text-white">
-                  Home
-                </Link>
-              </li>
-              <li>
+        <div className="flex flex-col">
+          <h3 className="text-[20px] leading-none font-semibold mb-5 text-white">
+            Discover
+          </h3>
+          <ul className="flex flex-col gap-[3px]">
+            {discoverLinks.map((link) => (
+              <li key={link.href}>
                 <Link
-                  href="/about-us"
-                  className="text-gray-400 hover:text-white"
+                  href={link.href}
+                  className="inline-block text-[#D7E2F0] hover:text-white text-[17px] leading-[1.55] transition-colors"
                 >
-                  About Us
+                  {link.label}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="text-gray-400 hover:text-white"
-                >
-                  Services
-                </Link>
-              </li>
+            ))}
+            <li>
+              <Link
+                href="#void"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsModalVisible(true);
+                }}
+                className="inline-block text-[#D7E2F0] hover:text-white text-[17px] leading-[1.55] transition-colors"
+              >
+                Contact Us
+              </Link>
+            </li>
+          </ul>
+        </div>
 
-              {/* NEW Glossary Link inserted after Services */}
-              <li>
-                <Link href="/glossary" className="text-gray-400 hover:text-white">
-                  Glossary
-                </Link>
-              </li>
+        <div className="flex flex-col max-w-[22rem]">
+          <h3 className="text-[20px] leading-none font-semibold mb-5 text-white">
+            Contact Us
+          </h3>
+          <ul className="flex flex-col gap-4">
+            <li className="flex p-medium gap-3.5 items-start">
+              <img
+                src="/assets/icons/call-icon.svg"
+                alt=""
+                className="h-[20px] mt-[4px] shrink-0"
+                loading="lazy"
+              />
+              <Link
+                href="tel:+919416484500"
+                className="text-[#D7E2F0] hover:text-white text-[17px] leading-[1.55] transition-colors"
+              >
+                +91 94164-84500
+              </Link>
+            </li>
+            <li className="flex p-medium gap-3.5 items-start">
+              <img
+                src="/assets/icons/mail-icon.svg"
+                alt=""
+                className="h-[20px] mt-[4px] shrink-0"
+                loading="lazy"
+              />
+              <Link
+                href="mailto:connect@dreamitcs.com"
+                className="text-[#D7E2F0] hover:text-white text-[17px] leading-[1.55] transition-colors"
+              >
+                connect@dreamitcs.com
+              </Link>
+            </li>
 
-              <li>
-                <Link href="/career" className="text-gray-400 hover:text-white">
-                  Career
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#void"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsModalVisible(true);
-                  }}
-                  className="text-gray-400 hover:text-white"
-                >
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="flex  flex-col   mt-0">
-            <h3 className="text-lg text-left mr-2 font-semibold mb-4 text-white">
-              Contact Us
-            </h3>
-            <ul className="space-y-3">
-              <li className="flex p-medium gap-2 items-center">
-                <img
-                  src="/assets/icons/call-icon.svg"
-                  alt=""
-                  className="h-[20px]"
-                  loading="lazy"
-                />
-                <Link
-                  href="tel:+919416484500"
-                  className="text-gray-400 hover:text-white"
-                >
-                  +91 94164-84500
-                </Link>{" "}
-              </li>
-              <li className="flex p-medium gap-2 items-center">
-                <img
-                  src="/assets/icons/mail-icon.svg"
-                  alt=""
-                  className="h-[20px] mt-[2px]"
-                  loading="lazy"
-                />
-                <Link
-                  href="mailto:connect@dreamitcs.com"
-                  className="text-gray-400 hover:text-white"
-                >
-                  connect@dreamitcs.com
-                </Link>{" "}
-              </li>
-
-              <li className="flex p-medium gap-2 items-start">
-                <img
-                  src="/assets/icons/location-icon.svg"
-                  alt=""
-                  className="h-[20px] mt-[2px]"
-                  loading="lazy"
-                />
-                <Link
-                  href="https://share.google/5zGNE4Ul8ZT527d2J"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white"
-                >
-                  1st Floor, Orchid Business <br />
-                  Park, Central Park II, Sector 48, <br />
-                  Gurugram, Haryana 122004
-                </Link>
-              </li>
-            </ul>
-          </div>
+            <li className="flex p-medium gap-3.5 items-start">
+              <img
+                src="/assets/icons/location-icon.svg"
+                alt=""
+                className="h-[20px] mt-[4px] shrink-0"
+                loading="lazy"
+              />
+              <Link
+                href="https://share.google/5zGNE4Ul8ZT527d2J"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#D7E2F0] hover:text-white text-[17px] leading-[1.55] transition-colors"
+              >
+                1st Floor, Orchid Business Park, Central Park II, Sector 48,
+                Gurugram, Haryana 122004
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
 
       {/* Social Links and Copyright */}
 
-      <div className="border-t-[2px] border-[#1E3D54] mt-7 pt-5 pb-1">
+      <div className="border-t border-[#2E5168] mt-10 pt-6 pb-1">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Social Media */}
           <div className="flex items-center justify-center gap-6 mb-3 md:mb-0">

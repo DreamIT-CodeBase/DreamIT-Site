@@ -4,6 +4,7 @@ import OurServies from "@/components/shared/OurServies";
 import Expertise from "@/components/home/Expertise";
 import AboutUsSection from "@/components/home/AboutUsSection";
 import Testimonial from "@/components/home/Testimonial";
+import RecognitionsSection from "@/components/home/RecognitionsSection";
 import ContactForm from "@/components/shared/ContactForm";
 import { ourServies } from "@/components/shared/DreamItData";
 import BlogsList from "@/components/blogs/BlogsList";
@@ -38,6 +39,7 @@ export default function Home({ pageInfo }: any) {
         />
 
         <ContactForm showContactFormLeftSection="true" />
+        <RecognitionsSection />
       </Layout>
     </>
   );
