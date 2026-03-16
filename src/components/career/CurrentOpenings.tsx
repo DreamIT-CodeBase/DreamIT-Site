@@ -2,7 +2,7 @@ import { Col, Modal, Row, Spin } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaArrowRight, FaArrowRightLong } from "react-icons/fa6";
-import { FiDownload, FiEye } from "react-icons/fi";
+import { FiEye } from "react-icons/fi";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,6 +22,10 @@ type FormValues = {
 const CAREER_FORM_ACTION = "https://formsubmit.co/Tarun@dreamitcs.com";
 const CAREER_FORM_TARGET = "careerApplicationMailFrame";
 const CAREER_FORM_CC = "HR@dreamitcs.com,kanchan@dreamitcs.com";
+const CAREER_RESUME_UPLOAD_ENDPOINT =
+  process.env.NEXT_PUBLIC_CAREER_RESUME_UPLOAD_ENDPOINT ||
+  "https://career-api-hzfffvcfewd2bmet.canadacentral-01.azurewebsites.net/apply-job";
+const CAREER_RESUME_UPLOAD_TIMEOUT_MS = 20000;
 const SUBMISSION_FALLBACK_DELAY_MS = 2000;
 
 const JOB_DATA: Record<string, JobDetails> = {
@@ -122,6 +126,67 @@ const getJdAssetPath = (fileName: string) =>
 const getJobDetails = (role: string) =>
   JOB_DATA[role as keyof typeof JOB_DATA];
 
+const getResumeUploadErrorMessage = async (response: Response) => {
+  const contentType = response.headers.get("content-type") || "";
+
+  if (contentType.includes("application/json")) {
+    const errorPayload = await response.json().catch(() => null);
+    const message =
+      errorPayload?.message || errorPayload?.title || errorPayload?.detail;
+
+    if (typeof message === "string" && message.trim()) {
+      return message.trim();
+    }
+  }
+
+  if (response.status >= 500) {
+    return "Resume upload failed. Please try again.";
+  }
+
+  return "Unable to upload resume. Please check the file and try again.";
+};
+
+const uploadResumeToCareerApi = async (files?: FileList) => {
+  if (!files?.length) {
+    throw new Error("Resume is required.");
+  }
+
+  const formData = new FormData();
+  const controller = new AbortController();
+  const timeoutId = setTimeout(
+    () => controller.abort(),
+    CAREER_RESUME_UPLOAD_TIMEOUT_MS
+  );
+
+  formData.append("attachment", files[0]);
+
+  try {
+    const response = await fetch(CAREER_RESUME_UPLOAD_ENDPOINT, {
+      method: "POST",
+      body: formData,
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      throw new Error(await getResumeUploadErrorMessage(response));
+    }
+  } catch (error) {
+    if (error instanceof Error && error.name === "AbortError") {
+      throw new Error("Resume upload timed out. Please try again.");
+    }
+
+    if (error instanceof TypeError) {
+      throw new Error(
+        "Unable to connect to the resume upload service. Please try again."
+      );
+    }
+
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+};
+
 const CurrentOpenings = ({ pageInfo }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
@@ -193,7 +258,9 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   };
 
   const onSubmit = (data: FormValues, event?: any) => {
-    const form = event?.target as HTMLFormElement | undefined;
+    const form = (event?.currentTarget || event?.target) as
+      | HTMLFormElement
+      | undefined;
 
     if (!form) {
       toast.error("Submission failed. Try again later.", {
@@ -206,10 +273,28 @@ const CurrentOpenings = ({ pageInfo }: any) => {
     setPendingRole(data.role);
     setLoading(true);
     clearSubmissionFallback();
-    submissionFallbackRef.current = setTimeout(() => {
-      finalizeSubmission();
-    }, SUBMISSION_FALLBACK_DELAY_MS);
-    form.submit();
+
+    uploadResumeToCareerApi(data.attachment)
+      .then(() => {
+        submissionFallbackRef.current = setTimeout(() => {
+          finalizeSubmission();
+        }, SUBMISSION_FALLBACK_DELAY_MS);
+        form.submit();
+      })
+      .catch((error) => {
+        clearSubmissionFallback();
+        setLoading(false);
+        setPendingRole("");
+        toast.error(
+          error instanceof Error
+            ? error.message
+            : "Resume upload failed. Please try again.",
+          {
+            autoClose: 3000,
+            closeOnClick: true,
+          }
+        );
+      });
   };
 
   const toggleFAQ = (index: number) => {
@@ -241,12 +326,6 @@ const CurrentOpenings = ({ pageInfo }: any) => {
           >
             <FiEye className="text-[16px]" />
           </span>
-          <span
-            className={`${actionClassName} cursor-not-allowed opacity-45`}
-            aria-hidden="true"
-          >
-            <FiDownload className="text-[16px]" />
-          </span>
         </div>
       );
     }
@@ -264,15 +343,6 @@ const CurrentOpenings = ({ pageInfo }: any) => {
           className={actionClassName}
         >
           <FiEye className="text-[16px]" />
-        </a>
-        <a
-          href={jdPath}
-          download={job.jdFileName}
-          aria-label="Download JD"
-          title="Download JD"
-          className={actionClassName}
-        >
-          <FiDownload className="text-[16px]" />
         </a>
       </div>
     );
@@ -421,6 +491,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
               className="form-submit-button flex items-center gap-2 rounded-lg bg-[#072032] px-5 py-2 text-lg font-500 text-white transition-transform duration-300 hover:scale-105 sm:text-base xs:text-base md:text-lg lg:text-sm xl:text-sm"
               aria-label="Continue"
               type="submit"
+              disabled={loading}
             >
               {loading ? <Spin /> : "Submit"}
               {!loading && <FaArrowRightLong />}
