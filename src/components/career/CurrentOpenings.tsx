@@ -1,5 +1,5 @@
 import { Col, Modal, Row, Spin } from "antd";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaArrowRight, FaArrowRightLong } from "react-icons/fa6";
 import { FiEye } from "react-icons/fi";
@@ -19,14 +19,10 @@ type FormValues = {
   attachment?: FileList;
 };
 
-const CAREER_FORM_ACTION = "https://formsubmit.co/Tarun@dreamitcs.com";
-const CAREER_FORM_TARGET = "careerApplicationMailFrame";
-const CAREER_FORM_CC = "HR@dreamitcs.com,kanchan@dreamitcs.com";
-const CAREER_RESUME_UPLOAD_ENDPOINT =
+const CAREER_APPLICATION_ENDPOINT =
   process.env.NEXT_PUBLIC_CAREER_RESUME_UPLOAD_ENDPOINT ||
   "https://career-api-hzfffvcfewd2bmet.canadacentral-01.azurewebsites.net/apply-job";
-const CAREER_RESUME_UPLOAD_TIMEOUT_MS = 20000;
-const SUBMISSION_FALLBACK_DELAY_MS = 2000;
+const CAREER_APPLICATION_TIMEOUT_MS = 20000;
 
 const JOB_DATA: Record<string, JobDetails> = {
   "Management Intern": {
@@ -126,7 +122,7 @@ const getJdAssetPath = (fileName: string) =>
 const getJobDetails = (role: string) =>
   JOB_DATA[role as keyof typeof JOB_DATA];
 
-const getResumeUploadErrorMessage = async (response: Response) => {
+const getCareerApplicationErrorMessage = async (response: Response) => {
   const contentType = response.headers.get("content-type") || "";
 
   if (contentType.includes("application/json")) {
@@ -140,44 +136,53 @@ const getResumeUploadErrorMessage = async (response: Response) => {
   }
 
   if (response.status >= 500) {
-    return "Resume upload failed. Please try again.";
+    return "Application submission failed. Please try again.";
   }
 
-  return "Unable to upload resume. Please check the file and try again.";
+  return "Unable to submit application. Please check the file and try again.";
 };
 
-const uploadResumeToCareerApi = async (files?: FileList) => {
+const submitCareerApplication = async (data: FormValues) => {
+  const files = data.attachment;
+
   if (!files?.length) {
     throw new Error("Resume is required.");
   }
 
+  const selectedJob = getJobDetails(data.role);
   const formData = new FormData();
   const controller = new AbortController();
   const timeoutId = setTimeout(
     () => controller.abort(),
-    CAREER_RESUME_UPLOAD_TIMEOUT_MS
+    CAREER_APPLICATION_TIMEOUT_MS
   );
 
   formData.append("attachment", files[0]);
+  formData.append("role", data.role);
+  formData.append(
+    "experience_required",
+    selectedJob?.experienceRequired || "-"
+  );
+  formData.append("positions", String(selectedJob?.positions || 0));
 
   try {
-    const response = await fetch(CAREER_RESUME_UPLOAD_ENDPOINT, {
+    const response = await fetch(CAREER_APPLICATION_ENDPOINT, {
       method: "POST",
       body: formData,
       signal: controller.signal,
     });
 
     if (!response.ok) {
-      throw new Error(await getResumeUploadErrorMessage(response));
+      throw new Error(await getCareerApplicationErrorMessage(response));
     }
   } catch (error) {
     if (error instanceof Error && error.name === "AbortError") {
-      throw new Error("Resume upload timed out. Please try again.");
+      throw new Error("Application submission timed out. Please try again.");
     }
 
     if (error instanceof TypeError) {
       throw new Error(
-        "Unable to connect to the resume upload service. Please try again."
+        "Unable to connect to the application service. Please try again."
       );
     }
 
@@ -193,11 +198,6 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const [loading, setLoading] = useState(false);
   const [submittedRole, setSubmittedRole] = useState("");
-  const [pendingRole, setPendingRole] = useState("");
-  const [mailFrameReady, setMailFrameReady] = useState(false);
-  const submissionFallbackRef = useRef<ReturnType<typeof setTimeout> | null>(
-    null
-  );
 
   const {
     register,
@@ -214,87 +214,37 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   const selectedRole = watch("role");
   const selectedJob = selectedRole ? getJobDetails(selectedRole) : undefined;
   const resumeFile = watch("attachment");
-  const currentPageUrl =
-    typeof window !== "undefined" ? window.location.href : "";
 
   const resetForm = (role = "") => {
     reset({ role });
   };
 
-  const clearSubmissionFallback = () => {
-    if (submissionFallbackRef.current) {
-      clearTimeout(submissionFallbackRef.current);
-      submissionFallbackRef.current = null;
-    }
-  };
-
-  useEffect(() => {
-    return () => {
-      clearSubmissionFallback();
-    };
-  }, []);
-
-  const finalizeSubmission = () => {
-    clearSubmissionFallback();
+  const finalizeSubmission = (role: string) => {
     setLoading(false);
-    setSubmittedRole(pendingRole);
+    setSubmittedRole(role);
     resetForm();
     setIsModalOpen(false);
     setIsSuccessModalOpen(true);
-    setPendingRole("");
   };
 
-  const handleMailFrameLoad = () => {
-    if (!mailFrameReady) {
-      setMailFrameReady(true);
-      return;
-    }
-
-    if (!loading) {
-      return;
-    }
-
-    finalizeSubmission();
-  };
-
-  const onSubmit = (data: FormValues, event?: any) => {
-    const form = (event?.currentTarget || event?.target) as
-      | HTMLFormElement
-      | undefined;
-
-    if (!form) {
-      toast.error("Submission failed. Try again later.", {
-        autoClose: 3000,
-        closeOnClick: true,
-      });
-      return;
-    }
-
-    setPendingRole(data.role);
+  const onSubmit = async (data: FormValues) => {
     setLoading(true);
-    clearSubmissionFallback();
 
-    uploadResumeToCareerApi(data.attachment)
-      .then(() => {
-        submissionFallbackRef.current = setTimeout(() => {
-          finalizeSubmission();
-        }, SUBMISSION_FALLBACK_DELAY_MS);
-        form.submit();
-      })
-      .catch((error) => {
-        clearSubmissionFallback();
-        setLoading(false);
-        setPendingRole("");
-        toast.error(
-          error instanceof Error
-            ? error.message
-            : "Resume upload failed. Please try again.",
-          {
-            autoClose: 3000,
-            closeOnClick: true,
-          }
-        );
-      });
+    try {
+      await submitCareerApplication(data);
+      finalizeSubmission(data.role);
+    } catch (error) {
+      setLoading(false);
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Application submission failed. Please try again.",
+        {
+          autoClose: 3000,
+          closeOnClick: true,
+        }
+      );
+    }
   };
 
   const toggleFAQ = (index: number) => {
@@ -349,45 +299,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   };
 
   const renderApplicationForm = (fileInputId: string) => (
-    <form
-      action={CAREER_FORM_ACTION}
-      method="POST"
-      encType="multipart/form-data"
-      target={CAREER_FORM_TARGET}
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <input
-        type="hidden"
-        name="_subject"
-        value={
-          selectedRole
-            ? `New Career Application - ${selectedRole}`
-            : "New Career Application"
-        }
-      />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_cc" value={CAREER_FORM_CC} />
-      <input type="hidden" name="source" value="website" />
-      <input type="hidden" name="page_url" value={currentPageUrl} />
-      <input type="hidden" name="job_role" value={selectedRole || ""} />
-      <input
-        type="hidden"
-        name="experience_required"
-        value={selectedJob?.experienceRequired || "-"}
-      />
-      <input
-        type="hidden"
-        name="positions"
-        value={String(selectedJob?.positions || 0)}
-      />
-      <input
-        type="text"
-        name="_honey"
-        className="hidden"
-        tabIndex={-1}
-        autoComplete="off"
-      />
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="job-opening-form mb-12 overflow-hidden rounded-[18px] border border-[#EAEAEA] bg-[rgba(255,255,255,0.78)] shadow-[0_16px_40px_rgba(7,32,50,0.07)]">
         <div
           className="rounded-[18px] xl:px-8 xl:pt-8 xl:pb-8 lg:px-8 lg:pt-8 lg:pb-8 md:px-6 md:pt-8 md:pb-8 sm:px-4 sm:pt-5 sm:pb-6 xs:px-4 xs:pt-5 xs:pb-6"
@@ -619,12 +531,6 @@ const CurrentOpenings = ({ pageInfo }: any) => {
       </Modal>
 
       <ToastContainer />
-      <iframe
-        title="Career Application Mail Target"
-        name={CAREER_FORM_TARGET}
-        className="hidden"
-        onLoad={handleMailFrameLoad}
-      />
     </div>
   );
 };
