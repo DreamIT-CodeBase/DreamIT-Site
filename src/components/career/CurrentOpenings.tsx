@@ -1,14 +1,11 @@
 import { Col, Modal, Row, Spin } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaArrowRight, FaArrowRightLong } from "react-icons/fa6";
 import { FiDownload, FiEye } from "react-icons/fi";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { LEAD_API } from "@/utils/constant";
-import FileUploader from "../../utils/FileUploader";
-import Storage from "../../utils/Storage";
 
 type JobDetails = {
   title: string;
@@ -19,8 +16,13 @@ type JobDetails = {
 
 type FormValues = {
   role: string;
-  resume?: FileList;
+  attachment?: FileList;
 };
+
+const CAREER_FORM_ACTION = "https://formsubmit.co/Tarun@dreamitcs.com";
+const CAREER_FORM_TARGET = "careerApplicationMailFrame";
+const CAREER_FORM_CC = "HR@dreamitcs.com,kanchan@dreamitcs.com";
+const SUBMISSION_FALLBACK_DELAY_MS = 2000;
 
 const JOB_DATA: Record<string, JobDetails> = {
   "Management Intern": {
@@ -117,15 +119,8 @@ const resumeValidation = {
 const getJdAssetPath = (fileName: string) =>
   `/assets/jd/${encodeURIComponent(fileName)}`;
 
-const parseErrorResponse = (responseText: string) => {
-  try {
-    return JSON.parse(responseText || "{}");
-  } catch {
-    return {
-      message: responseText || "Submission failed. Try again later.",
-    };
-  }
-};
+const getJobDetails = (role: string) =>
+  JOB_DATA[role as keyof typeof JOB_DATA];
 
 const CurrentOpenings = ({ pageInfo }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -133,8 +128,11 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   const [loading, setLoading] = useState(false);
   const [submittedRole, setSubmittedRole] = useState("");
-
-  const storage = Storage.values?.leadAttachment;
+  const [pendingRole, setPendingRole] = useState("");
+  const [mailFrameReady, setMailFrameReady] = useState(false);
+  const submissionFallbackRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
 
   const {
     register,
@@ -149,91 +147,69 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   });
 
   const selectedRole = watch("role");
-  const selectedJob = selectedRole
-    ? JOB_DATA[selectedRole as keyof typeof JOB_DATA]
-    : undefined;
-  const resumeFile = watch("resume");
-
-  const uploadResume = async (file: File) => {
-    try {
-      FileUploader.validate(file, { storage });
-      return await FileUploader.upload(file, { storage });
-    } catch (error) {
-      console.error("File upload error:", error);
-      throw new Error("Failed to upload resume.");
-    }
-  };
+  const selectedJob = selectedRole ? getJobDetails(selectedRole) : undefined;
+  const resumeFile = watch("attachment");
+  const currentPageUrl =
+    typeof window !== "undefined" ? window.location.href : "";
 
   const resetForm = (role = "") => {
     reset({ role });
   };
 
-  const postOnServer = async (formSubmissionData: FormValues) => {
-    setLoading(true);
-    try {
-      let uploadedFile = null;
-
-      if (formSubmissionData.resume?.length) {
-        uploadedFile = await uploadResume(formSubmissionData.resume[0]);
-      }
-
-      const payload = {
-        description: `${formSubmissionData.role}`,
-        attachment: uploadedFile ? [uploadedFile] : [],
-        source: "website",
-      };
-
-      const postData = {
-        ...payload,
-        tags: [formSubmissionData.role],
-        sourceDetail: { pageUrl: window.location.href },
-      };
-
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", `${LEAD_API}/lead`, true);
-      xhr.setRequestHeader("Content-Type", "application/json");
-
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          setLoading(false);
-          if (xhr.status === 200) {
-            setSubmittedRole(formSubmissionData.role);
-            resetForm();
-            setIsModalOpen(false);
-            setIsSuccessModalOpen(true);
-          } else {
-            const errorData = parseErrorResponse(xhr.responseText);
-            resetForm();
-
-            toast.error(
-              errorData?.message || "Submission failed. Try again later.",
-              {
-                autoClose: 3000,
-                closeOnClick: true,
-              }
-            );
-          }
-        }
-      };
-
-      xhr.onerror = function () {
-        setLoading(false);
-        console.error("Network error during form submission");
-        toast.error("Network error during form submission", {
-          autoClose: 3000,
-          closeOnClick: true,
-        });
-      };
-
-      xhr.send(JSON.stringify({ data: postData }));
-    } catch (error) {
-      setLoading(false);
-      console.error("Error uploading resume:", error);
+  const clearSubmissionFallback = () => {
+    if (submissionFallbackRef.current) {
+      clearTimeout(submissionFallbackRef.current);
+      submissionFallbackRef.current = null;
     }
   };
 
-  const onSubmit = (data: FormValues) => {
-    postOnServer(data);
+  useEffect(() => {
+    return () => {
+      clearSubmissionFallback();
+    };
+  }, []);
+
+  const finalizeSubmission = () => {
+    clearSubmissionFallback();
+    setLoading(false);
+    setSubmittedRole(pendingRole);
+    resetForm();
+    setIsModalOpen(false);
+    setIsSuccessModalOpen(true);
+    setPendingRole("");
+  };
+
+  const handleMailFrameLoad = () => {
+    if (!mailFrameReady) {
+      setMailFrameReady(true);
+      return;
+    }
+
+    if (!loading) {
+      return;
+    }
+
+    finalizeSubmission();
+  };
+
+  const onSubmit = (data: FormValues, event?: any) => {
+    const form = event?.target as HTMLFormElement | undefined;
+
+    if (!form) {
+      toast.error("Submission failed. Try again later.", {
+        autoClose: 3000,
+        closeOnClick: true,
+      });
+      return;
+    }
+
+    setPendingRole(data.role);
+    setLoading(true);
+    clearSubmissionFallback();
+    submissionFallbackRef.current = setTimeout(() => {
+      finalizeSubmission();
+    }, SUBMISSION_FALLBACK_DELAY_MS);
+    form.submit();
   };
 
   const toggleFAQ = (index: number) => {
@@ -303,7 +279,45 @@ const CurrentOpenings = ({ pageInfo }: any) => {
   };
 
   const renderApplicationForm = (fileInputId: string) => (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      action={CAREER_FORM_ACTION}
+      method="POST"
+      encType="multipart/form-data"
+      target={CAREER_FORM_TARGET}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <input
+        type="hidden"
+        name="_subject"
+        value={
+          selectedRole
+            ? `New Career Application - ${selectedRole}`
+            : "New Career Application"
+        }
+      />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_cc" value={CAREER_FORM_CC} />
+      <input type="hidden" name="source" value="website" />
+      <input type="hidden" name="page_url" value={currentPageUrl} />
+      <input type="hidden" name="job_role" value={selectedRole || ""} />
+      <input
+        type="hidden"
+        name="experience_required"
+        value={selectedJob?.experienceRequired || "-"}
+      />
+      <input
+        type="hidden"
+        name="positions"
+        value={String(selectedJob?.positions || 0)}
+      />
+      <input
+        type="text"
+        name="_honey"
+        className="hidden"
+        tabIndex={-1}
+        autoComplete="off"
+      />
       <div className="job-opening-form mb-12 overflow-hidden rounded-[18px] border border-[#EAEAEA] bg-[rgba(255,255,255,0.78)] shadow-[0_16px_40px_rgba(7,32,50,0.07)]">
         <div
           className="rounded-[18px] xl:px-8 xl:pt-8 xl:pb-8 lg:px-8 lg:pt-8 lg:pb-8 md:px-6 md:pt-8 md:pb-8 sm:px-4 sm:pt-5 sm:pb-6 xs:px-4 xs:pt-5 xs:pb-6"
@@ -323,12 +337,12 @@ const CurrentOpenings = ({ pageInfo }: any) => {
               <h2 className="mb-2 whitespace-nowrap xl:text-lg lg:text-lg md:text-lg sm:text-16 xs:text-16 font-semibold text-black-100">
                 Select Job Category
               </h2>
-                <select
-                  {...register("role", {
-                    required: "Please select a job category.",
-                  })}
-                  className="customSelectTag h-[48px] w-full rounded-lg border-2 border-[#EAEAEA] bg-[#FAFAFA] px-4 text-sm text-[#072032] focus:border-[#EAEAEA] focus:outline-none"
-                >
+              <select
+                {...register("role", {
+                  required: "Please select a job category.",
+                })}
+                className="customSelectTag h-[48px] w-full rounded-lg border-2 border-[#EAEAEA] bg-[#FAFAFA] px-4 text-sm text-[#072032] focus:border-[#EAEAEA] focus:outline-none"
+              >
                 <option value="" disabled>
                   Select job title
                 </option>
@@ -380,7 +394,7 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                 <input
                   type="file"
                   id={fileInputId}
-                  {...register("resume", resumeValidation)}
+                  {...register("attachment", resumeValidation)}
                   className="hidden border-2 border-[#EAEAEA] rounded-lg text-black-100 focus:border-gray-300 focus:outline-none"
                   accept=".pdf"
                 />
@@ -393,9 +407,9 @@ const CurrentOpenings = ({ pageInfo }: any) => {
                     {resumeFile?.length ? resumeFile[0].name : "Upload PDF here"}
                   </span>
                 </label>
-                {errors.resume && (
+                {errors.attachment && (
                   <p className="mt-1 text-sm text-red-500">
-                    {errors.resume.message as string}
+                    {errors.attachment.message as string}
                   </p>
                 )}
               </div>
@@ -534,6 +548,12 @@ const CurrentOpenings = ({ pageInfo }: any) => {
       </Modal>
 
       <ToastContainer />
+      <iframe
+        title="Career Application Mail Target"
+        name={CAREER_FORM_TARGET}
+        className="hidden"
+        onLoad={handleMailFrameLoad}
+      />
     </div>
   );
 };
