@@ -22,7 +22,11 @@ type FormValues = {
 const CAREER_APPLICATION_ENDPOINT =
   process.env.NEXT_PUBLIC_CAREER_RESUME_UPLOAD_ENDPOINT ||
   "https://career-api-hzfffvcfewd2bmet.canadacentral-01.azurewebsites.net/apply-job";
-const CAREER_APPLICATION_TIMEOUT_MS = 20000;
+const CAREER_APPLICATION_TIMEOUT_MS =
+  Number.parseInt(
+    process.env.NEXT_PUBLIC_CAREER_RESUME_UPLOAD_TIMEOUT_MS || "",
+    10
+  ) || 120000;
 
 const JOB_DATA: Record<string, JobDetails> = {
   "Management Intern": {
@@ -147,6 +151,12 @@ const submitCareerApplication = async (data: FormValues) => {
 
   if (!files?.length) {
     throw new Error("Resume is required.");
+  }
+
+  if (typeof navigator !== "undefined" && navigator.onLine === false) {
+    throw new Error(
+      "You appear to be offline. Please check your internet connection and try again."
+    );
   }
 
   const selectedJob = getJobDetails(data.role);
