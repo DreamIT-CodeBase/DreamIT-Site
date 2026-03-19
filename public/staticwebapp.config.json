@@ -12,17 +12,7 @@
       "statusCode": 301
     },
     {
-      "route": "/contact-us/",
-      "redirect": "/",
-      "statusCode": 301
-    },
-    {
       "route": "/pay-per-click",
-      "redirect": "/services/digital-marketing",
-      "statusCode": 301
-    },
-    {
-      "route": "/pay-per-click/",
       "redirect": "/services/digital-marketing",
       "statusCode": 301
     },
@@ -32,17 +22,7 @@
       "statusCode": 301
     },
     {
-      "route": "/data-management/",
-      "redirect": "/services/cloud-data-management",
-      "statusCode": 301
-    },
-    {
       "route": "/search-engine-optimization",
-      "redirect": "/services/digital-marketing",
-      "statusCode": 301
-    },
-    {
-      "route": "/search-engine-optimization/",
       "redirect": "/services/digital-marketing",
       "statusCode": 301
     },
@@ -52,17 +32,7 @@
       "statusCode": 301
     },
     {
-      "route": "/tableau/",
-      "redirect": "/services/advanced-analytics",
-      "statusCode": 301
-    },
-    {
       "route": "/app-store-optimization",
-      "redirect": "/services/digital-marketing",
-      "statusCode": 301
-    },
-    {
-      "route": "/app-store-optimization/",
       "redirect": "/services/digital-marketing",
       "statusCode": 301
     },
@@ -72,17 +42,7 @@
       "statusCode": 301
     },
     {
-      "route": "/msbi/",
-      "redirect": "/services/advanced-analytics",
-      "statusCode": 301
-    },
-    {
       "route": "/power-bi",
-      "redirect": "/services/advanced-analytics",
-      "statusCode": 301
-    },
-    {
-      "route": "/power-bi/",
       "redirect": "/services/advanced-analytics",
       "statusCode": 301
     },
