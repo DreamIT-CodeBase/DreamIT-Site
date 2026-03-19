@@ -1,41 +1,24 @@
-name: Build And Deploy for Preview
+name: Deploy To Azure Static Web Apps
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-
-        strategy:
-            matrix:
-                node-version: [20.9]
-
-        steps:
-            - uses: actions/checkout@v1
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v1
-              with:
-                  node-version: ${{ matrix.node-version }}
-            - name: npm install and test on client
-              run: |
-                  npm install  --ignore-peer --force --legacy-peer-deps 
-                  npm run export
-              env:
-                  CI: true
-            - name: Verify glossary export path
-              run: |
-                  if [ -f out/glossary/sql-server-reporting-services.html ] || [ -f out/glossary/sql-server-reporting-services/index.html ]; then
-                    echo "Glossary export verified."
-                  else
-                    echo "Missing exported glossary page: sql-server-reporting-services"
-                    exit 1
-                  fi
-            - name: Deployment
-              uses: w9jds/firebase-action@v12.8.0
-              with:
-                  args: deploy  --project ${{ secrets.FIREBASE_PROJECT }} --only hosting:${{ secrets.FIREBASE_HOSTING }}
-              env:
-                  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and deploy site
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: upload
+          app_location: dreamIt-website
+          api_location: ""
+          output_location: out
+          app_build_command: "npm run build && test -f out/glossary/sql-server-reporting-services.html"
+        env:
+          CI: true

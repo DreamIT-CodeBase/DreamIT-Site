@@ -1,58 +1,41 @@
-name: Build And Deploy for Preview
+name: Scheduled Azure Static Web Apps Deploy
 
 on:
-    schedule:
-      - cron: "1 */1 * * *"
+  schedule:
+    - cron: "1 */1 * * *"
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-
-        strategy:
-            matrix:
-                node-version: [20.9]
-
-        steps:
-            - name: FAB Builder PagePilot Check API Response
-              id: check_api
-              run: |
-                RESPONSE=$(curl -s https://pagepilot.fabbuilder.com/api/tenant/67beb76503c96859162a68f7/check-data-changed)
-                echo "FAB Builder PagePilot API Response: $RESPONSE"
-                if [ "$RESPONSE" != "true" ]; then
-                  echo "API returned false, exiting job."
-                  exit 1
-                fi
-            - uses: actions/checkout@v1
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v1
-              with:
-                  node-version: ${{ matrix.node-version }}
-            - name: npm install and test on client
-              run: |
-                  npm install  --ignore-peer --force --legacy-peer-deps 
-                  npm run export
-              env:
-                  CI: true
-            - name: Verify glossary export path
-              run: |
-                  if [ -f out/glossary/sql-server-reporting-services.html ] || [ -f out/glossary/sql-server-reporting-services/index.html ]; then
-                    echo "Glossary export verified."
-                  else
-                    echo "Missing exported glossary page: sql-server-reporting-services"
-                    exit 1
-                  fi
-            - name: Deployment
-              uses: w9jds/firebase-action@v12.8.0
-              with:
-                  args: deploy  --project ${{ secrets.FIREBASE_PROJECT }} --only hosting:${{ secrets.FIREBASE_HOSTING }}
-              env:
-                  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-            - name: Acknowledge Check API
-              id: pagepilot_fabbuilder_acknowledge_changes_api
-              run: |
-                RESPONSE=$(curl -s https://pagepilot.fabbuilder.com/api/tenant/67beb76503c96859162a68f7/acknowledged-data-changed)
-                echo "API Response: $RESPONSE"
-                if [ "$RESPONSE" != "DONE" ]; then
-                  echo "API returned, exiting job."
-                  exit 1
-                fi
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: FAB Builder PagePilot Check API Response
+        id: check_api
+        run: |
+          RESPONSE=$(curl -s https://pagepilot.fabbuilder.com/api/tenant/67beb76503c96859162a68f7/check-data-changed)
+          echo "FAB Builder PagePilot API Response: $RESPONSE"
+          if [ "$RESPONSE" != "true" ]; then
+            echo "API returned false, exiting job."
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+      - name: Build and deploy site
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: upload
+          app_location: dreamIt-website
+          api_location: ""
+          output_location: out
+          app_build_command: "npm run build && test -f out/glossary/sql-server-reporting-services.html"
+        env:
+          CI: true
+      - name: Acknowledge Check API
+        id: pagepilot_fabbuilder_acknowledge_changes_api
+        run: |
+          RESPONSE=$(curl -s https://pagepilot.fabbuilder.com/api/tenant/67beb76503c96859162a68f7/acknowledged-data-changed)
+          echo "API Response: $RESPONSE"
+          if [ "$RESPONSE" != "DONE" ]; then
+            echo "API returned, exiting job."
+            exit 1
+          fi
