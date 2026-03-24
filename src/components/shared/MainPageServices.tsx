@@ -122,7 +122,7 @@ const faqData = [
         ensure long-term system reliability, developed performance and average
         results for{" "}
         <a
-          href="https://dreamitcs.com/services/business-centric-it-ecosystem/"
+          href="https://dreamitcs.com/services/erp-implementation-for-business-centric-it-ecosystem/"
           className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
           target="_blank"
           rel="noopener noreferrer"

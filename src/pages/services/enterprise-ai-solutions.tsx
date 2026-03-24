@@ -8,7 +8,7 @@ import ServiceContent from "@/components/serviceDetails/ServiceContent";
 import ServiceDetailsHome from "@/components/serviceDetails/ServiceDetailsHome";
 import { AHD_HOST } from "@/utils/constant";
 import Marquee from "react-fast-marquee";
-
+ 
 const enterpriseHeroData = {
   title: "Enterprise AI Solutions",
   description:
@@ -16,23 +16,17 @@ const enterpriseHeroData = {
   heroImage: "/assets/images/aienterprisetitle.png",
   heroImageClassName: "rounded-[28px] object-cover max-w-[560px] mx-auto",
 };
-
-const enterpriseExpertiseData = {
-  ourExpertise: [
-    {
-      tag: "OUR EXPERTISE AND CAPABILITIES",
-      title: "Our Enterprise AI Solutions",
-      expertiseContent: [
-        { bgColor: "#E6FBFE", text: "Autonomous Agents" },
-        { bgColor: "#E3EBFD", text: "Enterprise Data Grounding" },
-        { bgColor: "#DCFDE7", text: "MCP Servers" },
-        { bgColor: "#EDDDFB", text: "Agentic Governance" },
-        { bgColor: "#F6F4EE", text: "Process Automations" },
-      ],
-    },
-  ],
-};
-
+ 
+const industries = [
+  { name: "Pharmaceuticals", logo: "/assets/icons/healthcare.svg" },
+  { name: "MedTech", logo: "/assets/icons/technology.svg" },
+  { name: "Automotive", logo: "/assets/icons/technology.svg" },
+  { name: "Real Estate", logo: "/assets/icons/retail.svg" },
+  { name: "E-commerce", logo: "/assets/icons/e-commerce.svg" },
+  { name: "FMCG", logo: "/assets/icons/retail.svg" },
+];
+ 
+ 
 const enterpriseParagraphData = {
   editor: "rte",
   sections: [
@@ -43,37 +37,51 @@ const enterpriseParagraphData = {
       contentClassName: "enterprise-ai-content",
       title: "The Future of Enterprise AI",
       content: `
-        <p><strong>Enterprise AI is moving from assistance to ownership.</strong> The market is shifting beyond prompt-and-response tools toward agentic systems that understand context, reason across steps, and execute work with minimal human oversight.</p>
+        <p><strong>Enterprise AI is moving from assistance to ownership.</strong> The next generation of AI is not just answering questions. It is understanding business context, reasoning across multiple steps, and executing meaningful work with minimal supervision.</p>
         <h5>What Is Changing</h5>
         <ul>
           <li>Reactive chatbots are being replaced by AI coworkers that can plan, act, and adapt.</li>
-          <li>Reasoning agents can handle complex, multi-step workflows instead of single-turn responses.</li>
-          <li>Security, governance, and observability now matter just as much as raw model capability.</li>
+          <li>Reasoning agents can manage multi-step workflows instead of single prompt-response interactions.</li>
+          <li>Security, governance, and observability are now as important as model quality.</li>
         </ul>
-        <div class="enterprise-ai-callout">
-          <p><strong>Dream IT uses the complete Microsoft AI stack</strong> to build reliable, governed, responsible, and production-grade enterprise AI solutions that are designed for real business outcomes.</p>
-        </div>
+        <p><strong>At Dream IT, we use the Microsoft AI stack end to end</strong> to build reliable, governed, responsible, and production-grade Enterprise AI solutions for real business environments.</p>
         <h5>Why Enterprises Are Moving Now</h5>
         <ul>
-          <li>Microsoft 365 Copilot and Large Language Models (LLMs) delivered strong early wins in drafting, summarization, and information retrieval.</li>
+          <li>Microsoft 365 Copilot and Large Language Models (LLMs) delivered strong early gains in drafting, summarization, and information retrieval.</li>
           <li>Many organizations have now reached a plateau because human coordination is still the main execution bottleneck.</li>
-          <li>The next phase of transformation is about autonomous systems that own workflows, not just answer questions.</li>
+          <li>The next wave of value comes from autonomous systems that can own outcomes, not just generate responses.</li>
         </ul>
-        <p>This is where Enterprise AI Consulting becomes critical: designing systems that are secure, auditable, future-ready, and capable of operating reliably in production.</p>
+        <h5>How Dream IT Creates Value</h5>
+        <ul>
+          <li>Design governed agentic systems with enterprise-grade identity, access, and audit controls.</li>
+          <li>Connect AI agents to business data, enterprise apps, and workflows through reliable integrations.</li>
+          <li>Deploy production-ready solutions that are measurable, scalable, and built to evolve with the Microsoft ecosystem.</li>
+        </ul>
+        <p>This is where Enterprise AI Consulting becomes essential: helping organizations move beyond experimentation into secure, auditable, and high-impact AI operations.</p>
       `,
     },
   ],
 };
-
-const industries = [
-  { name: "Pharmaceuticals", logo: "/assets/icons/healthcare.svg" },
-  { name: "MedTech", logo: "/assets/icons/technology.svg" },
-  { name: "Automotive", logo: "/assets/icons/technology.svg" },
-  { name: "Real Estate", logo: "/assets/icons/retail.svg" },
-  { name: "E-commerce", logo: "/assets/icons/e-commerce.svg" },
-  { name: "FMCG Retail", logo: "/assets/icons/retail.svg" },
-];
-
+ 
+ 
+const enterpriseExpertiseData = {
+  ourExpertise: [
+    {
+      tag: "OUR EXPERTISE AND CAPABILITIES",
+      title: "Our Enterprise AI Solutions",
+      expertiseContent: [
+        { bgColor: "#E6FBFE", text: "Autonomous Agents" },
+        { bgColor: "#E3EBFD", text: "Enterprise RAG Systems" },
+        { bgColor: "#DCFDE7", text: "Custom MCP Servers" },
+        { bgColor: "#EDDDFB", text: "Customer Support Automation" },
+        { bgColor: "#F6F4EE", text: "Business Optimization" },
+      ],
+    },
+  ],
+};
+ 
+ 
+ 
 const aiTechStack = [
   { name: "Copilot Studio", logo: "/assets/images/copilotstudioinaipage.png" },
   { name: "Microsoft Foundry", logo: "/assets/images/microsoft-foundry.png" },
@@ -101,7 +109,7 @@ const aiTechStack = [
     logoClassName: "scale-[1.25]",
   },
 ];
-
+ 
 const commitments = [
   {
     title: "Observability and Auditability",
@@ -124,7 +132,7 @@ const commitments = [
       "Our solutions are built to evolve. We ensure that every system is compatible with the latest advancements in Microsoft Azure AI Foundry Agent Service and Microsoft Fabric integration, allowing for a seamless transition as new capabilities are released.",
   },
 ];
-
+ 
 const faqs = [
   {
     question:
@@ -172,7 +180,7 @@ const faqs = [
       "DreamIT Consulting Services specializes in building production AI agents using the Microsoft AI stack, including Copilot Studio, Agents 365 solutions, and Microsoft Foundry agents. As an AI Agent Development Company, we design governed, reliable, and compliant AI systems tailored to your industry. Our ability ensures that your organization benefits from enterprise AI solutions that are future-proof, secure, and aligned with responsible AI practices.",
   },
 ];
-
+ 
 const EnterpriseCommitment = () => {
   return (
     <div className="container bg-[#F9FDFF]">
@@ -188,7 +196,7 @@ const EnterpriseCommitment = () => {
             We deliver governed, secure, and production-ready enterprise AI with full visibility and dependable outcomes.
           </p>
         </div>
-
+ 
         <div className="grid gap-6 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 lg:mt-10 xl:mt-10 md:mt-6 sm:mt-6 xs:mt-6">
           {commitments.map((item) => (
             <div
@@ -208,14 +216,14 @@ const EnterpriseCommitment = () => {
     </div>
   );
 };
-
+ 
 const EnterpriseAISolutionsPage = ({ pageInfo, caseStudy }: any) => {
   return (
     <>
       <OrganizationSEO />
       <Layout pageInfo={pageInfo}>
         <ServiceDetailsHome servicedata={enterpriseHeroData} />
-
+ 
         <DataDrivenSolutions showDataDrivenCrousal={false} />
         <div className="mx-auto">
           <h4 className="font-medium text-center xl:mb-6 lg:mb-6 md:mb-6 sm:mb-4 xs:mb-4 data-driven-title">
@@ -244,10 +252,10 @@ const EnterpriseAISolutionsPage = ({ pageInfo, caseStudy }: any) => {
             </div>
           </Marquee>
         </div>
-
+ 
         <ServiceContent servicedata={enterpriseParagraphData} />
         <OurExpertise servicedata={enterpriseExpertiseData} />
-
+ 
         <div className="container pt-60 pb-60 text-center" id="jobOpening">
           <div className="relative inline-block bg-[#ECF9FF] px-5 xl:py-2 lg:py-2 md:py-2 sm:py-2 xs:py-[6px] rounded-full mb-3 ">
             <span className="text-[#00A9FF] lg:text-[16px] md:text-[14px] sm:text-[12px] xs:text-[12px] text-center font-bold">
@@ -257,7 +265,7 @@ const EnterpriseAISolutionsPage = ({ pageInfo, caseStudy }: any) => {
           <h2 className="xl:mb-12 lg:mb-12 md:mb-4 sm:lg-4 xs:mb-4 max-w-[64rem] m-auto ">
             Our AI-Driven Tech Stack
           </h2>
-
+ 
           <Marquee gradient={false} speed={50} pauseOnHover={true}>
             <div className="flex justify-center gap-4 2xl:gap-6 ml-4 mr-4">
               {[...aiTechStack, ...aiTechStack, ...aiTechStack].map(
@@ -293,7 +301,7 @@ const EnterpriseAISolutionsPage = ({ pageInfo, caseStudy }: any) => {
             </div>
           </Marquee>
         </div>
-
+ 
         <CaseStudyList
           data={caseStudy}
           sectionTitle="Agentic AI Drives Results"
@@ -308,7 +316,7 @@ const EnterpriseAISolutionsPage = ({ pageInfo, caseStudy }: any) => {
     </>
   );
 };
-
+ 
 export const getStaticProps = async () => {
   const tagPriority = [
     "AI",
@@ -320,7 +328,7 @@ export const getStaticProps = async () => {
     "FMCG",
     "Retail",
   ];
-
+ 
   let caseStudy: any[] = [];
   const pageInfo = {
     title: "Enterprise AI Solutions",
@@ -329,7 +337,7 @@ export const getStaticProps = async () => {
       "Use the comprehensive Microsoft AI stack to deliver dependable, production grade Agentic Enterprise Solutions.",
     heroImage: [{ publicUrl: "/assets/images/aienterprisetitle.png" }],
   };
-
+ 
   try {
     const caseStudyRes = await fetch(
       `${AHD_HOST}/page?filter[groups][]=case-studies&orderBy=&limit=80&offset=0`
@@ -339,7 +347,7 @@ export const getStaticProps = async () => {
     }
     const caseStudyData = await caseStudyRes.json();
     const allCaseStudies = caseStudyData?.rows || [];
-
+ 
     const scored = allCaseStudies.map((item: any) => {
       const tags = (item?.tags || []).map((tag: string) => tag.toLowerCase());
       const score = tagPriority.reduce((acc, term) => {
@@ -349,22 +357,22 @@ export const getStaticProps = async () => {
       }, 0);
       return { item, score };
     });
-
+ 
     const matched = scored
       .filter((entry: any) => entry.score > 0)
       .sort((a: any, b: any) => b.score - a.score)
       .map((entry: any) => entry.item);
-
+ 
     const remaining = allCaseStudies.filter(
       (item: any) => !matched.some((m: any) => m?.slug === item?.slug)
     );
-
+ 
     caseStudy = [...matched, ...remaining].slice(0, 3);
   } catch (error) {
     console.error("Error fetching case studies:", error);
     caseStudy = [];
   }
-
+ 
   return {
     props: {
       pageInfo,
@@ -372,5 +380,6 @@ export const getStaticProps = async () => {
     },
   };
 };
-
+ 
 export default EnterpriseAISolutionsPage;
+ 

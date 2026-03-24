@@ -6,32 +6,29 @@ const Footer = () => {
   const today = new Date();
   const year = today.getFullYear();
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const solutionLinks = [
-    { label: "Cloud Data Management", href: "/services/cloud-data-management" },
-    {
-      label: "Data Analytics & Visualization",
-      href: "/services/advanced-analytics",
-    },
-    {
-      label: "Digital Transformation",
-      href: "/services/digital-transformation",
-    },
-    {
-      label: "ERP Implementation",
-      href: "/services/erp-implementation",
-    },
-    { label: "Digital Marketing", href: "/services/digital-marketing" },
-    {
-      label: "Business IT Ecosystem",
-      href: "/services/business-centric-it-ecosystem",
-    },
-  ];
   const discoverLinks = [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about-us" },
     { label: "Services", href: "/services" },
     { label: "Glossary", href: "/glossary" },
     { label: "Career", href: "/career" },
+  ];
+  const footerServiceLinks = [
+    {
+      label: "Digital Transformation",
+      href: "/services/digital-transformation",
+    },
+    { label: "Cloud Data", href: "/services/cloud-data-management" },
+    { label: "Enterprise AI", href: "/services/enterprise-ai-solutions" },
+    { label: "Digital Marketing", href: "/services/digital-marketing" },
+    {
+      label: "Advanced Analytics",
+      href: "/services/advanced-analytics",
+    },
+    {
+      label: "ERP Implementation",
+      href: "/services/erp-implementation-for-business-centric-it-ecosystem",
+    },
   ];
 
   return (
@@ -59,7 +56,7 @@ const Footer = () => {
             Our Services
           </h3>
           <ul className="flex flex-col gap-[3px]">
-            {solutionLinks.map((solution) => (
+            {footerServiceLinks.map((solution) => (
               <li key={solution.href}>
                 <Link
                   href={solution.href}

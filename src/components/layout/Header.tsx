@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import ContactFormModal from "../shared/ContactFormModal";
 import { Drawer } from "antd";
 import { FaWhatsapp } from "react-icons/fa";
+import { visibleServiceLinks } from "@/data/visibleServices";
 
 const Header = () => {
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
@@ -14,29 +15,6 @@ const Header = () => {
 
   const toggleDrawer = () => setIsDrawerVisible((prev) => !prev);
   const toggleDropdown = () => setShowDropdown((prev) => !prev);
-
-  const services = [
-    { name: "Cloud Data Management", slug: "cloud-data-management" },
-
-    {
-      name: "Advanced Data Analytics & Visualization",
-      slug: "advanced-analytics",
-    },
-    {
-      name: "Digital Transformation & Process Automation",
-      slug: "digital-transformation",
-    },
-    {
-      name: "Enterprise Resource Planning Implementation",
-      slug: "erp-implementation",
-    },
-
-    { name: "Digital Marketing", slug: "digital-marketing" },
-    {
-      name: "Business-Centric IT Ecosystem",
-      slug: "business-centric-it-ecosystem",
-    },
-  ];
 
   const isActive = (path: any) => router.pathname === path;
   const whatsappNumber = "919416484500";
@@ -158,16 +136,13 @@ const Header = () => {
                 </svg>
               </Link>
               <ul className="mt-2 md:pl-4 sm:pl-2">
-                {services.map((service) => (
+                {visibleServiceLinks.map((service) => (
                   <li
-                    key={service.slug}
+                    key={service.href}
                     className="flex items-start px-4 py-2 hover:bg-gray-100"
                   >
                     <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 flex-shrink-0 md:mt-2 sm:mt-1 xs:mt-2"></span>
-                    <Link
-                      onClick={toggleDrawer}
-                      href={`/services/${service.slug}`}
-                    >
+                    <Link onClick={toggleDrawer} href={service.href}>
                       <p className="md:text-16 sm:text-[14px] font-semibold text-black-700 leading-tight">
                         {service.name}
                       </p>
@@ -272,15 +247,12 @@ const Header = () => {
             </button>
             {showDropdown && (
               <ul className="absolute z-[5200] left-0 top-full mt-3 py-4 px-2 w-[300px] bg-white border rounded-[18px] shadow-lg">
-                {services.map((service) => (
+                {visibleServiceLinks.map((service) => (
                   <li
-                    key={service.slug}
+                    key={service.href}
                     className="px-4 py-2 hover:bg-gray-100"
                   >
-                    <Link
-                      onClick={() => setShowDropdown(false)}
-                      href={`/services/${service.slug}`}
-                    >
+                    <Link onClick={() => setShowDropdown(false)} href={service.href}>
                       <p className="text-16 font-semibold text-black-700">
                         {service.name}
                       </p>

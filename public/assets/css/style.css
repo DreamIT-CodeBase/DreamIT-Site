@@ -170,6 +170,119 @@ a[href]:not(.dream-it-cta-button):not(.nav-link-active):not(.nav-link-unactive):
   display: none !important;
 }
 
+.enterprise-ai-content.content-column {
+  max-height: calc(var(--image-height) - 4px);
+  overflow-y: auto;
+  background: #ffffff;
+  border: 0;
+  border-radius: 0;
+  padding: 0 10px 0 0;
+  box-shadow: none;
+  scrollbar-width: thin !important;
+  scrollbar-color: #b8c2cc #ffffff;
+}
+
+.enterprise-ai-content .service-details-content-title {
+  margin-bottom: 4px;
+  font-size: 38px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.enterprise-ai-content .ql-editor {
+  padding: 0;
+  white-space: normal;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.enterprise-ai-content::-webkit-scrollbar {
+  display: block !important;
+  width: 8px;
+}
+
+.enterprise-ai-content::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 999px;
+}
+
+.enterprise-ai-content::-webkit-scrollbar-thumb {
+  background: #b8c2cc;
+  border-radius: 999px;
+  border: 1px solid #ffffff;
+}
+
+.enterprise-ai-content .ql-editor p {
+  margin-bottom: 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: #435566;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.enterprise-ai-content .ql-editor > * + * {
+  margin-top: 10px;
+}
+
+.enterprise-ai-content .ql-editor p strong {
+  color: #072032;
+  font-weight: 700;
+}
+
+.enterprise-ai-content .ql-editor h5 {
+  margin: 12px 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #072032;
+  font-family: inherit;
+  font-style: normal;
+}
+
+.enterprise-ai-content .ql-editor ul {
+  margin: 0;
+  padding: 0;
+}
+
+.enterprise-ai-content .ql-editor ul > li {
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 24px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #435566;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.enterprise-ai-content .ql-editor li::before {
+  width: 12px;
+}
+
+.enterprise-ai-content .ql-editor li:not(.ql-direction-rtl)::before {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+.enterprise-ai-content .ql-editor ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #072032;
+  box-shadow: none;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -2172,6 +2285,51 @@ h6 {
 }
 
 @media (max-width: 640px) {
+  .enterprise-ai-content.content-column {
+    max-height: none;
+    overflow-y: visible;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .enterprise-ai-content .service-details-content-title {
+    margin-bottom: 4px;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  .enterprise-ai-content .ql-editor p,
+  .enterprise-ai-content .ql-editor ul > li {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .enterprise-ai-content .ql-editor > * + * {
+    margin-top: 8px;
+  }
+
+  .enterprise-ai-content .ql-editor h5 {
+    margin: 10px 0 4px;
+    font-size: 13px;
+  }
+
+  .enterprise-ai-content .ql-editor ul > li {
+    margin-bottom: 6px;
+    padding-left: 18px;
+  }
+
+  .enterprise-ai-content .ql-editor ul > li::before {
+    top: 7px;
+    width: 6px;
+    height: 6px;
+  }
+
+  .enterprise-ai-content .ql-editor .enterprise-ai-callout p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
   .ql-editor {
     padding: 0px 0px;
   }

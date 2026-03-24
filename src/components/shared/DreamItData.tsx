@@ -1,3 +1,5 @@
+import { visibleServiceCards } from "@/data/visibleServices";
+
 export const aboutUsHeroSectionContent = {
   title: "A Journey Guided by Values, Driven by Quality",
   tag: "ABOUT US",
@@ -35,59 +37,7 @@ export const ourServies = {
   subtitle:
     "We deliver custom-fit solutions and strategic plans to accelerate your business growth in the competitive digital landscape.",
   backgroundImage: " ",
-  ourServiesFeatures: [
-    {
-      src: "/assets/images/cloud-management-and-migration.webp",
-      title: "Cloud Data Management",
-      link: "/services/cloud-data-management",
-      subtitle:
-        "Streamlining the secure transfer, storage and optimization of business data through Cloud for enhanced scalability and performance.",
-    },
-
-    {
-      src: "/assets/images/analytics-and-visulalization.webp",
-      title: "Advanced Data Analytics & Visualization",
-      link: "/services/advanced-analytics",
-
-      subtitle:
-        "Leverage advanced analytics and visualization to unlock actionable insights, optimize decision making and accelerate business growth.",
-    },
-    {
-      src: "/assets/images/digital-consulting.webp",
-
-      title: "Digital Transformation & Process Automation",
-      link: "/services/digital-transformation",
-
-      subtitle:
-        "Empowering businesses with the Microsoft ecosystem and RPA to modernize operations, integrate innovative solutions, and streamline processes. We optimize workflows, enhance efficiency, and drive growth",
-    },
-    {
-      src: "/assets/images/enterprise-image.webp",
-      title: "Enterprise Resource Planning Implementation",
-      link: "/services/erp-implementation",
-
-      subtitle:
-        "ERP optimizes business operations by integrating core processes such as Finance & Operations, Sales & Marketing, CRM and HRM , improving data accuracy, and enhancing decision-making to drive overall business performance.",
-    },
-    {
-      src: "/assets/images/digital-transformation.webp",
-
-      title: "Digital Marketing",
-      link: "/services/digital-marketing",
-
-      subtitle:
-        "Leveraging targeted strategies like SEO, content marketing, social media, paid advertising, email marketing, and data analytics to enhance online presence, boost lead generation, and drive business growth and brand visibility",
-    },
-
-    {
-      src: "/assets/images/buisness-applications.webp",
-      title: "Business-Centric IT Ecosystem",
-      link: "/services/business-applications",
-
-      subtitle:
-        "Aligning with the overall needs of the business to target Marketing, enhance efficiencies, revenue optimization & insight-powered  decision making. Providing end-to-end solutions through our all-in-one IT framework.",
-    },
-  ],
+  ourServiesFeatures: visibleServiceCards,
 };
 export const ourServiesDetails = {
   tag: "OUR SERVICES",

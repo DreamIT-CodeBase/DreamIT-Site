@@ -12,15 +12,27 @@ import OrganizationSEO from "@/components/shared/OrganizationSEO";
 import faqData from "@/utils/faqData";
 import FAQ from "@/components/shared/FAQ";
 
+const legacyRedirectSlugs = new Set([
+  "business-centric-it-ecosystem",
+  "erp-implementation",
+]);
+
 const ServiceDetailPage = ({
   slug,
   serviceDetails: service,
   caseStudy,
   pageInfo,
 }: any) => {
-  if (!service) {
+  if (!service && !pageInfo) {
     return <div>Service not found</div>;
   }
+  const resolvedService = service || {
+    title: pageInfo?.title,
+    description: pageInfo?.metaDescription,
+    heroImage:
+      pageInfo?.heroImage?.[0]?.publicUrl ||
+      "/assets/images/services-hero-section-image.webp",
+  };
   const pageTag = pageInfo?.tags?.[0];
   let displayedCaseStudies;
 
@@ -46,11 +58,17 @@ const ServiceDetailPage = ({
     <>
       <OrganizationSEO />
       <Layout pageInfo={pageInfo}>
-        <ServiceDetailsHome servicedata={service} />
+        <ServiceDetailsHome servicedata={resolvedService} />
         <DataDrivenSolutions />
-        <ServiceContent servicedata={pageInfo} />
-        <OurExpertise servicedata={service} />
-        <Technologies technology={service} />
+        {pageInfo?.sections?.length > 0 ? (
+          <ServiceContent servicedata={pageInfo} />
+        ) : null}
+        {service?.ourExpertise?.length > 0 ? (
+          <OurExpertise servicedata={service} />
+        ) : null}
+        {service?.techData?.length > 0 ? (
+          <Technologies technology={service} />
+        ) : null}
         <CaseStudyList data={displayedCaseStudies} />
         <OurCommitment />
         {faqs.length > 0 ? <FAQ items={faqs} /> : <></>}
@@ -83,9 +101,11 @@ export const getStaticPaths = async () => {
       );
     }
     const pagePages = await pagesRes.json();
-    const paths = (pagePages?.rows || []).map((page: any) => ({
-      params: { slug: page?.slug },
-    }));
+    const paths = (pagePages?.rows || [])
+      .filter((page: any) => !legacyRedirectSlugs.has(page?.slug))
+      .map((page: any) => ({
+        params: { slug: page?.slug },
+      }));
 
     return {
       paths,
