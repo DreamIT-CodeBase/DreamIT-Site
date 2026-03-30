@@ -15,7 +15,7 @@ const faqData = [
         scalable solutions for expansion, productivity, and competitive
         advantage. These services include{" "}
         <a
-          href="https://dreamitcs.com/services/cloud-data-management/"
+          href="https://www.dreamitcs.com/services/cloud-data-management/"
           className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
           target="_blank"
           rel="noopener noreferrer"
@@ -33,7 +33,7 @@ const faqData = [
         Our cloud data management services ensure a safe, secure and scalable
         data ecosystem. Combined with{" "}
         <a
-          href="https://dreamitcs.com/services/advanced-analytics/"
+          href="https://www.dreamitcs.com/services/advanced-analytics/"
           className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
           target="_blank"
           rel="noopener noreferrer"
@@ -51,7 +51,7 @@ const faqData = [
       <>
         Yes. As an{" "}
         <a
-          href="https://dreamitcs.com/"
+          href="https://www.dreamitcs.com/"
           className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
           target="_blank"
           rel="noopener noreferrer"
@@ -75,7 +75,7 @@ const faqData = [
       <>
         Yes. We provide{" "}
         <a
-          href="https://dreamitcs.com/services/advanced-analytics/"
+          href="https://www.dreamitcs.com/services/advanced-analytics/"
           className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
           target="_blank"
           rel="noopener noreferrer"
@@ -96,7 +96,7 @@ const faqData = [
         with advanced analytics and Microsoft Power BI services, which create
         data-operated strategies using{" "}
         <a
-          href="https://dreamitcs.com/services/digital-marketing/"
+          href="https://www.dreamitcs.com/services/digital-marketing/"
           className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
           target="_blank"
           rel="noopener noreferrer"
@@ -122,7 +122,7 @@ const faqData = [
         ensure long-term system reliability, developed performance and average
         results for{" "}
         <a
-          href="https://dreamitcs.com/services/erp-implementation-for-business-centric-it-ecosystem/"
+          href="https://www.dreamitcs.com/services/erp-implementation-for-business-centric-it-ecosystem/"
           className="text-[#00A9FF] underline hover:text-blue-700 transition-colors duration-200"
           target="_blank"
           rel="noopener noreferrer"

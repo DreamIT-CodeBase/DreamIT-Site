@@ -1,5 +1,5 @@
 module.exports = {
-    siteUrl: 'https://dreamitcs.com',
+    siteUrl: 'https://www.dreamitcs.com',
     generateRobotsTxt: true,
     changefreq: 'daily',
     exclude: [

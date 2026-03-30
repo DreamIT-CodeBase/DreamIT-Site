@@ -8,6 +8,7 @@ import Footer from "../../components/layout/Footer";
 import DataDrivenSolutions from "../../components/home/DataDrivenSolutions";
 
 import { glossaryTopics } from "../../data/glossaryTopics";
+import { SITE_URL } from "../../utils/constant";
 
 export default function GlossarySlug({ slug, initialHtml }) {
   const [html, setHtml] = useState(initialHtml || "");
@@ -24,6 +25,7 @@ export default function GlossarySlug({ slug, initialHtml }) {
   const pageMetaTitle =
     topic?.metaTitle || `${pageTitle} | Glossary – Dream IT Consulting Services`;
   const pageMetaDescription = topic?.metaDescription || pageSubtitle;
+  const canonicalUrl = new URL(`/glossary/${slug}`, SITE_URL).toString();
 
   useEffect(() => {
     if (!html) return;
@@ -110,6 +112,8 @@ export default function GlossarySlug({ slug, initialHtml }) {
       <Head>
         <title>{pageMetaTitle}</title>
         <meta name="description" content={pageMetaDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:url" content={canonicalUrl} />
         <link rel="stylesheet" href="/assets/files/style.css" />
       </Head>
 

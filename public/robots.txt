@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://dreamitcs.com
+Host: https://www.dreamitcs.com
 
 # Sitemaps
-Sitemap: https://dreamitcs.com/sitemap.xml
+Sitemap: https://www.dreamitcs.com/sitemap.xml

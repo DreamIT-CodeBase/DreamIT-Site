@@ -33,7 +33,7 @@ const ShareWithFriends = () => {
     pageUrl
   )}&text=Check out this blog by dream it consulting services private limited`;
 
-  // const xPostUrl = `https://twitter.com/intent/tweet?url=https://dreamitcs.com/case-studies/real-time-predictive-analytics-for-prescription-deliveries/&text=Check out this blog by dream it consulting services private limited`;
+  // const xPostUrl = `https://twitter.com/intent/tweet?url=https://www.dreamitcs.com/case-studies/real-time-predictive-analytics-for-prescription-deliveries/&text=Check out this blog by dream it consulting services private limited`;
 
   return (
     <Card className="bg-[#D6F1FF] rounded-[10px] mt-4">

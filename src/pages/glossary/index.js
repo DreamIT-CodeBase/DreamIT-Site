@@ -8,6 +8,7 @@ import Link from "next/link";
 import DataDrivenSolutions from "../../components/home/DataDrivenSolutions";
 
 import { glossaryTopics } from "../../data/glossaryTopics";
+import { SITE_URL } from "../../utils/constant";
 
 /* ✅ Auto Group Topics by First Letter */
 const groupTopicsByLetter = (topics) => {
@@ -30,6 +31,7 @@ const groupTopicsByLetter = (topics) => {
 
 export default function Glossary() {
   const alphabet = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+  const canonicalUrl = new URL("/glossary", SITE_URL).toString();
 
   const [showTopBtn, setShowTopBtn] = useState(false);
 
@@ -85,6 +87,8 @@ export default function Glossary() {
           name="description"
           content="Explore the DreamIT glossary covering Microsoft Fabric, Power BI, data visualization, digital marketing, and AI terms. Clear, practical definitions for analysts, marketers, and tech professionals."
         />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:url" content={canonicalUrl} />
       </Head>
 
       <Header />

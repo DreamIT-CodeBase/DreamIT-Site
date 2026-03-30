@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { SITE_URL } from "@/utils/constant";
 
 export default function OrganizationSEO() {
   return (
@@ -9,10 +10,10 @@ export default function OrganizationSEO() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "@id": "https://dreamitcs.com/#organization",
+            "@id": `${SITE_URL}/#organization`,
             "name": "Dream IT Consulting Services",
-            "url": "https://dreamitcs.com/",
-            "logo": "https://dreamitcs.com/assets/icons/dreamit-new-logo.png",
+            "url": `${SITE_URL}/`,
+            "logo": `${SITE_URL}/assets/icons/dreamit-new-logo.png`,
             "contactPoint": {
               "@type": "ContactPoint",
               "telephone": "+91-94164-84500",

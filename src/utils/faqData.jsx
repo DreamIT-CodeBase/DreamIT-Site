@@ -8,7 +8,7 @@ export default [
           <>
             Dream IT offers comprehensive{" "}
             <a
-              href="https://dreamitcs.com/services/cloud-data-management/"
+              href="https://www.dreamitcs.com/services/cloud-data-management/"
               className="text-[#00A9FF] font-semibold hover:underline"
             >
               cloud data management services
@@ -28,7 +28,7 @@ export default [
             organizations safely transfer, modernize, and optimize workloads
             with minimal downtime, and{" "}
             <a
-              href="https://dreamitcs.com/services/digital-transformation/"
+              href="https://www.dreamitcs.com/services/digital-transformation/"
               className="text-[#00A9FF] font-semibold hover:underline"
             >
               accelerate digital transformation
@@ -49,7 +49,7 @@ export default [
             Yes. Our cloud data integration services connect Azure, AWS, and
             hybrid ecosystems. We also support{" "}
             <a
-              href="https://dreamitcs.com/blogs/top-5-reasons-to-combine-power-bi-with-microsoft-fabric-for-seamless-analytics/"
+              href="https://www.dreamitcs.com/blogs/top-5-reasons-to-combine-power-bi-with-microsoft-fabric-for-seamless-analytics/"
               className="text-[#00A9FF] font-semibold hover:underline"
             >
               Microsoft Fabric
@@ -76,7 +76,7 @@ export default [
           <>
             Our cloud data management services are integrated with{" "}
             <a
-              href="https://dreamitcs.com/services/advanced-analytics/"
+              href="https://www.dreamitcs.com/services/advanced-analytics/"
               className="text-[#00A9FF] font-semibold hover:underline"
             >
               advanced analytics
@@ -84,7 +84,7 @@ export default [
             , automation, and AI initiatives, helping organizations build a
             strong foundation for{" "}
             <a
-              href="https://dreamitcs.com/services/digital-transformation/"
+              href="https://www.dreamitcs.com/services/digital-transformation/"
               className="text-[#00A9FF] font-semibold hover:underline"
             >
               business transformation

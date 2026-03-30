@@ -5,29 +5,37 @@ import Footer from "./Footer";
 import { useRouter } from "next/router";
 import Parser from "html-react-parser";
 import ChatbotWidget from "./ChatbotWidget";
-
-
-
+import { SITE_URL } from "@/utils/constant";
 
 const Layout = (props: any) => {
   const router = useRouter();
   const metaData = props.pageInfo;
-  const baseUrl = "https://dreamitcs.com";
 
   const normalizedPath = (() => {
     const path = router.asPath.split("?")[0].split("#")[0] || "/";
     if (path === "/") return "/";
     return path.endsWith("/") ? path.slice(0, -1) : path;
   })();
-  const canonicalUrl = `${baseUrl}${normalizedPath}`;
+  const canonicalUrl = new URL(normalizedPath, SITE_URL).toString();
+  const normalizedHeadMarkup = (metaData?.head || "")
+    .replace(
+      /https:\/\/(?:www\.)?dreamitcs\.com(?=[/?#"'<\s]|$)/gi,
+      SITE_URL
+    )
+    .replace(/<link\b[^>]*rel=["']canonical["'][^>]*>/gi, "");
+  const normalizedBodyBottomMarkup = (metaData?.bodyBottom || "").replace(
+    /https:\/\/(?:www\.)?dreamitcs\.com(?=[/?#"'<\s]|$)/gi,
+    SITE_URL
+  );
   const ogImageUrl =
     metaData?.heroImage?.[0]?.publicUrl ||
     metaData?.metaImageUrl ||
     "/assets/icons/dreamItLogo.png";
+  const siteDomain = SITE_URL.replace(/^https?:\/\//, "");
   return (
     <div className="flex flex-col min-h-screen">
       <Head>
-        {Parser(metaData?.head || "")}
+        {Parser(normalizedHeadMarkup)}
 
         <title>{metaData?.title}</title>
         <meta name="title" content={metaData?.metaTitle} />
@@ -51,7 +59,7 @@ const Layout = (props: any) => {
         <meta name="twitter:creator" content="Dream It" />
         <meta name="twitter:title" content={metaData?.metaTitle} />
         <meta name="twitter:description" content={metaData?.metaDescription} />
-        <meta name="twitter:domain" content={canonicalUrl} />
+        <meta name="twitter:domain" content={siteDomain} />
         <meta name="twitter:image" content={ogImageUrl} />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -76,10 +84,10 @@ const Layout = (props: any) => {
               "@graph": [
                 {
                   "@type": "Organization",
-                  "@id": "https://dreamitcs.com/#organization",
+                  "@id": "https://www.dreamitcs.com/#organization",
                   name: "Dream IT Consulting Services",
-                  url: "https://dreamitcs.com",
-                  logo: "https://dreamitcs.com/assets/icons/dreamit-new-logo.png",
+                  url: "https://www.dreamitcs.com",
+                  logo: "https://www.dreamitcs.com/assets/icons/dreamit-new-logo.png",
                   email: "connect@dreamitcs.com",
                   telephone: "+91 94164-84500",
                   address: {
@@ -100,37 +108,37 @@ const Layout = (props: any) => {
                 },
                 {
                   "@type": "BreadcrumbList",
-                  "@id": "https://dreamitcs.com/#breadcrumbs",
+                  "@id": "https://www.dreamitcs.com/#breadcrumbs",
                   itemListElement: [
                     {
                       "@type": "ListItem",
                       position: 1,
                       name: "About Us",
-                      item: "https://dreamitcs.com/about-us/",
+                      item: "https://www.dreamitcs.com/about-us/",
                     },
                     {
                       "@type": "ListItem",
                       position: 2,
                       name: "Life at Dream IT",
-                      item: "https://dreamitcs.com/career/",
+                      item: "https://www.dreamitcs.com/career/",
                     },
                     {
                       "@type": "ListItem",
                       position: 3,
                       name: "Advanced Data Analytics & Visualization",
-                      item: "https://dreamitcs.com/services/advanced-analytics/",
+                      item: "https://www.dreamitcs.com/services/advanced-analytics/",
                     },
                     {
                       "@type": "ListItem",
                       position: 4,
                       name: "Cloud Data Management",
-                      item: "https://dreamitcs.com/services/cloud-data-management/",
+                      item: "https://www.dreamitcs.com/services/cloud-data-management/",
                     },
                     {
                       "@type": "ListItem",
                       position: 5,
                       name: "Digital Marketing",
-                      item: "https://dreamitcs.com/services/digital-marketing/",
+                      item: "https://www.dreamitcs.com/services/digital-marketing/",
                     },
                   ],
                 },
@@ -144,9 +152,8 @@ const Layout = (props: any) => {
       <main className="flex-grow">{props.children}</main>
       <ChatbotWidget />
       <Footer />
-      
-      
-      <div>{Parser(metaData?.bodyBottom || "")}</div>
+
+      <div>{Parser(normalizedBodyBottomMarkup)}</div>
     </div>
   );
 };
