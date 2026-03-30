@@ -9,7 +9,7 @@ Next.js export.
 - `output: "export"` writes the static site to `out/`.
 - Azure Static Web Apps deploys the exported `out` folder from
   [main.yml](./.github/workflows/main.yml).
-- Scheduled content refreshes deploy from
+- Scheduled hourly redeploys run from
   [incremental-updates.yml](./.github/workflows/incremental-updates.yml).
 
 ## Required GitHub secret
