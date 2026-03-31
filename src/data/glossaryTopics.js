@@ -34,7 +34,7 @@ export const glossaryTopics = [
     description:"Cloud Data Management refers to the practices and technologies used to manage data in cloud environments, ensuring data integrity, security, and accessibility."
   },
   {
-    slug:"fabric-iq",
+    slug:"fabric-planning",
     title:"Fabric Planning",
     description:"Fabric Planning is a new capability introduced by Fabric IQ that enables companies to transition from analyzing past performance to developing future performance using analytics."
 
