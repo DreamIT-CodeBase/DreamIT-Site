@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import DataDrivenSolutions from "../../components/home/DataDrivenSolutions";
 
-import { glossaryTopics } from "../../data/glossaryTopics";
+import glossaryTopics from "../../data/glossaryTopics.json";
 import { SITE_URL } from "../../utils/constant";
 
 const ITEMS_PER_PAGE = 3;

@@ -24,6 +24,6 @@ jobs:
           app_location: /
           api_location: ""
           output_location: out
-          app_build_command: "npm run build && test -f out/glossary/sql-server-reporting-services.html"
+          app_build_command: "npm run build && test -f out/sitemap.xml && test -f out/sitemap-0.xml && grep -q '/glossary/model-context-protocol' out/sitemap-0.xml && test -f out/glossary/sql-server-reporting-services.html"
         env:
           CI: true

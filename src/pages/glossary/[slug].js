@@ -7,7 +7,7 @@ import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
 import DataDrivenSolutions from "../../components/home/DataDrivenSolutions";
 
-import { glossaryTopics } from "../../data/glossaryTopics";
+import glossaryTopics from "../../data/glossaryTopics.json";
 import { SITE_URL } from "../../utils/constant";
 
 export default function GlossarySlug({ slug, initialHtml }) {
