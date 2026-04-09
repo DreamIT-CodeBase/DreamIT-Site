@@ -5,10 +5,13 @@ import Head from "next/head";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import DataDrivenSolutions from "../../components/home/DataDrivenSolutions";
 
 import { glossaryTopics } from "../../data/glossaryTopics";
 import { SITE_URL } from "../../utils/constant";
+
+const ITEMS_PER_PAGE = 3;
 
 /* ✅ Auto Group Topics by First Letter */
 const groupTopicsByLetter = (topics) => {
@@ -30,15 +33,50 @@ const groupTopicsByLetter = (topics) => {
 };
 
 export default function Glossary() {
+  const router = useRouter();
   const alphabet = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
   const canonicalUrl = new URL("/glossary", SITE_URL).toString();
 
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [pendingLetter, setPendingLetter] = useState(null);
 
   const HEADER_OFFSET = 88;
 
-  /* ✅ Group Topics Dynamically */
-  const groupedTopics = groupTopicsByLetter(glossaryTopics);
+  const sortedTopics = [...glossaryTopics].sort((firstTopic, secondTopic) =>
+    firstTopic.title.localeCompare(secondTopic.title)
+  );
+  const totalPages = Math.max(
+    1,
+    Math.ceil(sortedTopics.length / ITEMS_PER_PAGE)
+  );
+  const queryPage = Array.isArray(router.query.page)
+    ? router.query.page[0]
+    : router.query.page;
+  const parsedPage = Number.parseInt(queryPage || "1", 10);
+  const currentPage =
+    Number.isNaN(parsedPage) || parsedPage < 1
+      ? 1
+      : Math.min(parsedPage, totalPages);
+  const pageStartIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const currentPageTopics = sortedTopics.slice(
+    pageStartIndex,
+    pageStartIndex + ITEMS_PER_PAGE
+  );
+  const groupedTopics = groupTopicsByLetter(currentPageTopics);
+  const visibleTopicStart = sortedTopics.length === 0 ? 0 : pageStartIndex + 1;
+  const visibleTopicEnd = Math.min(
+    pageStartIndex + ITEMS_PER_PAGE,
+    sortedTopics.length
+  );
+  const letterPageMap = sortedTopics.reduce((pagesByLetter, topic, index) => {
+    const letter = topic.title.charAt(0).toUpperCase();
+
+    if (!pagesByLetter[letter]) {
+      pagesByLetter[letter] = Math.floor(index / ITEMS_PER_PAGE) + 1;
+    }
+
+    return pagesByLetter;
+  }, {});
 
   /* Scroll Button Logic */
   useEffect(() => {
@@ -49,8 +87,7 @@ export default function Glossary() {
   }, []);
 
   /* Letter Exists Check */
-  const hasLetter = (letter) =>
-    groupedTopics.some((g) => g.letter === letter);
+  const hasLetter = (letter) => Boolean(letterPageMap[letter]);
 
   /* Smooth Scroll */
   const scrollToElementWithOffset = (el) => {
@@ -65,8 +102,37 @@ export default function Glossary() {
     });
   };
 
+  const updatePage = async (nextPage) => {
+    const safePage = Math.min(Math.max(nextPage, 1), totalPages);
+
+    if (safePage === currentPage) return;
+
+    const nextQuery = safePage === 1 ? {} : { page: String(safePage) };
+
+    await router.push(
+      {
+        pathname: router.pathname,
+        query: nextQuery,
+      },
+      undefined,
+      { shallow: true, scroll: false }
+    );
+
+    scrollToElementWithOffset(document.getElementById("glossary-top"));
+  };
+
   /* Alphabet Click */
-  const handleScrollToSection = (letter) => {
+  const handleScrollToSection = async (letter) => {
+    const targetPage = letterPageMap[letter];
+
+    if (!targetPage) return;
+
+    if (targetPage !== currentPage) {
+      setPendingLetter(letter);
+      await updatePage(targetPage);
+      return;
+    }
+
     const el = document.getElementById(`section-${letter}`);
     if (el) scrollToElementWithOffset(el);
   };
@@ -74,6 +140,16 @@ export default function Glossary() {
   /* Scroll Top */
   const scrollToTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+  useEffect(() => {
+    if (!pendingLetter) return;
+
+    const section = document.getElementById(`section-${pendingLetter}`);
+    if (!section) return;
+
+    scrollToElementWithOffset(section);
+    setPendingLetter(null);
+  }, [currentPage, pendingLetter]);
 
   return (
     <div>
@@ -128,7 +204,7 @@ export default function Glossary() {
         </div>
 
         {/* ✅ CONTENT */}
-        <div className="glossary-container">
+        <div className="glossary-container" id="glossary-top">
           {/* Alphabet Row */}
           <div className="alphabet-row">
             {alphabet.map((letter) => {
@@ -174,6 +250,61 @@ export default function Glossary() {
               </section>
             ))}
           </div>
+
+          {totalPages > 1 && (
+            <div className="pagination-wrap">
+              <p className="pagination-summary">
+                Showing {visibleTopicStart}-{visibleTopicEnd} of{" "}
+                {sortedTopics.length} terms
+              </p>
+
+              <div className="pagination-controls" aria-label="Glossary pages">
+                <button
+                  className="page-btn page-btn-nav"
+                  aria-label="Previous page"
+                  disabled={currentPage === 1}
+                  onClick={() => {
+                    setPendingLetter(null);
+                    void updatePage(currentPage - 1);
+                  }}
+                >
+                  <span aria-hidden="true">←</span>
+                </button>
+
+                {Array.from({ length: totalPages }, (_, index) => {
+                  const page = index + 1;
+
+                  return (
+                    <button
+                      key={page}
+                      className={`page-btn ${
+                        page === currentPage ? "page-btn-active" : ""
+                      }`}
+                      aria-current={page === currentPage ? "page" : undefined}
+                      onClick={() => {
+                        setPendingLetter(null);
+                        void updatePage(page);
+                      }}
+                    >
+                      {page}
+                    </button>
+                  );
+                })}
+
+                <button
+                  className="page-btn page-btn-nav"
+                  aria-label="Next page"
+                  disabled={currentPage === totalPages}
+                  onClick={() => {
+                    setPendingLetter(null);
+                    void updatePage(currentPage + 1);
+                  }}
+                >
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </main>
 
@@ -186,7 +317,7 @@ export default function Glossary() {
         </button>
       )}
 
-      {/* ✅ SAME CSS (UNCHANGED) */}
+      {/* Glossary page styles */}
       <style jsx>{`
         .glossary-container {
           max-width: 1280px;
@@ -228,6 +359,65 @@ export default function Glossary() {
           display: flex;
           flex-direction: column;
           gap: 24px;
+        }
+
+        .pagination-wrap {
+          margin-top: 32px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 18px;
+        }
+
+        .pagination-summary {
+          margin: 0;
+          font-size: 15px;
+          color: rgba(0, 0, 0, 0.7);
+        }
+
+        .pagination-controls {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        .page-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 46px;
+          height: 46px;
+          padding: 0 18px;
+          border-radius: 10px;
+          border: 1px solid rgba(11, 97, 214, 0.2);
+          background: #fff;
+          color: #0b61d6;
+          font-size: 15px;
+          font-weight: 700;
+          transition: all 0.2s ease;
+        }
+
+        .page-btn:hover:not(:disabled) {
+          background: #eef5ff;
+        }
+
+        .page-btn-active {
+          background: #0b61d6;
+          border-color: #0b61d6;
+          color: #fff;
+        }
+
+        .page-btn:disabled {
+          cursor: not-allowed;
+          opacity: 0.45;
+        }
+
+        .page-btn-nav {
+          min-width: 46px;
+          padding: 0;
+          font-size: 20px;
+          line-height: 1;
         }
 
         .entry {
@@ -305,6 +495,32 @@ export default function Glossary() {
           .entry {
             gap: 16px;
             padding: 22px 0;
+          }
+
+          .pagination-wrap {
+            margin-top: 26px;
+            gap: 14px;
+          }
+
+          .pagination-summary {
+            font-size: 14px;
+            text-align: center;
+          }
+
+          .pagination-controls {
+            gap: 8px;
+          }
+
+          .page-btn {
+            min-width: 40px;
+            height: 40px;
+            padding: 0 14px;
+            font-size: 14px;
+          }
+
+          .page-btn-nav {
+            min-width: 40px;
+            font-size: 18px;
           }
 
           .entry-title {

@@ -1,4 +1,5 @@
 import { LEAD_API } from "@/utils/constant";
+import { visibleServiceLinks } from "@/data/visibleServices";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -201,30 +202,17 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
                           {...register("selectService", {
                             required: "Please select a service",
                           })}
+                          defaultValue=""
                           className="customSelectTag  xs:h-[40px] sm:h-[40px] md:h-[50px] lg:h-[50px] xl:h-[60px] px-4 mt-1 block w-full text-black-100 bg-white rounded-[10px] border-[2px] border-[#eaeaea] focus:ring-[#072032] focus:border-[#072032] focus:outline-none"
                         >
-                          <option value="" disabled selected>
-                            Please Select{" "}
+                          <option value="" disabled>
+                            Please Select
                           </option>
-                          <option value="Cloud Data Management & Migration">
-                            Cloud Data Management
-                          </option>
-                          <option value="Advanced-Data Analytics & Visualization">
-                            Advanced-Data Analytics & Visualization
-                          </option>
-                          <option value="Digital Transformation Consulting">
-                            Digital Transformation & Process Automation
-                          </option>
-                          <option value="Employee Feedback">
-                            Enterprise Resource Planning (ERP) Implementation
-                          </option>
-
-                          <option value="Digital Marketing">
-                            Digital Marketing
-                          </option>
-                          <option value="Business Applications">
-                            Business-Centric IT Ecosystem
-                          </option>
+                          {visibleServiceLinks.map((service) => (
+                            <option key={service.href} value={service.name}>
+                              {service.name}
+                            </option>
+                          ))}
                         </select>
                         {errors.selectService?.message && (
                           <span className="text-red-500 text-sm">

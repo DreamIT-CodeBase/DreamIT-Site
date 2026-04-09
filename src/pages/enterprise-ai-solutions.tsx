@@ -323,10 +323,11 @@ export const getStaticProps = async () => {
 
   let caseStudy: any[] = [];
   const pageInfo = {
-    title: "Enterprise AI Solutions",
-    metaTitle: "Enterprise AI Solutions",
+    title: "Scalable Enterprise AI Services | Secure LLM & GenAI Integration",
+    metaTitle:
+      "Scalable Enterprise AI Services | Secure LLM & GenAI Integration",
     metaDescription:
-      "Use the comprehensive Microsoft AI stack to deliver dependable, production grade Agentic Enterprise Solutions.",
+      "Transform your business with enterprise AI solutions. Automate workflows, improve decision-making, and scale operations with expert AI consulting and implementation services.",
     heroImage: [{ publicUrl: "/assets/images/aienterprisetitle.png" }],
   };
 
