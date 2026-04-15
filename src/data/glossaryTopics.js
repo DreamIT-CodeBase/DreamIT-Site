@@ -19,7 +19,7 @@ export const glossaryTopics = [
       "Explore the definition of OneLake in our Dream IT glossary — a unified data lake concept in Microsoft Fabric, Power BI and modern data analytics. Clear explanation for tech leaders and data professionals."
   },
   {
-    slug:"powerbi-Desktop-projects",
+    slug:"powerbi-desktop-projects",
     title:"Power BI Desktop Projects",
     description:"Power BI Desktop Projects are a feature that allows you to work with multiple datasets in a single Power BI Desktop file."
   },
@@ -29,7 +29,7 @@ export const glossaryTopics = [
     description:"SQL Server Reporting Services (SSRS) is a server-based report generating software system from Microsoft."
   },
   {
-    slug:"cloud_data_management",
+    slug:"cloud-data-management",
     title:"Cloud Data Management",
     description:"Cloud Data Management refers to the practices and technologies used to manage data in cloud environments, ensuring data integrity, security, and accessibility."
   },
@@ -38,5 +38,10 @@ export const glossaryTopics = [
     title:"Fabric Planning",
     description:"Fabric Planning is a new capability introduced by Fabric IQ that enables companies to transition from analyzing past performance to developing future performance using analytics."
 
+  },
+  {
+    slug:"database-hub",
+    title:"Database Hub",
+    description:"A Database Hub is a centralized interface that consolidates and manages multiple databases"
   }
 ];

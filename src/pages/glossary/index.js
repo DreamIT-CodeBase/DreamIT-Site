@@ -11,7 +11,7 @@ import DataDrivenSolutions from "../../components/home/DataDrivenSolutions";
 import { glossaryTopics } from "../../data/glossaryTopics";
 import { SITE_URL } from "../../utils/constant";
 
-const ITEMS_PER_PAGE = 3;
+const ITEMS_PER_PAGE = 5;
 
 /* ✅ Auto Group Topics by First Letter */
 const groupTopicsByLetter = (topics) => {
