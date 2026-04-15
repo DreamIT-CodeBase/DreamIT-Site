@@ -42,6 +42,10 @@ export const glossaryTopics = [
   {
     slug:"database-hub",
     title:"Database Hub",
-    description:"A Database Hub is a centralized interface that consolidates and manages multiple databases"
+    description:"A Database Hub is a centralized interface that consolidates and manages multiple databases",
+    metaTitle:
+      "Database Hub | Glossary – Dream IT Consulting Services",
+    metaDescription:
+      "Discover the role of a Database Hub in modern data architecture. Learn how it centralizes and manages multiple databases for improved data governance and accessibility."
   }
 ];
