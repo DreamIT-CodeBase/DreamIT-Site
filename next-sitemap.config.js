@@ -1,6 +1,8 @@
 module.exports = {
     siteUrl: 'https://www.dreamitcs.com',
-    generateRobotsTxt: true,
+    outDir: 'public',
+    generateIndexSitemap: false,
+    generateRobotsTxt: false,
     changefreq: 'daily',
     exclude: [
       '/blogs',
