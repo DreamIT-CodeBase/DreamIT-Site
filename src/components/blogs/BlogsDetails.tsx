@@ -268,10 +268,39 @@ const Wrapper = styled.div`
     margin: 16px 0;
   }
 
+  .blog-body ul.blog-list,
+  .blog-body .ql-editor ul {
+    list-style: disc !important;
+    list-style-position: outside;
+  }
+
+  .blog-body ol.blog-list,
+  .blog-body .ql-editor ol {
+    list-style: decimal !important;
+    list-style-position: outside;
+  }
+
+  .blog-body ul.blog-list ul,
+  .blog-body .ql-editor ul ul {
+    list-style-type: circle !important;
+  }
+
+  .blog-body ul.blog-list ul ul,
+  .blog-body .ql-editor ul ul ul {
+    list-style-type: square !important;
+  }
+
   .blog-li {
+    display: list-item !important;
+    padding-left: 0 !important;
     margin-bottom: 10px;
     line-height: 1.6;
     color: #2f3336;
+  }
+
+  .blog-body .blog-li::before,
+  .blog-body .ql-editor li::before {
+    content: none !important;
   }
 
   /* Images */
