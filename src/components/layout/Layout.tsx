@@ -7,6 +7,21 @@ import Parser from "html-react-parser";
 import ChatbotWidget from "./ChatbotWidget";
 import { SITE_URL } from "@/utils/constant";
 
+function sanitizeJsonLdScripts(markup: string) {
+  return markup.replace(
+    /<script\b(?=[^>]*\btype=["']application\/ld\+json["'])[^>]*>([\s\S]*?)<\/script>/gi,
+    (_match, jsonText: string) => {
+      try {
+        const parsedJson = JSON.parse(jsonText.trim());
+        const safeJson = JSON.stringify(parsedJson).replace(/</g, "\\u003c");
+        return `<script type="application/ld+json">${safeJson}</script>`;
+      } catch {
+        return "";
+      }
+    }
+  );
+}
+
 const Layout = (props: any) => {
   const router = useRouter();
   const metaData = props.pageInfo;
@@ -17,15 +32,19 @@ const Layout = (props: any) => {
     return path.endsWith("/") ? path.slice(0, -1) : path;
   })();
   const canonicalUrl = new URL(normalizedPath, SITE_URL).toString();
-  const normalizedHeadMarkup = (metaData?.head || "")
-    .replace(
+  const normalizedHeadMarkup = sanitizeJsonLdScripts(
+    (metaData?.head || "")
+      .replace(
+        /https:\/\/(?:www\.)?dreamitcs\.com(?=[/?#"'<\s]|$)/gi,
+        SITE_URL
+      )
+      .replace(/<link\b[^>]*rel=["']canonical["'][^>]*>/gi, "")
+  );
+  const normalizedBodyBottomMarkup = sanitizeJsonLdScripts(
+    (metaData?.bodyBottom || "").replace(
       /https:\/\/(?:www\.)?dreamitcs\.com(?=[/?#"'<\s]|$)/gi,
       SITE_URL
     )
-    .replace(/<link\b[^>]*rel=["']canonical["'][^>]*>/gi, "");
-  const normalizedBodyBottomMarkup = (metaData?.bodyBottom || "").replace(
-    /https:\/\/(?:www\.)?dreamitcs\.com(?=[/?#"'<\s]|$)/gi,
-    SITE_URL
   );
   const ogImageUrl =
     metaData?.heroImage?.[0]?.publicUrl ||
