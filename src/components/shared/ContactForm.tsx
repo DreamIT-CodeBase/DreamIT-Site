@@ -1,20 +1,10 @@
-import { LEAD_API } from "@/utils/constant";
 import { visibleServiceLinks } from "@/data/visibleServices";
+import { LeadFormValues, submitLead } from "@/utils/leadSubmission";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-const parseErrorResponse = (responseText: string) => {
-  try {
-    return JSON.parse(responseText || "{}");
-  } catch {
-    return {
-      message: responseText || "Submission failed. Try again later.",
-    };
-  }
-};
 
 const ContactForm = ({ showContactFormLeftSection }: any) => {
   const [loading, setLoading] = useState(false);
@@ -25,76 +15,32 @@ const ContactForm = ({ showContactFormLeftSection }: any) => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm<LeadFormValues>();
 
-  const postOnServer = (formData: FormData) => {
-    const formSubmissionData = Object.fromEntries(formData.entries());
-
-    const payload = {
-      firstName: formSubmissionData.firstName,
-      lastName: formSubmissionData.lastName,
-      email: formSubmissionData.email,
-      description: formSubmissionData.selectService,
-      source: "website",
-    };
-
-    const postData = {
-      ...payload,
-      messageInfo: {
-        text: `${formSubmissionData.messages} - ${formSubmissionData.selectService}`,
-      },
-
-      tags: ["LEAD FORM"],
-      sourceDetail: {
-        pageUrl: window.location.href,
-      },
-    };
-
+  const onSubmit = async (data: LeadFormValues) => {
     setLoading(true);
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", `${LEAD_API}/lead`, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          setLoading(false);
-          if (xhr.status === 200) {
-          toast.success("Form submitted successfully!", {
-            autoClose: 3000,
-            closeOnClick: true,
-          });
-            reset();
-            router.push("/thank-you");
-          } else {
-            const errorData = parseErrorResponse(xhr.responseText);
-            toast.error(
-              errorData?.message || "Submission failed. Try again later.",
-              {
-              autoClose: 3000,
-              closeOnClick: true,
-            }
-          );
+    try {
+      await submitLead(data);
+      toast.success("Form submitted successfully!", {
+        autoClose: 3000,
+        closeOnClick: true,
+      });
+      reset();
+      router.push("/thank-you");
+    } catch (error) {
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Submission failed. Try again later.",
+        {
+          autoClose: 3000,
+          closeOnClick: true,
         }
-      }
-    };
-
-    xhr.onerror = function () {
+      );
+    } finally {
       setLoading(false);
-      toast.error("Network error. Please try again.");
-    };
-
-    xhr.send(JSON.stringify({ data: postData }));
-  };
-
-  const onSubmit = (data: any) => {
-    const formDataAll = new FormData();
-    formDataAll.append("firstName", data.firstName);
-    formDataAll.append("lastName", data.lastName);
-    formDataAll.append("email", data.email);
-    formDataAll.append("selectService", data.selectService);
-    formDataAll.append("messages", data.messages);
-    postOnServer(formDataAll);
+    }
   };
   return (
     <div id="contactForm">

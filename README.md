@@ -23,3 +23,7 @@ Next.js export.
   runtime services are needed for the site to work on Azure Static Web Apps.
 - Optional client override:
   `NEXT_PUBLIC_CAREER_RESUME_UPLOAD_ENDPOINT`
+- Optional client override:
+  `NEXT_PUBLIC_LEAD_SUBMISSION_TIMEOUT_MS`
+- Contact form submissions now go through the Azure Static Web Apps function
+  at `/api/lead`, which forwards requests to the external lead API.
