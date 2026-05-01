@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 
 const NEXT_PUBLIC_GOOGLE_ANALYTICS = "G-MQDCHW14ES";
-const GTM_ID = "GTM-NVHNXS3T";
+// const GTM_ID = "GTM-NVHNXS3T";
 
 export default function Document() {
   return (
