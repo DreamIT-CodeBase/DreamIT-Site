@@ -28,7 +28,7 @@ const erpIndustries = [
 ];
 
 const erpParagraphData = {
-  editor: "rte",
+  editor: "html",
   sections: [
     {
       layoutType: "LEFT_IMAGE_RIGHT_CONTENT",
@@ -156,7 +156,7 @@ const ERPResourcePlanningPage = ({ pageInfo, caseStudy }: any) => {
           </Marquee>
         </div>
 
-        <ServiceContent servicedata={erpParagraphData} />
+        <ServiceContent servicedata={erpParagraphData} showTwoLayoutColumn={true}/>
         <OurExpertise servicedata={erpExpertiseData} />
         <Technologies technology={erpTechData} />
 
