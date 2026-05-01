@@ -28,7 +28,7 @@ const industries = [
  
  
 const enterpriseParagraphData = {
-  editor: "rte",
+  editor: "html",
   sections: [
     {
       layoutType: "LEFT_IMAGE_RIGHT_CONTENT",
@@ -253,7 +253,7 @@ const EnterpriseAISolutionsPage = ({ pageInfo, caseStudy }: any) => {
           </Marquee>
         </div>
  
-        <ServiceContent servicedata={enterpriseParagraphData} />
+        <ServiceContent servicedata={enterpriseParagraphData} showTwoLayoutColumn={true}/>
         <OurExpertise servicedata={enterpriseExpertiseData} />
  
         <div className="container pt-60 pb-60 text-center" id="jobOpening">
