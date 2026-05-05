@@ -47,5 +47,14 @@ export const glossaryTopics = [
       "Database Hub | Glossary – Dream IT Consulting Services",
     metaDescription:
       "Discover the role of a Database Hub in modern data architecture. Learn how it centralizes and manages multiple databases for improved data governance and accessibility."
+  },
+  {
+    slug:"ontology",
+    title:"Ontology",
+    description:"An ontology is a formal representation of a set of concepts within a domain and the relationships between those concepts.",
+    metaTitle:
+      "Ontology | Glossary – Dream IT Consulting Services",
+    metaDescription:
+      "Learn what an ontology means in the context of data analytics, Microsoft Fabric, Power BI, AI, and digital solutions. Clear definition and real-world use cases."
   }
 ];
