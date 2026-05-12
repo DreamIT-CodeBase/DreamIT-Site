@@ -221,14 +221,24 @@ const Header = () => {
             // onMouseEnter={() => setShowDropdown(true)}
             // onMouseLeave={() => setShowDropdown(false)}
           >
-            <button
+            <div
               className={`flex items-center hover:text-[#00a9ff] ${
                 isActive("/services") ? "nav-link-active" : "nav-link-unactive"
               }`}
             >
               <div className="flex items-center">
-                <Link href="/services" className="text-inherit hover:text-[#00a9ff]">Services</Link>
-                <button onClick={toggleDropdown}>
+                <Link
+                  href="/services"
+                  className="text-inherit hover:text-[#00a9ff]"
+                >
+                  Services
+                </Link>
+                <button
+                  type="button"
+                  onClick={toggleDropdown}
+                  aria-expanded={showDropdown}
+                  aria-label="Toggle services menu"
+                >
                   <svg
                     className="ml-2 mt-1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -244,7 +254,7 @@ const Header = () => {
                   </svg>
                 </button>
               </div>
-            </button>
+            </div>
             {showDropdown && (
               <ul className="absolute z-[5200] left-0 top-full mt-3 py-4 px-2 w-[300px] bg-white border rounded-[18px] shadow-lg">
                 {visibleServiceLinks.map((service) => (

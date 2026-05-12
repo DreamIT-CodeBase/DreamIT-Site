@@ -53,6 +53,12 @@ const JOB_DATA: Record<string, JobDetails> = {
     positions: 1,
     jdFileName: "#004_JD_PowerApps Developer Intern_Gurgaon_Dream IT.pdf",
   },
+  "Power BI Developer": {
+    title: "Power BI Developer",
+    experienceRequired: "1-2 Years",
+    positions: 1,
+    jdFileName: "005_JD_Power BI Developer_Gurgaon_Dream IT (1)_removed.pdf",
+  },
   "Data Analyst": {
     title: "Data Analyst",
     experienceRequired: "-",
