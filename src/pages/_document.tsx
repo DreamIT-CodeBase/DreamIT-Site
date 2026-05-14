@@ -8,6 +8,10 @@ export default function Document() {
   return (
     <Html lang="en" style={{ scrollBehavior: "smooth" }}>
       <Head>
+        <link
+          rel="stylesheet"
+          href="https://pagepilot.fabbuilder.com/ahdStyles.css"
+        />
         <meta
           name="msvalidate.01"
           content="8F47B976A455139F0E15B910456F14C2"

@@ -206,7 +206,7 @@ const Wrapper = styled.div`
   }
 
   .main-title {
-    font-size: 30px;
+    font-size: 30px !important;
     font-weight: 600;
     margin-bottom: 10px;
     line-height: 1.25;

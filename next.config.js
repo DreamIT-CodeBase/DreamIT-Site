@@ -8,6 +8,9 @@ module.exports = (phase) => {
 
   return {
     reactStrictMode: true,
+    compiler: {
+      styledComponents: true,
+    },
     images: { unoptimized: true },
     trailingSlash: false,
     ...(isDevelopmentServer ? {} : { output: "export" }),
