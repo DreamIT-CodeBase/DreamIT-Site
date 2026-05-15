@@ -2,12 +2,22 @@ import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 
 const NEXT_PUBLIC_GOOGLE_ANALYTICS = "G-MQDCHW14ES";
-// const GTM_ID = "GTM-NVHNXS3T";
 
 export default function Document() {
   return (
     <Html lang="en" style={{ scrollBehavior: "smooth" }}>
       <Head>
+        {/* Google Tag Manager */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NVHNXS3T');`,
+          }}
+        />
+        {/* End Google Tag Manager */}
         <link
           rel="stylesheet"
           href="https://pagepilot.fabbuilder.com/ahdStyles.css"
@@ -16,36 +26,7 @@ export default function Document() {
           name="msvalidate.01"
           content="8F47B976A455139F0E15B910456F14C2"
         />
-        {/* Google Tag Manager Script */}
-        {/* <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','${GTM_ID}');
-            `,
-          }}
-        /> */}
         {/* Google Analytics (gtag.js) */}
-        
-        {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];
-              w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-              var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-              j.async=true;
-              j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-              f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-MVGPBZBK');
-            `,
-          }}
-        />
-        {/* End Google Tag Manager */}
         <Script
           strategy="beforeInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
@@ -68,19 +49,9 @@ export default function Document() {
 
       <body>
         {/* Google Tag Manager (noscript) */}
-        {/* <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript> */}
-        
-        {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-MVGPBZBK"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NVHNXS3T"
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
